@@ -71,7 +71,7 @@ function Landing() {
           </Box>
         </Box> */}
       </div>
-      {/* <Boxes /> */}
+      <Boxes />
       {/* <Waves /> */}
     </div>
   );

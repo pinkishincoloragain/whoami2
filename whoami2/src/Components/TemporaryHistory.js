@@ -34,12 +34,24 @@ export default function TemporaryHistory() {
   const education = () => {
     return (
       <>
-        <ListItem sx={{ animation: `${effect} 0.3s ease` }}>
-          <Typography variant="h6">Kyungpook Nat'l University</Typography>
+        <ListItem
+          sx={{ animation: `${effect} 0.2s ease`, transition: "0.2s ease" }}
+        >
+          <List>
+            <ListItem>
+              <Typography variant="h6">Kyungpook Nat'l University</Typography>
+            </ListItem>
+            <ListItem>
+              <Typography variant="h6">
+                Technological University Dublin
+              </Typography>
+            </ListItem>
+          </List>
         </ListItem>
+        {/* 
         <ListItem>
           <Typography variant="h6">Technological University Dublin</Typography>
-        </ListItem>
+        </ListItem> */}
       </>
     );
   };
@@ -70,7 +82,7 @@ export default function TemporaryHistory() {
           sx={{
             height: "1.5vh",
             width: "8vw",
-            marginTop: "4vh",
+            marginTop: "2vh",
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "grey", overflow: "visible" }}
