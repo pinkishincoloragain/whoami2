@@ -65,12 +65,17 @@ function Boxes(props) {
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
 
-    // const geometry = new THREE.BoxGeometry(16, 16, 16);
-    const geometry = new THREE.IcosahedronGeometry(6, 16, 16);
-    // const geometry = new THREE.ConeGeometry(16, 16, 16);
-    // const geometry = new THREE.CircleGeometry(16, 16);
-
-    for (let i = 0; i < 300; i++) {
+    let geometry;
+    let randNum = Math.floor(Math.random() * 3);
+    let randNum2 = Math.floor(Math.random() * 5);
+    if (randNum == 1) {
+      geometry = new THREE.ConeGeometry(8, 40, 16);
+    } else if (randNum == 2) {
+      geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    } else {
+      geometry = new THREE.BoxGeometry(16, 16, 16);
+    }
+    for (let i = 0; i < 200; i++) {
       const object = new THREE.Mesh(
         geometry,
         new THREE.MeshLambertMaterial({
@@ -79,14 +84,35 @@ function Boxes(props) {
         })
       );
 
-      if (props.type === "circle") {
+      if (randNum2 === 0) {
+        // if (props.type === "circle") {
         object.position.x = Math.sin(i) * 400;
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 400;
+      } else if (randNum2 === 1) {
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.tan(i) * 400;
+      } else if (randNum2 === 2) {
+        object.position.x = i * 400;
+        object.position.y = Math.sin(i) * 400;
+        object.position.z = Math.cos(i) * 400;
+      } else if (randNum2 === 3) {
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.tan(i) * 400;
+      } else if (randNum2 === 4) {
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.tan(i) * 400;
+      } else if (randNum2 === 5) {
+        object.position.x = Math.sin(i) * 200;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.sin(i) * 800;
       } else {
-        object.position.x = Math.random() * 600 - 400;
-        object.position.y = Math.random() * 600 - 400;
-        object.position.z = Math.random() * 600 - 400;
+        object.position.x = Math.random() * 700 - 400;
+        object.position.y = Math.random() * 700 - 400;
+        object.position.z = Math.random() * 700 - 400;
       }
 
       object.rotation.x = Math.random() * 4 * Math.PI;
@@ -201,7 +227,11 @@ function Boxes(props) {
     renderer.render(scene, camera);
   }
 
-  return <div id="container" style={{ width: "100vw" }}></div>;
+  return (
+    <>
+      <div id="container" style={{ width: "100vw" }}></div>
+    </>
+  );
 }
 
 export default Boxes;

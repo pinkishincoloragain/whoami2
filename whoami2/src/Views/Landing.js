@@ -84,10 +84,11 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </Typography>
         ) : (
-          <Typography variant="h5" component="div" gutterBottom>
+          <div style={{ width: "90vw", fontSize: "8vw" }}>
             PINKISHINCOLORAGAIN
-          </Typography>
+          </div>
         )}
+        <div style={{ height: "5vh" }}></div>
 
         <TemporaryDrawer />
         <TemporaryHistory />
