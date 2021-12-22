@@ -5,9 +5,12 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import { Typography } from "@mui/material";
+import ListItemText from "@mui/material/ListItemText";
+import { Container, Typography } from "@mui/material";
+import { keyframes } from "@mui/system";
 
-export default function TemporaryDrawer() {
+export default function TemporaryHistory() {
+  const btnName = "History";
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -15,7 +18,7 @@ export default function TemporaryDrawer() {
     right: false,
   });
 
-  const btnName = "Map";
+  const [eduOpen, setEduOpen] = React.useState(false);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -28,33 +31,57 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
+  const education = () => {
+    return (
+      <>
+        <ListItem sx={{ animation: `${effect} 0.3s ease` }}>
+          <Typography variant="h6">Kyungpook Nat'l University</Typography>
+        </ListItem>
+        <ListItem>
+          <Typography variant="h6">Technological University Dublin</Typography>
+        </ListItem>
+      </>
+    );
+  };
+
+  const effect = keyframes`
+  from {
+    transform: scaleY(0.3);
+  }
+  to {
+    transform: scaleY(1);
+  }
+`;
+
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{
+        width: anchor === "top" || anchor === "bottom" ? "auto" : "60vw",
+      }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
       style={{ backgroundColor: "transparent" }}
     >
       <List>
         <ListItem
           button
-          key="Github"
+          key="Education"
           sx={{
             height: "1.5vh",
             width: "8vw",
-            marginTop: "2vh",
+            marginTop: "4vh",
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "grey", overflow: "visible" }}
-          onClick={() => window.open("https://github.com/pinkishincoloragain")}
+          onClick={() => setEduOpen(!eduOpen)}
         >
-          {/* <ListItemText primary="Github" /> */}
-          <Typography variant="h4">Github</Typography>
+          <Typography variant="h4">Education</Typography>
         </ListItem>
+        {eduOpen ? education() : null}
         <ListItem
           button
-          key="Linkedin"
+          key="Experience"
           sx={{
             height: "1.5vh",
             width: "8vw",
@@ -62,15 +89,12 @@ export default function TemporaryDrawer() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#2867B2", overflow: "visible" }}
-          onClick={() => {
-            window.open("https://www.linkedin.com/in/myungbin-son-998881141/");
-          }}
         >
-          <Typography variant="h4">Linkedin</Typography>
+          <Typography variant="h4">Experience</Typography>
         </ListItem>
         <ListItem
           button
-          key="Linkedin"
+          key="Skills"
           sx={{
             height: "1.5vh",
             width: "8vw",
@@ -78,17 +102,12 @@ export default function TemporaryDrawer() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FF0000", overflow: "visible" }}
-          onClick={() => {
-            window.open(
-              "https://www.youtube.com/channel/UCXj_KgsEq4wuVy8d9Z7TxNg"
-            );
-          }}
         >
-          <Typography variant="h4">Youtube</Typography>
+          <Typography variant="h4">Skills</Typography>
         </ListItem>
         <ListItem
           button
-          key="Linkedin"
+          key="Projects"
           sx={{
             height: "1.5vh",
             width: "8vw",
@@ -96,11 +115,8 @@ export default function TemporaryDrawer() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
-          onClick={() => {
-            window.open("https://www.instagram.com/pinkishincoloragain/");
-          }}
         >
-          <Typography variant="h4">Instagram</Typography>
+          <Typography variant="h4">Projects</Typography>
         </ListItem>
         <Divider />
       </List>
