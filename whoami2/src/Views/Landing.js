@@ -23,8 +23,25 @@ import {
   Radio,
 } from "@mui/material";
 
-function Landing() {
+function Landing(props) {
   const [checked, setChecked] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(props.width);
+  const [windowHeight, setWindowHeight] = useState(props.height);
+
+  console.log(windowWidth > 1280);
+  console.log(windowWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, [window.innerWidth]);
+
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      setWindowHeight(window.innerHeight);
+    });
+  }, [window.innerHeight]);
 
   const handleChange = () => {
     setChecked((prev) => !prev);
@@ -44,8 +61,15 @@ function Landing() {
     </Paper>
   );
 
+  const display = () => {
+    if (windowWidth > 1280) {
+      return "auto";
+    }
+    return "hidden";
+  };
+
   return (
-    <div>
+    <div style={{ position: "absolute", overflow: "hidden" }}>
       <div
         style={{
           zIndex: 1,
@@ -55,9 +79,15 @@ function Landing() {
           marginLeft: "1vh",
         }}
       >
-        <Typography variant="h1" component="div" gutterBottom>
-          PINKISHINCOLORAGAIN
-        </Typography>
+        {windowWidth > 1280 ? (
+          <Typography variant="h1" component="div" gutterBottom>
+            PINKISHINCOLORAGAIN
+          </Typography>
+        ) : (
+          <Typography variant="h5" component="div" gutterBottom>
+            PINKISHINCOLORAGAIN
+          </Typography>
+        )}
 
         <TemporaryDrawer />
         <TemporaryHistory />
@@ -71,8 +101,7 @@ function Landing() {
           </Box>
         </Box> */}
       </div>
-      <Boxes />
-      {/* <Waves /> */}
+      {windowWidth > 1280 ? <Boxes /> : <Waves />}
     </div>
   );
 }

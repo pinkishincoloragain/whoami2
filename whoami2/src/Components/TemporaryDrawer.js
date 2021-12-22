@@ -70,7 +70,7 @@ export default function TemporaryDrawer() {
         </ListItem>
         <ListItem
           button
-          key="Linkedin"
+          key="Youtube"
           sx={{
             height: "1.5vh",
             width: "8vw",
@@ -88,7 +88,7 @@ export default function TemporaryDrawer() {
         </ListItem>
         <ListItem
           button
-          key="Linkedin"
+          key="Instagram"
           sx={{
             height: "1.5vh",
             width: "8vw",

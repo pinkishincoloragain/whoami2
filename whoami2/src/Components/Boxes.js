@@ -6,7 +6,7 @@ function Boxes(props) {
   let container, stats;
   let camera, scene, raycaster, renderer;
   let theta = 0;
-  let theta_speed = 0.06;
+  let theta_speed = 0.12;
   let INTERSECTED;
   const pointer = new THREE.Vector2();
   const radius = 500;
@@ -28,7 +28,7 @@ function Boxes(props) {
       frustumSize / 2,
       frustumSize / -2,
       1,
-      30000
+      2000
     );
 
     scene = new THREE.Scene();
@@ -65,9 +65,12 @@ function Boxes(props) {
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
 
-    const geometry = new THREE.BoxGeometry(22, 22, 22);
+    // const geometry = new THREE.BoxGeometry(16, 16, 16);
+    const geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    // const geometry = new THREE.ConeGeometry(16, 16, 16);
+    // const geometry = new THREE.CircleGeometry(16, 16);
 
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < 300; i++) {
       const object = new THREE.Mesh(
         geometry,
         new THREE.MeshLambertMaterial({
@@ -81,18 +84,18 @@ function Boxes(props) {
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 400;
       } else {
-        object.position.x = Math.random() * 800 - 400;
-        object.position.y = Math.random() * 800 - 400;
-        object.position.z = Math.random() * 800 - 400;
+        object.position.x = Math.random() * 600 - 400;
+        object.position.y = Math.random() * 600 - 400;
+        object.position.z = Math.random() * 600 - 400;
       }
 
-      object.rotation.x = Math.random() * 2 * Math.PI;
+      object.rotation.x = Math.random() * 4 * Math.PI;
       object.rotation.y = Math.random() * 2 * Math.PI;
       object.rotation.z = Math.random() * 2 * Math.PI;
 
-      object.scale.x = Math.random() + 0.8;
-      object.scale.y = Math.random() + 0.5;
-      object.scale.z = Math.random() + 0.5;
+      object.scale.x = Math.random() + 6;
+      object.scale.y = Math.random() + 6;
+      object.scale.z = Math.random() + 6;
 
       scene.add(object);
       // object.cursor = "pointer";
@@ -127,14 +130,14 @@ function Boxes(props) {
     theta_speed = 0;
   }
   function onDocumentMouseUp() {
-    theta_speed = (theta_speed + 0.06) % (2 * Math.PI);
+    theta_speed = (theta_speed + 0.12) % (2 * Math.PI);
   }
 
   function onDocumentTouchStart() {
     theta_speed = 0;
   }
   function onDocumentTouchEnd() {
-    theta_speed = (theta_speed + 0.06) % (2 * Math.PI);
+    theta_speed = (theta_speed + 0.12) % (2 * Math.PI);
   }
 
   function onWindowResize() {
@@ -198,7 +201,7 @@ function Boxes(props) {
     renderer.render(scene, camera);
   }
 
-  return <div id="container"></div>;
+  return <div id="container" style={{ width: "100vw" }}></div>;
 }
 
 export default Boxes;

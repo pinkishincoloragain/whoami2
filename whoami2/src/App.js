@@ -9,7 +9,15 @@ function App() {
       <div>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route
+              path="/"
+              element={
+                <Landing
+                  width={window.innerWidth}
+                  height={window.innerHeight}
+                />
+              }
+            />
           </Routes>
         </BrowserRouter>
       </div>
