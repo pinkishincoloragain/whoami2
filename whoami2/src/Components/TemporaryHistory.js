@@ -81,7 +81,7 @@ export default function TemporaryHistory() {
           key="Education"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "2vh",
             marginBottom: "2vh",
           }}
@@ -96,7 +96,7 @@ export default function TemporaryHistory() {
           key="Experience"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
@@ -109,7 +109,7 @@ export default function TemporaryHistory() {
           key="Skills"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
@@ -122,7 +122,7 @@ export default function TemporaryHistory() {
           key="Projects"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}

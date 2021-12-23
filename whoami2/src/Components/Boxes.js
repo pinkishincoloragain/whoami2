@@ -66,14 +66,12 @@ function Boxes(props) {
     scene.add(light);
 
     let geometry;
-    let randNum = Math.floor(Math.random() * 3);
-    let randNum2 = Math.floor(Math.random() * 5);
+    let randNum = Math.floor(Math.random() * 2);
+    let randNum2 = Math.floor(Math.random() * 7);
     if (randNum == 1) {
-      geometry = new THREE.ConeGeometry(8, 40, 16);
-    } else if (randNum == 2) {
-      geometry = new THREE.IcosahedronGeometry(6, 16, 16);
-    } else {
       geometry = new THREE.BoxGeometry(16, 16, 16);
+    } else {
+      geometry = new THREE.IcosahedronGeometry(6, 16, 16);
     }
     for (let i = 0; i < 200; i++) {
       const object = new THREE.Mesh(

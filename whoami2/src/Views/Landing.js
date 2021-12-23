@@ -6,6 +6,8 @@ import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/TemporaryDrawer";
 import TemporaryHistory from "../Components/TemporaryHistory";
 import Typography from "@mui/material/Typography";
+import Switch from "@mui/material/Switch";
+import Button from "@mui/material/Button";
 import {
   CardHeader,
   Card,
@@ -80,7 +82,12 @@ function Landing(props) {
         }}
       >
         {windowWidth > 1280 ? (
-          <Typography variant="h1" component="div" gutterBottom>
+          <Typography
+            variant="h1"
+            component="div"
+            fontWeight={"bold"}
+            gutterBottom
+          >
             PINKISHINCOLORAGAIN
           </Typography>
         ) : (
@@ -92,17 +99,24 @@ function Landing(props) {
 
         <TemporaryDrawer />
         <TemporaryHistory />
-        {/* <Box sx={{ height: 180 }}>
+        <Button>
+          <Typography variant="h4" component="div" gutterBottom margin="auto">
+            {"fsih"}
+          </Typography>
+        </Button>
+
+        <Box sx={{ height: 180 }}>
           <FormControlLabel
             control={<Switch checked={checked} onChange={handleChange} />}
-            label="Show"
+            label=" "
           />
-          <Box sx={{ display: "flex" }}>
+          {/* <Box sx={{ display: "flex" }}>
             <Fade in={checked}>{icon}</Fade>
-          </Box>
-        </Box> */}
+          </Box> */}
+        </Box>
       </div>
       {windowWidth > 1280 ? <Boxes /> : <Waves />}
+      {/* {windowWidth > 1280 ? <div /> : <div />} */}
     </div>
   );
 }

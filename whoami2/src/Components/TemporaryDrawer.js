@@ -42,7 +42,7 @@ export default function TemporaryDrawer() {
           key="Github"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "2vh",
             marginBottom: "2vh",
           }}
@@ -57,7 +57,7 @@ export default function TemporaryDrawer() {
           key="Linkedin"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
@@ -73,7 +73,7 @@ export default function TemporaryDrawer() {
           key="Youtube"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
@@ -91,7 +91,7 @@ export default function TemporaryDrawer() {
           key="Instagram"
           sx={{
             height: "1.5vh",
-            width: "8vw",
+            width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
