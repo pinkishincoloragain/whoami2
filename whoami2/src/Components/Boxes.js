@@ -61,17 +61,21 @@ function Boxes(props) {
       "#9BB7D4",
     ];
 
-    const light = new THREE.DirectionalLight(0xffffff, 1);
-    if (props.darkMode) {
-      light.position.set(0, 0, 0).normalize();
-    } else {
-      light.position.set(1, 1, 1).normalize();
-    }
+    let light;
+    light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(1, 1, 1).normalize();
     scene.add(light);
 
     let geometry;
     let randNum = Math.floor(Math.random() * 2);
     let randNum2 = Math.floor(Math.random() * 7);
+
+    // let color = "black";
+    // if (props.darkMode) {
+    //   color = "black";
+    // } else
+    //   color = phantonColor[Math.floor(Math.random() * phantonColor.length)];
+
     if (randNum == 1) {
       geometry = new THREE.BoxGeometry(16, 16, 16);
     } else {
@@ -141,12 +145,7 @@ function Boxes(props) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // stats = new Stats();
-    // container.appendChild(stats.dom);
-
     document.addEventListener("pointermove", onPointerMove);
-
-    //
     window.addEventListener("resize", onWindowResize);
   }
 
@@ -211,11 +210,7 @@ function Boxes(props) {
     renderer.render(scene, camera);
   }
 
-  return (
-    <>
-      <div id="container" style={{ width: "100vw" }}></div>
-    </>
-  );
+  return <div id="container" style={{ width: "100vw" }}></div>;
 }
 
 export default Boxes;

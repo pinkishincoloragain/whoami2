@@ -1,5 +1,5 @@
 import react from "react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
@@ -33,9 +33,9 @@ function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [darkMode, setDarkMode] = useState(false);
+  const [filtered, setFiltered] = useState(false);
 
-  console.log(windowWidth > 1280);
-  console.log(windowWidth);
+  const boxRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -52,6 +52,15 @@ function Landing(props) {
   const handleChange = () => {
     setChecked((prev) => !prev);
     setDarkMode((prev) => !prev);
+    if (!filtered) {
+      setFiltered(true);
+      boxRef.current.style.setProperty("filter", "grayscale(100%)");
+    } else {
+      setFiltered(false);
+      boxRef.current.style.setProperty("filter", "grayscale(0%)");
+    }
+
+    console.log(darkMode);
   };
 
   const icon = (
@@ -151,7 +160,13 @@ function Landing(props) {
           </Box> */}
         </Box>
       </div>
-      {windowWidth > 1280 ? <Boxes darkMode={darkMode} /> : <Waves />}
+      {windowWidth > 1280 ? (
+        <div ref={boxRef} style={{ filter: "saturate(1)" }}>
+          <Boxes />
+        </div>
+      ) : (
+        <Waves />
+      )}
       {/* {windowWidth > 1280 ? <div /> : <div />} */}
     </div>
   );
