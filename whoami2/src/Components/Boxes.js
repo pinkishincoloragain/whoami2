@@ -62,7 +62,11 @@ function Boxes(props) {
     ];
 
     const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(1, 1, 1).normalize();
+    if (props.darkMode) {
+      light.position.set(0, 0, 0).normalize();
+    } else {
+      light.position.set(1, 1, 1).normalize();
+    }
     scene.add(light);
 
     let geometry;
@@ -84,33 +88,35 @@ function Boxes(props) {
 
       if (randNum2 === 0) {
         // if (props.type === "circle") {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.sin(i) * 400;
+        object.position.x = Math.sin(i) * 160;
+        object.position.y = Math.cos(i) * 160;
+        object.position.z = Math.sin(i) * 160;
       } else if (randNum2 === 1) {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.tan(i) * 400;
-      } else if (randNum2 === 2) {
-        object.position.x = i * 400;
-        object.position.y = Math.sin(i) * 400;
-        object.position.z = Math.cos(i) * 400;
-      } else if (randNum2 === 3) {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.tan(i) * 400;
-      } else if (randNum2 === 4) {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.tan(i) * 400;
+        object.position.x = Math.sin(i) * 160;
+        object.position.y = Math.cos(i) * 160;
+        object.position.z = Math.tan(i) * 160;
+      }
+      // else if (randNum2 === 2) {
+      //   object.position.x = i * 400;
+      //   object.position.y = Math.sin(i) * 400;
+      //   object.position.z = Math.cos(i) * 400;
+      // } else if (randNum2 === 3) {
+      //   object.position.x = Math.sin(i) * 400;
+      //   object.position.y = Math.cos(i) * 400;
+      //   object.position.z = Math.tan(i) * 400;
+      // }
+      else if (randNum2 === 4) {
+        object.position.x = Math.sin(i) * 200;
+        object.position.y = Math.cos(i) * 200;
+        object.position.z = Math.tan(i) * 200;
       } else if (randNum2 === 5) {
         object.position.x = Math.sin(i) * 200;
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 800;
       } else {
-        object.position.x = Math.random() * 700 - 400;
-        object.position.y = Math.random() * 700 - 400;
-        object.position.z = Math.random() * 700 - 400;
+        object.position.x = Math.random() * 200 - 400;
+        object.position.y = Math.random() * 200 - 400;
+        object.position.z = Math.random() * 200 - 400;
       }
 
       object.rotation.x = Math.random() * 4 * Math.PI;
@@ -135,33 +141,13 @@ function Boxes(props) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    container.addEventListener("mousedown", onDocumentMouseDown, false);
-    container.addEventListener("mouseup", onDocumentMouseUp, false);
-    container.addEventListener("touchstart", onDocumentTouchStart, false);
-    container.addEventListener("touchEnd", onDocumentTouchEnd, false);
-
     // stats = new Stats();
     // container.appendChild(stats.dom);
 
     document.addEventListener("pointermove", onPointerMove);
 
     //
-
     window.addEventListener("resize", onWindowResize);
-  }
-
-  function onDocumentMouseDown() {
-    theta_speed = 0;
-  }
-  function onDocumentMouseUp() {
-    theta_speed = (theta_speed + 0.12) % (2 * Math.PI);
-  }
-
-  function onDocumentTouchStart() {
-    theta_speed = 0;
-  }
-  function onDocumentTouchEnd() {
-    theta_speed = (theta_speed + 0.12) % (2 * Math.PI);
   }
 
   function onWindowResize() {

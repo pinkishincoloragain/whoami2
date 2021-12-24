@@ -1,13 +1,16 @@
 import react from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as THREE from "three";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/TemporaryDrawer";
 import TemporaryHistory from "../Components/TemporaryHistory";
+import Frames from "../Components/Frames";
 import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
 import Button from "@mui/material/Button";
+import IcnBar from "../Components/IcnBar";
+
 import {
   CardHeader,
   Card,
@@ -29,6 +32,7 @@ function Landing(props) {
   const [checked, setChecked] = useState(false);
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
+  const [darkMode, setDarkMode] = useState(false);
 
   console.log(windowWidth > 1280);
   console.log(windowWidth);
@@ -47,6 +51,7 @@ function Landing(props) {
 
   const handleChange = () => {
     setChecked((prev) => !prev);
+    setDarkMode((prev) => !prev);
   };
 
   const icon = (
@@ -63,6 +68,31 @@ function Landing(props) {
     </Paper>
   );
 
+  const mobileFrame = (
+    <div
+      style={{
+        display: "flex",
+        margin: "auto",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+      }}
+    >
+      <div
+        style={{
+          width: "50vw",
+          height: "40vh",
+          position: "absolute",
+          backgroundColor: "transparent",
+          border: "8px solid black",
+          zIndex: "0",
+        }}
+      ></div>
+    </div>
+  );
+
   const display = () => {
     if (windowWidth > 1280) {
       return "auto";
@@ -72,6 +102,7 @@ function Landing(props) {
 
   return (
     <div style={{ position: "absolute", overflow: "hidden" }}>
+      <Frames desktop={windowWidth > 1280} />
       <div
         style={{
           zIndex: 1,
@@ -82,14 +113,24 @@ function Landing(props) {
         }}
       >
         {windowWidth > 1280 ? (
-          <Typography
-            variant="h1"
-            component="div"
-            fontWeight={"bold"}
-            gutterBottom
-          >
-            PINKISHINCOLORAGAIN
-          </Typography>
+          <div>
+            <Typography
+              variant="h1"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+            >
+              PINKISHINCOLORAGAIN
+            </Typography>
+            <Typography
+              variant="h5"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+            >
+              PINKISHINCOLORAGAIN
+            </Typography>
+          </div>
         ) : (
           <div style={{ width: "90vw", fontSize: "8vw" }}>
             PINKISHINCOLORAGAIN
@@ -99,11 +140,6 @@ function Landing(props) {
 
         <TemporaryDrawer />
         <TemporaryHistory />
-        <Button>
-          <Typography variant="h4" component="div" gutterBottom margin="auto">
-            {"fsih"}
-          </Typography>
-        </Button>
 
         <Box sx={{ height: 180 }}>
           <FormControlLabel
@@ -115,7 +151,7 @@ function Landing(props) {
           </Box> */}
         </Box>
       </div>
-      {windowWidth > 1280 ? <Boxes /> : <Waves />}
+      {windowWidth > 1280 ? <Boxes darkMode={darkMode} /> : <Waves />}
       {/* {windowWidth > 1280 ? <div /> : <div />} */}
     </div>
   );
