@@ -2,7 +2,7 @@ import react from "react";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
 
-function Boxes(props) {
+function Boxes() {
   let container, stats;
   let camera, scene, raycaster, renderer;
   let theta = 0;
@@ -70,17 +70,12 @@ function Boxes(props) {
     let randNum = Math.floor(Math.random() * 2);
     let randNum2 = Math.floor(Math.random() * 7);
 
-    // let color = "black";
-    // if (props.darkMode) {
-    //   color = "black";
-    // } else
-    //   color = phantonColor[Math.floor(Math.random() * phantonColor.length)];
 
-    if (randNum == 1) {
+    // if (randNum == 1) {
       geometry = new THREE.BoxGeometry(16, 16, 16);
-    } else {
-      geometry = new THREE.IcosahedronGeometry(6, 16, 16);
-    }
+    // } else {
+    //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    // }
     for (let i = 0; i < 200; i++) {
       const object = new THREE.Mesh(
         geometry,

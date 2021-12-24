@@ -102,13 +102,6 @@ function Landing(props) {
     </div>
   );
 
-  const display = () => {
-    if (windowWidth > 1280) {
-      return "auto";
-    }
-    return "hidden";
-  };
-
   return (
     <div style={{ position: "absolute", overflow: "hidden" }}>
       <Frames desktop={windowWidth > 1280} />
@@ -123,14 +116,43 @@ function Landing(props) {
       >
         {windowWidth > 1280 ? (
           <div>
-            <Typography
-              variant="h1"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-            >
-              PINKISHINCOLORAGAIN
-            </Typography>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <Typography
+                variant="h1"
+                component="div"
+                fontWeight={"bold"}
+                gutterBottom
+              >
+                PINKISHINCOLORAGAIN
+              </Typography>
+              {darkMode ? (
+                <div
+                  style={{
+                    width: "10vw",
+                    height: "10vh",
+                    marginLeft: "1vh",
+                    marginTop: "1vh",
+                    backgroundColor: "white",
+                  }}
+                  checked={checked}
+                  onClick={handleChange}
+                  label=" "
+                ></div>
+              ) : (
+                <div
+                  style={{
+                    width: "10vw",
+                    height: "10vh",
+                    marginLeft: "1vh",
+                    marginTop: "1vh",
+                    backgroundColor: "black",
+                  }}
+                  checked={checked}
+                  onClick={handleChange}
+                  label=" "
+                ></div>
+              )}
+            </div>
             <Typography
               variant="h5"
               component="div"
@@ -149,16 +171,6 @@ function Landing(props) {
 
         <TemporaryDrawer />
         <TemporaryHistory />
-
-        <Box sx={{ height: 180 }}>
-          <FormControlLabel
-            control={<Switch checked={checked} onChange={handleChange} />}
-            label=" "
-          />
-          {/* <Box sx={{ display: "flex" }}>
-            <Fade in={checked}>{icon}</Fade>
-          </Box> */}
-        </Box>
       </div>
       {windowWidth > 1280 ? (
         <div ref={boxRef} style={{ filter: "saturate(1)" }}>
