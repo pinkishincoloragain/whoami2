@@ -125,33 +125,6 @@ function Landing(props) {
               >
                 PINKISHINCOLORAGAIN
               </Typography>
-              {darkMode ? (
-                <div
-                  style={{
-                    width: "10vw",
-                    height: "10vh",
-                    marginLeft: "1vh",
-                    marginTop: "1vh",
-                    backgroundColor: "white",
-                  }}
-                  checked={checked}
-                  onClick={handleChange}
-                  label=" "
-                ></div>
-              ) : (
-                <div
-                  style={{
-                    width: "10vw",
-                    height: "10vh",
-                    marginLeft: "1vh",
-                    marginTop: "1vh",
-                    backgroundColor: "black",
-                  }}
-                  checked={checked}
-                  onClick={handleChange}
-                  label=" "
-                ></div>
-              )}
             </div>
             <Typography
               variant="h5"
@@ -165,6 +138,48 @@ function Landing(props) {
         ) : (
           <div style={{ width: "90vw", fontSize: "8vw" }}>
             PINKISHINCOLORAGAIN
+          </div>
+        )}
+        {darkMode ? (
+          <div
+            style={{
+              width: "15vw",
+              height: "6vh",
+              marginLeft: "1vh",
+              padding: "none",
+            }}
+            checked={checked}
+            onClick={handleChange}
+            label=" "
+          >
+            <Typography
+              variant="h1"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+            >
+              Dark
+            </Typography>
+          </div>
+        ) : (
+          <div
+            style={{
+              width: "15vw",
+              marginLeft: "1vh",
+              height: "8vh",
+            }}
+            checked={checked}
+            onClick={handleChange}
+            label=" "
+          >
+            <Typography
+              variant="h1"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+            >
+              Light
+            </Typography>
           </div>
         )}
         <div style={{ height: "5vh" }}></div>
