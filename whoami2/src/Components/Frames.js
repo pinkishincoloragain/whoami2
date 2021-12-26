@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import CommentLine from "./CommentLine";
 
-
 export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
@@ -82,10 +81,10 @@ export default function Frames(props) {
           height: "40vh",
           position: "absolute",
           backgroundColor: "transparent",
-          border: "8px double black",
+          border: "6px double black",
           zIndex: "2",
           padding: "1vh",
-          transitionDuration: "0.2s",
+          transitionDuration: "0.1s",
         }}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
@@ -107,6 +106,9 @@ export default function Frames(props) {
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.do = "Software
           Development"
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.contact =
+          "smb1103@gmail.com"
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.hobby = "Design"
           <br />

@@ -1,34 +1,14 @@
 import react from "react";
 import React, { useEffect, useState, useRef } from "react";
-import * as THREE from "three";
+import { useCookies } from "react-cookie";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/TemporaryDrawer";
 import TemporaryHistory from "../Components/TemporaryHistory";
 import Frames from "../Components/Frames";
 import Typography from "@mui/material/Typography";
-import Switch from "@mui/material/Switch";
-import Button from "@mui/material/Button";
-import IcnBar from "../Components/IcnBar";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-import {
-  CardHeader,
-  Card,
-  CardActions,
-  Paper,
-  Box,
-  Fade,
-  Collapse,
-  ToggleButton,
-} from "@mui/material";
-import {
-  FormControl,
-  FormLabel,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-} from "@mui/material";
+import { Paper } from "@mui/material";
 
 function Landing(props) {
   const [checked, setChecked] = useState(false);
@@ -37,6 +17,7 @@ function Landing(props) {
   const [darkMode, setDarkMode] = useState(false);
   const [filtered, setFiltered] = useState(false);
   const [alignment, setAlignment] = React.useState("left");
+  const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -56,9 +37,23 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
+  useEffect(() => {}, []);
+
+  const handleCookie = (prev) => {
+    setCookie(
+      { darkMode },
+      {
+        path: "/",
+      }
+    );
+    console.log(darkMode);
+  };
+
   const handleChange = () => {
     setChecked((prev) => !prev);
     setDarkMode((prev) => !prev);
+    handleCookie();
+
     if (!filtered) {
       setFiltered(true);
       boxRef.current.style.setProperty("transition-duration", "0.5s ");
@@ -68,8 +63,6 @@ function Landing(props) {
       setFiltered(false);
       boxRef.current.style.setProperty("filter", "grayscale(0%)");
     }
-
-    console.log(darkMode);
   };
 
   const icon = (
@@ -135,28 +128,43 @@ function Landing(props) {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  justifyContent: "space-between",
                 }}
               >
-                <Typography
-                  variant="h1"
-                  component="div"
-                  fontWeight={"bold"}
-                  gutterBottom
-                  color={darkMode ? "white" : "black"}
-                >
-                  PINKISHINCOLORAGAIN
-                </Typography>
+                <div>
+                  <Typography
+                    variant="h1"
+                    component="div"
+                    fontWeight={"bold"}
+                    gutterBottom
+                    color={darkMode ? "white" : "black"}
+                    flex={3}
+                  >
+                    PINKISHINCOLORAGAIN
+                  </Typography>
+                </div>
                 <div
                   style={{
-                    paddingTop: "2vh",
+                    paddingTop: "1vh",
                     heigth: "6vh",
                     display: "flex",
                     height: "10vh",
+                    flex: 1,
+                    marginLeft: "20vh",
                   }}
                 >
-                  <div style={{ fontSize: "8vh" }}>
-                    <b> 明 暗</b>
+                  <div
+                    style={{
+                      fontSize: "4.5vw",
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <div style={{ color: "white" }} onClick={handleChange}>
+                      <b>溟</b>
+                    </div>
+                    <div style={{ marginLeft: "2vh" }} onClick={handleChange}>
+                      <b>彬</b>
+                    </div>
                   </div>
                 </div>
               </div>

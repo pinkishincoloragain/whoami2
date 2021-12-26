@@ -105,7 +105,7 @@ export default function TemporaryDrawer() {
         <Divider />
         <ListItem
           button
-          key="Instagram"
+          key="Yeonha"
           sx={{
             height: "1.5vh",
             width: "max(8vw,150px)",
@@ -117,7 +117,7 @@ export default function TemporaryDrawer() {
             window.open("https://www.instagram.com/pinkishincoloragain/");
           }}
         >
-          <Typography variant="h4">Instagram</Typography>
+          <Typography variant="h4">연하장</Typography>
         </ListItem>
       </List>
     </Box>
