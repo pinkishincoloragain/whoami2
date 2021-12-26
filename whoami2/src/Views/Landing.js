@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/Links";
-import TemporaryHistory from "../Components/Introduction";
+import Introduction from "../Components/Introduction";
 import Frames from "../Components/Frames";
 import Typography from "@mui/material/Typography";
 
@@ -132,6 +132,7 @@ function Landing(props) {
                   >
                     PINKISHINCOLORAGAIN
                   </Typography>
+                  {/* {props.darkMode ? "🌙" : "🌞"} */}
                 </div>
                 <div
                   style={{
@@ -219,8 +220,8 @@ function Landing(props) {
           </div>
         )}
         <div style={{ height: "5vh" }}></div>
-        <TemporaryHistory />
-        <TemporaryDrawer />
+        <Introduction darkMode={props.darkMode} />
+        <TemporaryDrawer darkMode={props.darkMode} />
       </div>
       {windowWidth > 1280 ? (
         <div

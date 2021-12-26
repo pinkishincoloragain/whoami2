@@ -12,7 +12,7 @@ import { Fade } from "@mui/material";
 import { education, experience, projects, skills } from "./IntroContents";
 import Waves from "./Waves";
 
-export default function TemporaryHistory() {
+export default function Introduction(props) {
   const btnName = "Introduction";
   const [state, setState] = React.useState({
     top: false,
@@ -49,14 +49,14 @@ export default function TemporaryHistory() {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : "60vw",
+        width: anchor === "top" || anchor === "bottom" ? "auto" : "50vw",
       }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
       style={{ backgroundColor: "transparent" }}
     >
-      <List>
+      <List style={{ color: "#f0f0f0" }}>
         <ListItem
           button
           key="Education"
@@ -69,7 +69,9 @@ export default function TemporaryHistory() {
           style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => setEduOpen(!eduOpen)}
         >
-          <Typography variant="h4">Education</Typography>
+          <Typography variant="h4" sx={{ fontStyle: "italic" }}>
+            Education
+          </Typography>
         </ListItem>
         {eduOpen ? education() : null}
         <ListItem
@@ -84,7 +86,9 @@ export default function TemporaryHistory() {
           style={{ backgroundColor: "#2867B2", overflow: "visible" }}
           onClick={() => setExpOpen(!expOpen)}
         >
-          <Typography variant="h4">Experience</Typography>
+          <Typography variant="h4" sx={{ fontStyle: "italic" }}>
+            Experience
+          </Typography>
         </ListItem>
         {expOpen ? experience() : null}
         <ListItem
@@ -99,7 +103,9 @@ export default function TemporaryHistory() {
           style={{ backgroundColor: "#FF0000", overflow: "visible" }}
           onClick={() => setSkillsOpen(!skillsOpen)}
         >
-          <Typography variant="h4">Skills</Typography>
+          <Typography variant="h4" sx={{ fontStyle: "italic" }}>
+            Skills
+          </Typography>
         </ListItem>
         {skillsOpen ? skills() : null}
         <ListItem
@@ -110,11 +116,14 @@ export default function TemporaryHistory() {
             width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
+            color: "white",
           }}
-          style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
+          style={{ backgroundColor: "green", overflow: "visible" }}
           onClick={() => setProjectsOpen(!projectsOpen)}
         >
-          <Typography variant="h4">Projects</Typography>
+          <Typography variant="h4" sx={{ fontStyle: "italic" }}>
+            Projects
+          </Typography>
         </ListItem>
         {projectsOpen ? projects() : null}
 
@@ -128,20 +137,38 @@ export default function TemporaryHistory() {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <Typography
-              variant="h4"
-              component="div"
-              gutterBottom
-              margin="auto"
-              color="white"
-            >
-              {btnName}
-            </Typography>
+            {props.darkMode ? (
+              <Typography
+                variant="h4"
+                component="div"
+                gutterBottom
+                margin="auto"
+                color="white"
+              >
+                {btnName}
+              </Typography>
+            ) : (
+              <Typography
+                variant="h4"
+                component="div"
+                gutterBottom
+                margin="auto"
+                color="black"
+              >
+                {btnName}
+              </Typography>
+            )}
           </Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            PaperProps={{
+              sx: {
+                backgroundColor: "transparent",
+                backdropFilter: "blur(10px)",
+              },
+            }}
           >
             {list(anchor)}
           </Drawer>

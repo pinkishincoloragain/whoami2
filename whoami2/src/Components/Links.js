@@ -128,15 +128,27 @@ export default function TemporaryDrawer(props) {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <Typography
-              variant="h4"
-              component="div"
-              gutterBottom
-              margin="auto"
-              color="white"
-            >
-              {btnName}
-            </Typography>
+            {props.darkMode ? (
+              <Typography
+                variant="h4"
+                component="div"
+                gutterBottom
+                margin="auto"
+                color="white"
+              >
+                {btnName}
+              </Typography>
+            ) : (
+              <Typography
+                variant="h4"
+                component="div"
+                gutterBottom
+                margin="auto"
+                color="black"
+              >
+                {btnName}
+              </Typography>
+            )}
           </Button>
           <Drawer
             anchor={anchor}

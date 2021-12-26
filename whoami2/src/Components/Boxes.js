@@ -2,7 +2,11 @@ import react from "react";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
 import water from "./textures/waternormals.jpeg";
-import int from "./textures/INT.png";
+import water2 from "./textures/water2.png";
+import water3 from "./textures/water3.png";
+import int from "./textures/int.png";
+import stone from "./textures/solid_stone.jpeg";
+import stone2 from "./textures/stone_2.jpeg";
 
 function Boxes() {
   let container, stats;
@@ -71,11 +75,23 @@ function Boxes() {
     let geometry;
     let randNum = Math.floor(Math.random() * 2);
     let randNum2 = Math.floor(Math.random() * 7);
-    const texture = new THREE.TextureLoader().load(water);
-    // const texture = new THREE.TextureLoader().load(int);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4);
+    const texture_water = new THREE.TextureLoader().load(water);
+    const texture_water2 = new THREE.TextureLoader().load(water2);
+    const texture_water3 = new THREE.TextureLoader().load(water3);
+    const texture_stone = new THREE.TextureLoader().load(stone);
+    const texture_stone2 = new THREE.TextureLoader().load(stone2);
+    // const texture_black = new THREE.TextureLoader().load(int);
+    const textures = [
+      // texture_water,
+      // texture_water2,
+      // texture_water3,
+      // texture_stone,
+      // texture_stone2,
+      // texture_black,
+    ];
+    // texture.wrapS = THREE.RepeatWrapping;
+    // texture.wrapT = THREE.RepeatWrapping;
+    // texture.repeat.set(4, 4);
 
     // if (randNum == 1) {
     geometry = new THREE.BoxGeometry(16, 16, 16);
@@ -88,7 +104,7 @@ function Boxes() {
         new THREE.MeshLambertMaterial({
           // color: Math.random() * 0xffffff,
           color: phantonColor[Math.floor(Math.random() * phantonColor.length)],
-          map: texture,
+          map: textures[i % textures.length],
         })
       );
 

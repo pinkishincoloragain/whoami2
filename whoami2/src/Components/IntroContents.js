@@ -8,12 +8,12 @@ export function education() {
         <List>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Kyungpook Nat'l University (Global Software, - 2022)
+              - Kyungpook Nat'l University (Global Software, 2017 - )
             </Typography>
           </ListItem>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Technological University Dublin (Computer Science, - 2022)
+              - Technological University Dublin (Computer Science, 2021 -)
             </Typography>
           </ListItem>
         </List>
@@ -44,7 +44,7 @@ export const experience = () => {
           </ListItem>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Double degree programme, Computer Science (TU Dublin, - 2022)
+              - Double degree programme, TU Dublin (2022 - )
             </Typography>
           </ListItem>
         </List>
@@ -84,6 +84,7 @@ export const projects = () => {
               <Link
                 style={{ textDecoration: "none" }}
                 target="_blank"
+                sx={{ color: "red" }}
                 href="https://github.com/KNU-indiGo/Machine"
               >
                 - KNU buildings fire consequence analysis
@@ -94,6 +95,7 @@ export const projects = () => {
             <Typography variant="h6" fontStyle={"italic"}>
               <Link
                 style={{ textDecoration: "none" }}
+                sx={{ color: "black" }}
                 target="_blank"
                 href="https://github.com/pinkishincoloragain/SuicideProject"
               >
