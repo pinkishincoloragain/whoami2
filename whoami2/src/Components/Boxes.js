@@ -86,13 +86,13 @@ function Boxes() {
 
       if (randNum2 === 0) {
         // if (props.type === "circle") {
-        object.position.x = Math.sin(i) * 160;
-        object.position.y = Math.cos(i) * 160;
-        object.position.z = Math.sin(i) * 160;
+        object.position.x = Math.sin(i) * 360;
+        object.position.y = Math.cos(i) * 360;
+        object.position.z = Math.sin(i) * 360;
       } else if (randNum2 === 1) {
-        object.position.x = Math.sin(i) * 160;
-        object.position.y = Math.cos(i) * 160;
-        object.position.z = Math.tan(i) * 160;
+        object.position.x = Math.sin(i) * 360;
+        object.position.y = Math.cos(i) * 360;
+        object.position.z = Math.tan(i) * 360;
       }
       // else if (randNum2 === 2) {
       //   object.position.x = i * 400;
@@ -104,17 +104,17 @@ function Boxes() {
       //   object.position.z = Math.tan(i) * 400;
       // }
       else if (randNum2 === 4) {
-        object.position.x = Math.sin(i) * 200;
-        object.position.y = Math.cos(i) * 200;
-        object.position.z = Math.tan(i) * 200;
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.tan(i) * 400;
       } else if (randNum2 === 5) {
-        object.position.x = Math.sin(i) * 200;
+        object.position.x = Math.sin(i) * 400;
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 800;
       } else {
-        object.position.x = Math.random() * 200 - 400;
-        object.position.y = Math.random() * 200 - 400;
-        object.position.z = Math.random() * 200 - 400;
+        object.position.x = Math.random() * 800 - 400;
+        object.position.y = Math.random() * 800 - 400;
+        object.position.z = Math.random() * 800 - 400;
       }
 
       object.rotation.x = Math.random() * 4 * Math.PI;

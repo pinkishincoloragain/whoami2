@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import CommentLine from "./CommentLine";
 
+
 export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
@@ -10,6 +11,7 @@ export default function Frames(props) {
 
   const handleMouseMove = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("opacity", "95%");
   };
 
   const handleMouseDown = (e) => {
@@ -50,7 +52,7 @@ export default function Frames(props) {
       <div
         style={{
           width: "80vw",
-          height: "30vh",
+          height: "34vh",
           position: "absolute",
           backgroundColor: "transparent",
           border: "8px solid black",
@@ -113,20 +115,26 @@ export default function Frames(props) {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web_development()
           <CommentLine content="You're looking at right now!" link={null} />
           <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software_development()
+          <CommentLine
+            content="Use: Python, Java, C, Android, JavaScript"
+            link={null}
+          />
+          <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database()
           <CommentLine content="Oracle, Mysql, Firebase, Mongodb" link={null} />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis()
           <CommentLine
-            content="Suicidal comments analysis project"
+            content="Drug suicidal analysis project"
             link="https://github.com/pinkishincoloragain/SuicideProject"
           />
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_visualisation()
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;machine_learning()
           <code>
             <CommentLine
-              content="You're looking at right now!"
-              link="https://github.com/pinkishincoloragain/SuicideProject"
+              content="KNU Buildings Fire analysis"
+              link="https://github.com/KNU-indiGo/Machine"
             />
           </code>
           <br />

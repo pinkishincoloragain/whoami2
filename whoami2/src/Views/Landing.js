@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
 import Button from "@mui/material/Button";
 import IcnBar from "../Components/IcnBar";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 import {
   CardHeader,
@@ -19,6 +20,7 @@ import {
   Box,
   Fade,
   Collapse,
+  ToggleButton,
 } from "@mui/material";
 import {
   FormControl,
@@ -34,6 +36,11 @@ function Landing(props) {
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [darkMode, setDarkMode] = useState(false);
   const [filtered, setFiltered] = useState(false);
+  const [alignment, setAlignment] = React.useState("left");
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
   const boxRef = useRef(null);
 
@@ -124,15 +131,35 @@ function Landing(props) {
         {windowWidth > 1280 ? (
           <div>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <Typography
-                variant="h1"
-                component="div"
-                fontWeight={"bold"}
-                gutterBottom
-                color={darkMode ? "white" : "black"}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
               >
-                PINKISHINCOLORAGAIN
-              </Typography>
+                <Typography
+                  variant="h1"
+                  component="div"
+                  fontWeight={"bold"}
+                  gutterBottom
+                  color={darkMode ? "white" : "black"}
+                >
+                  PINKISHINCOLORAGAIN
+                </Typography>
+                <div
+                  style={{
+                    paddingTop: "2vh",
+                    heigth: "6vh",
+                    display: "flex",
+                    height: "10vh",
+                  }}
+                >
+                  <div style={{ fontSize: "8vh" }}>
+                    <b> 明 暗</b>
+                  </div>
+                </div>
+              </div>
             </div>
             <Typography
               variant="h5"

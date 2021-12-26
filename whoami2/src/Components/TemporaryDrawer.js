@@ -15,7 +15,7 @@ export default function TemporaryDrawer() {
     right: false,
   });
 
-  const btnName = "Map";
+  const btnName = "LINKS";
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -103,6 +103,22 @@ export default function TemporaryDrawer() {
           <Typography variant="h4">Instagram</Typography>
         </ListItem>
         <Divider />
+        <ListItem
+          button
+          key="Instagram"
+          sx={{
+            height: "1.5vh",
+            width: "max(8vw,150px)",
+            marginTop: "4vh",
+            marginBottom: "2vh",
+          }}
+          style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
+          onClick={() => {
+            window.open("https://www.instagram.com/pinkishincoloragain/");
+          }}
+        >
+          <Typography variant="h4">Instagram</Typography>
+        </ListItem>
       </List>
     </Box>
   );
