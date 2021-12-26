@@ -154,6 +154,12 @@ export default function TemporaryDrawer(props) {
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            PaperProps={{
+              sx: {
+                backgroundColor: "transparent",
+                backdropFilter: "blur(10px)",
+              },
+            }}
           >
             {list(anchor)}
           </Drawer>

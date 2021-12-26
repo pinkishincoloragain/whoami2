@@ -119,8 +119,8 @@ export default function Frames(props) {
           <br />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = "Myungbin
-          Son"
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <code>self.name = "Myungbin Son"</code>
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.do = "Software
           Development"
