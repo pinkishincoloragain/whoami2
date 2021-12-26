@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import CommentLine from "./CommentLine";
 import { Link } from "react-router-dom";
+import UserCode from "./UserCode";
 
-export default function Frames(props) {
+export default function DesktopFrame(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const [mouseIn, setMouseIn] = React.useState(false);
@@ -22,7 +23,7 @@ export default function Frames(props) {
   const handleMouseOut = (e) => {
     setMouseIn(false);
     if (!mouseOnCode) {
-      clickRef.current.style.setProperty("filter", "blur(8px)");
+      clickRef.current.style.setProperty("filter", "blur(12px)");
       // clickRef.current.style.setProperty("filter", "opacity(30%)");
       clickRef.current.style.setProperty("background-color", "transparent");
     }
@@ -100,7 +101,7 @@ export default function Frames(props) {
           border: "6px double black",
           zIndex: "2",
           padding: "1vh",
-          filter: "blur(8px)",
+          filter: "blur(12px)",
           transitionDuration: "0.1s",
           boxShadow: "5px 5px 10px black",
         }}
@@ -110,71 +111,11 @@ export default function Frames(props) {
         onMouseOut={handleMouseOut}
         ref={clickRef}
       >
-        <code
-          onMouseEnter={handleCommentMouseEnter}
-          onMouseOut={handleCommentMouseOut}
-          color={props.darkMode ? "white" : "black"}
-        >
-          class Whoami:
-          <br />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <code>self.name = "Myungbin Son"</code>
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.do = "Software
-          Development"
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.contact =
-          "smb1103@gmail.com"
-          <br />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;def code(self, stackoverflow): <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web_development()
-          <CommentLine
-            color="red"
-            content="You're looking at right now!"
-            link={null}
-          />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software_development()
-          <CommentLine
-            color="red"
-            content="Use: Python, Java, C, Android, JavaScript"
-            link={null}
-          />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database()
-          <CommentLine
-            color="red"
-            content="Oracle, Mysql, Firebase, Mongodb"
-            link={null}
-          />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis()
-          <CommentLine
-            color="blue"
-            content="Drug suicidal side effect analysis project"
-            link="https://github.com/pinkishincoloragain/SuicideProject"
-          />
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;machine_learning()
-          <code>
-            <CommentLine
-              color="blue"
-              content="KNU buildings fire consequence analysis"
-              link="https://github.com/KNU-indiGo/Machine"
-            />
-          </code>
-          <br />
-          <br />
-          <br />
-          myungbin = Whoami()
-          <br />
-          print("hello stanger!")
-          <br />
-          myungbin.code()
-        </code>
+        <UserCode
+          darkMode={props.darkMode}
+          handleCommentMouseEnter={handleCommentMouseEnter}
+          handleCommentMouseOut={handleCommentMouseOut}
+        />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import react from "react";
 import React, { useEffect, useState, useRef } from "react";
-import Waves from "../Components/Waves";
-import Boxes from "../Components/Boxes";
+import Waves from "../Components/objects/Waves";
+import Boxes from "../Components/objects/Boxes";
 import TemporaryDrawer from "../Components/Links";
 import Introduction from "../Components/Introduction";
-import Frames from "../Components/Frames";
+import DesktopFrame from "../Components/DesktopFrame";
 import Typography from "@mui/material/Typography";
 
 import { Paper } from "@mui/material";
@@ -102,7 +102,7 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      <Frames desktop={windowWidth > 1280} darkMode={props.darkMode} />
+      <DesktopFrame desktop={windowWidth > 1280} darkMode={props.darkMode} />
       <div
         style={{
           zIndex: 1,

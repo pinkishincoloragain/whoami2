@@ -1,16 +1,15 @@
+import { Tooltip } from "@mui/material";
+
 export default function Code(props) {
   const [color, setColor] = React.useState(props.color);
   const codeRef = React.useRef(null);
 
-  const handleMouseMove = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("opacity", "70%");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
-  };
-
+  codeRef.current.setAttribute("style", `color: ${color}`);
   return (
     <>
-      <code ref={codeRef}>{props.text}</code>
+      <Tooltip title={props.title}>
+        <code ref={codeRef}>{props.text}</code>
+      </Tooltip>
     </>
   );
 }

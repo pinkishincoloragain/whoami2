@@ -1,12 +1,12 @@
 import react from "react";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import water from "./textures/waternormals.jpeg";
-import water2 from "./textures/water2.png";
-import water3 from "./textures/water3.png";
-import int from "./textures/INT.png";
-import stone from "./textures/solid_stone.jpeg";
-import stone2 from "./textures/stone_2.jpeg";
+import water from "../textures/waternormals.jpeg";
+import water2 from "../textures/water2.png";
+import water3 from "../textures/water3.png";
+import int from "../textures/int.png";
+import stone from "../textures/solid_stone.jpeg";
+import stone2 from "../textures/stone_2.jpeg";
 
 function Boxes() {
   let container, stats;

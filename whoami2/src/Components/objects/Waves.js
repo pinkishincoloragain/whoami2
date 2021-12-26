@@ -1,10 +1,10 @@
 import * as THREE from "three";
 import { GUI } from "lil-gui";
-import { OrbitControls } from "./controls/OrbitControls.js";
-import { Water } from "./objects/Water.js";
-import { Sky } from "./objects/Sky.js";
+import { OrbitControls } from "../controls/OrbitControls.js";
+import { Water } from "./Water.js";
+import { Sky } from "./Sky.js";
 import { useEffect } from "react";
-import waterNormals from "./textures/waternormals.jpeg";
+import waterNormals from "../textures/waternormals.jpeg";
 
 let container;
 let camera, scene, renderer;

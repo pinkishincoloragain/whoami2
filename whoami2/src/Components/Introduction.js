@@ -10,7 +10,7 @@ import { Container, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { Fade } from "@mui/material";
 import { education, experience, projects, skills } from "./IntroContents";
-import Waves from "./Waves";
+import Waves from "./objects/Waves";
 
 export default function Introduction(props) {
   const btnName = "Introduction";
@@ -83,7 +83,7 @@ export default function Introduction(props) {
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
-          style={{ backgroundColor: "#2867B2", overflow: "visible" }}
+          style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => setExpOpen(!expOpen)}
         >
           <Typography variant="h4" sx={{ fontStyle: "italic" }}>
@@ -100,7 +100,7 @@ export default function Introduction(props) {
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
-          style={{ backgroundColor: "#FF0000", overflow: "visible" }}
+          style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => setSkillsOpen(!skillsOpen)}
         >
           <Typography variant="h4" sx={{ fontStyle: "italic" }}>
@@ -118,7 +118,7 @@ export default function Introduction(props) {
             marginBottom: "2vh",
             color: "white",
           }}
-          style={{ backgroundColor: "green", overflow: "visible" }}
+          style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => setProjectsOpen(!projectsOpen)}
         >
           <Typography variant="h4" sx={{ fontStyle: "italic" }}>
