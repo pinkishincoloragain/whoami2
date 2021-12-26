@@ -8,7 +8,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [cookies, setCookie] = useCookies(["mode"]);
   useEffect(() => {
-    console.log(cookies.mode);
     if (cookies.mode !== undefined) {
       setDarkMode(cookies.mode);
     } else {
@@ -20,7 +19,9 @@ function App() {
         }
       );
     }
-  }, [cookies]);
+    console.log(cookies.mode);
+    console.log(darkMode);
+  }, []);
 
   return (
     <div className="App">
@@ -33,7 +34,7 @@ function App() {
                 element={
                   <Landing
                     darkMode={darkMode}
-                    setDarkMode={setCookie}
+                    setDarkMode={setDarkMode}
                     width={window.innerWidth}
                     height={window.innerHeight}
                   />

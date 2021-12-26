@@ -11,30 +11,37 @@ export default function Frames(props) {
   const handleMouseMove = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
     clickRef.current.style.setProperty("opacity", "95%");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
   };
 
   const handleMouseDown = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
   };
   const handleMouseOut = (e) => {
     setMouseIn(false);
-    if (!mouseOnCode)
+    if (!mouseOnCode) {
+      clickRef.current.style.setProperty("filter", "blur(2px)");
       clickRef.current.style.setProperty("background-color", "transparent");
+    }
   };
 
   const handleMouseEnter = (e) => {
     clickRef.current.style.setProperty("cursor", "pointer");
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
     setMouseIn(true);
   };
 
   const handleCommentMouseEnter = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
     setMouseOnCode(true);
   };
   const handleCommentMouseOut = (e) => {
     setMouseOnCode(false);
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
   };
   const mobileFrame = (
     <div
@@ -84,6 +91,7 @@ export default function Frames(props) {
           border: "6px double black",
           zIndex: "2",
           padding: "1vh",
+          filter: "blur(2px)",
           transitionDuration: "0.1s",
         }}
         onMouseMove={handleMouseMove}
@@ -110,24 +118,32 @@ export default function Frames(props) {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.contact =
           "smb1103@gmail.com"
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.hobby = "Design"
-          <br />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;def code(self, stackoverflow): <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web_development()
-          <CommentLine content="You're looking at right now!" link={null} />
+          <CommentLine
+            color="red"
+            content="You're looking at right now!"
+            link={null}
+          />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software_development()
           <CommentLine
+            color="red"
             content="Use: Python, Java, C, Android, JavaScript"
             link={null}
           />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database()
-          <CommentLine content="Oracle, Mysql, Firebase, Mongodb" link={null} />
+          <CommentLine
+            color="red"
+            content="Oracle, Mysql, Firebase, Mongodb"
+            link={null}
+          />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis()
           <CommentLine
+            color="blue"
             content="Drug suicidal analysis project"
             link="https://github.com/pinkishincoloragain/SuicideProject"
           />
@@ -135,6 +151,7 @@ export default function Frames(props) {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;machine_learning()
           <code>
             <CommentLine
+              color="blue"
               content="KNU Buildings Fire analysis"
               link="https://github.com/KNU-indiGo/Machine"
             />

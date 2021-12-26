@@ -14,16 +14,13 @@ function Landing(props) {
   const [checked, setChecked] = useState(false);
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [darkMode, setDarkMode] = useState(false);
-  const [filtered, setFiltered] = useState(false);
-  const [alignment, setAlignment] = React.useState("left");
+  const [darkMode, setDarkMode] = useState(props.darkMode);
+  const [filtered, setFiltered] = useState(props.darkMode);
   const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
 
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
-
   const boxRef = useRef(null);
+
+  console.log(darkMode);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -37,21 +34,25 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
-  useEffect(() => {}, []);
-
-  const handleCookie = (prev) => {
-    setCookie(
-      { darkMode },
-      {
-        path: "/",
-      }
-    );
+  const handleCookie = () => {
     console.log(darkMode);
+
+    let expires = new Date();
+    expires.setTime(expires.getTime() * 1000 + 1 * 60 * 60 * 1000);
+
+    setCookie("mode", darkMode, {
+      path: "/",
+      expires,
+    });
+    console.log(cookies.mode);
   };
 
   const handleChange = () => {
     setChecked((prev) => !prev);
     setDarkMode((prev) => !prev);
+    props.setDarkMode(darkMode);
+    console.log(darkMode);
+    console.log(cookies.mode);
     handleCookie();
 
     if (!filtered) {

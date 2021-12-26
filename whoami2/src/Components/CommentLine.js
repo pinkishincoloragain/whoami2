@@ -5,7 +5,7 @@ export default function CommentLine(props) {
   const [commentMouseIn, setCommentMouseIn] = React.useState(false);
 
   const handleCommentMouseEnter = (e) => {
-    e.target.style.setProperty("color", "red");
+    e.target.style.setProperty("color", props.color);
   };
 
   const handleCommentMouseLeave = (e) => {
@@ -25,7 +25,7 @@ export default function CommentLine(props) {
       onMouseEnter={handleCommentMouseEnter}
       onMouseLeave={handleCommentMouseLeave}
     >
-      &nbsp;&nbsp;#{props.content}
+      &nbsp;&nbsp;#&nbsp;{props.content}
     </code>
   );
 }
