@@ -1,4 +1,4 @@
-import { Fade } from "@mui/material";
+import { Fade, Link } from "@mui/material";
 import { List, ListItem, Typography } from "@mui/material";
 
 export function education() {
@@ -60,12 +60,13 @@ export const skills = () => {
         <List>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Language: Korean(native), English(fluent)
+              - Languages: Korean(native), English(fluent), Python, JavaScript,
+              Java, C
             </Typography>
           </ListItem>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Technological University Dublin (Computer Science, - 2022)
+              - Tools: Figma, Git, Final Cut Pro
             </Typography>
           </ListItem>
         </List>
@@ -80,12 +81,22 @@ export const projects = () => {
         <List>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - KNU buildings fire consequence analysis
+              <Link
+                style={{ textDecoration: "none" }}
+                href="https://github.com/KNU-indiGo/Machine"
+              >
+                - KNU buildings fire consequence analysis
+              </Link>
             </Typography>
           </ListItem>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Drug suicidal side effect analysis project
+              <Link
+                style={{ textDecoration: "none" }}
+                href="https://github.com/pinkishincoloragain/SuicideProject"
+              >
+                - Drug suicidal side effect analysis project
+              </Link>
             </Typography>
           </ListItem>
         </List>

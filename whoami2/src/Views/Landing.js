@@ -2,7 +2,7 @@ import react from "react";
 import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
-import TemporaryDrawer from "../Components/TemporaryDrawer";
+import TemporaryDrawer from "../Components/Links";
 import TemporaryHistory from "../Components/Introduction";
 import Frames from "../Components/Frames";
 import Typography from "@mui/material/Typography";
@@ -36,7 +36,7 @@ function Landing(props) {
   useEffect(() => {
     setTimeout(() => {
       handleChange();
-    }, 1500);
+    }, 100);
   }, []);
 
   // const handleCookie = () => {
@@ -51,14 +51,19 @@ function Landing(props) {
     props.setDarkMode(!props.darkMode);
     localStorage.setItem("darkMode", !props.darkMode);
 
-    if (!filtered) {
-      setFiltered(true);
-      boxRef.current.style.setProperty("transition-duration", "0.5s ");
-      // boxRef.current.style.setProperty("filter", "invert(100) ");
-      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
-    } else {
-      setFiltered(false);
-      boxRef.current.style.setProperty("filter", "grayscale(0%)");
+    if (windowWidth > 1280) {
+      if (!filtered) {
+        setFiltered(true);
+        boxRef.current.style.setProperty("transition-duration", "0.5s ");
+        // boxRef.current.style.setProperty("filter", "invert(100) ");
+        boxRef.current.style.setProperty(
+          "filter",
+          "invert(100) grayscale(100%)"
+        );
+      } else {
+        setFiltered(false);
+        boxRef.current.style.setProperty("filter", "grayscale(0%)");
+      }
     }
   };
 
@@ -75,6 +80,7 @@ function Landing(props) {
         alignItems: "center",
         position: "absolute",
       }}
+      ref={boxRef}
     >
       <div
         style={{

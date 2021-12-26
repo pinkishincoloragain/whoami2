@@ -100,16 +100,19 @@ function Waves() {
     //
 
     const geometry = new THREE.BoxGeometry(30, 30, 30);
-    const material = new THREE.MeshStandardMaterial({ roughness: 0 });
+    const material = new THREE.MeshStandardMaterial({
+      roughness: 3,
+      color: 0xf0f0f0,
+    });
 
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
     //
 
-    // controls = new OrbitControls(camera, renderer.domElement);
+    // let controls = new OrbitControls(camera, renderer.domElement);
     // controls.maxPolarAngle = Math.PI * 0.495;
-    // controls.target.set(0, 10, 0);
+    // controls.target.set(30, 40, 0);
     // controls.minDistance = 40.0;
     // controls.maxDistance = 200.0;
     // controls.update();

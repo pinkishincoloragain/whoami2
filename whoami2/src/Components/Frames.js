@@ -39,11 +39,17 @@ export default function Frames(props) {
     clickRef.current.style.setProperty("filter", "blur(0px)");
     setMouseOnCode(true);
   };
+
   const handleCommentMouseOut = (e) => {
-    setMouseOnCode(false);
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
     clickRef.current.style.setProperty("filter", "blur(0px)");
+    setMouseOnCode(false);
   };
+
+  const OuterMouseMove = (e) => {
+    setMouseIn(false);
+  };
+
   const mobileFrame = (
     <div
       style={{
@@ -55,6 +61,7 @@ export default function Frames(props) {
         alignItems: "center",
         position: "absolute",
       }}
+      ref={clickRef}
     >
       <div
         style={{
@@ -82,6 +89,7 @@ export default function Frames(props) {
         alignItems: "center",
         position: "absolute",
       }}
+      onMouseMove={OuterMouseMove}
     >
       <div
         style={{
@@ -94,7 +102,7 @@ export default function Frames(props) {
           padding: "1vh",
           filter: "blur(5px)",
           transitionDuration: "0.1s",
-          boxShadow: "10px 10px 20px black",
+          boxShadow: "5px 5px 10px black",
         }}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}

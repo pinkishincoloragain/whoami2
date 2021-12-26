@@ -133,7 +133,7 @@ export default function TemporaryHistory() {
               component="div"
               gutterBottom
               margin="auto"
-              color="secondary"
+              color="white"
             >
               {btnName}
             </Typography>

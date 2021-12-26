@@ -1,6 +1,6 @@
 import { react, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import TemporaryDrawer from "./Components/TemporaryDrawer";
+import TemporaryDrawer from "./Components/Links";
 import Landing from "./Views/Landing";
 import { CookiesProvider, useCookies } from "react-cookie";
 
