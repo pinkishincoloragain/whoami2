@@ -10,7 +10,7 @@ export default function Frames(props) {
 
   const handleMouseMove = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("opacity", "95%");
+    clickRef.current.style.setProperty("opacity", "93%");
     clickRef.current.style.setProperty("filter", "blur(0px)");
   };
 
@@ -21,7 +21,7 @@ export default function Frames(props) {
   const handleMouseOut = (e) => {
     setMouseIn(false);
     if (!mouseOnCode) {
-      clickRef.current.style.setProperty("filter", "blur(2px)");
+      clickRef.current.style.setProperty("filter", "blur(5px)");
       clickRef.current.style.setProperty("background-color", "transparent");
     }
   };
@@ -91,7 +91,7 @@ export default function Frames(props) {
           border: "6px double black",
           zIndex: "2",
           padding: "1vh",
-          filter: "blur(2px)",
+          filter: "blur(5px)",
           transitionDuration: "0.1s",
         }}
         onMouseMove={handleMouseMove}

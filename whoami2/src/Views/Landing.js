@@ -1,6 +1,5 @@
 import react from "react";
 import React, { useEffect, useState, useRef } from "react";
-import { useCookies } from "react-cookie";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/TemporaryDrawer";
@@ -11,16 +10,16 @@ import Typography from "@mui/material/Typography";
 import { Paper } from "@mui/material";
 
 function Landing(props) {
-  const [checked, setChecked] = useState(false);
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [darkMode, setDarkMode] = useState(props.darkMode);
-  const [filtered, setFiltered] = useState(props.darkMode);
-  const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
+  const [filtered, setFiltered] = useState(false);
+  const [alignment, setAlignment] = React.useState("left");
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
   const boxRef = useRef(null);
-
-  console.log(darkMode);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -34,26 +33,19 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
-  const handleCookie = () => {
-    console.log(darkMode);
+  useEffect(() => {}, []);
 
-    let expires = new Date();
-    expires.setTime(expires.getTime() * 1000 + 1 * 60 * 60 * 1000);
-
-    setCookie("mode", darkMode, {
-      path: "/",
-      expires,
-    });
-    console.log(cookies.mode);
-  };
+  // const handleCookie = () => {
+  //   console.log(props.darkMode);
+  //   props.setCookie(props.darkMode, {
+  //     path: "/",
+  //   });
+  //   console.log(props.darkMode);
+  // };
 
   const handleChange = () => {
-    setChecked((prev) => !prev);
-    setDarkMode((prev) => !prev);
-    props.setDarkMode(darkMode);
-    console.log(darkMode);
-    console.log(cookies.mode);
-    handleCookie();
+    props.setDarkMode(!props.darkMode);
+    localStorage.setItem("darkMode", !props.darkMode);
 
     if (!filtered) {
       setFiltered(true);
@@ -66,19 +58,7 @@ function Landing(props) {
     }
   };
 
-  const icon = (
-    <Paper sx={{ m: 1 }} elevation={4} style={{ padding: "1vh" }}>
-      <Typography variant="h5" component="div" gutterBottom>
-        Education
-      </Typography>
-      <Typography variant="h6" component="div" gutterBottom>
-        - Kyungpook Nat'l University
-      </Typography>
-      <Typography variant="h6" component="div" gutterBottom>
-        - Technological University Dublin
-      </Typography>
-    </Paper>
-  );
+  console.log(localStorage.darkMode);
 
   const mobileFrame = (
     <div
@@ -112,7 +92,7 @@ function Landing(props) {
         overflow: "hidden",
       }}
     >
-      <Frames desktop={windowWidth > 1280} darkMode={darkMode} />
+      <Frames desktop={windowWidth > 1280} darkMode={props.darkMode} />
       <div
         style={{
           zIndex: 1,
@@ -137,7 +117,7 @@ function Landing(props) {
                     component="div"
                     fontWeight={"bold"}
                     gutterBottom
-                    color={darkMode ? "white" : "black"}
+                    color={props.darkMode ? "black" : "white"}
                     flex={3}
                   >
                     PINKISHINCOLORAGAIN
@@ -176,7 +156,7 @@ function Landing(props) {
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={darkMode ? "white" : "black"}
+              color={props.darkMode ? "black" : "white"}
             >
               MYUNGBINSON
             </Typography>
@@ -186,7 +166,7 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        {darkMode ? (
+        {props.darkMode ? (
           <div
             style={{
               width: "15vw",
@@ -194,28 +174,6 @@ function Landing(props) {
               marginLeft: "1vh",
               padding: "none",
             }}
-            checked={checked}
-            onClick={handleChange}
-            label=" "
-          >
-            <Typography
-              variant="h3"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              color="#f0f0f0"
-            >
-              Dark
-            </Typography>
-          </div>
-        ) : (
-          <div
-            style={{
-              width: "15vw",
-              marginLeft: "1vh",
-              height: "8vh",
-            }}
-            checked={checked}
             onClick={handleChange}
             label=" "
           >
@@ -227,6 +185,26 @@ function Landing(props) {
               color="black"
             >
               Light
+            </Typography>
+          </div>
+        ) : (
+          <div
+            style={{
+              width: "15vw",
+              marginLeft: "1vh",
+              height: "8vh",
+            }}
+            onClick={handleChange}
+            label=" "
+          >
+            <Typography
+              variant="h3"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+              color="#f0f0f0"
+            >
+              Dark
             </Typography>
           </div>
         )}

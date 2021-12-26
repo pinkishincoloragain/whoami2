@@ -6,22 +6,15 @@ import { CookiesProvider, useCookies } from "react-cookie";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [cookies, setCookie] = useCookies(["mode"]);
   useEffect(() => {
-    if (cookies.mode !== undefined) {
-      setDarkMode(cookies.mode);
+    if (localStorage.darkMode !== undefined) {
+      setDarkMode(localStorage.darkMode);
     } else {
-      setCookie(
-        "mode",
-        { darkMode },
-        {
-          path: "/",
-        }
-      );
+      localStorage.darkMode = darkMode;
     }
-    console.log(cookies.mode);
-    console.log(darkMode);
   }, []);
+  console.log(localStorage.darkMode);
+  console.log(darkMode);
 
   return (
     <div className="App">
@@ -35,6 +28,7 @@ function App() {
                   <Landing
                     darkMode={darkMode}
                     setDarkMode={setDarkMode}
+                    // setCookie={setCookie}
                     width={window.innerWidth}
                     height={window.innerHeight}
                   />

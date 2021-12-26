@@ -1,10 +1,10 @@
 import { useCookies } from "react-cookie";
 
-const [cookies, setCookie, removeCookie] = useCookies(["rememberEmail"]);
+const [cookies, setCookie, removeCookie] = useCookies(["mode"]);
 
 export const setCookie = () => {
   useEffect(() => {
-    if (cookies.rememberEmail !== undefined) {
+    if (cookies.mode !== undefined) {
       setEmail(cookies.rememberEmail);
       setIsRemember(true);
     }
