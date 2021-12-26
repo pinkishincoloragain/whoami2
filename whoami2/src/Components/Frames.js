@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CommentLine from "./CommentLine";
+import { Link } from "react-router-dom";
 
 export default function Frames(props) {
   const clickRef = React.useRef(null);
@@ -145,7 +146,7 @@ export default function Frames(props) {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis()
           <CommentLine
             color="blue"
-            content="Drug suicidal analysis project"
+            content="Drug suicidal side effect analysis project"
             link="https://github.com/pinkishincoloragain/SuicideProject"
           />
           <br />
@@ -153,7 +154,7 @@ export default function Frames(props) {
           <code>
             <CommentLine
               color="blue"
-              content="KNU Buildings Fire analysis"
+              content="KNU buildings fire consequence analysis"
               link="https://github.com/KNU-indiGo/Machine"
             />
           </code>

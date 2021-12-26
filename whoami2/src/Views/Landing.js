@@ -39,13 +39,6 @@ function Landing(props) {
     }, 1500);
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      handleChange();
-      handleChange();
-    }, 1600);
-  }, []);
-
   // const handleCookie = () => {
   //   console.log(props.darkMode);
   //   props.setCookie(props.darkMode, {
@@ -195,7 +188,7 @@ function Landing(props) {
               gutterBottom
               color="#f0f0f0"
             >
-              Light up!
+              Dark
             </Typography>
           </div>
         ) : (
@@ -215,7 +208,7 @@ function Landing(props) {
               gutterBottom
               color="black"
             >
-              Lights out!
+              Light
             </Typography>
           </div>
         )}

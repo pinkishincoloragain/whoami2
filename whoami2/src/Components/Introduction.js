@@ -9,6 +9,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { Container, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { Fade } from "@mui/material";
+import { education, experience, projects, skills } from "./IntroContents";
+import Waves from "./Waves";
 
 export default function TemporaryHistory() {
   const btnName = "Introduction";
@@ -19,7 +21,10 @@ export default function TemporaryHistory() {
     right: false,
   });
 
-  const [eduOpen, setEduOpen] = React.useState(false);
+  const [eduOpen, setEduOpen] = React.useState(true);
+  const [expOpen, setExpOpen] = React.useState(true);
+  const [skillsOpen, setSkillsOpen] = React.useState(true);
+  const [projectsOpen, setProjectsOpen] = React.useState(true);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -30,31 +35,6 @@ export default function TemporaryHistory() {
     }
 
     setState({ ...state, [anchor]: open });
-  };
-
-  const education = () => {
-    return (
-      <>
-        <Fade in timeout={200}>
-          <ListItem sx={{ margin: "0vh" }}>
-            <List>
-              <ListItem>
-                <Typography variant="h6">Kyungpook Nat'l University</Typography>
-              </ListItem>
-              <ListItem>
-                <Typography variant="h6">
-                  Technological University Dublin
-                </Typography>
-              </ListItem>
-            </List>
-          </ListItem>
-        </Fade>
-        {/* 
-        <ListItem>
-          <Typography variant="h6">Technological University Dublin</Typography>
-        </ListItem> */}
-      </>
-    );
   };
 
   const effect = keyframes`
@@ -102,9 +82,11 @@ export default function TemporaryHistory() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#2867B2", overflow: "visible" }}
+          onClick={() => setExpOpen(!expOpen)}
         >
           <Typography variant="h4">Experience</Typography>
         </ListItem>
+        {expOpen ? experience() : null}
         <ListItem
           button
           key="Skills"
@@ -115,9 +97,11 @@ export default function TemporaryHistory() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FF0000", overflow: "visible" }}
+          onClick={() => setSkillsOpen(!skillsOpen)}
         >
           <Typography variant="h4">Skills</Typography>
         </ListItem>
+        {skillsOpen ? skills() : null}
         <ListItem
           button
           key="Projects"
@@ -128,9 +112,12 @@ export default function TemporaryHistory() {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
+          onClick={() => setProjectsOpen(!projectsOpen)}
         >
           <Typography variant="h4">Projects</Typography>
         </ListItem>
+        {projectsOpen ? projects() : null}
+
         <Divider />
       </List>
     </Box>
