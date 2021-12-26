@@ -13,8 +13,8 @@ function App() {
       localStorage.darkMode = darkMode;
     }
   }, []);
-  console.log(localStorage.darkMode);
-  console.log(darkMode);
+  // console.log(localStorage.darkMode);
+  // console.log(darkMode);
 
   return (
     <div className="App">
@@ -31,6 +31,7 @@ function App() {
                     // setCookie={setCookie}
                     width={window.innerWidth}
                     height={window.innerHeight}
+                    style={{ transitionDuration: "1s" }}
                   />
                 }
               />

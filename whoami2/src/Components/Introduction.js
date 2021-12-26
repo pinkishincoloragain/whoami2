@@ -8,9 +8,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Container, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
+import { Fade } from "@mui/material";
 
 export default function TemporaryHistory() {
-  const btnName = "History";
+  const btnName = "Introduction";
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -34,20 +35,20 @@ export default function TemporaryHistory() {
   const education = () => {
     return (
       <>
-        <ListItem
-          sx={{ animation: `${effect} 0.2s ease`, transition: "0.2s ease" }}
-        >
-          <List>
-            <ListItem>
-              <Typography variant="h6">Kyungpook Nat'l University</Typography>
-            </ListItem>
-            <ListItem>
-              <Typography variant="h6">
-                Technological University Dublin
-              </Typography>
-            </ListItem>
-          </List>
-        </ListItem>
+        <Fade in timeout={200}>
+          <ListItem sx={{ margin: "0vh" }}>
+            <List>
+              <ListItem>
+                <Typography variant="h6">Kyungpook Nat'l University</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography variant="h6">
+                  Technological University Dublin
+                </Typography>
+              </ListItem>
+            </List>
+          </ListItem>
+        </Fade>
         {/* 
         <ListItem>
           <Typography variant="h6">Technological University Dublin</Typography>
@@ -58,10 +59,10 @@ export default function TemporaryHistory() {
 
   const effect = keyframes`
   from {
-    transform: scaleY(0.3);
+    positionY: -100px;
   }
   to {
-    transform: scaleY(1);
+    positionY: 0px;
   }
 `;
 
@@ -140,7 +141,13 @@ export default function TemporaryHistory() {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <Typography variant="h4" component="div" gutterBottom margin="auto">
+            <Typography
+              variant="h4"
+              component="div"
+              gutterBottom
+              margin="auto"
+              color="secondary"
+            >
               {btnName}
             </Typography>
           </Button>

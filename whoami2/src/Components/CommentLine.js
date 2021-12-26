@@ -3,9 +3,11 @@ import React from "react";
 export default function CommentLine(props) {
   let handleCommentClick;
   const [commentMouseIn, setCommentMouseIn] = React.useState(false);
+  const clickRef = React.useRef(null);
 
   const handleCommentMouseEnter = (e) => {
     e.target.style.setProperty("color", props.color);
+    clickRef.current.style.setProperty("cursor", "pointer");
   };
 
   const handleCommentMouseLeave = (e) => {
@@ -24,6 +26,7 @@ export default function CommentLine(props) {
       onClick={handleCommentClick}
       onMouseEnter={handleCommentMouseEnter}
       onMouseLeave={handleCommentMouseLeave}
+      ref={clickRef}
     >
       &nbsp;&nbsp;#&nbsp;{props.content}
     </code>

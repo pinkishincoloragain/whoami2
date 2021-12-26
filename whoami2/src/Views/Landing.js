@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/Waves";
 import Boxes from "../Components/Boxes";
 import TemporaryDrawer from "../Components/TemporaryDrawer";
-import TemporaryHistory from "../Components/TemporaryHistory";
+import TemporaryHistory from "../Components/Introduction";
 import Frames from "../Components/Frames";
 import Typography from "@mui/material/Typography";
 
@@ -33,7 +33,18 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setTimeout(() => {
+      handleChange();
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleChange();
+      handleChange();
+    }, 1600);
+  }, []);
 
   // const handleCookie = () => {
   //   console.log(props.darkMode);
@@ -58,7 +69,7 @@ function Landing(props) {
     }
   };
 
-  console.log(localStorage.darkMode);
+  // console.log(localStorage.darkMode);
 
   const mobileFrame = (
     <div
@@ -66,7 +77,7 @@ function Landing(props) {
         display: "flex",
         margin: "auto",
         width: "100%",
-        height: "100%",
+        height: "200%",
         justifyContent: "center",
         alignItems: "center",
         position: "absolute",
@@ -89,7 +100,7 @@ function Landing(props) {
     <div
       style={{
         position: "absolute",
-        overflow: "hidden",
+        // overflow: "hidden",
       }}
     >
       <Frames desktop={windowWidth > 1280} darkMode={props.darkMode} />
@@ -117,7 +128,7 @@ function Landing(props) {
                     component="div"
                     fontWeight={"bold"}
                     gutterBottom
-                    color={props.darkMode ? "black" : "white"}
+                    color={props.darkMode ? "white" : "black"}
                     flex={3}
                   >
                     PINKISHINCOLORAGAIN
@@ -156,7 +167,7 @@ function Landing(props) {
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={props.darkMode ? "black" : "white"}
+              color={props.darkMode ? "white" : "black"}
             >
               MYUNGBINSON
             </Typography>
@@ -170,7 +181,7 @@ function Landing(props) {
           <div
             style={{
               width: "15vw",
-              height: "6vh",
+              height: "8vh",
               marginLeft: "1vh",
               padding: "none",
             }}
@@ -180,11 +191,11 @@ function Landing(props) {
             <Typography
               variant="h3"
               component="div"
-              fontWeight={"bold"}
+              fontWeight="bold"
               gutterBottom
-              color="black"
+              color="#f0f0f0"
             >
-              Light
+              Light up!
             </Typography>
           </div>
         ) : (
@@ -202,21 +213,23 @@ function Landing(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
-              color="#f0f0f0"
+              color="black"
             >
-              Dark
+              Lights out!
             </Typography>
           </div>
         )}
         <div style={{ height: "5vh" }}></div>
-
-        <TemporaryDrawer />
         <TemporaryHistory />
+        <TemporaryDrawer />
       </div>
       {windowWidth > 1280 ? (
         <div
           ref={boxRef}
-          style={{ filter: "saturate(1)", transitionDuration: "0.2s" }}
+          style={{
+            filter: "saturate(1)",
+            transition: "0.8s linear",
+          }}
         >
           <Boxes />
         </div>

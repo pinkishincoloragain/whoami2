@@ -22,12 +22,12 @@ export default function Frames(props) {
     setMouseIn(false);
     if (!mouseOnCode) {
       clickRef.current.style.setProperty("filter", "blur(5px)");
+      // clickRef.current.style.setProperty("filter", "opacity(30%)");
       clickRef.current.style.setProperty("background-color", "transparent");
     }
   };
 
   const handleMouseEnter = (e) => {
-    clickRef.current.style.setProperty("cursor", "pointer");
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
     clickRef.current.style.setProperty("filter", "blur(0px)");
     setMouseIn(true);
@@ -93,6 +93,7 @@ export default function Frames(props) {
           padding: "1vh",
           filter: "blur(5px)",
           transitionDuration: "0.1s",
+          boxShadow: "10px 10px 20px black",
         }}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}

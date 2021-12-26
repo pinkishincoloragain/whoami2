@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer(props) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -112,7 +112,7 @@ export default function TemporaryDrawer() {
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
-          style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
+          style={{ backgroundColor: "black", overflow: "visible" }}
           onClick={() => {
             window.open("https://www.instagram.com/pinkishincoloragain/");
           }}
@@ -128,7 +128,13 @@ export default function TemporaryDrawer() {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <Typography variant="h4" component="div" gutterBottom margin="auto">
+            <Typography
+              variant="h4"
+              component="div"
+              gutterBottom
+              margin="auto"
+              color="secondary"
+            >
               {btnName}
             </Typography>
           </Button>
