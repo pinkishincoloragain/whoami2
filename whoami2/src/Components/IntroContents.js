@@ -66,7 +66,7 @@ export const skills = () => {
           </ListItem>
           <ListItem sx={{ mt: "0px", ml: "2vh" }}>
             <Typography variant="h6" fontStyle={"italic"}>
-              - Tools: Figma, Git, Final Cut Pro
+              - Tools: Jetbrains environment, VSCode, Git, Figma, Final Cut Pro
             </Typography>
           </ListItem>
         </List>
@@ -83,6 +83,7 @@ export const projects = () => {
             <Typography variant="h6" fontStyle={"italic"}>
               <Link
                 style={{ textDecoration: "none" }}
+                target="_blank"
                 href="https://github.com/KNU-indiGo/Machine"
               >
                 - KNU buildings fire consequence analysis
@@ -93,6 +94,7 @@ export const projects = () => {
             <Typography variant="h6" fontStyle={"italic"}>
               <Link
                 style={{ textDecoration: "none" }}
+                target="_blank"
                 href="https://github.com/pinkishincoloragain/SuicideProject"
               >
                 - Drug suicidal side effect analysis project

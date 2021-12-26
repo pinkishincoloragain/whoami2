@@ -1,6 +1,8 @@
 import react from "react";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
+import water from "./textures/waternormals.jpeg";
+import int from "./textures/INT.png";
 
 function Boxes() {
   let container, stats;
@@ -69,6 +71,11 @@ function Boxes() {
     let geometry;
     let randNum = Math.floor(Math.random() * 2);
     let randNum2 = Math.floor(Math.random() * 7);
+    const texture = new THREE.TextureLoader().load(water);
+    // const texture = new THREE.TextureLoader().load(int);
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(4, 4);
 
     // if (randNum == 1) {
     geometry = new THREE.BoxGeometry(16, 16, 16);
@@ -81,6 +88,7 @@ function Boxes() {
         new THREE.MeshLambertMaterial({
           // color: Math.random() * 0xffffff,
           color: phantonColor[Math.floor(Math.random() * phantonColor.length)],
+          map: texture,
         })
       );
 
