@@ -70,9 +70,8 @@ function Boxes() {
     let randNum = Math.floor(Math.random() * 2);
     let randNum2 = Math.floor(Math.random() * 7);
 
-
     // if (randNum == 1) {
-      geometry = new THREE.BoxGeometry(16, 16, 16);
+    geometry = new THREE.BoxGeometry(16, 16, 16);
     // } else {
     //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
     // }
@@ -205,7 +204,12 @@ function Boxes() {
     renderer.render(scene, camera);
   }
 
-  return <div id="container" style={{ width: "100vw" }}></div>;
+  return (
+    <div
+      id="container"
+      style={{ width: "100vw", transitionDuration: "0.2s" }}
+    ></div>
+  );
 }
 
 export default Boxes;

@@ -54,7 +54,9 @@ function Landing(props) {
     setDarkMode((prev) => !prev);
     if (!filtered) {
       setFiltered(true);
-      boxRef.current.style.setProperty("filter", "grayscale(100%)");
+      boxRef.current.style.setProperty("transition-duration", "0.5s ");
+      // boxRef.current.style.setProperty("filter", "invert(100) ");
+      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
     } else {
       setFiltered(false);
       boxRef.current.style.setProperty("filter", "grayscale(0%)");
@@ -103,8 +105,13 @@ function Landing(props) {
   );
 
   return (
-    <div style={{ position: "absolute", overflow: "hidden" }}>
-      <Frames desktop={windowWidth > 1280} />
+    <div
+      style={{
+        position: "absolute",
+        overflow: "hidden",
+      }}
+    >
+      <Frames desktop={windowWidth > 1280} darkMode={darkMode} />
       <div
         style={{
           zIndex: 1,
@@ -122,6 +129,7 @@ function Landing(props) {
                 component="div"
                 fontWeight={"bold"}
                 gutterBottom
+                color={darkMode ? "white" : "black"}
               >
                 PINKISHINCOLORAGAIN
               </Typography>
@@ -131,8 +139,10 @@ function Landing(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
+              marginLeft="1vh"
+              color={darkMode ? "white" : "black"}
             >
-              PINKISHINCOLORAGAIN
+              MYUNGBINSON
             </Typography>
           </div>
         ) : (
@@ -153,10 +163,11 @@ function Landing(props) {
             label=" "
           >
             <Typography
-              variant="h1"
+              variant="h3"
               component="div"
               fontWeight={"bold"}
               gutterBottom
+              color="#f0f0f0"
             >
               Dark
             </Typography>
@@ -173,10 +184,11 @@ function Landing(props) {
             label=" "
           >
             <Typography
-              variant="h1"
+              variant="h3"
               component="div"
               fontWeight={"bold"}
               gutterBottom
+              color="black"
             >
               Light
             </Typography>
@@ -188,7 +200,10 @@ function Landing(props) {
         <TemporaryHistory />
       </div>
       {windowWidth > 1280 ? (
-        <div ref={boxRef} style={{ filter: "saturate(1)" }}>
+        <div
+          ref={boxRef}
+          style={{ filter: "saturate(1)", transitionDuration: "0.2s" }}
+        >
           <Boxes />
         </div>
       ) : (

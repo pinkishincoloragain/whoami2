@@ -1,32 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import CommentLine from "./CommentLine";
 
 export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const [mouseIn, setMouseIn] = React.useState(false);
+  const [mouseOnCode, setMouseOnCode] = React.useState(false);
+  const [backGrdColor, setBackGrdColor] = React.useState("transparent");
 
   const handleMouseMove = (e) => {
-    // clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    // setTimeout(() => {
-    //   if (mouseIn) {
-    //     clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    //   } else {
-    //     clickRef.current.style.setProperty("background-color", "transparent");
-    //   }
-    // }, 3000);
+    clickRef.current.style.setProperty("background-color", "#f0f0f0");
   };
+
   const handleMouseDown = (e) => {
     clickRef.current.style.setProperty("background-color", "#f0f0f0");
   };
   const handleMouseOut = (e) => {
-    e.target.style.setProperty("background-color", "transparent");
+    setMouseIn(false);
+    if (!mouseOnCode)
+      clickRef.current.style.setProperty("background-color", "transparent");
   };
 
   const handleMouseEnter = (e) => {
-    e.target.style.setProperty("cursor", "pointer");
+    clickRef.current.style.setProperty("cursor", "pointer");
+    clickRef.current.style.setProperty("background-color", "#f0f0f0");
     setMouseIn(true);
   };
 
+  const handleCommentMouseEnter = (e) => {
+    clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    setMouseOnCode(true);
+  };
+  const handleCommentMouseOut = (e) => {
+    setMouseOnCode(false);
+    clickRef.current.style.setProperty("background-color", "#f0f0f0");
+  };
   const mobileFrame = (
     <div
       style={{
@@ -54,7 +62,7 @@ export default function Frames(props) {
     </div>
   );
 
-  const DesktopFrame = (
+  const desktopFrame = (
     <div
       style={{
         display: "flex",
@@ -83,28 +91,50 @@ export default function Frames(props) {
         onMouseOut={handleMouseOut}
         ref={clickRef}
       >
-        <code>
-          class Whoami: <br />
+        <code
+          onMouseEnter={handleCommentMouseEnter}
+          onMouseOut={handleCommentMouseOut}
+          color={props.darkMode ? "white" : "black"}
+        >
+          class Whoami:
+          <br />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self): <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = "Myungbin
-          Son" <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self. = "Software
-          Developer"
+          Son"
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.do = "Software
+          Development"
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.hobby = "Design"
           <br />
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;def code(self, stackoverflow): <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web_development(){" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web_development()
+          <CommentLine content="You're looking at right now!" link={null} />
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobile_application(){" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database()
+          <CommentLine content="Oracle, Mysql, Firebase, Mongodb" link={null} />
           <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis() <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sql() <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_analysis()
+          <CommentLine
+            content="Suicidal comments analysis project"
+            link="https://github.com/pinkishincoloragain/SuicideProject"
+          />
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_visualisation()
+          <code>
+            <CommentLine
+              content="You're looking at right now!"
+              link="https://github.com/pinkishincoloragain/SuicideProject"
+            />
+          </code>
+          <br />
           <br />
           <br />
           myungbin = Whoami()
+          <br />
+          print("hello stanger!")
           <br />
           myungbin.code()
         </code>
@@ -112,5 +142,5 @@ export default function Frames(props) {
     </div>
   );
 
-  return <>{props.desktop ? DesktopFrame : mobileFrame}</>;
+  return <>{props.desktop ? desktopFrame : mobileFrame}</>;
 }
