@@ -69,7 +69,7 @@ function Boxes() {
       ],
       ["#D3E4CD", "#99A799", "#F2DDC1", "#E2C2B9"],
       ["#161853", "#292C6D", "#FAEDF0", "#EC255A"],
-      ["#FF1700", "FF8E00", "#FFE400", "#06FF00"],
+      ["#FF1700", "#FF8E00", "#FFE400", "#06FF00"],
       ["#7900FF", "#548CFF", "#93FFD8", "#CFFFDC"],
     ];
 
@@ -238,7 +238,7 @@ function Boxes() {
   return (
     <div
       id="container"
-      style={{ width: "100vw", transitionDuration: "0.2s" }}
+      style={{ width: "100vw", transitionDuration: "0.1s" }}
     ></div>
   );
 }

@@ -7,27 +7,22 @@ import Introduction from "../Components/Introduction";
 import DesktopFrame from "../Components/DesktopFrame";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-import Link from "@mui/material/Link";
 import { Button, Paper } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import MobileFrame from "../Components/MobileFrame";
+import { useStyles } from "../Components/Styles";
 import BlogBtn from "../Components/BlogBtn";
+import { useNavigate } from "react-router-dom";
 import HomeBtn from "../Components/HomeBtn";
 import Header from "../Components/Header";
-import { useStyles } from "../Components/Styles";
 
 function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [filtered, setFiltered] = useState(false);
-  const [alignment, setAlignment] = React.useState("left");
+  const [filtered, setFiltered] = useState(props.darkMode);
+  const [boxStyle, setBoxStyle] = React.useState(false);
   let nav = useNavigate();
 
   const classes = useStyles();
-
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
 
   const boxRef = useRef(null);
 
@@ -43,6 +38,21 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
+  const handleBoxStyle = () => {
+    setBoxStyle((prev) => !prev);
+    if (boxStyle) {
+      boxRef.current.style.setProperty("filter", "invert(0) grayscale(0%)");
+    } else {
+      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+    }
+  };
+
+  //   useEffect(() => {
+  //     setTimeout(() => {
+  //       handleChange();
+  //     }, 10);
+  //   }, []);
+
   // const handleCookie = () => {
   //   console.log(props.darkMode);
   //   props.setCookie(props.darkMode, {
@@ -53,30 +63,18 @@ function Landing(props) {
 
   const handleChange = () => {
     props.setDarkMode(!props.darkMode);
-    // localStorage.setItem("darkMode", !props.darkMode);
+    localStorage.setItem("darkMode", !props.darkMode);
 
     if (windowWidth > 1280) {
       if (!filtered) {
         setFiltered(true);
-        boxRef.current.style.setProperty("transition-duration", "0.5s ");
+        handleBoxStyle();
         // boxRef.current.style.setProperty("filter", "invert(100) ");
-        boxRef.current.style.setProperty(
-          "filter",
-          "invert(100) grayscale(100%)"
-        );
       } else {
         setFiltered(false);
-        boxRef.current.style.setProperty("filter", "grayscale(0%)");
+        handleBoxStyle();
       }
     }
-  };
-
-  const handleBlogClick = () => {
-    nav("/blog");
-  };
-
-  const handleHomeClick = () => {
-    nav("/");
   };
 
   return (
@@ -86,11 +84,6 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      {windowWidth > 1280 ? (
-        <DesktopFrame desktop={windowWidth > 1280} darkMode={props.darkMode} />
-      ) : (
-        <MobileFrame darkMode={props.darkMode} />
-      )}
       <div
         style={{
           zIndex: 1,
@@ -182,7 +175,7 @@ function Landing(props) {
             transition: "0.8s linear",
           }}
         >
-          <Boxes />
+          <Waves />
         </div>
       ) : (
         <Waves />

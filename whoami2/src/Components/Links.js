@@ -7,36 +7,18 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useStyles } from "./Styles";
 
-export default function TemporaryDrawer(props) {
+export default function Links(props) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+  const classes = useStyles();
 
   const btnName = "LINKS";
-
-  const useStyles = makeStyles({
-    button: {
-      "&:hover": {
-        color: "#FFCC00",
-        transitionDuration: "0.2s",
-        cursor: "pointer",
-      },
-      transitionDuration: "0.2s",
-    },
-    button2: {
-      "&:hover": {
-        color: "#0057D9",
-        transitionDuration: "0.2s",
-        cursor: "pointer",
-      },
-      transitionDuration: "0.2s",
-    },
-  });
-  const classes = useStyles();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
