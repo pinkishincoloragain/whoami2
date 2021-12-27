@@ -191,7 +191,7 @@ function Landing(props) {
               color={props.darkMode ? "white" : "black"}
               className={classes.letter}
             >
-              MYUNGBINSON
+              MYUNGBIN SON
             </Typography>
           </div>
         ) : (

@@ -9,42 +9,64 @@ export default function DesktopFrame(props) {
   const [mouseIn, setMouseIn] = React.useState(false);
   const [mouseOnCode, setMouseOnCode] = React.useState(false);
   const [backGrdColor, setBackGrdColor] = React.useState("transparent");
+  const [mouseDown, setMouseDown] = React.useState(0);
 
   const handleMouseMove = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("opacity", "70%");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+      clickRef.current.style.setProperty("opacity", "70%");
+      clickRef.current.style.setProperty("filter", "blur(0px)");
+    }
   };
 
   const handleMouseDown = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
+    setMouseDown((prev) => prev + 1);
+    handleBorder();
   };
   const handleMouseOut = (e) => {
     setMouseIn(false);
-    if (!mouseOnCode) {
-      clickRef.current.style.setProperty("filter", "blur(12px)");
-      // clickRef.current.style.setProperty("filter", "opacity(30%)");
-      clickRef.current.style.setProperty("background-color", "transparent");
+    if (mouseDown % 2 === 0) {
+      if (!mouseOnCode) {
+        clickRef.current.style.setProperty("filter", "blur(12px)");
+        // clickRef.current.style.setProperty("filter", "opacity(30%)");
+        clickRef.current.style.setProperty("background-color", "transparent");
+      }
     }
   };
 
   const handleMouseEnter = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
-    setMouseIn(true);
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+      clickRef.current.style.setProperty("filter", "blur(0px)");
+      setMouseIn(true);
+    }
   };
 
   const handleCommentMouseEnter = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
-    setMouseOnCode(true);
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+      clickRef.current.style.setProperty("filter", "blur(0px)");
+      setMouseOnCode(true);
+    }
   };
 
   const handleCommentMouseOut = (e) => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
-    setMouseOnCode(false);
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+      clickRef.current.style.setProperty("filter", "blur(0px)");
+      setMouseOnCode(false);
+    }
+  };
+
+  // const frameRef = React.useRef(null);
+
+  const handleBorder = (e) => {
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("border", "2px solid #f0f0f0");
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    } else {
+      clickRef.current.style.setProperty("border", "6px double black");
+    }
   };
 
   const OuterMouseMove = (e) => {
@@ -104,12 +126,16 @@ export default function DesktopFrame(props) {
           filter: "blur(12px)",
           transitionDuration: "0.1s",
           boxShadow: "5px 5px 10px black",
+          display: "flex",
+          margin: "auto",
+          alignItems: "center",
         }}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseEnter={handleMouseEnter}
         onMouseOut={handleMouseOut}
         ref={clickRef}
+        // ref={frameRef}
       >
         <UserCode
           darkMode={props.darkMode}
