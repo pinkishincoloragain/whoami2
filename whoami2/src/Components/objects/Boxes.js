@@ -54,8 +54,8 @@ function Boxes() {
         "#AD5E99",
         "#009473",
         "#DD4124",
-        "#DD94F70",
-        "#45ABAA",
+        "#D94F70",
+        "#45B5AA",
         "#F0C05A",
         "#5A5B9F",
         "#9B1B30",
@@ -67,7 +67,10 @@ function Boxes() {
         "#C74375",
         "#9BB7D4",
       ],
-      ["D3E4CD", "99A799", "F2DDC1", "E2C2B9"],
+      ["#D3E4CD", "#99A799", "#F2DDC1", "#E2C2B9"],
+      ["#161853", "#292C6D", "#FAEDF0", "#EC255A"],
+      ["#FF1700", "FF8E00", "#FFE400", "#06FF00"],
+      ["#7900FF", "#548CFF", "#93FFD8", "#CFFFDC"],
     ];
 
     let light;
@@ -108,7 +111,7 @@ function Boxes() {
           // color: Math.random() * 0xffffff,
           color:
             colors[rand_color_idx][Math.floor(Math.random() * color_length)],
-          map: textures[i % textures.length],
+          // map: textures[i % textures.length],
         })
       );
 

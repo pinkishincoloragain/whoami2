@@ -85,6 +85,7 @@ export default function Introduction(props) {
             width: "max(8vw,150px)",
             marginTop: "2vh",
             marginBottom: "2vh",
+            marginRight: "0px",
           }}
           style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => setEduOpen(!eduOpen)}

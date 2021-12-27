@@ -33,7 +33,7 @@ function Waves() {
       1,
       20000
     );
-    camera.position.set(30, 30, 100);
+    camera.position.set(0, 30, 100);
 
     //
 

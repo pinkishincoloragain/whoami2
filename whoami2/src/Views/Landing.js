@@ -10,6 +10,7 @@ import { makeStyles } from "@mui/styles";
 import Link from "@mui/material/Link";
 import { Button, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import MobileFrame from "../Components/MobileFrame";
 
 function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
@@ -95,32 +96,6 @@ function Landing(props) {
 
   // console.log(localStorage.darkMode);
 
-  const mobileFrame = (
-    <div
-      style={{
-        display: "flex",
-        margin: "auto",
-        width: "100%",
-        height: "200%",
-        justifyContent: "center",
-        alignItems: "center",
-        // position: "absolute",
-      }}
-      ref={boxRef}
-    >
-      <div
-        style={{
-          width: "50vw",
-          height: "40vh",
-          position: "absolute",
-          backgroundColor: "transparent",
-          border: "8px solid black",
-          zIndex: "0",
-        }}
-      ></div>
-    </div>
-  );
-
   return (
     <div
       style={{
@@ -128,7 +103,11 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      <DesktopFrame desktop={windowWidth > 1280} darkMode={props.darkMode} />
+      {windowWidth > 1280 ? (
+        <DesktopFrame desktop={windowWidth > 1280} darkMode={props.darkMode} />
+      ) : (
+        <MobileFrame darkMode={props.darkMode} />
+      )}
       <div
         style={{
           zIndex: 1,
@@ -156,6 +135,7 @@ function Landing(props) {
                     color={props.darkMode ? "white" : "black"}
                     flex={3}
                     className={classes.letter}
+                    onClick={() => window.location.reload()}
                   >
                     PINKISHINCOLORAGAIN
                   </Typography>

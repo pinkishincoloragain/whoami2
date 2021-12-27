@@ -6,12 +6,12 @@ export function education() {
     <>
       <Fade in timeout={200}>
         <List>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - Kyungpook Nat'l University (Global Software, 2017 - )
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - Technological University Dublin (Computer Science, 2021 -)
             </Typography>
@@ -27,22 +27,22 @@ export const experience = () => {
     <>
       <Fade in timeout={200}>
         <List>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - KNU PRIME Supporters (2017 - 2018)
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - KNU DEAL LAB Student researcher (2020 - 2021)
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - LG WebOS Internship programme (2021S)
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - Double degree programme, TU Dublin (2022 - )
             </Typography>
@@ -58,13 +58,13 @@ export const skills = () => {
     <>
       <Fade in timeout={200}>
         <List>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - Languages: Korean(native), English(fluent), Python, JavaScript,
               Java, C
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               - Tools: Jetbrains environment, VSCode, Git, Figma, Final Cut Pro
             </Typography>
@@ -79,7 +79,7 @@ export const projects = () => {
     <>
       <Fade in timeout={200}>
         <List>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               <Link
                 style={{ textDecoration: "none" }}
@@ -91,7 +91,7 @@ export const projects = () => {
               </Link>
             </Typography>
           </ListItem>
-          <ListItem sx={{ mt: "0px", ml: "2vh" }}>
+          <ListItem sx={{ mt: "0px" }}>
             <Typography variant="h6" fontStyle={"italic"}>
               <Link
                 style={{ textDecoration: "none" }}
