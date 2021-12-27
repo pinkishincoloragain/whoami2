@@ -6,6 +6,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+
   useEffect(() => {
     if (localStorage.darkMode !== undefined) {
       setDarkMode(localStorage.darkMode);

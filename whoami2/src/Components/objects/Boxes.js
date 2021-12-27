@@ -39,31 +39,35 @@ function Boxes() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0);
 
-    const phantonColor = [
-      "#F5DF4D",
-      "#939597",
-      "#0F4C81",
-      "#FF6F61",
-      "#5F4B8B",
-      "#88B04B",
-      "#F7CACA",
-      "#93A9D1",
-      "#964F4C",
-      "#AD5E99",
-      "#009473",
-      "#DD4124",
-      "#DD94F70",
-      "#45ABAA",
-      "#F0C05A",
-      "#5A5B9F",
-      "#9B1B30",
-      "#DECDBE",
-      "#53B0AE",
-      "#E2583E",
-      "#7BC4C4",
-      "#BF1932",
-      "#C74375",
-      "#9BB7D4",
+    const colors = [
+      [
+        // Phantone
+        "#F5DF4D",
+        "#939597",
+        "#0F4C81",
+        "#FF6F61",
+        "#5F4B8B",
+        "#88B04B",
+        "#F7CACA",
+        "#93A9D1",
+        "#964F4C",
+        "#AD5E99",
+        "#009473",
+        "#DD4124",
+        "#DD94F70",
+        "#45ABAA",
+        "#F0C05A",
+        "#5A5B9F",
+        "#9B1B30",
+        "#DECDBE",
+        "#53B0AE",
+        "#E2583E",
+        "#7BC4C4",
+        "#BF1932",
+        "#C74375",
+        "#9BB7D4",
+      ],
+      ["D3E4CD", "99A799", "F2DDC1", "E2C2B9"],
     ];
 
     let light;
@@ -72,14 +76,14 @@ function Boxes() {
     scene.add(light);
 
     let geometry;
-    let randNum = Math.floor(Math.random() * 2);
-    let randNum2 = Math.floor(Math.random() * 7);
+    let rand_color_idx = Math.floor(Math.random() * colors.length);
+    let shape_case = Math.floor(Math.random() * 7);
+    let color_length = colors[rand_color_idx].length;
     const texture_water = new THREE.TextureLoader().load(water);
     const texture_water2 = new THREE.TextureLoader().load(water2);
     const texture_water3 = new THREE.TextureLoader().load(water3);
     const texture_stone = new THREE.TextureLoader().load(stone);
     const texture_stone2 = new THREE.TextureLoader().load(stone2);
-    // const texture_black = new THREE.TextureLoader().load(int);
     const textures = [
       // texture_water,
       // texture_water2,
@@ -102,17 +106,18 @@ function Boxes() {
         geometry,
         new THREE.MeshLambertMaterial({
           // color: Math.random() * 0xffffff,
-          color: phantonColor[Math.floor(Math.random() * phantonColor.length)],
+          color:
+            colors[rand_color_idx][Math.floor(Math.random() * color_length)],
           map: textures[i % textures.length],
         })
       );
 
-      if (randNum2 === 0) {
+      if (shape_case === 0) {
         // if (props.type === "circle") {
         object.position.x = Math.sin(i) * 360;
         object.position.y = Math.cos(i) * 360;
         object.position.z = Math.sin(i) * 360;
-      } else if (randNum2 === 1) {
+      } else if (shape_case === 1) {
         object.position.x = Math.sin(i) * 360;
         object.position.y = Math.cos(i) * 360;
         object.position.z = Math.tan(i) * 360;
@@ -126,11 +131,11 @@ function Boxes() {
       //   object.position.y = Math.cos(i) * 400;
       //   object.position.z = Math.tan(i) * 400;
       // }
-      else if (randNum2 === 4) {
+      else if (shape_case === 4) {
         object.position.x = Math.sin(i) * 400;
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.tan(i) * 400;
-      } else if (randNum2 === 5) {
+      } else if (shape_case === 5) {
         object.position.x = Math.sin(i) * 400;
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 800;

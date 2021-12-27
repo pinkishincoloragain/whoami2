@@ -7,14 +7,16 @@ import Introduction from "../Components/Introduction";
 import DesktopFrame from "../Components/DesktopFrame";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-
-import { Paper } from "@mui/material";
+import Link from "@mui/material/Link";
+import { Button, Paper } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(false);
   const [alignment, setAlignment] = React.useState("left");
+  let nav = useNavigate();
 
   const useStyles = makeStyles({
     letter: {
@@ -87,6 +89,10 @@ function Landing(props) {
     }
   };
 
+  const handleBlogClick = () => {
+    nav("/blog");
+  };
+
   // console.log(localStorage.darkMode);
 
   const mobileFrame = (
@@ -98,7 +104,7 @@ function Landing(props) {
         height: "200%",
         justifyContent: "center",
         alignItems: "center",
-        position: "absolute",
+        // position: "absolute",
       }}
       ref={boxRef}
     >
@@ -243,9 +249,26 @@ function Landing(props) {
             </Typography>
           </div>
         )}
-        <div style={{ height: "5vh" }}></div>
+
         <Introduction darkMode={props.darkMode} />
         <TemporaryDrawer darkMode={props.darkMode} />
+        <div>
+          {props.darkMode ? (
+            <Button>
+              <Link to="/blog" style={{ textDecoration: "none" }}>
+                <Typography variant="h4" color="white">
+                  BLOG
+                </Typography>
+              </Link>
+            </Button>
+          ) : (
+            <Button onClick={handleBlogClick}>
+              <Typography variant="h4" color="black">
+                BLOG
+              </Typography>
+            </Button>
+          )}
+        </div>
       </div>
       {windowWidth > 1280 ? (
         <div
