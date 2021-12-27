@@ -11,6 +11,7 @@ import { keyframes } from "@mui/system";
 import { Fade } from "@mui/material";
 import { education, experience, projects, skills } from "./IntroContents";
 import Waves from "./objects/Waves";
+import { makeStyles } from "@mui/styles";
 
 export default function Introduction(props) {
   const btnName = "Introduction";
@@ -20,6 +21,25 @@ export default function Introduction(props) {
     bottom: false,
     right: false,
   });
+  const useStyles = makeStyles({
+    button: {
+      "&:hover": {
+        color: "#FFCC00",
+        transitionDuration: "0.2s",
+        cursor: "pointer",
+      },
+      transitionDuration: "0.2s",
+    },
+    button2: {
+      "&:hover": {
+        color: "#0057D9",
+        transitionDuration: "0.2s",
+        cursor: "pointer",
+      },
+      transitionDuration: "0.2s",
+    },
+  });
+  const classes = useStyles();
 
   const [eduOpen, setEduOpen] = React.useState(true);
   const [expOpen, setExpOpen] = React.useState(true);
@@ -144,6 +164,7 @@ export default function Introduction(props) {
                 gutterBottom
                 margin="auto"
                 color="white"
+                className={classes.button}
               >
                 {btnName}
               </Typography>
@@ -154,6 +175,7 @@ export default function Introduction(props) {
                 gutterBottom
                 margin="auto"
                 color="black"
+                className={classes.button2}
               >
                 {btnName}
               </Typography>

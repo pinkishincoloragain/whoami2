@@ -35,6 +35,16 @@ function App() {
                   />
                 }
               />
+              <Route
+                path="/blog"
+                element={
+                  <Landing
+                    darkMode={darkMode}
+                    setDarkMode={setDarkMode}
+                    style={{ transitionDuration: "1s" }}
+                  />
+                }
+              />
             </Routes>
           </BrowserRouter>
         </CookiesProvider>

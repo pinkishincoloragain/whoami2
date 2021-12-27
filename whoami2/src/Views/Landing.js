@@ -6,6 +6,7 @@ import TemporaryDrawer from "../Components/Links";
 import Introduction from "../Components/Introduction";
 import DesktopFrame from "../Components/DesktopFrame";
 import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 
 import { Paper } from "@mui/material";
 
@@ -14,6 +15,25 @@ function Landing(props) {
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(false);
   const [alignment, setAlignment] = React.useState("left");
+
+  const useStyles = makeStyles({
+    letter: {
+      "&:hover": {
+        color: "grey",
+        transitionDuration: "0.2s",
+      },
+      transitionDuration: "0.2s",
+    },
+    button: {
+      "&:hover": {
+        color: "#FFCC00",
+        transitionDuration: "0.2s",
+        cursor: "pointer",
+      },
+      transitionDuration: "0.2s",
+    },
+  });
+  const classes = useStyles();
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -36,7 +56,7 @@ function Landing(props) {
   useEffect(() => {
     setTimeout(() => {
       handleChange();
-    }, 100);
+    }, 10);
   }, []);
 
   // const handleCookie = () => {
@@ -129,6 +149,7 @@ function Landing(props) {
                     gutterBottom
                     color={props.darkMode ? "white" : "black"}
                     flex={3}
+                    className={classes.letter}
                   >
                     PINKISHINCOLORAGAIN
                   </Typography>
@@ -168,6 +189,7 @@ function Landing(props) {
               gutterBottom
               marginLeft="1vh"
               color={props.darkMode ? "white" : "black"}
+              className={classes.letter}
             >
               MYUNGBINSON
             </Typography>
@@ -194,6 +216,7 @@ function Landing(props) {
               fontWeight="bold"
               gutterBottom
               color="#f0f0f0"
+              className={classes.button}
             >
               Dark
             </Typography>
@@ -214,6 +237,7 @@ function Landing(props) {
               fontWeight={"bold"}
               gutterBottom
               color="black"
+              className={classes.button}
             >
               Light
             </Typography>

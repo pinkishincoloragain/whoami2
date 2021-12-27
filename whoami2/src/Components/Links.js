@@ -6,6 +6,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 export default function TemporaryDrawer(props) {
   const [state, setState] = React.useState({
@@ -16,6 +17,26 @@ export default function TemporaryDrawer(props) {
   });
 
   const btnName = "LINKS";
+
+  const useStyles = makeStyles({
+    button: {
+      "&:hover": {
+        color: "#FFCC00",
+        transitionDuration: "0.2s",
+        cursor: "pointer",
+      },
+      transitionDuration: "0.2s",
+    },
+    button2: {
+      "&:hover": {
+        color: "#0057D9",
+        transitionDuration: "0.2s",
+        cursor: "pointer",
+      },
+      transitionDuration: "0.2s",
+    },
+  });
+  const classes = useStyles();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -41,7 +62,7 @@ export default function TemporaryDrawer(props) {
           button
           key="Github"
           sx={{
-            height: "1.5vh",
+            height: "2.5vh",
             width: "max(8vw,150px)",
             marginTop: "2vh",
             marginBottom: "2vh",
@@ -56,7 +77,7 @@ export default function TemporaryDrawer(props) {
           button
           key="Linkedin"
           sx={{
-            height: "1.5vh",
+            height: "2.5vh",
             width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
@@ -72,7 +93,7 @@ export default function TemporaryDrawer(props) {
           button
           key="Youtube"
           sx={{
-            height: "1.5vh",
+            height: "2.5vh",
             width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
@@ -90,7 +111,7 @@ export default function TemporaryDrawer(props) {
           button
           key="Instagram"
           sx={{
-            height: "1.5vh",
+            height: "2.5vh",
             width: "max(8vw,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
@@ -135,6 +156,7 @@ export default function TemporaryDrawer(props) {
                 gutterBottom
                 margin="auto"
                 color="white"
+                className={classes.button}
               >
                 {btnName}
               </Typography>
@@ -145,6 +167,7 @@ export default function TemporaryDrawer(props) {
                 gutterBottom
                 margin="auto"
                 color="black"
+                className={classes.button2}
               >
                 {btnName}
               </Typography>
