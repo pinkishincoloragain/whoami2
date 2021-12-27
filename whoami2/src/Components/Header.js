@@ -10,6 +10,7 @@ export default function Header(props) {
         style={{
           display: "flex",
           flexDirection: "row",
+          width: "80%",
           //   transitionDuration:"0.2s"
         }}
       >

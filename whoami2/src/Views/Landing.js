@@ -19,17 +19,14 @@ import { useStyles } from "../Components/Styles";
 function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [filtered, setFiltered] = useState(false);
+  const [filtered, setFiltered] = useState(props.darkMode);
   const [alignment, setAlignment] = React.useState("left");
   let nav = useNavigate();
 
   const classes = useStyles();
 
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
-
   const boxRef = useRef(null);
+  console.log(props.darkMode);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {

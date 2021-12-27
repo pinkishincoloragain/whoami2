@@ -33,6 +33,14 @@ const useStyles = makeStyles(() => ({
     },
     transitionDuration: "0.8s",
   },
+  letter: {
+    "&:hover": {
+      color: "#FFCC00",
+      transitionDuration: "0.1s",
+      cursor: "pointer",
+    },
+    transitionDuration: "0.8s",
+  },
 }));
 
 export { useStyles };
