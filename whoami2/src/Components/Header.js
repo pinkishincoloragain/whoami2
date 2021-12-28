@@ -1,8 +1,26 @@
+import React, { useEffect } from "react";
 import { useStyles } from "./Styles";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
+import { styled } from "@mui/styles";
 
 export default function Header(props) {
   const classes = useStyles();
+
+  const myungRef = React.useRef(null);
+  const binRef = React.useRef(null);
+
+  const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: "#f0f0f0",
+      color: "rgba(0, 0, 0, 0.87)",
+      maxWidth: 220,
+      border: "1px solid #f0f0f0",
+      fontSize: "1rem",
+    },
+  }));
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
@@ -46,11 +64,33 @@ export default function Header(props) {
               flexDirection: "row",
             }}
           >
-            <div style={{ color: "white" }} onClick={props.handleChange}>
-              <b>溟</b>
+            <div
+              style={{
+                color: "white",
+              }}
+              onClick={props.handleChange}
+            >
+              <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="inherit"></Typography>
+                    <em>{"바다 명"}</em> <b>{"(Ocean)"}</b> {"溟"}
+                  </React.Fragment>
+                }
+              >
+                <b className={classes.hiddenText}>溟</b>
+              </HtmlTooltip>
             </div>
-            <div style={{ marginLeft: "2vh" }} onClick={props.handleChange}>
-              <b>彬</b>
+            <div
+              style={{
+                color: "white",
+                marginLeft: "2vh",
+              }}
+              onClick={props.handleChange}
+            >
+              <Tooltip title="빛날 빈(Light)">
+                <b className={classes.hiddenText}>彬</b>
+              </Tooltip>
             </div>
           </div>
         </div>

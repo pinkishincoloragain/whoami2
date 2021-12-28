@@ -33,6 +33,16 @@ const useStyles = makeStyles(() => ({
     },
     transitionDuration: "0.8s",
   },
+  hiddenText: {
+    filter: "blur(4px) opacity(0.5)",
+    "&:hover": {
+      color: "#009473",
+      transitionDuration: "0.1s",
+      cursor: "pointer",
+      filter: "none",
+    },
+    transitionDuration: "0.8s",
+  },
   letter: {
     "&:hover": {
       color: "#FFCC00",

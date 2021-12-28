@@ -48,6 +48,17 @@ function Landing(props) {
   //   console.log(props.darkMode);
   // };
 
+  useEffect(() => {
+    if (props.darkMode === true) {
+      setFiltered(true);
+      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+    } else {
+      setFiltered(false);
+      boxRef.current.style.setProperty("filter", "grayscale(0%)");
+    }
+    // console.log(filtered);
+  }, [props.darkMode]);
+
   const handleChange = () => {
     props.setDarkMode(!props.darkMode);
     // localStorage.setItem("darkMode", !props.darkMode);
@@ -171,20 +182,22 @@ function Landing(props) {
           <HomeBtn darkMode={props.darkMode} />
         </div>
       </div>
-      {windowWidth > 1280 ? (
-        <div
-          ref={boxRef}
-          style={{
-            filter: "saturate(1)",
-            transition: "0.8s linear",
-          }}
-        >
-          <Boxes />
-        </div>
-      ) : (
-        <Waves />
-      )}
-      {/* {windowWidth > 1280 ? <div /> : <div />} */}
+      <div style={{ transitionDuration: "0.5s" }}>
+        {windowWidth > 1280 ? (
+          <div
+            ref={boxRef}
+            style={{
+              filter: "saturate(1)",
+              transition: "0.5s linear",
+            }}
+          >
+            <Boxes />
+          </div>
+        ) : (
+          <Waves />
+        )}
+        {/* {windowWidth > 1280 ? <div /> : <div />} */}
+      </div>
     </div>
   );
 }

@@ -77,6 +77,17 @@ function Landing(props) {
     }
   };
 
+  useEffect(() => {
+    if (props.darkMode === true) {
+      setFiltered(true);
+      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+    } else {
+      setFiltered(false);
+      boxRef.current.style.setProperty("filter", "grayscale(0%)");
+    }
+    // console.log(filtered);
+  }, [props.darkMode]);
+
   return (
     <div
       style={{
@@ -172,7 +183,8 @@ function Landing(props) {
           ref={boxRef}
           style={{
             filter: "saturate(1)",
-            transition: "0.8s linear",
+            transition: "0.5s linear",
+            // transitionDuration:
           }}
         >
           <Waves />
