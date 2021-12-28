@@ -19,6 +19,7 @@ export default function Header(props) {
       maxWidth: 220,
       border: "1px solid #f0f0f0",
       fontSize: "1rem",
+      placement: "top-start",
     },
   }));
 
@@ -33,18 +34,20 @@ export default function Header(props) {
         }}
       >
         <div>
-          <Typography
-            variant="h1"
-            component="div"
-            fontWeight={"bold"}
-            gutterBottom
-            color={props.darkMode ? "white" : "black"}
-            flex={3}
-            className={classes.letter}
-            onClick={() => window.location.reload()}
-          >
-            PINKISHINCOLORAGAIN
-          </Typography>
+          <Tooltip title="change theme" placement="top">
+            <Typography
+              variant="h1"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+              color={props.darkMode ? "white" : "black"}
+              flex={3}
+              className={classes.letter}
+              onClick={() => window.location.reload()}
+            >
+              PINKISHINCOLORAGAIN
+            </Typography>
+          </Tooltip>
           {/* {props.darkMode ? "🌙" : "🌞"} */}
         </div>
         <div
@@ -66,31 +69,40 @@ export default function Header(props) {
           >
             <div
               style={{
-                color: "white",
+                color: "grey",
               }}
               onClick={props.handleChange}
             >
               <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="inherit"></Typography>
-                    <em>{"바다 명"}</em> <b>{"(Ocean)"}</b> {"溟"}
+                    <Typography color="inherit">means</Typography>
+                    <b>{"Ocean"}</b>
                   </React.Fragment>
                 }
               >
-                <b className={classes.hiddenText}>溟</b>
+                <div className={classes.hiddenText}>
+                  <b>溟</b>
+                </div>
               </HtmlTooltip>
             </div>
             <div
               style={{
-                color: "white",
+                color: "grey",
                 marginLeft: "2vh",
               }}
               onClick={props.handleChange}
             >
-              <Tooltip title="빛날 빈(Light)">
+              <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="inherit">means</Typography>
+                    <b>{"Light"}</b>
+                  </React.Fragment>
+                }
+              >
                 <b className={classes.hiddenText}>彬</b>
-              </Tooltip>
+              </HtmlTooltip>
             </div>
           </div>
         </div>

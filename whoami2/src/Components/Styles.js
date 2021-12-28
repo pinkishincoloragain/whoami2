@@ -35,6 +35,10 @@ const useStyles = makeStyles(() => ({
   },
   hiddenText: {
     filter: "blur(4px) opacity(0.5)",
+    display: "flex",
+    margin: "auto",
+    alignItems: "center",
+
     "&:hover": {
       color: "#009473",
       transitionDuration: "0.1s",

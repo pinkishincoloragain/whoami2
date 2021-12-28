@@ -14,6 +14,7 @@ import BlogBtn from "../Components/BlogBtn";
 import { useNavigate } from "react-router-dom";
 import HomeBtn from "../Components/HomeBtn";
 import Header from "../Components/Header";
+import LightBtn from "../Components/LightBtn";
 
 function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
@@ -124,50 +125,7 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        {props.darkMode ? (
-          <div
-            style={{
-              width: "15vw",
-              height: "8vh",
-              marginLeft: "1vh",
-              padding: "none",
-            }}
-            onClick={handleChange}
-            label=" "
-          >
-            <Typography
-              variant="h3"
-              component="div"
-              fontWeight="bold"
-              gutterBottom
-              color="#f0f0f0"
-              className={classes.button}
-            >
-              Dark
-            </Typography>
-          </div>
-        ) : (
-          <div
-            style={{
-              width: "15vw",
-              marginLeft: "1vh",
-              height: "8vh",
-            }}
-            onClick={handleChange}
-            label=" "
-          >
-            <Typography
-              variant="h3"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              color="black"
-              className={classes.button}
-            >
-              Light
-            </Typography>
-          </div>
-        )}
+        <LightBtn handleChange={handleChange} />
 
         <Introduction darkMode={props.darkMode} />
         <Links darkMode={props.darkMode} />
