@@ -17,8 +17,8 @@ export default function Links(props) {
     right: false,
   });
   const classes = useStyles();
-
   const btnName = "LINKS";
+  console.log(props.darkMode);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -131,7 +131,7 @@ export default function Links(props) {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            {props.darkMode ? (
+            {props.darkMode === true ? (
               <Typography
                 variant="h4"
                 component="div"

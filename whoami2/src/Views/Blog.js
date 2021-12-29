@@ -4,7 +4,7 @@ import Waves from "../Components/objects/Waves";
 import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
-import DesktopFrame from "../Components/DesktopFrame";
+import DesktopFrame from "./DesktopFrame";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import { Button, Paper } from "@mui/material";
@@ -114,7 +114,7 @@ function Landing(props) {
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={props.darkMode ? "white" : "black"}
+              color={props.darkMode ? "black" : "white"}
               className={classes.letter}
             >
               MYUNGBIN SON
@@ -125,7 +125,7 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        <LightBtn handleChange={handleChange} />
+        <LightBtn darkMode={props.darkMode} handleChange={handleChange} />
 
         <Introduction darkMode={props.darkMode} />
         <Links darkMode={props.darkMode} />

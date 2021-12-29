@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import CommentLine from "./CommentLine";
+import CommentLine from "../Components/CommentLine";
 import { Link } from "react-router-dom";
-import UserCode from "./UserCode";
+import UserCode from "../Components/UserCode";
 
 export default function DesktopFrame(props) {
   const clickRef = React.useRef(null);
@@ -133,7 +133,7 @@ export default function DesktopFrame(props) {
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseEnter={handleMouseEnter}
-        onMouseOut={handleMouseOut}
+        onMouseLeave={handleMouseOut}
         ref={clickRef}
         // ref={frameRef}
       >

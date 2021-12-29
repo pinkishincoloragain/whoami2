@@ -15,7 +15,7 @@ export default function BlogBtn(props) {
 
   return (
     <div>
-      {props.darkMode ? (
+      {props.darkMode === true ? (
         <Button onClick={handleBlogClick} sx={{ transitionDuration: "0.4s" }}>
           <Typography variant="h4" color="white" className={classes.button3}>
             BLOG

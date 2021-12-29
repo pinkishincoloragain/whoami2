@@ -140,7 +140,7 @@ export default function Introduction(props) {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            {props.darkMode ? (
+            {props.darkMode === true ? (
               <Typography
                 variant="h4"
                 component="div"

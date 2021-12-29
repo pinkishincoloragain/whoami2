@@ -4,7 +4,7 @@ import Waves from "../Components/objects/Waves";
 import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
-import DesktopFrame from "../Components/DesktopFrame";
+import DesktopFrame from "./DesktopFrame";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import Link from "@mui/material/Link";
@@ -61,7 +61,7 @@ function Landing(props) {
   }, [props.darkMode]);
 
   const handleChange = () => {
-    props.setDarkMode(!props.darkMode);
+    props.handleDarkMode();
     // localStorage.setItem("darkMode", !props.darkMode);
 
     if (windowWidth > 1280) {
@@ -118,7 +118,7 @@ function Landing(props) {
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={props.darkMode ? "white" : "black"}
+              color={props.darkMode === true ? "white" : "black"}
               className={classes.letter}
             >
               MYUNGBIN SON
@@ -129,7 +129,7 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        <LightBtn handleChange={handleChange} />
+        <LightBtn darkMode={props.darkMode} handleChange={handleChange} />
 
         <Introduction darkMode={props.darkMode} />
         <Links darkMode={props.darkMode} />

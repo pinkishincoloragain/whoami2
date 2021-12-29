@@ -3,9 +3,11 @@ import { Typography } from "@mui/material";
 
 export default function LightBtn(props) {
   const classes = useStyles();
+  console.log(props.darkMode);
+
   return (
-    <>
-      {props.darkMode ? (
+    <div>
+      {props.darkMode === true ? (
         <div
           style={{
             width: "15vw",
@@ -49,6 +51,6 @@ export default function LightBtn(props) {
           </Typography>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -23,6 +23,8 @@ export default function Header(props) {
     },
   }));
 
+  console.log(props.darkMode);
+
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       <div
@@ -40,7 +42,7 @@ export default function Header(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
-              color={props.darkMode ? "white" : "black"}
+              color={props.darkMode ? "black" : "white"}
               flex={3}
               className={classes.letter}
               onClick={() => window.location.reload()}

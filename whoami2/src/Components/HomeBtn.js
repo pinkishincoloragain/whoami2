@@ -15,7 +15,7 @@ export default function HomeBtn(props) {
 
   return (
     <div>
-      {props.darkMode ? (
+      {props.darkMode === true ? (
         <Button onClick={handleBlogClick}>
           <Typography variant="h4" color="white" className={classes.button4}>
             HOME
