@@ -4,27 +4,26 @@ import Waves from "../Components/objects/Waves";
 import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
-import DesktopFrame from "./DesktopFrame";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
-import { Button, Paper } from "@mui/material";
-import MobileFrame from "../Components/MobileFrame";
 import { useStyles } from "../Components/Styles";
-import BlogBtn from "../Components/BlogBtn";
+import BlogBtn from "../Components/buttons/BlogBtn";
+import HomeBtn from "../Components/buttons/HomeBtn";
 import { useNavigate } from "react-router-dom";
-import HomeBtn from "../Components/HomeBtn";
 import Header from "../Components/Header";
-import LightBtn from "../Components/LightBtn";
+import LightBtn from "../Components/buttons/LightBtn";
+import { useSelector, useDispatch } from "react-redux";
+import { changeMode } from "../Components/controls/modeSlice";
 
-function Landing(props) {
+function Blog(props) {
+  const darkMode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
+
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [filtered, setFiltered] = useState(props.darkMode);
+  const [filtered, setFiltered] = useState(darkMode);
   const [boxStyle, setBoxStyle] = React.useState(false);
-  let nav = useNavigate();
 
   const classes = useStyles();
-
   const boxRef = useRef(null);
 
   useEffect(() => {
@@ -38,15 +37,6 @@ function Landing(props) {
       setWindowHeight(window.innerHeight);
     });
   }, [window.innerHeight]);
-
-  const handleBoxStyle = () => {
-    setBoxStyle((prev) => !prev);
-    if (boxStyle) {
-      boxRef.current.style.setProperty("filter", "invert(0) grayscale(0%)");
-    } else {
-      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
-    }
-  };
 
   //   useEffect(() => {
   //     setTimeout(() => {
@@ -62,9 +52,17 @@ function Landing(props) {
   //   console.log(props.darkMode);
   // };
 
+  const handleBoxStyle = () => {
+    setBoxStyle((prev) => !prev);
+    if (boxStyle) {
+      boxRef.current.style.setProperty("filter", "invert(0) grayscale(0%)");
+    } else {
+      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+    }
+  };
+
   const handleChange = () => {
-    props.setDarkMode(!props.darkMode);
-    localStorage.setItem("darkMode", !props.darkMode);
+    dispatch(changeMode());
 
     if (windowWidth > 1280) {
       if (!filtered) {
@@ -79,7 +77,7 @@ function Landing(props) {
   };
 
   useEffect(() => {
-    if (props.darkMode === true) {
+    if (darkMode === true) {
       setFiltered(true);
       boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
     } else {
@@ -87,7 +85,7 @@ function Landing(props) {
       boxRef.current.style.setProperty("filter", "grayscale(0%)");
     }
     // console.log(filtered);
-  }, [props.darkMode]);
+  }, [darkMode]);
 
   return (
     <div
@@ -107,14 +105,14 @@ function Landing(props) {
       >
         {windowWidth > 1280 ? (
           <div>
-            <Header darkMode={props.darkMode} handleChange={handleChange} />
+            <Header handleChange={handleChange} />
             <Typography
               variant="h5"
               component="div"
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={props.darkMode ? "black" : "white"}
+              color={props.darkMode === true ? "black" : "white"}
               className={classes.letter}
             >
               MYUNGBIN SON
@@ -125,15 +123,19 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        <LightBtn darkMode={props.darkMode} handleChange={handleChange} />
+        <LightBtn
+          color={darkMode === true ? "white" : "black"}
+          handleChange={handleChange}
+          title={darkMode === true ? "LIGHT" : "DARK"}
+        />
 
-        <Introduction darkMode={props.darkMode} />
-        <Links darkMode={props.darkMode} />
+        <Introduction darkMode={darkMode} />
+        <Links darkMode={darkMode} />
         <div>
-          <BlogBtn darkMode={props.darkMode} />
+          <BlogBtn darkMode={darkMode} />
         </div>
         <div>
-          <HomeBtn darkMode={props.darkMode} />
+          <HomeBtn darkMode={darkMode} />
         </div>
       </div>
       {windowWidth > 1280 ? (
@@ -155,4 +157,4 @@ function Landing(props) {
   );
 }
 
-export default Landing;
+export default Blog;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import CommentLine from "../Components/CommentLine";
+import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
-import UserCode from "../Components/UserCode";
+import UserCode from "../Components/decorations/UserCode";
 
 export default function DesktopFrame(props) {
   const clickRef = React.useRef(null);

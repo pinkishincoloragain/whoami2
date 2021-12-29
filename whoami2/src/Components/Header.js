@@ -3,12 +3,18 @@ import { useStyles } from "./Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import { styled } from "@mui/styles";
+import { useSelector, useDispatch } from "react-redux";
+import { changeMode } from "./controls/modeSlice";
 
 export default function Header(props) {
+  const darkMode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
+
   const classes = useStyles();
 
-  const myungRef = React.useRef(null);
-  const binRef = React.useRef(null);
+  const handleClick = () => {
+    dispatch(changeMode());
+  };
 
   const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -22,8 +28,6 @@ export default function Header(props) {
       placement: "top-start",
     },
   }));
-
-  console.log(props.darkMode);
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
@@ -42,7 +46,7 @@ export default function Header(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
-              color={props.darkMode ? "black" : "white"}
+              color={darkMode === true ? "white" : "black"}
               flex={3}
               className={classes.letter}
               onClick={() => window.location.reload()}
@@ -50,7 +54,7 @@ export default function Header(props) {
               PINKISHINCOLORAGAIN
             </Typography>
           </Tooltip>
-          {/* {props.darkMode ? "🌙" : "🌞"} */}
+          {/* {props.darkMode===true ? "🌙" : "🌞"} */}
         </div>
         <div
           style={{
@@ -73,7 +77,7 @@ export default function Header(props) {
               style={{
                 color: "grey",
               }}
-              onClick={props.handleChange}
+              onClick={handleClick}
             >
               <HtmlTooltip
                 title={
@@ -93,7 +97,7 @@ export default function Header(props) {
                 color: "grey",
                 marginLeft: "2vh",
               }}
-              onClick={props.handleChange}
+              onClick={handleClick}
             >
               <HtmlTooltip
                 title={

@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
       filter: "none",
     },
-    
+
     transitionDuration: "0.8s",
   },
   letter: {

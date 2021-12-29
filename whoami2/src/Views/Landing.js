@@ -1,5 +1,4 @@
-import react from "react";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Waves from "../Components/objects/Waves";
 import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
@@ -10,24 +9,41 @@ import { makeStyles } from "@mui/styles";
 import Link from "@mui/material/Link";
 import { Button, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import MobileFrame from "../Components/MobileFrame";
-import BlogBtn from "../Components/BlogBtn";
-import HomeBtn from "../Components/HomeBtn";
+import MobileFrame from "./MobileFrame";
+import BlogBtn from "../Components/buttons/BlogBtn";
+import HomeBtn from "../Components/buttons/HomeBtn";
 import Header from "../Components/Header";
-import LightBtn from "../Components/LightBtn";
+import LightBtn from "../Components/buttons/LightBtn";
 import { useStyles } from "../Components/Styles";
-
+import { useSelector, useDispatch } from "react-redux";
+import { changeMode } from "../Components/controls/modeSlice";
 function Landing(props) {
+  const darkMode = useSelector((state) => state.mode.value);
+  const dispatch = useDispatch();
+
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
-  const [filtered, setFiltered] = useState(props.darkMode);
-  const [alignment, setAlignment] = React.useState("left");
-  let nav = useNavigate();
+  const [filtered, setFiltered] = useState(darkMode);
+
+  const handleDarkMode = () => {
+    dispatch(changeMode());
+  };
 
   const classes = useStyles();
 
-  const boxRef = useRef(null);
-  console.log(props.darkMode);
+  const boxRef = useCallback((node) => {
+    if (node !== null) {
+      if (darkMode === true) {
+        setFiltered(true);
+        node.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+      } else {
+        console.log(node);
+        setFiltered(false);
+        
+        node.current.style.setProperty("filter", "grayscale(0%)");
+      }
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -42,26 +58,26 @@ function Landing(props) {
   }, [window.innerHeight]);
 
   // const handleCookie = () => {
-  //   console.log(props.darkMode);
+  //   console.log(darkMode);
   //   props.setCookie(props.darkMode, {
   //     path: "/",
   //   });
   //   console.log(props.darkMode);
   // };
 
-  useEffect(() => {
-    if (props.darkMode === true) {
-      setFiltered(true);
-      boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
-    } else {
-      setFiltered(false);
-      boxRef.current.style.setProperty("filter", "grayscale(0%)");
-    }
-    // console.log(filtered);
-  }, [props.darkMode]);
+  // useEffect(() => {
+  //   if (darkMode === true) {
+  //     setFiltered(true);
+  //     boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
+  //   } else {
+  //     setFiltered(false);
+  //     boxRef.current.style.setProperty("filter", "grayscale(0%)");
+  //   }
+  //   // console.log(filtered);
+  // }, [darkMode]);
 
   const handleChange = () => {
-    props.handleDarkMode();
+    handleDarkMode();
     // localStorage.setItem("darkMode", !props.darkMode);
 
     if (windowWidth > 1280) {
@@ -80,14 +96,6 @@ function Landing(props) {
     }
   };
 
-  const handleBlogClick = () => {
-    nav("/blog");
-  };
-
-  const handleHomeClick = () => {
-    nav("/");
-  };
-
   return (
     <div
       style={{
@@ -96,9 +104,9 @@ function Landing(props) {
       }}
     >
       {windowWidth > 1280 ? (
-        <DesktopFrame desktop={windowWidth > 1280} darkMode={props.darkMode} />
+        <DesktopFrame desktop={windowWidth > 1280} darkMode={darkMode} />
       ) : (
-        <MobileFrame darkMode={props.darkMode} />
+        <MobileFrame darkMode={darkMode} />
       )}
       <div
         style={{
@@ -111,14 +119,17 @@ function Landing(props) {
       >
         {windowWidth > 1280 ? (
           <div style={{ width: "20vw" }}>
-            <Header darkMode={props.darkMode} handleChange={handleChange} />
+            <Header
+              color={darkMode ? "black" : "white"}
+              handleChange={handleChange}
+            />
             <Typography
               variant="h5"
               component="div"
               fontWeight={"bold"}
               gutterBottom
               marginLeft="1vh"
-              color={props.darkMode === true ? "white" : "black"}
+              color={darkMode === true ? "white" : "black"}
               className={classes.letter}
             >
               MYUNGBIN SON
@@ -129,15 +140,32 @@ function Landing(props) {
             PINKISHINCOLORAGAIN
           </div>
         )}
-        <LightBtn darkMode={props.darkMode} handleChange={handleChange} />
+        <LightBtn
+          darkMode={darkMode}
+          color={darkMode === true ? "white" : "black"}
+          handleChange={handleChange}
+          title={darkMode === true ? "DARK" : "LIGHT"}
+        />
 
-        <Introduction darkMode={props.darkMode} />
-        <Links darkMode={props.darkMode} />
+        <Introduction
+          darkMode={darkMode}
+          color={darkMode === true ? "white" : "black"}
+        />
+        <Links
+          color={darkMode === true ? "white" : "black"}
+          darkMode={darkMode}
+        />
         <div>
-          <BlogBtn darkMode={props.darkMode} />
+          <BlogBtn
+            darkMode={darkMode}
+            color={darkMode === true ? "white" : "black"}
+          />
         </div>
         <div>
-          <HomeBtn darkMode={props.darkMode} />
+          <HomeBtn
+            color={darkMode === true ? "white" : "black"}
+            darkMode={darkMode}
+          />
         </div>
       </div>
       <div style={{ transitionDuration: "0.5s" }}>

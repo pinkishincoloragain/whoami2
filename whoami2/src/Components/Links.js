@@ -131,29 +131,16 @@ export default function Links(props) {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            {props.darkMode === true ? (
-              <Typography
-                variant="h4"
-                component="div"
-                gutterBottom
-                margin="auto"
-                color="white"
-                className={classes.button}
-              >
-                {btnName}
-              </Typography>
-            ) : (
-              <Typography
-                variant="h4"
-                component="div"
-                gutterBottom
-                margin="auto"
-                color="black"
-                className={classes.button2}
-              >
-                {btnName}
-              </Typography>
-            )}
+            <Typography
+              variant="h4"
+              component="div"
+              gutterBottom
+              margin="auto"
+              color={props.color}
+              className={classes.button2}
+            >
+              {btnName}
+            </Typography>
           </Button>
           <Drawer
             anchor={anchor}
