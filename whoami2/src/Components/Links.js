@@ -18,7 +18,6 @@ export default function Links(props) {
   });
   const classes = useStyles();
   const btnName = "LINKS";
-  console.log(props.darkMode);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (

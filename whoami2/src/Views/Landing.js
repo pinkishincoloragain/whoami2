@@ -5,10 +5,7 @@ import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
 import DesktopFrame from "./DesktopFrame";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
 import Link from "@mui/material/Link";
-import { Button, Paper } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import MobileFrame from "./MobileFrame";
 import BlogBtn from "../Components/buttons/BlogBtn";
 import HomeBtn from "../Components/buttons/HomeBtn";
@@ -25,25 +22,7 @@ function Landing(props) {
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(darkMode);
 
-  const handleDarkMode = () => {
-    dispatch(changeMode());
-  };
-
   const classes = useStyles();
-
-  const boxRef = useCallback((node) => {
-    if (node !== null) {
-      if (darkMode === true) {
-        setFiltered(true);
-        node.current.style.setProperty("filter", "invert(100) grayscale(100%)");
-      } else {
-        console.log(node);
-        setFiltered(false);
-        
-        node.current.style.setProperty("filter", "grayscale(0%)");
-      }
-    }
-  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -57,14 +36,6 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
-  // const handleCookie = () => {
-  //   console.log(darkMode);
-  //   props.setCookie(props.darkMode, {
-  //     path: "/",
-  //   });
-  //   console.log(props.darkMode);
-  // };
-
   // useEffect(() => {
   //   if (darkMode === true) {
   //     setFiltered(true);
@@ -77,22 +48,10 @@ function Landing(props) {
   // }, [darkMode]);
 
   const handleChange = () => {
-    handleDarkMode();
-    // localStorage.setItem("darkMode", !props.darkMode);
+    dispatch(changeMode());
 
     if (windowWidth > 1280) {
-      if (!filtered) {
-        setFiltered(true);
-        boxRef.current.style.setProperty("transition-duration", "0.5s ");
-        // boxRef.current.style.setProperty("filter", "invert(100) ");
-        boxRef.current.style.setProperty(
-          "filter",
-          "invert(100) grayscale(100%)"
-        );
-      } else {
-        setFiltered(false);
-        boxRef.current.style.setProperty("filter", "grayscale(0%)");
-      }
+      setFiltered(true);
     }
   };
 
@@ -119,10 +78,7 @@ function Landing(props) {
       >
         {windowWidth > 1280 ? (
           <div style={{ width: "20vw" }}>
-            <Header
-              color={darkMode ? "black" : "white"}
-              handleChange={handleChange}
-            />
+            <Header color={darkMode ? "black" : "white"} />
             <Typography
               variant="h5"
               component="div"
@@ -168,17 +124,31 @@ function Landing(props) {
           />
         </div>
       </div>
-      <div style={{ transitionDuration: "0.5s" }}>
+      <div style={{ transitionDuration: "0.2s" }}>
         {windowWidth > 1280 ? (
-          <div
-            ref={boxRef}
-            style={{
-              filter: "saturate(1)",
-              transition: "0.5s linear",
-            }}
-          >
-            <Boxes />
-          </div>
+          <>
+            {darkMode == false ? (
+              <div
+                // ref={setRef}
+                style={{
+                  filter: "saturate(100%)",
+                  transition: "0.2s linear",
+                }}
+              >
+                <Boxes />
+              </div>
+            ) : (
+              <div
+                // ref={setRef}
+                style={{
+                  filter: "saturate(0%) invert(100%)",
+                  transition: "0.2s linear",
+                }}
+              >
+                <Boxes />
+              </div>
+            )}
+          </>
         ) : (
           <Waves />
         )}

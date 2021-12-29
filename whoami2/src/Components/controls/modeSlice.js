@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+let initialState = {
+  value: window.localStorage.getItem("theme") === "true" ? true : false,
+};
+
 export const modeSlice = createSlice({
   name: "darkMode",
-  initialState: {
-    value: window.localStorage.getItem("theme") === "dark" ? true : false,
-  },
+  initialState: initialState,
   reducers: {
     changeMode: (state) => {
       state.value = !state.value;

@@ -134,6 +134,7 @@ export default function DesktopFrame(props) {
         onMouseDown={handleMouseDown}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseOut}
+        onMouseOut={handleMouseOut}
         ref={clickRef}
         // ref={frameRef}
       >
