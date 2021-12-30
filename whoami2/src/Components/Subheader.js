@@ -1,3 +1,5 @@
+import React from "react";
+import { useEffect } from "react";
 import { useStyles } from "./Styles";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
@@ -6,6 +8,12 @@ import { Tooltip } from "@mui/material";
 export default function Subheader(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
+  const mbRef = React.createRef();
+  useEffect(() => {
+    if (mbRef.current) {
+      mbRef.current.style.setProperty("color", darkMode ? "black" : "white");
+    }
+  }, []);
 
   const deskTopHeader = (
     <div style={{ width: "13vw" }}>
@@ -26,6 +34,7 @@ export default function Subheader(props) {
           marginLeft="1vh"
           color={darkMode ? "white" : "black"}
           className={classes.letter}
+          ref={mbRef}
         >
           MYUNGBIN SON
         </Typography>

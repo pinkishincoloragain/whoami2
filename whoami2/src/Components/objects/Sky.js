@@ -40,6 +40,9 @@ class Sky extends Mesh {
 
 Sky.prototype.isSky = true;
 
+let now = new Date();
+// alert(now.getHours());
+
 Sky.SkyShader = {
   uniforms: {
     turbidity: { value: 2 },
@@ -47,7 +50,7 @@ Sky.SkyShader = {
     mieCoefficient: { value: 0.005 },
     mieDirectionalG: { value: 0.8 },
     sunPosition: { value: new Vector3() },
-    up: { value: new Vector3(0, 1, 0) },
+    up: { value: new Vector3(0, now.getHours() / 2, 0) },
   },
 
   vertexShader: /* glsl */ `

@@ -147,6 +147,7 @@ export default function Introduction(props) {
               margin="auto"
               color={props.color}
               className={classes.button}
+              paddingRight="1vw"
             >
               {btnName}
             </Typography>

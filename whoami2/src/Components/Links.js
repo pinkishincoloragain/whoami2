@@ -141,6 +141,7 @@ export default function Links(props) {
               margin="auto"
               color={props.color}
               className={classes.button2}
+              paddingRight="12vw"
             >
               {btnName}
             </Typography>

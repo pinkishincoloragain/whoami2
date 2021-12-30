@@ -10,7 +10,6 @@ export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const darkMode = useSelector((state) => state.mode.value);
-  console.log(darkMode);
 
   let classes = useStyles();
 
