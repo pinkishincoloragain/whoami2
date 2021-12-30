@@ -13,6 +13,8 @@ import Subheader from "../Components/Subheader";
 import Backgrounds from "../Components/Backgrounds";
 import ReloadBtn from "../Components/buttons/ReloadBtn";
 import stars from "../Components/textures/stars.png";
+import Button from "@mui/material/Button";
+import { Snackbar } from "@mui/material";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -21,6 +23,26 @@ function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(darkMode);
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = (newState) => () => {
+    setState({ open: true, ...newState });
+  };
+
+  useEffect(() => {
+    // setState({ open: true });
+    alert("fish");
+  }, [setTimeout(() => {}, 10000)]);
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
 
   const classes = useStyles();
 
@@ -51,6 +73,13 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        message="I love snacks"
+        key={vertical + horizontal}
+      />
       <div
         style={{
           zIndex: 1,
@@ -94,6 +123,15 @@ function Landing(props) {
           <Links color={darkMode ? "white" : "black"} />
           <BlogBtn color={darkMode ? "white" : "black"} />
           <ReloadBtn color={darkMode ? "white" : "black"} />
+          <Button
+            onClick={handleClick({
+              vertical: "top",
+              horizontal: "left",
+            })}
+            sx={{ mr: "1000px" }}
+          >
+            Top-Left
+          </Button>
         </div>
       </div>
       <Frames desktop={windowWidth > 1280} />

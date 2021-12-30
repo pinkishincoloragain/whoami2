@@ -7,7 +7,7 @@ export default function Button(props) {
   return (
     <Tooltip
       placement="top"
-      title={<Typography fontsize={300}>관상용입니다.</Typography>}
+      title={<Typography fontSize={10}>관상용입니다.</Typography>}
     >
       <div
         className={classes.terminalBtn}

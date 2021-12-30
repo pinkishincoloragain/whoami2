@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useStyles } from "./Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
@@ -13,6 +13,13 @@ export default function Header(props) {
   const dispatch = useDispatch();
 
   const classes = useStyles();
+  const pinkRef = useRef(null);
+
+  useEffect(() => {
+    if (pinkRef.current) {
+      pinkRef.current.focus();
+    }
+  }, []);
 
   const handleClick = () => {
     dispatch(changeMode());
