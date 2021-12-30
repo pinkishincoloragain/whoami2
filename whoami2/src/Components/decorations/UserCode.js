@@ -1,12 +1,18 @@
 import React from "react";
 import CommentLine from "./CommentLine";
+import { useSelector } from "react-redux";
 
-export default function UserCode(props) {
+export default function UserCode() {
+  const darkMode = useSelector((state) => state.mode.value);
+
   return (
     <code
-      onMouseEnter={props.handleCommentMouseEnter}
-      onMouseOut={props.handleCommentMouseOut}
-      color={props.darkMode ? "white" : "black"}
+      style={{
+        padding: "8px",
+        paddingTop: "3px",
+        color: "white",
+        fontSize: "0.9vw",
+      }}
     >
       class Whoami:
       <br />

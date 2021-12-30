@@ -2,68 +2,41 @@ import React, { useEffect } from "react";
 import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
-import SmallFrame from "./SmallFrame";
+import { useStyles } from "../Components/Styles";
+import { useSelector } from "react-redux";
 
 export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
-  const [mouseIn, setMouseIn] = React.useState(false);
-  const [mouseOnCode, setMouseOnCode] = React.useState(false);
-  const [mouseDown, setMouseDown] = React.useState(0);
+  const darkMode = useSelector((state) => state.mode.value);
 
-  const handleBlur = () => {
-    clickRef.current.style.setProperty("filter", "blur(12px)");
-    clickRef.current.style.setProperty("background-color", "transparent");
-  };
+  let classes = useStyles();
 
-  const handleClear = () => {
-    clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    clickRef.current.style.setProperty("filter", "blur(0px)");
-    setMouseIn(true);
-  };
-
-  const handleMouseMove = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-      clickRef.current.style.setProperty("opacity", "70%");
-      clickRef.current.style.setProperty("filter", "blur(0px)");
-    }
-  };
-
-  const handleMouseDown = () => {
-    setMouseDown((prev) => prev + 1);
-    handleBorder();
-  };
-  const handleMouseOut = () => {
-    setMouseIn(false);
-    if (mouseDown % 2 === 0 && !mouseOnCode) handleBlur();
-  };
-
-  const handleMouseEnter = () => {
-    if (mouseDown % 2 === 0) handleClear();
-  };
-
-  const handleCommentMouseEnter = () => {
-    if (mouseDown % 2 === 0) handleClear();
-  };
-
-  const handleCommentMouseOut = () => {
-    if (mouseDown % 2 === 0) handleClear();
-  };
-
-  const OuterMouseMove = (e) => {
-    setMouseIn(false);
-  };
-
-  const handleBorder = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("border", "2px solid #f0f0f0");
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-      clickRef.current.style.setProperty("opacity", "100");
-    } else {
-      clickRef.current.style.setProperty("border", "6px double black");
-    }
-  };
+  const smallFrame = (
+    <div
+      style={{
+        display: "flex",
+        margin: "auto",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+      }}
+    >
+      <div
+        style={{
+          width: "80vw",
+          height: "34vh",
+          position: "absolute",
+          backgroundColor: "transparent",
+          border: "8px solid black",
+          zIndex: "2",
+          padding: "1vh",
+        }}
+      ></div>
+    </div>
+  );
 
   const desktopFrame = (
     <div
@@ -76,40 +49,42 @@ export default function Frames(props) {
         alignItems: "center",
         position: "absolute",
       }}
-      onMouseMove={OuterMouseMove}
     >
+      <div></div>
       <div
-        style={{
-          width: "50vw",
-          height: "40vh",
-          position: "absolute",
-          backgroundColor: "transparent",
-          border: "6px double black",
-          zIndex: "2",
-          padding: "1vh",
-          filter: "blur(12px)",
-          transitionDuration: "0.1s",
-          boxShadow: "5px 5px 10px black",
-          display: "flex",
-          margin: "auto",
-          alignItems: "center",
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseDown={handleMouseDown}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseOut}
-        onMouseOut={handleMouseOut}
-        ref={clickRef}
+        className={classes.frame}
         // ref={frameRef}
+        style={{
+          borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column",
+          border: "0.1px solid black",
+        }}
       >
-        <UserCode
-          darkMode={props.darkMode}
-          handleCommentMouseEnter={handleCommentMouseEnter}
-          handleCommentMouseOut={handleCommentMouseOut}
-        />
+        <div
+          style={{
+            height: "28px",
+            backgroundColor: "#323232",
+            width: "100%",
+            borderTopLeftRadius: "10px",
+            borderTopRightRadius: "10px",
+            borderBottom: "0.1px solid black",
+            marginBottom: "2px",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <div className={classes.buttonHolder}>
+            <div className={classes.terminalBtn1}></div>
+            <div className={classes.terminalBtn2}></div>
+            <div className={classes.terminalBtn3}></div>
+          </div>
+        </div>
+
+        <UserCode />
       </div>
     </div>
   );
 
-  return <>{props.desktop ? desktopFrame : <SmallFrame />}</>;
+  return <>{props.desktop ? desktopFrame : smallFrame}</>;
 }

@@ -40,7 +40,7 @@ export default function Header(props) {
         }}
       >
         <div>
-          <Tooltip title="change theme" placement="top">
+          <Tooltip title="change item" placement="top">
             <Typography
               variant="h1"
               component="div"
@@ -50,6 +50,7 @@ export default function Header(props) {
               flex={3}
               className={classes.letter}
               onClick={() => window.location.reload()}
+              sx={{ ml: "3px" }}
             >
               PINKISHINCOLORAGAIN
             </Typography>
@@ -66,7 +67,7 @@ export default function Header(props) {
             // marginLeft: "20vh",
           }}
         >
-          <div
+          {/* <div
             style={{
               fontSize: "4.5vw",
               display: "flex",
@@ -110,7 +111,7 @@ export default function Header(props) {
                 <b className={classes.hiddenText}>彬</b>
               </HtmlTooltip>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
