@@ -10,7 +10,7 @@ export default function UserCode() {
       style={{
         padding: "8px",
         paddingTop: "3px",
-        color: "white",
+        color: darkMode ? "white" : "black",
         fontSize: "0.9vw",
       }}
     >

@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
 import { useStyles } from "../Components/Styles";
 import { useSelector } from "react-redux";
+import TerminalBtn from "../Components/buttons/TerminalBtn";
 
 export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const darkMode = useSelector((state) => state.mode.value);
+  console.log(darkMode);
 
   let classes = useStyles();
 
@@ -38,51 +40,44 @@ export default function Frames(props) {
     </div>
   );
 
-  const desktopFrame = (
-    <div
-      style={{
-        display: "flex",
-        margin: "auto",
-        width: "100%",
-        height: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "absolute",
-      }}
-    >
-      <div></div>
-      <div
-        className={classes.frame}
-        // ref={frameRef}
-        style={{
-          borderRadius: "8px",
-          display: "flex",
-          flexDirection: "column",
-          border: "0.1px solid black",
-        }}
-      >
-        <div
-          style={{
-            height: "28px",
-            backgroundColor: "#323232",
-            width: "100%",
-            borderTopLeftRadius: "10px",
-            borderTopRightRadius: "10px",
-            borderBottom: "0.1px solid black",
-            marginBottom: "2px",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <div className={classes.buttonHolder}>
-            <div className={classes.terminalBtn1}></div>
-            <div className={classes.terminalBtn2}></div>
-            <div className={classes.terminalBtn3}></div>
-          </div>
-        </div>
+  const btnsLight = (
+    <div className={classes.buttonHolder}>
+      <TerminalBtn color="#FC605C" borderColor="#F2524D" />
+      <TerminalBtn color="#FDBC40" borderColor="#E9B14D" />
+      <TerminalBtn color="#34C849" borderColor="#1EBC32" />
+    </div>
+  );
 
-        <UserCode />
-      </div>
+  const btns = (
+    <div className={classes.buttonHolder}>
+      <TerminalBtn color="#ED6A5E" borderColor="#D06158" />
+      <TerminalBtn color="#F4BF4F" borderColor="#D6A94A" />
+      <TerminalBtn color="#61C654" borderColor="#529549" />
+    </div>
+  );
+
+  // const text = (
+  //   <div style={{ width: "100%", marginLeft: "2vw" }}>
+  //     <div className={classes.textHolder}>fish</div>
+  //   </div>
+  // );
+
+  const desktopFrame = (
+    <div className={classes.frameBkg}>
+      {darkMode ? (
+        <div className={classes.frame}>
+          <div className={classes.frameHeader}>
+            {btns}
+            {/* {text} */}
+          </div>
+          <UserCode />
+        </div>
+      ) : (
+        <div className={classes.frameLight}>
+          <div className={classes.frameHeaderLight}>{btnsLight}</div>
+          <UserCode />
+        </div>
+      )}
     </div>
   );
 

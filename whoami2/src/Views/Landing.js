@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import Waves from "../Components/objects/Waves";
-import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
 import Frames from "./Frames";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 import BlogBtn from "../Components/buttons/BlogBtn";
 import HomeBtn from "../Components/buttons/HomeBtn";
 import Header from "../Components/Header";
