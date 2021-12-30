@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   button1: {
     "&:hover": {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   button2: {
     "&:hover": {
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   button3: {
     "&:hover": {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   button4: {
     "&:hover": {
@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   hiddenText: {
     filter: "blur(4px) opacity(0.5)",
@@ -54,7 +54,7 @@ const useStyles = makeStyles(() => ({
       filter: "none",
     },
 
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
   letter: {
     "&:hover": {
@@ -62,7 +62,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "0.8s",
+    transitionDuration: "10s",
   },
 
   linkBtn: {
@@ -79,7 +79,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent",
     zIndex: "2",
     // padding: "1vh",
-    filter: "blur(2000px)",
+    filter: "blur(200px)",
     transitionDuration: "0.4s",
     boxShadow: "5px 5px 10px black",
     display: "flex",
@@ -104,8 +104,8 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent",
     zIndex: "2",
     // padding: "1vh",
-    filter: "blur(100px)",
-    transitionDuration: "0.4s",
+    filter: "blur(1000px)",
+    transitionDuration: "0.2s",
     boxShadow: "5px 5px 10px black",
     margin: "auto",
     borderRadius: "12px",

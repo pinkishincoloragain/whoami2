@@ -31,22 +31,17 @@ export default function Header(props) {
     },
   }));
 
+  const title = (
+    <Typography fontSize={18}>
+      Pinkish in color again -&nbsp;
+      <Link className={classes.hiddenLink} to="/gerardway">
+        Gerard way
+      </Link>
+    </Typography>
+  );
+
   const NoMaxWidthTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} title="fish">
-      <Typography
-        variant="h1"
-        component="div"
-        fontWeight={"bold"}
-        gutterBottom
-        color={darkMode ? "white" : "black"}
-        flex={3}
-        className={classes.letter}
-        onClick={() => window.location.reload()}
-        sx={{ ml: "3px" }}
-      >
-        PINKISHINCOLORAGAIN
-      </Typography>
-    </Tooltip>
+    <Tooltip {...props} classes={{ popper: className }} title={title}></Tooltip>
   ))({
     [`& .${tooltipClasses.tooltip}`]: {
       maxWidth: "none",
@@ -64,17 +59,40 @@ export default function Header(props) {
         }}
       >
         <div>
-          <NoMaxWidthTooltip></NoMaxWidthTooltip>
+          <Tooltip
+            arrow
+            placement="right"
+            title={
+              <Typography fontSize={15}>
+                {darkMode ? "Hi!" : "Nice to meet you!"}
+              </Typography>
+            }
+          >
+            <Typography
+              variant="h1"
+              component="div"
+              fontWeight={"bold"}
+              gutterBottom
+              color={darkMode ? "white" : "black"}
+              flex={3}
+              className={classes.letter}
+              onClick={() => dispatch(changeMode())}
+              sx={{ ml: "3px", pr: "30px" }}
+            >
+              PINKISHINCOLORAGAIN
+            </Typography>
+          </Tooltip>
         </div>
+
         {/* <Cloak /> */}
-        <div
+        {/* <div
           style={{
             paddingTop: "1vh",
             heigth: "6vh",
             display: "flex",
             height: "10vh",
             flex: 1,
-            // marginLeft: "20vh",
+            marginLeft: "1vh",
           }}
         >
           <div
@@ -124,7 +142,7 @@ export default function Header(props) {
               </HtmlTooltip>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

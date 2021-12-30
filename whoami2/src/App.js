@@ -5,6 +5,7 @@ import Landing from "./Views/Landing";
 import Blog from "./Views/Blog";
 import Admin from "./Views/Admin";
 import Error from "./Error";
+import GerardWay from "./Views/Gerardway";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(LocalTheme);
@@ -35,6 +36,16 @@ function App() {
             path="/blog"
             element={
               <Blog
+                width={window.innerWidth}
+                height={window.innerHeight}
+                style={{ transitionDuration: "0.1s" }}
+              />
+            }
+          />
+          <Route
+            path="/gerardway"
+            element={
+              <GerardWay
                 width={window.innerWidth}
                 height={window.innerHeight}
                 style={{ transitionDuration: "0.1s" }}
