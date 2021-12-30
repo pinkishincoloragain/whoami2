@@ -146,7 +146,7 @@ export default function Introduction(props) {
               gutterBottom
               margin="auto"
               color={props.color}
-              className={classes.button}
+              className={classes.button4}
               paddingRight="1vw"
             >
               {btnName}

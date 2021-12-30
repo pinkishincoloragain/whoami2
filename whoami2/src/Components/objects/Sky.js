@@ -45,12 +45,16 @@ let now = new Date();
 
 Sky.SkyShader = {
   uniforms: {
-    turbidity: { value: 2 },
+    turbidity: { value: 0.3 },
     rayleigh: { value: 1 },
     mieCoefficient: { value: 0.005 },
     mieDirectionalG: { value: 0.8 },
     sunPosition: { value: new Vector3() },
-    up: { value: new Vector3(0, now.getHours() / 2, 0) },
+    up: { value: new Vector3(0, 2, 0) },
+    // up: { value: new Vector3(0, -1, 0) },
+    // up: { value: new Vector3(0, -1, 0) },
+    // up: { value: new Vector3(0, -1, 0) },
+    // up: { value: new Vector3(0, -1, 0) },
   },
 
   vertexShader: /* glsl */ `

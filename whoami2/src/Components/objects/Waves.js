@@ -79,6 +79,8 @@ function Waves(props) {
     const parameters = {
       elevation: 2,
       azimuth: 180,
+      time: 0.0,
+      sunSize: 1.0,
     };
 
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -86,8 +88,9 @@ function Waves(props) {
     function updateSun() {
       const phi = THREE.MathUtils.degToRad(90 - parameters.elevation);
       const theta = THREE.MathUtils.degToRad(parameters.azimuth);
+      const size = parameters.sunSize;
 
-      sun.setFromSphericalCoords(1, phi, theta);
+      sun.setFromSphericalCoords(size, phi, theta);
 
       sky.material.uniforms["sunPosition"].value.copy(sun);
       water.material.uniforms["sunDirection"].value.copy(sun).normalize();
@@ -99,43 +102,143 @@ function Waves(props) {
 
     //
 
-    const geometry = new THREE.BoxGeometry(30, 30, 30);
+    let geometry = new THREE.BoxGeometry(30, 30, 30);
     const material = new THREE.MeshStandardMaterial({
-      roughness: 3,
+      roughness: 0.3,
       color: 0xf0f0f0,
     });
 
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
+    const colors = [
+      [
+        // Phantone
+        "#F5DF4D",
+        "#939597",
+        "#0F4C81",
+        "#FF6F61",
+        "#5F4B8B",
+        "#88B04B",
+        "#F7CACA",
+        "#93A9D1",
+        "#964F4C",
+        "#AD5E99",
+        "#009473",
+        "#DD4124",
+        "#D94F70",
+        "#45B5AA",
+        "#F0C05A",
+        "#5A5B9F",
+        "#9B1B30",
+        "#DECDBE",
+        "#53B0AE",
+        "#E2583E",
+        "#7BC4C4",
+        "#BF1932",
+        "#C74375",
+        "#9BB7D4",
+      ],
+      ["#939597", "#0F4C81", "#FF6F61", "#5F4B8B"],
+      ["#161853", "#292C6D", "#FAEDF0", "#EC255A"],
+      ["#7900FF", "#548CFF", "#93FFD8", "#CFFFDC"],
+    ];
+
+    let rand_color_idx = Math.floor(Math.random() * colors.length);
+    let shape_case = Math.floor(Math.random() * 7);
+    let color_length = colors[rand_color_idx].length;
+
+    geometry = new THREE.BoxGeometry(16, 16, 16);
+    // } else {
+    //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    // }
+    for (let i = 0; i < 10; i++) {
+      const object = new THREE.Mesh(
+        geometry,
+        new THREE.MeshLambertMaterial({
+          // color: Math.random() * 0xffffff,
+          color:
+            colors[rand_color_idx][Math.floor(Math.random() * color_length)],
+          // map: textures[i % textures.length],
+        })
+      );
+
+      if (shape_case === 0) {
+        // if (props.type === "circle") {
+        object.position.x = Math.sin(i) * 360;
+        object.position.y = Math.cos(i) * 360;
+        object.position.z = Math.sin(i) * 360;
+      } else if (shape_case === 1) {
+        object.position.x = Math.sin(i) * 360;
+        object.position.y = Math.cos(i) * 360;
+        object.position.z = Math.tan(i) * 360;
+      }
+      // else if (randNum2 === 2) {
+      //   object.position.x = i * 400;
+      //   object.position.y = Math.sin(i) * 400;
+      //   object.position.z = Math.cos(i) * 400;
+      // } else if (randNum2 === 3) {
+      //   object.position.x = Math.sin(i) * 400;
+      //   object.position.y = Math.cos(i) * 400;
+      //   object.position.z = Math.tan(i) * 400;
+      // }
+      else if (shape_case === 4) {
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.tan(i) * 400;
+      } else if (shape_case === 5) {
+        object.position.x = Math.sin(i) * 400;
+        object.position.y = Math.cos(i) * 400;
+        object.position.z = Math.sin(i) * 800;
+      } else {
+        object.position.x = Math.random() * 500 - 250;
+        object.position.y = Math.random() * 500 - 250;
+        object.position.z = Math.random() * 500 - 250;
+      }
+
+      object.rotation.x = Math.random() * 4 * Math.PI;
+      object.rotation.y = Math.random() * 2 * Math.PI;
+      object.rotation.z = Math.random() * 2 * Math.PI;
+
+      object.scale.x = Math.random() + 6;
+      object.scale.y = Math.random() + 6;
+      object.scale.z = Math.random() + 6;
+
+      scene.add(object);
+      // object.cursor = "pointer";
+      // object.on("click", function (ev) {
+      //   alert("fish");
+      // });
+    }
+
     //
 
-    // let controls = new OrbitControls(camera, renderer.domElement);
-    // controls.maxPolarAngle = Math.PI * 0.495;
-    // controls.target.set(30, 40, 0);
-    // controls.minDistance = 40.0;
-    // controls.maxDistance = 200.0;
-    // controls.update();
+    let controls = new OrbitControls(camera, renderer.domElement);
+    controls.maxPolarAngle = Math.PI * 0.495;
+    controls.target.set(30, 40, 0);
+    controls.minDistance = 40.0;
+    controls.maxDistance = 200.0;
+    controls.update();
 
-    // GUI
+    // GUI;
 
-    // const gui = new GUI();
+    const gui = new GUI();
 
-    // const folderSky = gui.addFolder("Sky");
-    // folderSky.add(parameters, "elevation", 0, 90, 0.1).onChange(updateSun);
-    // folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
-    // folderSky.open();
+    const folderSky = gui.addFolder("Sky");
+    folderSky.add(parameters, "elevation", -3, 90, 0.1).onChange(updateSun);
+    folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
+    folderSky.add(parameters, "time", 0, 24).onChange(updateSun);
+    folderSky.add(parameters, "sunSize", 0.0, 1.0, 0.001).onChange(updateSun);
+    folderSky.open();
 
-    // const waterUniforms = water.material.uniforms;
+    const waterUniforms = water.material.uniforms;
 
-    // const folderWater = gui.addFolder("Water");
-    // folderWater
-    //   .add(waterUniforms.distortionScale, "value", 0, 8, 0.1)
-    //   .name("distortionScale");
-    // folderWater.add(waterUniforms.size, "value", 0.1, 10, 0.1).name("size");
-    // folderWater.open();
-
-    //
+    const folderWater = gui.addFolder("Water");
+    folderWater
+      .add(waterUniforms.distortionScale, "value", 0, 30, 0.1)
+      .name("wave distortion");
+    folderWater.add(waterUniforms.size, "value", 0.1, 10, 0.1).name("waveSize");
+    folderWater.open();
 
     window.addEventListener("resize", onWindowResize);
   }

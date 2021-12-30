@@ -36,9 +36,9 @@ function Landing(props) {
   };
 
   useEffect(() => {
-    // setState({ open: true });
-    alert("fish");
-  }, [setTimeout(() => {}, 10000)]);
+    if (localStorage.getItem("darkMode") === null)
+      setState({ open: true, vertical: "top", horizontal: "left" });
+  }, []);
 
   const handleClose = () => {
     setState({ ...state, open: false });
@@ -77,7 +77,7 @@ function Landing(props) {
         anchorOrigin={{ vertical, horizontal }}
         open={open}
         onClose={handleClose}
-        message="I love snacks"
+        message="Touch here!"
         key={vertical + horizontal}
       />
       <div
@@ -123,15 +123,6 @@ function Landing(props) {
           <Links color={darkMode ? "white" : "black"} />
           <BlogBtn color={darkMode ? "white" : "black"} />
           <ReloadBtn color={darkMode ? "white" : "black"} />
-          <Button
-            onClick={handleClick({
-              vertical: "top",
-              horizontal: "left",
-            })}
-            sx={{ mr: "1000px" }}
-          >
-            Top-Left
-          </Button>
         </div>
       </div>
       <Frames desktop={windowWidth > 1280} />

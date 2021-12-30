@@ -177,66 +177,6 @@ const useStyles = makeStyles(() => ({
     },
   },
 
-  terminalBtn1Light: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#FC605C",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  terminalBtn2Light: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#FDBC40",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  terminalBtn3Light: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#34C849",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  terminalBtn1: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#ED6A5E",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  terminalBtn2: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#F3BF4F",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-  terminalBtn3: {
-    width: "13px",
-    height: "13px",
-    backgroundColor: "#61C654",
-    borderRadius: "30px",
-    marginLeft: "2px",
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
   textHolder: {
     marginLeft: "20px",
   },

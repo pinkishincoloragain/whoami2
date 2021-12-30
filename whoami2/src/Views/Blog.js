@@ -84,7 +84,7 @@ function Blog(props) {
       boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
     } else {
       setFiltered(false);
-      boxRef.current.style.setProperty("filter", "grayscale(0%)");
+      // boxRef.current.style.setProperty("filter", "grayscale(0%)");
     }
     // console.log(filtered);
   }, [darkMode]);

@@ -6,12 +6,12 @@ export default function ReloadBtn(props) {
   const classes = useStyles();
   let nav = useNavigate();
   const handleClick = () => {
-    nav("/");
+    window.location.reload();
   };
 
   return (
     <div>
-      <Button onClick={() => handleClick}>
+      <Button onClick={handleClick}>
         <Typography
           variant="h4"
           color={props.color}
