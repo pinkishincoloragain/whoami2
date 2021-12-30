@@ -63,7 +63,7 @@ export default function Header(props) {
             display: "flex",
             height: "10vh",
             flex: 1,
-            marginLeft: "20vh",
+            // marginLeft: "20vh",
           }}
         >
           <div

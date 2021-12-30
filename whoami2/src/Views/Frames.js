@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
-import MobileFrame from "./MobileFrame";
+import SmallFrame from "./SmallFrame";
 
-export default function DesktopFrame(props) {
+export default function Frames(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const [mouseIn, setMouseIn] = React.useState(false);
@@ -111,5 +111,5 @@ export default function DesktopFrame(props) {
     </div>
   );
 
-  return <>{props.desktop ? desktopFrame : <MobileFrame />}</>;
+  return <>{props.desktop ? desktopFrame : <SmallFrame />}</>;
 }

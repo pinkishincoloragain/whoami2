@@ -143,9 +143,9 @@ function Boxes() {
         object.position.y = Math.cos(i) * 400;
         object.position.z = Math.sin(i) * 800;
       } else {
-        object.position.x = Math.random() * 800 - 400;
-        object.position.y = Math.random() * 800 - 400;
-        object.position.z = Math.random() * 800 - 400;
+        object.position.x = Math.random() * 500 - 250;
+        object.position.y = Math.random() * 500 - 250;
+        object.position.z = Math.random() * 500 - 250;
       }
 
       object.rotation.x = Math.random() * 4 * Math.PI;

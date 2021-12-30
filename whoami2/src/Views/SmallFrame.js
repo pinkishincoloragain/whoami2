@@ -1,9 +1,7 @@
 import { useRef } from "react";
 
-export default function MobileFrame(props) {
-  //   const boxRef = useRef(null);
-
-  const mobileFrame = (
+export default function SmallFrame(props) {
+  const smallFrame = (
     <div
       style={{
         display: "flex",
@@ -17,16 +15,17 @@ export default function MobileFrame(props) {
     >
       <div
         style={{
-          width: "40vw",
-          height: "30vh",
+          width: "80vw",
+          height: "34vh",
           position: "absolute",
           backgroundColor: "transparent",
-          border: "4px double black",
-          zIndex: "0",
+          border: "8px solid black",
+          zIndex: "2",
+          padding: "1vh",
         }}
       ></div>
     </div>
   );
 
-  return mobileFrame;
+  return smallFrame;
 }

@@ -1,15 +1,13 @@
 import { useStyles } from "./Styles";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import Header from "./Header";
 
-export default function FullHeader(props) {
+export default function Subheader(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
   const deskTopHeader = (
     <div style={{ width: "20vw" }}>
-      <Header color={darkMode ? "white" : "black"} />
       <Typography
         variant="h5"
         component="div"
