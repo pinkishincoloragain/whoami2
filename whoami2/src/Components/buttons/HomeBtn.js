@@ -1,8 +1,6 @@
 import { useStyles } from "../Styles";
 import { useNavigate } from "react-router-dom";
-
 import { Button } from "@mui/material";
-import Link from "@mui/material/Link";
 import { Typography } from "@mui/material";
 
 export default function HomeBtn(props) {

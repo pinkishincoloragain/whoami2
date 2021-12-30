@@ -17,10 +17,10 @@ export default function LightBtn(props) {
     >
       <div
         style={{
-          width: "10vw",
+          width: "13vw",
           marginLeft: "1vh",
           height: "8vh",
-          paddingTop: "2vh",
+          paddingTop: "2.6vh",
         }}
         onClick={() => {
           dispatch(changeMode());

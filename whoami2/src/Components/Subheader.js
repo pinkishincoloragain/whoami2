@@ -14,7 +14,7 @@ export default function Subheader(props) {
         placement="right"
         title={
           <Typography fontSize={15}>
-            {darkMode ? "Hi!" : "Nice to meet you!"}
+            {darkMode ? "is my real name." : "Nice to meet you!"}
           </Typography>
         }
       >

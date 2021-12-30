@@ -64,7 +64,7 @@ export default function Header(props) {
             placement="right"
             title={
               <Typography fontSize={15}>
-                {darkMode ? "Hi!" : "Nice to meet you!"}
+                {darkMode ? "Good morning!" : "Nice to meet you!"}
               </Typography>
             }
           >

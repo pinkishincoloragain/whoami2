@@ -14,6 +14,7 @@ import LightBtn from "../Components/buttons/LightBtn";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Subheader from "../Components/Subheader";
+import stars from "../Components/textures/stars.png";
 
 function Blog(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -105,20 +106,7 @@ function Blog(props) {
         }}
       >
         <Header />
-        <Subheader windowWidth={windowWidth} />
-        <LightBtn
-          color={darkMode === true ? "white" : "black"}
-          handleChange={handleChange}
-          title={darkMode === true ? "LIGHT" : "DARK"}
-        />
-        <Introduction
-          darkMode={darkMode}
-          color={darkMode ? "white" : "black"}
-        />
         <Links color={darkMode ? "white" : "black"} darkMode={darkMode} />
-        <div>
-          <BlogBtn darkMode={darkMode} color={darkMode ? "white" : "black"} />
-        </div>
         <div>
           <HomeBtn color={darkMode ? "white" : "black"} darkMode={darkMode} />
         </div>

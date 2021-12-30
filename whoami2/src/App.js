@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Landing from "./Views/Landing";
 import Blog from "./Views/Blog";
 import Admin from "./Views/Admin";
-import Error from "./Error";
+import Error from "./Views/Error";
 import GerardWay from "./Views/Gerardway";
 
 function App() {

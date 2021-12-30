@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
   button1: {
     "&:hover": {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
   button2: {
     "&:hover": {
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
   button3: {
     "&:hover": {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
   button4: {
     "&:hover": {
@@ -39,7 +39,15 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
+  },
+  button5: {
+    "&:hover": {
+      color: "#9400D3",
+      transitionDuration: "0.1s",
+      cursor: "pointer",
+    },
+    transitionDuration: "12s",
   },
   hiddenText: {
     filter: "blur(4px) opacity(0.5)",
@@ -54,7 +62,7 @@ const useStyles = makeStyles(() => ({
       filter: "none",
     },
 
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
   letter: {
     "&:hover": {
@@ -62,7 +70,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "10s",
+    transitionDuration: "12s",
   },
 
   linkBtn: {
@@ -93,7 +101,7 @@ const useStyles = makeStyles(() => ({
       boxShadow: "10px 10px 50px black",
       border: "4px wave black",
       backgroundColor: "#1E1E1E",
-      transitionDuration: "0.15s",
+      transitionDuration: "0.12s",
     },
   },
 
@@ -118,7 +126,7 @@ const useStyles = makeStyles(() => ({
       boxShadow: "10px 10px 50px black",
       border: "4px wave black",
       backgroundColor: "#FFFFFF",
-      transitionDuration: "0.15s",
+      transitionDuration: "0.12s",
     },
   },
 

@@ -11,7 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Subheader from "../Components/Subheader";
 import Backgrounds from "../Components/Backgrounds";
-import { Tooltip, Typography } from "@mui/material";
+import ReloadBtn from "../Components/buttons/ReloadBtn";
+import stars from "../Components/textures/stars.png";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -83,16 +84,16 @@ function Landing(props) {
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
             handleChange={handleChange}
-            title={darkMode ? "DARK" : "LIGHT"}
+            title={darkMode ? "DARKEN" : "LIGHTEN"}
           />
 
           <Introduction
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
           />
-          <Links color={darkMode ? "white" : "black"} darkMode={darkMode} />
-          <BlogBtn darkMode={darkMode} color={darkMode ? "white" : "black"} />
-          <HomeBtn color={darkMode ? "white" : "black"} darkMode={darkMode} />
+          <Links color={darkMode ? "white" : "black"} />
+          <BlogBtn color={darkMode ? "white" : "black"} />
+          <ReloadBtn color={darkMode ? "white" : "black"} />
         </div>
       </div>
       <Frames desktop={windowWidth > 1280} />
