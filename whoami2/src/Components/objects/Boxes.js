@@ -7,7 +7,7 @@ import water2 from "../textures/water2.png";
 import water3 from "../textures/water3.png";
 import stone from "../textures/solid_stone.jpeg";
 import stone2 from "../textures/stone_2.jpeg";
-import stars from "../textures/stars.jpeg";
+// import stars from "../textures/stars.jpeg";
 
 function Boxes(props) {
   let container, stats;
