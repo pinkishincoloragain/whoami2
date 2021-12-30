@@ -3,10 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Landing from "./Views/Landing";
 import Blog from "./Views/Blog";
+import Admin from "./Views/Admin";
+import Error from "./Error";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(LocalTheme);
   const mode = useSelector((state) => state.mode.value);
+
+  useEffect(() => {
+    console.log(
+      "%cHi there!",
+      "background: black; color: white; font-size: 20px;"
+    );
+  }, []);
 
   return (
     <div className="App">
@@ -32,6 +41,8 @@ function App() {
               />
             }
           />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>

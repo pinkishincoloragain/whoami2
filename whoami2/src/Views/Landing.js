@@ -3,7 +3,7 @@ import Waves from "../Components/objects/Waves";
 import Boxes from "../Components/objects/Boxes";
 import Links from "../Components/Links";
 import Introduction from "../Components/Introduction";
-import DesktopFrame from "./DesktopFrame";
+import DesktopFrame from "./Frames";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import MobileFrame from "./MobileFrame";
@@ -14,6 +14,7 @@ import LightBtn from "../Components/buttons/LightBtn";
 import { useStyles } from "../Components/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
+import FullHeader from "../Components/FullHeader";
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const dispatch = useDispatch();
@@ -62,11 +63,8 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      {windowWidth > 1280 ? (
-        <DesktopFrame desktop={windowWidth > 1280} darkMode={darkMode} />
-      ) : (
-        <MobileFrame darkMode={darkMode} />
-      )}
+      <DesktopFrame desktop={windowWidth > 1280} darkMode={darkMode} />
+
       <div
         style={{
           zIndex: 1,
@@ -76,53 +74,21 @@ function Landing(props) {
           marginLeft: "1vh",
         }}
       >
-        {windowWidth > 1280 ? (
-          <div style={{ width: "20vw" }}>
-            <Header color={darkMode ? "black" : "white"} />
-            <Typography
-              variant="h5"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              marginLeft="1vh"
-              color={darkMode === true ? "white" : "black"}
-              className={classes.letter}
-            >
-              MYUNGBIN SON
-            </Typography>
-          </div>
-        ) : (
-          <div style={{ width: "90vw", fontSize: "8vw" }}>
-            PINKISHINCOLORAGAIN
-          </div>
-        )}
+        <FullHeader windowWidth={windowWidth} />
         <LightBtn
           darkMode={darkMode}
-          color={darkMode === true ? "white" : "black"}
+          color={darkMode ? "white" : "black"}
           handleChange={handleChange}
-          title={darkMode === true ? "DARK" : "LIGHT"}
+          title={darkMode ? "DARK" : "LIGHT"}
         />
 
         <Introduction
           darkMode={darkMode}
-          color={darkMode === true ? "white" : "black"}
+          color={darkMode ? "white" : "black"}
         />
-        <Links
-          color={darkMode === true ? "white" : "black"}
-          darkMode={darkMode}
-        />
-        <div>
-          <BlogBtn
-            darkMode={darkMode}
-            color={darkMode === true ? "white" : "black"}
-          />
-        </div>
-        <div>
-          <HomeBtn
-            color={darkMode === true ? "white" : "black"}
-            darkMode={darkMode}
-          />
-        </div>
+        <Links color={darkMode ? "white" : "black"} darkMode={darkMode} />
+        <BlogBtn darkMode={darkMode} color={darkMode ? "white" : "black"} />
+        <HomeBtn color={darkMode ? "white" : "black"} darkMode={darkMode} />
       </div>
       <div style={{ transitionDuration: "0.2s" }}>
         {windowWidth > 1280 ? (

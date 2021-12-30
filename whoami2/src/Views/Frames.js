@@ -2,14 +2,25 @@ import React, { useEffect } from "react";
 import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
+import MobileFrame from "./MobileFrame";
 
 export default function DesktopFrame(props) {
   const clickRef = React.useRef(null);
   const mobileTouchRef = React.useRef(null);
   const [mouseIn, setMouseIn] = React.useState(false);
   const [mouseOnCode, setMouseOnCode] = React.useState(false);
-  const [backGrdColor, setBackGrdColor] = React.useState("transparent");
   const [mouseDown, setMouseDown] = React.useState(0);
+
+  const handleBlur = () => {
+    clickRef.current.style.setProperty("filter", "blur(12px)");
+    clickRef.current.style.setProperty("background-color", "transparent");
+  };
+
+  const handleClear = () => {
+    clickRef.current.style.setProperty("background-color", "#f0f0f0");
+    clickRef.current.style.setProperty("filter", "blur(0px)");
+    setMouseIn(true);
+  };
 
   const handleMouseMove = (e) => {
     if (mouseDown % 2 === 0) {
@@ -19,87 +30,40 @@ export default function DesktopFrame(props) {
     }
   };
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = () => {
     setMouseDown((prev) => prev + 1);
     handleBorder();
   };
-  const handleMouseOut = (e) => {
+  const handleMouseOut = () => {
     setMouseIn(false);
-    if (mouseDown % 2 === 0) {
-      if (!mouseOnCode) {
-        clickRef.current.style.setProperty("filter", "blur(12px)");
-        // clickRef.current.style.setProperty("filter", "opacity(30%)");
-        clickRef.current.style.setProperty("background-color", "transparent");
-      }
-    }
+    if (mouseDown % 2 === 0 && !mouseOnCode) handleBlur();
   };
 
-  const handleMouseEnter = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-      clickRef.current.style.setProperty("filter", "blur(0px)");
-      setMouseIn(true);
-    }
+  const handleMouseEnter = () => {
+    if (mouseDown % 2 === 0) handleClear();
   };
 
-  const handleCommentMouseEnter = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-      clickRef.current.style.setProperty("filter", "blur(0px)");
-      setMouseOnCode(true);
-    }
+  const handleCommentMouseEnter = () => {
+    if (mouseDown % 2 === 0) handleClear();
   };
 
-  const handleCommentMouseOut = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-      clickRef.current.style.setProperty("filter", "blur(0px)");
-      setMouseOnCode(false);
-    }
-  };
-
-  // const frameRef = React.useRef(null);
-
-  const handleBorder = (e) => {
-    if (mouseDown % 2 === 0) {
-      clickRef.current.style.setProperty("border", "2px solid #f0f0f0");
-      clickRef.current.style.setProperty("background-color", "#f0f0f0");
-    } else {
-      clickRef.current.style.setProperty("border", "6px double black");
-    }
+  const handleCommentMouseOut = () => {
+    if (mouseDown % 2 === 0) handleClear();
   };
 
   const OuterMouseMove = (e) => {
     setMouseIn(false);
   };
 
-  const mobileFrame = (
-    <div
-      style={{
-        display: "flex",
-        margin: "auto",
-        width: "100%",
-        height: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "absolute",
-      }}
-      ref={clickRef}
-    >
-      <div
-        style={{
-          width: "80vw",
-          height: "34vh",
-          position: "absolute",
-          backgroundColor: "transparent",
-          border: "8px solid black",
-          zIndex: "2",
-          padding: "1vh",
-        }}
-        ref={mobileTouchRef}
-      ></div>
-    </div>
-  );
+  const handleBorder = (e) => {
+    if (mouseDown % 2 === 0) {
+      clickRef.current.style.setProperty("border", "2px solid #f0f0f0");
+      clickRef.current.style.setProperty("background-color", "#f0f0f0");
+      clickRef.current.style.setProperty("opacity", "100");
+    } else {
+      clickRef.current.style.setProperty("border", "6px double black");
+    }
+  };
 
   const desktopFrame = (
     <div
@@ -147,5 +111,5 @@ export default function DesktopFrame(props) {
     </div>
   );
 
-  return <>{props.desktop ? desktopFrame : mobileFrame}</>;
+  return <>{props.desktop ? desktopFrame : <MobileFrame />}</>;
 }

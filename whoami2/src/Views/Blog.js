@@ -13,6 +13,7 @@ import Header from "../Components/Header";
 import LightBtn from "../Components/buttons/LightBtn";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
+import FullHeader from "../Components/FullHeader";
 
 function Blog(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -77,7 +78,7 @@ function Blog(props) {
   };
 
   useEffect(() => {
-    if (darkMode === true) {
+    if (darkMode) {
       setFiltered(true);
       boxRef.current.style.setProperty("filter", "invert(100) grayscale(100%)");
     } else {
@@ -103,26 +104,7 @@ function Blog(props) {
           marginLeft: "1vh",
         }}
       >
-        {windowWidth > 1280 ? (
-          <div>
-            <Header handleChange={handleChange} />
-            <Typography
-              variant="h5"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              marginLeft="1vh"
-              color={props.darkMode === true ? "black" : "white"}
-              className={classes.letter}
-            >
-              MYUNGBIN SON
-            </Typography>
-          </div>
-        ) : (
-          <div style={{ width: "90vw", fontSize: "8vw" }}>
-            PINKISHINCOLORAGAIN
-          </div>
-        )}
+        <FullHeader windowWidth={windowWidth} />
         <LightBtn
           color={darkMode === true ? "white" : "black"}
           handleChange={handleChange}

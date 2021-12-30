@@ -46,7 +46,7 @@ export default function Header(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
-              color={darkMode === true ? "white" : "black"}
+              color={darkMode ? "white" : "black"}
               flex={3}
               className={classes.letter}
               onClick={() => window.location.reload()}

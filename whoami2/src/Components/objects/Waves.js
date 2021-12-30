@@ -10,7 +10,7 @@ let container;
 let camera, scene, renderer;
 let water, sun, mesh;
 
-function Waves() {
+function Waves(props) {
   useEffect(() => {
     init();
     animate();

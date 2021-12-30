@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
 
     "&:hover": {
-      color: "#009473",
+      color: "skyblue",
       transitionDuration: "0.1s",
       cursor: "pointer",
       filter: "none",
@@ -55,6 +55,14 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
     },
     transitionDuration: "0.8s",
+  },
+
+  linkBtn: {
+    transitionDuration: "0.1s",
+    "&:hover": {
+      color: "white",
+      transitionDuration: "1s",
+    },
   },
 }));
 

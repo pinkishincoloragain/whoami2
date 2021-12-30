@@ -6,7 +6,6 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useStyles } from "./Styles";
 
 export default function Links(props) {
@@ -49,6 +48,7 @@ export default function Links(props) {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "grey", overflow: "visible" }}
+          className={classes.linkBtn}
           onClick={() => window.open("https://github.com/pinkishincoloragain")}
         >
           {/* <ListItemText primary="Github" /> */}
@@ -64,6 +64,7 @@ export default function Links(props) {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#2867B2", overflow: "visible" }}
+          className={classes.linkBtn}
           onClick={() => {
             window.open("https://www.linkedin.com/in/myungbin-son-998881141/");
           }}
@@ -80,6 +81,7 @@ export default function Links(props) {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FF0000", overflow: "visible" }}
+          className={classes.linkBtn}
           onClick={() => {
             window.open(
               "https://www.youtube.com/channel/UCXj_KgsEq4wuVy8d9Z7TxNg"
@@ -98,6 +100,7 @@ export default function Links(props) {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
+          className={classes.linkBtn}
           onClick={() => {
             window.open("https://www.instagram.com/pinkishincoloragain/");
           }}
@@ -115,6 +118,7 @@ export default function Links(props) {
             marginBottom: "2vh",
           }}
           style={{ backgroundColor: "black", overflow: "visible" }}
+          className={classes.linkBtn}
           onClick={() => {
             window.open("https://www.instagram.com/pinkishincoloragain/");
           }}

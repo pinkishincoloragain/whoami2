@@ -14,7 +14,6 @@ export default function MobileFrame(props) {
         alignItems: "center",
         position: "absolute",
       }}
-      //   ref={boxRef}
     >
       <div
         style={{

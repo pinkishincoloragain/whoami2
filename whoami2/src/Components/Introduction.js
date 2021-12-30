@@ -158,7 +158,7 @@ export default function Introduction(props) {
             PaperProps={{
               sx: {
                 backgroundColor: "transparent",
-                backdropFilter: "blur(10px)",
+                backdropFilter: "blur(20px)",
               },
             }}
           >
