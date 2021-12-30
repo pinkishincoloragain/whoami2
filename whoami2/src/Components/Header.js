@@ -5,6 +5,8 @@ import { Typography } from "@mui/material";
 import { styled } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "./controls/modeSlice";
+import { Link } from "react-router-dom";
+import Cloak from "./Clock";
 
 export default function Header(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -29,34 +31,42 @@ export default function Header(props) {
     },
   }));
 
+  const NoMaxWidthTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} title="fish">
+      <Typography
+        variant="h1"
+        component="div"
+        fontWeight={"bold"}
+        gutterBottom
+        color={darkMode ? "white" : "black"}
+        flex={3}
+        className={classes.letter}
+        onClick={() => window.location.reload()}
+        sx={{ ml: "3px" }}
+      >
+        PINKISHINCOLORAGAIN
+      </Typography>
+    </Tooltip>
+  ))({
+    [`& .${tooltipClasses.tooltip}`]: {
+      maxWidth: "none",
+    },
+  });
+
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
-          width: "80%",
+          width: "100%",
           //   transitionDuration:"0.2s"
         }}
       >
         <div>
-          <Tooltip title="change item" placement="top">
-            <Typography
-              variant="h1"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              color={darkMode ? "white" : "black"}
-              flex={3}
-              className={classes.letter}
-              onClick={() => window.location.reload()}
-              sx={{ ml: "3px" }}
-            >
-              PINKISHINCOLORAGAIN
-            </Typography>
-          </Tooltip>
-          {/* {props.darkMode===true ? "🌙" : "🌞"} */}
+          <NoMaxWidthTooltip></NoMaxWidthTooltip>
         </div>
+        {/* <Cloak /> */}
         <div
           style={{
             paddingTop: "1vh",
@@ -67,7 +77,7 @@ export default function Header(props) {
             // marginLeft: "20vh",
           }}
         >
-          {/* <div
+          <div
             style={{
               fontSize: "4.5vw",
               display: "flex",
@@ -81,6 +91,7 @@ export default function Header(props) {
               onClick={handleClick}
             >
               <HtmlTooltip
+                arrow
                 title={
                   <React.Fragment>
                     <Typography color="inherit">means</Typography>
@@ -101,6 +112,7 @@ export default function Header(props) {
               onClick={handleClick}
             >
               <HtmlTooltip
+                arrow
                 title={
                   <React.Fragment>
                     <Typography color="inherit">means</Typography>
@@ -111,7 +123,7 @@ export default function Header(props) {
                 <b className={classes.hiddenText}>彬</b>
               </HtmlTooltip>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

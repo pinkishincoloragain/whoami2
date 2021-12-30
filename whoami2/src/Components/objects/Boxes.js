@@ -1,13 +1,15 @@
 import react from "react";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import * as THREE from "three";
 import water from "../textures/waternormals.jpeg";
 import water2 from "../textures/water2.png";
 import water3 from "../textures/water3.png";
 import stone from "../textures/solid_stone.jpeg";
 import stone2 from "../textures/stone_2.jpeg";
+import stars from "../textures/stars.jpeg";
 
-function Boxes() {
+function Boxes(props) {
   let container, stats;
   let camera, scene, raycaster, renderer;
   let theta = 0;
@@ -16,6 +18,7 @@ function Boxes() {
   const pointer = new THREE.Vector2();
   const radius = 500;
   const frustumSize = 1000;
+  const darkMode = useSelector((state) => state.mode.value);
 
   useEffect(() => {
     init();
@@ -37,7 +40,7 @@ function Boxes() {
     );
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf0f0f0);
+    scene.background = null;
 
     const colors = [
       [
@@ -67,9 +70,8 @@ function Boxes() {
         "#C74375",
         "#9BB7D4",
       ],
-      ["#D3E4CD", "#99A799", "#F2DDC1", "#E2C2B9"],
+      ["#939597", "#0F4C81", "#FF6F61", "#5F4B8B"],
       ["#161853", "#292C6D", "#FAEDF0", "#EC255A"],
-      ["#FF1700", "#FF8E00", "#FFE400", "#06FF00"],
       ["#7900FF", "#548CFF", "#93FFD8", "#CFFFDC"],
     ];
 

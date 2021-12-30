@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Subheader from "../Components/Subheader";
 import Backgrounds from "../Components/Backgrounds";
+import { Tooltip, Typography } from "@mui/material";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -77,6 +78,7 @@ function Landing(props) {
         >
           <Header />
           <Subheader windowWidth={windowWidth} />
+
           <LightBtn
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}

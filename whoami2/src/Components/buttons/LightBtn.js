@@ -1,5 +1,5 @@
 import { useStyles } from "../Styles";
-import { Typography } from "@mui/material";
+import { Typography, Tooltip } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
 
@@ -10,27 +10,34 @@ export default function LightBtn(props) {
   const dispatch = useDispatch();
 
   return (
-    <div
-      style={{
-        width: "15vw",
-        marginLeft: "1vh",
-        height: "8vh",
-      }}
-      onClick={() => {
-        dispatch(changeMode());
-      }}
-      label=" "
+    <Tooltip
+      arrow
+      placement="right"
+      title={<Typography fontSize={20}>{darkMode ? "🌙" : "🌞"}</Typography>}
     >
-      <Typography
-        variant="h3"
-        component="div"
-        fontWeight={"bold"}
-        gutterBottom
-        color={props.color}
-        className={classes.button}
+      <div
+        style={{
+          width: "10vw",
+          marginLeft: "1vh",
+          height: "8vh",
+          paddingTop: "2vh",
+        }}
+        onClick={() => {
+          dispatch(changeMode());
+        }}
+        label=" "
       >
-        {props.title}
-      </Typography>
-    </div>
+        <Typography
+          variant="h3"
+          component="div"
+          fontWeight={"bold"}
+          gutterBottom
+          color={props.color}
+          className={classes.button}
+        >
+          {props.title}
+        </Typography>
+      </div>
+    </Tooltip>
   );
 }

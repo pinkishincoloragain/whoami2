@@ -9,6 +9,14 @@ const useStyles = makeStyles(() => ({
     },
     transitionDuration: "0.8s",
   },
+  button1: {
+    "&:hover": {
+      color: "#FFCC00",
+      transitionDuration: "0.1s",
+      cursor: "pointer",
+    },
+    transitionDuration: "0.8s",
+  },
   button2: {
     "&:hover": {
       color: "#0057D9",
@@ -71,13 +79,12 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent",
     zIndex: "2",
     // padding: "1vh",
-    filter: "blur(100px)",
+    filter: "blur(2000px)",
     transitionDuration: "0.4s",
     boxShadow: "5px 5px 10px black",
     display: "flex",
     margin: "auto",
     borderRadius: "12px",
-    display: "flex",
     flexDirection: "column",
     border: "0.05px solid black",
     // alignItems: "center",
@@ -100,7 +107,6 @@ const useStyles = makeStyles(() => ({
     filter: "blur(100px)",
     transitionDuration: "0.4s",
     boxShadow: "5px 5px 10px black",
-    display: "flex",
     margin: "auto",
     borderRadius: "12px",
     display: "flex",
@@ -155,6 +161,12 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-evenly",
     alignItems: "center",
     width: "68px",
+  },
+
+  terminalBtn: {
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 
   terminalBtn1Light: {
@@ -219,6 +231,14 @@ const useStyles = makeStyles(() => ({
   },
   textHolder: {
     marginLeft: "20px",
+  },
+
+  hiddenLink: {
+    textDecoration: "none",
+    color: "white",
+    "&:hover": {
+      color: "skyblue",
+    },
   },
 }));
 
