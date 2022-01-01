@@ -237,7 +237,9 @@ function Waves(props) {
     folderWater
       .add(waterUniforms.distortionScale, "value", 0, 30, 0.1)
       .name("wave distortion");
-    folderWater.add(waterUniforms.size, "value", 0.1, 10, 0.1).name("waveSize");
+    folderWater
+      .add(waterUniforms.size, "value", 0.1, 10, 0.1)
+      .name("wave amplitude");
     folderWater.open();
 
     window.addEventListener("resize", onWindowResize);
