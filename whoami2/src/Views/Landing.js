@@ -108,13 +108,13 @@ function Landing(props) {
         >
           <Header />
           <Subheader windowWidth={windowWidth} />
-
+          {/* 
           <LightBtn
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
             handleChange={handleChange}
             title={darkMode ? "DARKEN" : "LIGHTEN"}
-          />
+          /> */}
 
           <Introduction
             darkMode={darkMode}

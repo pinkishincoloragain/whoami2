@@ -6,7 +6,7 @@ import { styled } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "./controls/modeSlice";
 import { Link } from "react-router-dom";
-import Cloak from "./Clock";
+import Login from "./Clock";
 
 export default function Header(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -80,7 +80,7 @@ export default function Header(props) {
               component="div"
               fontWeight={"bold"}
               gutterBottom
-              color={darkMode ? "white" : "black"}
+              color={darkMode ? "blue" : "white"}
               flex={3}
               className={classes.letter}
               onClick={() => dispatch(changeMode())}
@@ -91,7 +91,7 @@ export default function Header(props) {
           </Tooltip>
         </div>
 
-        {/* <Cloak /> */}
+        <Login />
         {/* <div
           style={{
             paddingTop: "1vh",
