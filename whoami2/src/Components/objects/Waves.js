@@ -5,8 +5,10 @@ import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import { useEffect, useState } from "react";
 import waterNormals from "../textures/waternormals.jpeg";
+import { useSelector } from "react-redux";
 
 function Waves(props) {
+  const darkMode = useSelector((state) => state.mode.value);
   let container;
   let camera, scene, renderer;
   let water, sun, mesh;
@@ -15,16 +17,23 @@ function Waves(props) {
     init();
     animate();
   }, [props]);
-  console.log(props.azimuth);
 
   const [parameters, setParameters] = useState({
-    elevation: props.elevation ? props.elevation : 0,
+    elevation: darkMode === true ? -1 : 10,
     // elevation: 0,
-    azimuth: props.azimuth ? props.azimuth : 10,
+    azimuth: darkMode === true ? 180 : 0,
     // azimuth: 180,
     time: 0.0,
     sunSize: 2.0,
   });
+  setParameters({
+    elevation: darkMode === true ? -1 : 10,
+    azimuth: darkMode === true ? 180 : 0,
+    time: 0.0,
+    sunSize: 2.0,
+  });
+  console.log(darkMode);
+  console.log(parameters);
 
   function init() {
     container = document.getElementById("container");
