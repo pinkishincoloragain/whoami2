@@ -1,34 +1,22 @@
 import { useSelector } from "react-redux";
 import Boxes from "./objects/Boxes";
 import Waves from "./objects/Waves";
+import { useState } from "react";
 
 export default function Backgrounds(props) {
   const darkMode = useSelector((state) => state.mode.value);
+
+  const [wave, setWave] = useState({
+    azimuth: darkMode === true ? 180 : 0,
+    elevation: darkMode === true ? -1 : 10,
+  });
+
+  console.log(wave.azimuth);
   return (
     <>
       {props.windowWidth > 1280 ? (
         <>
-          {darkMode == false ? (
-            <div
-              // ref={setRef}
-              style={{
-                filter: "saturate(100%)",
-                transition: "0.2s linear",
-              }}
-            >
-              <Boxes />
-            </div>
-          ) : (
-            <div
-              // ref={setRef}
-              style={{
-                filter: "saturate(0%) invert(100%)",
-                transition: "0.2s linear",
-              }}
-            >
-              <Boxes />
-            </div>
-          )}
+          <Waves {...wave} />
         </>
       ) : (
         <Waves />

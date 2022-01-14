@@ -3,30 +3,38 @@ import { GUI } from "lil-gui";
 import { OrbitControls } from "../controls/OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import waterNormals from "../textures/waternormals.jpeg";
 
-let container;
-let camera, scene, renderer;
-let water, sun, mesh;
-
 function Waves(props) {
+  let container;
+  let camera, scene, renderer;
+  let water, sun, mesh;
+
   useEffect(() => {
     init();
     animate();
-  }, []);
+  }, [props]);
+  console.log(props.azimuth);
+
+  const [parameters, setParameters] = useState({
+    elevation: props.elevation ? props.elevation : 0,
+    // elevation: 0,
+    azimuth: props.azimuth ? props.azimuth : 10,
+    // azimuth: 180,
+    time: 0.0,
+    sunSize: 2.0,
+  });
 
   function init() {
     container = document.getElementById("container");
-    //
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     container.appendChild(renderer.domElement);
-    //
-    scene = new THREE.Scene();
 
+    scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       55,
       window.innerWidth / window.innerHeight,
@@ -76,13 +84,6 @@ function Waves(props) {
     skyUniforms["mieCoefficient"].value = 0.005;
     skyUniforms["mieDirectionalG"].value = 0.8;
 
-    const parameters = {
-      elevation: 2,
-      azimuth: 180,
-      time: 0.0,
-      sunSize: 1.0,
-    };
-
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
     function updateSun() {
@@ -110,106 +111,68 @@ function Waves(props) {
 
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+    // geometry = new THREE.BoxGeometry(16, 16, 16);
+    // // } else {
+    // //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    // // }
+    // for (let i = 0; i < 10; i++) {
+    //   const object = new THREE.Mesh(
+    //     geometry,
+    //     new THREE.MeshLambertMaterial({
+    //       // color: Math.random() * 0xffffff,
+    //       color:
+    //         colors[rand_color_idx][Math.floor(Math.random() * color_length)],
+    //       // map: textures[i % textures.length],
+    //     })
+    //   );
 
-    const colors = [
-      [
-        // Phantone
-        "#F5DF4D",
-        "#939597",
-        "#0F4C81",
-        "#FF6F61",
-        "#5F4B8B",
-        "#88B04B",
-        "#F7CACA",
-        "#93A9D1",
-        "#964F4C",
-        "#AD5E99",
-        "#009473",
-        "#DD4124",
-        "#D94F70",
-        "#45B5AA",
-        "#F0C05A",
-        "#5A5B9F",
-        "#9B1B30",
-        "#DECDBE",
-        "#53B0AE",
-        "#E2583E",
-        "#7BC4C4",
-        "#BF1932",
-        "#C74375",
-        "#9BB7D4",
-      ],
-      ["#939597", "#0F4C81", "#FF6F61", "#5F4B8B"],
-      ["#161853", "#292C6D", "#FAEDF0", "#EC255A"],
-      ["#7900FF", "#548CFF", "#93FFD8", "#CFFFDC"],
-    ];
+    //   if (shape_case === 0) {
+    //     // if (props.type === "circle") {
+    //     object.position.x = Math.sin(i) * 360;
+    //     object.position.y = Math.cos(i) * 360;
+    //     object.position.z = Math.sin(i) * 360;
+    //   } else if (shape_case === 1) {
+    //     object.position.x = Math.sin(i) * 360;
+    //     object.position.y = Math.cos(i) * 360;
+    //     object.position.z = Math.tan(i) * 360;
+    //   }
+    //   // else if (randNum2 === 2) {
+    //   //   object.position.x = i * 400;
+    //   //   object.position.y = Math.sin(i) * 400;
+    //   //   object.position.z = Math.cos(i) * 400;
+    //   // } else if (randNum2 === 3) {
+    //   //   object.position.x = Math.sin(i) * 400;
+    //   //   object.position.y = Math.cos(i) * 400;
+    //   //   object.position.z = Math.tan(i) * 400;
+    //   // }
+    //   else if (shape_case === 4) {
+    //     object.position.x = Math.sin(i) * 400;
+    //     object.position.y = Math.cos(i) * 400;
+    //     object.position.z = Math.tan(i) * 400;
+    //   } else if (shape_case === 5) {
+    //     object.position.x = Math.sin(i) * 400;
+    //     object.position.y = Math.cos(i) * 400;
+    //     object.position.z = Math.sin(i) * 800;
+    //   } else {
+    //     object.position.x = Math.random() * 500 - 250;
+    //     object.position.y = Math.random() * 500 - 250;
+    //     object.position.z = Math.random() * 500 - 250;
+    //   }
 
-    let rand_color_idx = Math.floor(Math.random() * colors.length);
-    let shape_case = Math.floor(Math.random() * 7);
-    let color_length = colors[rand_color_idx].length;
+    //   object.rotation.x = Math.random() * 4 * Math.PI;
+    //   object.rotation.y = Math.random() * 2 * Math.PI;
+    //   object.rotation.z = Math.random() * 2 * Math.PI;
 
-    geometry = new THREE.BoxGeometry(16, 16, 16);
-    // } else {
-    //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+    //   object.scale.x = Math.random() + 6;
+    //   object.scale.y = Math.random() + 6;
+    //   object.scale.z = Math.random() + 6;
+
+    //   scene.add(object);
+    //   // object.cursor = "pointer";
+    //   // object.on("click", function (ev) {
+    //   //   alert("fish");
+    //   // });
     // }
-    for (let i = 0; i < 10; i++) {
-      const object = new THREE.Mesh(
-        geometry,
-        new THREE.MeshLambertMaterial({
-          // color: Math.random() * 0xffffff,
-          color:
-            colors[rand_color_idx][Math.floor(Math.random() * color_length)],
-          // map: textures[i % textures.length],
-        })
-      );
-
-      if (shape_case === 0) {
-        // if (props.type === "circle") {
-        object.position.x = Math.sin(i) * 360;
-        object.position.y = Math.cos(i) * 360;
-        object.position.z = Math.sin(i) * 360;
-      } else if (shape_case === 1) {
-        object.position.x = Math.sin(i) * 360;
-        object.position.y = Math.cos(i) * 360;
-        object.position.z = Math.tan(i) * 360;
-      }
-      // else if (randNum2 === 2) {
-      //   object.position.x = i * 400;
-      //   object.position.y = Math.sin(i) * 400;
-      //   object.position.z = Math.cos(i) * 400;
-      // } else if (randNum2 === 3) {
-      //   object.position.x = Math.sin(i) * 400;
-      //   object.position.y = Math.cos(i) * 400;
-      //   object.position.z = Math.tan(i) * 400;
-      // }
-      else if (shape_case === 4) {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.tan(i) * 400;
-      } else if (shape_case === 5) {
-        object.position.x = Math.sin(i) * 400;
-        object.position.y = Math.cos(i) * 400;
-        object.position.z = Math.sin(i) * 800;
-      } else {
-        object.position.x = Math.random() * 500 - 250;
-        object.position.y = Math.random() * 500 - 250;
-        object.position.z = Math.random() * 500 - 250;
-      }
-
-      object.rotation.x = Math.random() * 4 * Math.PI;
-      object.rotation.y = Math.random() * 2 * Math.PI;
-      object.rotation.z = Math.random() * 2 * Math.PI;
-
-      object.scale.x = Math.random() + 6;
-      object.scale.y = Math.random() + 6;
-      object.scale.z = Math.random() + 6;
-
-      scene.add(object);
-      // object.cursor = "pointer";
-      // object.on("click", function (ev) {
-      //   alert("fish");
-      // });
-    }
 
     //
 
@@ -234,9 +197,6 @@ function Waves(props) {
     const waterUniforms = water.material.uniforms;
 
     const folderWater = gui.addFolder("Water");
-    folderWater
-      .add(waterUniforms.distortionScale, "value", 0, 30, 0.1)
-      .name("wave distortion");
     folderWater
       .add(waterUniforms.size, "value", 0.1, 10, 0.1)
       .name("wave amplitude");
