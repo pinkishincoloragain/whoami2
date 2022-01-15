@@ -14,7 +14,9 @@ import Backgrounds from "../Components/Backgrounds";
 import ReloadBtn from "../Components/buttons/ReloadBtn";
 import stars from "../Components/textures/stars.png";
 import Button from "@mui/material/Button";
-import { Snackbar } from "@mui/material";
+import { Snackbar, Table } from "@mui/material";
+import { BottomNavigation } from "@mui/material";
+import { Box } from "@mui/system";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -97,18 +99,15 @@ function Landing(props) {
             display: "flex",
             flexDirection: "column",
             width: "80vw",
-            // marginLeft: "10vw",
-            // backgroundColor: "white",
             paddingLeft: "10vw",
             height: "100vh",
-            // minWidth: "90vw",
             overflow: "hidden",
             flexWrap: "wrap",
           }}
         >
           <Header />
           <Subheader windowWidth={windowWidth} />
-{/*           
+          {/*           
           <LightBtn
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
@@ -120,8 +119,8 @@ function Landing(props) {
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
           />
-          <br />
-          <Links color={darkMode ? "white" : "black"} />
+          {/* <br /> */}
+          {/* <Links color={darkMode ? "white" : "black"} /> */}
           <br />
           <BlogBtn color={darkMode ? "white" : "black"} />
           {/* <ReloadBtn color={darkMode ? "white" : "black"} /> */}

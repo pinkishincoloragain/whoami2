@@ -84,7 +84,7 @@ export default function Header(props) {
               flex={3}
               className={classes.letter}
               onClick={() => dispatch(changeMode())}
-              sx={{ ml: "3px", pr: "2vh", mb: "10vh", mt: "5vh" }}
+              sx={{ ml: "9px", pr: "2vh", mb: "10vh", mt: "5vh" }}
             >
               PINKISHINCOLORAGAIN
             </Typography>
