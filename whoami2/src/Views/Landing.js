@@ -11,12 +11,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Subheader from "../Components/Subheader";
 import Backgrounds from "../Components/Backgrounds";
-import ReloadBtn from "../Components/buttons/ReloadBtn";
-import stars from "../Components/textures/stars.png";
-import Button from "@mui/material/Button";
-import { Snackbar, Table } from "@mui/material";
-import { BottomNavigation } from "@mui/material";
-import { Box } from "@mui/system";
+import { Snackbar, Typography } from "@mui/material";
+import InfoBtn from "../Components/buttons/InfoBtn";
+import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -25,6 +22,7 @@ function Landing(props) {
   const [windowWidth, setWindowWidth] = useState(props.width);
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(darkMode);
+  const [frameOpen, setFrameOpen] = useState(false);
   const [state, setState] = React.useState({
     open: false,
     vertical: "top",
@@ -32,6 +30,7 @@ function Landing(props) {
   });
 
   const { vertical, horizontal, open } = state;
+  const classes = useStyles();
 
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });
@@ -45,8 +44,6 @@ function Landing(props) {
   const handleClose = () => {
     setState({ ...state, open: false });
   };
-
-  const classes = useStyles();
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -66,6 +63,10 @@ function Landing(props) {
     if (windowWidth > 1280) {
       setFiltered(true);
     }
+  };
+
+  const handleFrame = () => {
+    setFrameOpen((prev) => !prev);
   };
 
   return (
@@ -123,12 +124,22 @@ function Landing(props) {
           {/* <Links color={darkMode ? "white" : "black"} /> */}
           <br />
           <BlogBtn color={darkMode ? "white" : "black"} />
+          <br />
+          <InfoBtn
+            color={darkMode ? "white" : "black"}
+            handleFrame={handleFrame}
+          />
+
           {/* <ReloadBtn color={darkMode ? "white" : "black"} /> */}
         </div>
       </div>
-      <Frames desktop={windowWidth > 1280} />
+      {frameOpen ? (
+        <Frames desktop={windowWidth > 1280} handleChange={handleFrame} />
+      ) : null}
       <div style={{ transitionDuration: "0.2s" }}>
         <Backgrounds windowWidth={windowWidth} />
+      </div>
+      <div style={{ transitionDuration: "0.2s" }}>
       </div>
     </div>
   );

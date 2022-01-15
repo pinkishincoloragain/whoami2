@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
@@ -12,6 +12,7 @@ export default function Frames(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   let classes = useStyles();
+  const deleteBtn = useRef(null);
 
   const smallFrame = (
     <div
@@ -41,7 +42,11 @@ export default function Frames(props) {
 
   const btnsLight = (
     <div className={classes.buttonHolder}>
-      <TerminalBtn color="#FC605C" borderColor="#F2524D" />
+      <TerminalBtn
+        color="#FC605C"
+        borderColor="#F2524D"
+        handleClick={props.handleChange}
+      />
       <TerminalBtn color="#FDBC40" borderColor="#E9B14D" />
       <TerminalBtn color="#34C849" borderColor="#1EBC32" />
     </div>
@@ -49,7 +54,11 @@ export default function Frames(props) {
 
   const btns = (
     <div className={classes.buttonHolder}>
-      <TerminalBtn color="#ED6A5E" borderColor="#D06158" />
+      <TerminalBtn
+        color="#ED6A5E"
+        borderColor="#D06158"
+        handleClick={props.handleChange}
+      />
       <TerminalBtn color="#F4BF4F" borderColor="#D6A94A" />
       <TerminalBtn color="#61C654" borderColor="#529549" />
     </div>

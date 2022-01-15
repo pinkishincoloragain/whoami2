@@ -57,7 +57,7 @@ function Waves(props) {
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
-      40,
+      60,
       window.innerWidth / window.innerHeight,
       1,
       20000

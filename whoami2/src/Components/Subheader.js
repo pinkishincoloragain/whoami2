@@ -9,7 +9,7 @@ export default function Subheader(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
-  const deskTopHeader = (
+  const desktopHeader = (
     <div style={{ width: "13vw" }}>
       <Tooltip
         arrow
@@ -39,5 +39,5 @@ export default function Subheader(props) {
     <div style={{ width: "90vw", fontSize: "8vw" }}>PINKISHINCOLORAGAIN</div>
   );
 
-  return <>{props.windowWidth > 1280 ? deskTopHeader : mobileHeader}</>;
+  return <>{props.windowWidth > 1280 ? desktopHeader : mobileHeader}</>;
 }

@@ -5,10 +5,10 @@ export default function Button(props) {
   const classes = useStyles();
 
   return (
-    <Tooltip
-      placement="top"
-      title={<Typography fontSize={10}>관상용입니다.</Typography>}
-    >
+    // <Tooltip
+    //   placement="top"
+    //   title={<Typography fontSize={10}>관상용입니다.</Typography>}
+    // >
       <div
         className={classes.terminalBtn}
         style={{
@@ -23,7 +23,8 @@ export default function Button(props) {
             cursor: "pointer",
           },
         }}
+        onClick={props.handleClick}
       ></div>
-    </Tooltip>
+    // </Tooltip>
   );
 }
