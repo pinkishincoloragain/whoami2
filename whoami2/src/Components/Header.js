@@ -76,7 +76,7 @@ export default function Header(props) {
             }
           >
             <Typography
-              variant="h1"
+              variant="h5"
               component="div"
               fontWeight={"bold"}
               gutterBottom
@@ -84,7 +84,7 @@ export default function Header(props) {
               flex={3}
               className={classes.letter}
               onClick={() => dispatch(changeMode())}
-              sx={{ ml: "3px", pr: "30px" }}
+              sx={{ ml: "3px", pr: "2vh", mb: "10vh", mt: "5vh" }}
             >
               PINKISHINCOLORAGAIN
             </Typography>

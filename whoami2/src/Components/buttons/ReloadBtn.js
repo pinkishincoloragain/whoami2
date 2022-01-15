@@ -13,7 +13,7 @@ export default function ReloadBtn(props) {
     <div>
       <Button onClick={handleClick}>
         <Typography
-          variant="h4"
+          variant="h5"
           color={props.color}
           className={classes.button5}
         >

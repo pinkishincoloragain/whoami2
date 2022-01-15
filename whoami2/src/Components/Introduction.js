@@ -141,7 +141,7 @@ export default function Introduction(props) {
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
             <Typography
-              variant="h4"
+              variant="h5"
               component="div"
               gutterBottom
               margin="auto"

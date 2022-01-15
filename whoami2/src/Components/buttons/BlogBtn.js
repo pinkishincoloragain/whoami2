@@ -17,7 +17,7 @@ export default function BlogBtn(props) {
     <div>
       <Button onClick={handleBlogClick}>
         <Typography
-          variant="h4"
+          variant="h5"
           color={props.color}
           className={classes.button3}
         >

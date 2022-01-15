@@ -6,34 +6,45 @@ import { Sky } from "./Sky.js";
 import { useEffect, useState } from "react";
 import waterNormals from "../textures/waternormals.jpeg";
 import { useSelector } from "react-redux";
+import { WebGLRenderer } from "three";
+import { red } from "@mui/material/colors";
 
 function Waves(props) {
-  const darkMode = useSelector((state) => state.mode.value);
   let container;
   let camera, scene, renderer;
-  let water, sun, mesh;
+  let water, sun, sky, mesh;
+  let pmremGenerator;
 
   useEffect(() => {
     init();
     animate();
-  }, [props]);
+    return () => {
+      container.removeChild(renderer.domElement);
+    };
+  }, []);
 
+  const darkMode = useSelector((state) => state.mode.value);
   const [parameters, setParameters] = useState({
-    elevation: darkMode === true ? -1 : 10,
-    // elevation: 0,
-    azimuth: darkMode === true ? 180 : 0,
-    // azimuth: 180,
+    // elevation: darkMode === true ? -1 : 10,
+    elevation: props.elevation,
+    // azimuth: darkMode === true ? 180 : 0,
+    azimuth: props.azimuth,
     time: 0.0,
-    sunSize: 2.0,
+    sunSize: 10.0,
   });
-  setParameters({
-    elevation: darkMode === true ? -1 : 10,
-    azimuth: darkMode === true ? 180 : 0,
-    time: 0.0,
-    sunSize: 2.0,
-  });
-  console.log(darkMode);
-  console.log(parameters);
+
+  function updateSun() {
+    const phi = THREE.MathUtils.degToRad(90 - parameters.elevation);
+    const theta = THREE.MathUtils.degToRad(parameters.azimuth);
+    const size = parameters.sunSize;
+
+    sun.setFromSphericalCoords(size, phi, theta);
+
+    sky.material.uniforms["sunPosition"].value.copy(sun);
+    water.material.uniforms["sunDirection"].value.copy(sun).normalize();
+
+    scene.environment = pmremGenerator.fromScene(sky).texture;
+  }
 
   function init() {
     container = document.getElementById("container");
@@ -42,10 +53,11 @@ function Waves(props) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     container.appendChild(renderer.domElement);
+    renderer.domElement.style.transitionDuration = "0.2s";
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
-      55,
+      50,
       window.innerWidth / window.innerHeight,
       1,
       20000
@@ -70,9 +82,10 @@ function Waves(props) {
         }
       ),
       sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
+      // sunColor: 0xffffff,
+      sunColor: "red",
       waterColor: 0x001e0f,
-      distortionScale: 3.7,
+      distortionScale: 3,
       fog: scene.fog !== undefined,
     });
 
@@ -82,7 +95,7 @@ function Waves(props) {
 
     // Skybox
 
-    const sky = new Sky();
+    sky = new Sky();
     sky.scale.setScalar(10000);
     scene.add(sky);
 
@@ -93,20 +106,7 @@ function Waves(props) {
     skyUniforms["mieCoefficient"].value = 0.005;
     skyUniforms["mieDirectionalG"].value = 0.8;
 
-    const pmremGenerator = new THREE.PMREMGenerator(renderer);
-
-    function updateSun() {
-      const phi = THREE.MathUtils.degToRad(90 - parameters.elevation);
-      const theta = THREE.MathUtils.degToRad(parameters.azimuth);
-      const size = parameters.sunSize;
-
-      sun.setFromSphericalCoords(size, phi, theta);
-
-      sky.material.uniforms["sunPosition"].value.copy(sun);
-      water.material.uniforms["sunDirection"].value.copy(sun).normalize();
-
-      scene.environment = pmremGenerator.fromScene(sky).texture;
-    }
+    pmremGenerator = new THREE.PMREMGenerator(renderer);
 
     updateSun();
 
@@ -120,70 +120,6 @@ function Waves(props) {
 
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
-    // geometry = new THREE.BoxGeometry(16, 16, 16);
-    // // } else {
-    // //   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
-    // // }
-    // for (let i = 0; i < 10; i++) {
-    //   const object = new THREE.Mesh(
-    //     geometry,
-    //     new THREE.MeshLambertMaterial({
-    //       // color: Math.random() * 0xffffff,
-    //       color:
-    //         colors[rand_color_idx][Math.floor(Math.random() * color_length)],
-    //       // map: textures[i % textures.length],
-    //     })
-    //   );
-
-    //   if (shape_case === 0) {
-    //     // if (props.type === "circle") {
-    //     object.position.x = Math.sin(i) * 360;
-    //     object.position.y = Math.cos(i) * 360;
-    //     object.position.z = Math.sin(i) * 360;
-    //   } else if (shape_case === 1) {
-    //     object.position.x = Math.sin(i) * 360;
-    //     object.position.y = Math.cos(i) * 360;
-    //     object.position.z = Math.tan(i) * 360;
-    //   }
-    //   // else if (randNum2 === 2) {
-    //   //   object.position.x = i * 400;
-    //   //   object.position.y = Math.sin(i) * 400;
-    //   //   object.position.z = Math.cos(i) * 400;
-    //   // } else if (randNum2 === 3) {
-    //   //   object.position.x = Math.sin(i) * 400;
-    //   //   object.position.y = Math.cos(i) * 400;
-    //   //   object.position.z = Math.tan(i) * 400;
-    //   // }
-    //   else if (shape_case === 4) {
-    //     object.position.x = Math.sin(i) * 400;
-    //     object.position.y = Math.cos(i) * 400;
-    //     object.position.z = Math.tan(i) * 400;
-    //   } else if (shape_case === 5) {
-    //     object.position.x = Math.sin(i) * 400;
-    //     object.position.y = Math.cos(i) * 400;
-    //     object.position.z = Math.sin(i) * 800;
-    //   } else {
-    //     object.position.x = Math.random() * 500 - 250;
-    //     object.position.y = Math.random() * 500 - 250;
-    //     object.position.z = Math.random() * 500 - 250;
-    //   }
-
-    //   object.rotation.x = Math.random() * 4 * Math.PI;
-    //   object.rotation.y = Math.random() * 2 * Math.PI;
-    //   object.rotation.z = Math.random() * 2 * Math.PI;
-
-    //   object.scale.x = Math.random() + 6;
-    //   object.scale.y = Math.random() + 6;
-    //   object.scale.z = Math.random() + 6;
-
-    //   scene.add(object);
-    //   // object.cursor = "pointer";
-    //   // object.on("click", function (ev) {
-    //   //   alert("fish");
-    //   // });
-    // }
-
-    //
 
     let controls = new OrbitControls(camera, renderer.domElement);
     controls.maxPolarAngle = Math.PI * 0.495;
@@ -194,22 +130,22 @@ function Waves(props) {
 
     // GUI;
 
-    const gui = new GUI();
+    // const gui = new GUI();
 
-    const folderSky = gui.addFolder("Sky");
-    folderSky.add(parameters, "elevation", -3, 90, 0.1).onChange(updateSun);
-    folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
-    folderSky.add(parameters, "time", 0, 24).onChange(updateSun);
-    folderSky.add(parameters, "sunSize", 0.0, 1.0, 0.001).onChange(updateSun);
-    folderSky.open();
+    // const folderSky = gui.addFolder("Sky");
+    // folderSky.add(parameters, "elevation", -3, 90, 0.1).onChange(updateSun);
+    // folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
+    // folderSky.add(parameters, "time", 0, 24).onChange(updateSun);
+    // folderSky.add(parameters, "sunSize", 0.0, 1.0, 0.001).onChange(updateSun);
+    // folderSky.open();
 
-    const waterUniforms = water.material.uniforms;
+    // const waterUniforms = water.material.uniforms;
 
-    const folderWater = gui.addFolder("Water");
-    folderWater
-      .add(waterUniforms.size, "value", 0.1, 10, 0.1)
-      .name("wave amplitude");
-    folderWater.open();
+    // const folderWater = gui.addFolder("Water");
+    // folderWater
+    //   .add(waterUniforms.size, "value", 0.1, 10, 0.1)
+    //   .name("wave amplitude");
+    // folderWater.open();
 
     window.addEventListener("resize", onWindowResize);
   }
@@ -238,7 +174,7 @@ function Waves(props) {
     renderer.render(scene, camera);
   }
 
-  return <div id="container"></div>;
+  return <div id="container" style={{ transitionDuration: "0.1s" }}></div>;
 }
 
 export default Waves;

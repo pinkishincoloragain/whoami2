@@ -188,6 +188,10 @@ const useStyles = makeStyles(() => ({
       color: "skyblue",
     },
   },
+
+  waves: {
+    transitionDuration: "0.2s",
+  },
 }));
 
 export { useStyles };
