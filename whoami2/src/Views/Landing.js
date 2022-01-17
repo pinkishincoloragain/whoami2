@@ -14,6 +14,8 @@ import Backgrounds from "../Components/Backgrounds";
 import { Snackbar, Typography } from "@mui/material";
 import InfoBtn from "../Components/buttons/InfoBtn";
 import Waves from "../Components/objects/Waves";
+import CatchPhrase from "../Components/CatchPhrase";
+import { CSSTransition } from "react-transition-group";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -23,11 +25,12 @@ function Landing(props) {
   const [windowHeight, setWindowHeight] = useState(props.height);
   const [filtered, setFiltered] = useState(darkMode);
   const [frameOpen, setFrameOpen] = useState(false);
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     open: false,
     vertical: "top",
     horizontal: "center",
   });
+  const [catchOpen, setCatchOpen] = useState(true);
 
   const { vertical, horizontal, open } = state;
   const classes = useStyles();
@@ -57,12 +60,20 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
+  useEffect(() => {
+    handleCatchClick();
+  }, []);
+
   const handleChange = () => {
     dispatch(changeMode());
 
     if (windowWidth > 1280) {
       setFiltered(true);
     }
+  };
+
+  const handleCatchClick = () => {
+    setCatchOpen(false);
   };
 
   const handleFrame = () => {
@@ -76,6 +87,15 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
+      {/* <CSSTransition
+        in={catchOpen}
+        appear={true}
+        timeout={1000}
+        unmountOnExit
+        classNames={classes.transition}
+      >
+        <CatchPhrase handleCatchClick={handleCatchClick} />
+      </CSSTransition> */}
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
@@ -139,8 +159,7 @@ function Landing(props) {
       <div style={{ transitionDuration: "0.2s" }}>
         <Backgrounds windowWidth={windowWidth} />
       </div>
-      <div style={{ transitionDuration: "0.2s" }}>
-      </div>
+      <div style={{ transitionDuration: "0.2s" }}></div>
     </div>
   );
 }

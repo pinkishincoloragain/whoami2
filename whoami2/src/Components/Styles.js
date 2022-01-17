@@ -1,3 +1,4 @@
+import zIndex from "@mui/material/styles/zIndex";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
@@ -191,6 +192,24 @@ const useStyles = makeStyles(() => ({
 
   waves: {
     transitionDuration: "0.2s",
+  },
+
+  catchPhraseHolder: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#2D2D2F",
+    zIndex: "100",
+    // transitionDuration: "0.2s",
+  },
+  transition: {
+    transition: "opacity 300ms, transform 300ms",
   },
 }));
 

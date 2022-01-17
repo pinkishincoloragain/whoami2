@@ -62,7 +62,7 @@ function Waves(props) {
       1,
       20000
     );
-    camera.position.set(0, 30, 100);
+    camera.position.set(-100, 200, 100);
 
     //
 
@@ -84,6 +84,7 @@ function Waves(props) {
       sunDirection: new THREE.Vector3(),
       // sunColor: 0xffffff,
       sunColor: "red",
+      // waterColor: 0x001e0f,
       waterColor: 0x001e0f,
       distortionScale: 3,
       fog: scene.fog !== undefined,
