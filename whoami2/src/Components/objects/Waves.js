@@ -62,7 +62,7 @@ function Waves(props) {
       1,
       20000
     );
-    camera.position.set(-100, 200, 100);
+    camera.position.set(-100, 20, 100);
 
     //
 
@@ -103,7 +103,7 @@ function Waves(props) {
     const skyUniforms = sky.material.uniforms;
 
     skyUniforms["turbidity"].value = 10;
-    skyUniforms["rayleigh"].value = 2;
+    skyUniforms["rayleigh"].value = 0.2;
     skyUniforms["mieCoefficient"].value = 0.005;
     skyUniforms["mieDirectionalG"].value = 0.8;
 

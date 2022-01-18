@@ -15,13 +15,12 @@ export default function Backgrounds(props) {
 
   return (
     <div style={{ transitionDuration: "0.2s" }}>
-      {darkMode ? (
-        <CSSTransition classNames="fade" timeout={1000}>
-          <Waves azimuth="180" elevation="-1" className={classes.waves} />
-        </CSSTransition>
-      ) : (
+      <CSSTransition classNames="fade" unmountOnExit in={darkMode} timeout={1000}>
+        <Waves azimuth="180" elevation="-1" className={classes.waves} />
+      </CSSTransition>
+      <CSSTransition classNames="fade" unmountOnExit in={!darkMode} timeout={1000}>
         <Waves azimuth="10" elevation="20" className={classes.waves} />
-      )}
+      </CSSTransition>
     </div>
   );
 }
