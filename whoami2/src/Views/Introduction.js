@@ -9,9 +9,14 @@ import ListItemText from "@mui/material/ListItemText";
 import { Container, Typography } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { Fade } from "@mui/material";
-import { education, experience, projects, skills } from "./IntroContents";
-import Waves from "./objects/Waves";
-import { useStyles } from "./Styles";
+import {
+  education,
+  experience,
+  projects,
+  skills,
+} from "../Components/IntroContents";
+import Waves from "../Components/objects/Waves";
+import { useStyles } from "../Components/styles/Styles";
 export default function Introduction(props) {
   const btnName = "Introduction";
   const [state, setState] = React.useState({

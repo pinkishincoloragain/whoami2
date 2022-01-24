@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { WebGLRenderer } from "three";
 import { red } from "@mui/material/colors";
 
-function Waves(props) {
+function UnderWaves(props) {
   let container;
   let camera, scene, renderer;
   let water, sun, sky, mesh;
@@ -175,12 +175,7 @@ function Waves(props) {
     renderer.render(scene, camera);
   }
 
-  return (
-    <div
-      id="container"
-      style={{ transitionDuration: "0.1s", visibility: "visible" }}
-    ></div>
-  );
+  return <div id="container" style={{ transitionDuration: "0.1s" }}></div>;
 }
 
-export default Waves;
+export default UnderWaves;

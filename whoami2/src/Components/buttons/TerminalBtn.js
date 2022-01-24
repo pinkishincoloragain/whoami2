@@ -1,4 +1,4 @@
-import { useStyles } from "../Styles";
+import { useStyles } from "../styles/Styles";
 import { Tooltip, Typography } from "@mui/material";
 
 export default function Button(props) {

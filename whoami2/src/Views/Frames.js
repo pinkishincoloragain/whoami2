@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import CommentLine from "../Components/decorations/CommentLine";
 import { Link } from "react-router-dom";
 import UserCode from "../Components/decorations/UserCode";
-import { useStyles } from "../Components/Styles";
+import { useStyles } from "../Components/styles/Styles";
 import { useSelector } from "react-redux";
 import TerminalBtn from "../Components/buttons/TerminalBtn";
 

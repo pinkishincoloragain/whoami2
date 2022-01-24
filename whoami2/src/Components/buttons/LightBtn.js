@@ -1,4 +1,4 @@
-import { useStyles } from "../Styles";
+import { useStyles } from "../styles/Styles";
 import { Typography, Tooltip } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";

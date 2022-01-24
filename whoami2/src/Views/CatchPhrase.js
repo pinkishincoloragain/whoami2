@@ -1,5 +1,5 @@
 import catchPhrase from "../assets/CatchPhrase.png";
-import { useStyles } from "./Styles";
+import { useStyles } from "../Components/styles/Styles";
 
 export default function CatchPhrase(props) {
   const classes = useStyles();

@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Links from "../Components/Links";
-import Introduction from "../Components/Introduction";
+import Introduction from "./Introduction";
 import Frames from "./Frames";
 import BlogBtn from "../Components/buttons/BlogBtn";
 import HomeBtn from "../Components/buttons/HomeBtn";
+import ProjectBtn from "../Components/buttons/ProjectBtn";
 import Header from "../Components/Header";
 import LightBtn from "../Components/buttons/LightBtn";
-import { useStyles } from "../Components/Styles";
+import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Subheader from "../Components/Subheader";
@@ -14,7 +15,8 @@ import Backgrounds from "../Components/Backgrounds";
 import { Snackbar, Typography } from "@mui/material";
 import InfoBtn from "../Components/buttons/InfoBtn";
 import Waves from "../Components/objects/Waves";
-import CatchPhrase from "../Components/CatchPhrase";
+import UnderWaves from "../Components/objects/UnderWaves";
+import CatchPhrase from "./CatchPhrase";
 import { CSSTransition } from "react-transition-group";
 
 function Landing(props) {
@@ -149,8 +151,11 @@ function Landing(props) {
             color={darkMode ? "white" : "black"}
             handleFrame={handleFrame}
           />
+          <ProjectBtn
+            color={darkMode ? "white" : "black"}
+            handleFrame={handleFrame}
+          />
 
-          {/* <ReloadBtn color={darkMode ? "white" : "black"} /> */}
         </div>
       </div>
       {frameOpen ? (
@@ -158,6 +163,7 @@ function Landing(props) {
       ) : null}
       <div style={{ transitionDuration: "0.2s" }}>
         <Backgrounds windowWidth={windowWidth} />
+        {/* <UnderWaves /> */}
       </div>
       <div style={{ transitionDuration: "0.2s" }}></div>
     </div>

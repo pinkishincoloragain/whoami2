@@ -5,6 +5,7 @@ import Landing from "./Views/Landing";
 import Blog from "./Views/Blog";
 import Admin from "./Views/Admin";
 import Error from "./Views/Error";
+import Project from "./Views/Projects";
 import GerardWay from "./Views/Gerardway";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             }
           />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/projects" element={<Project />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

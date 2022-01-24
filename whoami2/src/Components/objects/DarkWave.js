@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { WebGLRenderer } from "three";
 import { red } from "@mui/material/colors";
 
-function Waves(props) {
+function DarkWave(props) {
   let container;
   let camera, scene, renderer;
   let water, sun, sky, mesh;
@@ -47,7 +47,7 @@ function Waves(props) {
   }
 
   function init() {
-    container = document.getElementById("container");
+    container = document.getElementById("container2");
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -177,10 +177,10 @@ function Waves(props) {
 
   return (
     <div
-      id="container"
+      id="container2"
       style={{ transitionDuration: "0.1s", visibility: "visible" }}
     ></div>
   );
 }
 
-export default Waves;
+export default DarkWave;

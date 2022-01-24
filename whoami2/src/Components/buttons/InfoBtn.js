@@ -1,4 +1,4 @@
-import { useStyles } from "../Styles";
+import { useStyles } from "../styles/Styles";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "@mui/material";
