@@ -18,6 +18,7 @@ import Waves from "../Components/objects/Waves";
 import UnderWaves from "../Components/objects/UnderWaves";
 import CatchPhrase from "./CatchPhrase";
 import { CSSTransition } from "react-transition-group";
+import Sidebar from "../Components/Sidebar";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -89,15 +90,7 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      {/* <CSSTransition
-        in={catchOpen}
-        appear={true}
-        timeout={1000}
-        unmountOnExit
-        classNames={classes.transition}
-      >
-        <CatchPhrase handleCatchClick={handleCatchClick} />
-      </CSSTransition> */}
+      <Sidebar />
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
@@ -155,7 +148,6 @@ function Landing(props) {
             color={darkMode ? "white" : "black"}
             handleFrame={handleFrame}
           />
-
         </div>
       </div>
       {frameOpen ? (

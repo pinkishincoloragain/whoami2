@@ -23,18 +23,18 @@ export default function Backgrounds(props) {
 
   return (
     <div style={{ transitionDuration: "0.2s" }}>
-      <Waves
+      {/* <Waves
         azimuth="180"
         // ref={nodeRef}
         elevation="-1"
         className={classes.waves}
-      />
-      <DarkWave
+      /> */}
+      {/* <DarkWave
         // ref={nodeRef2}
         azimuth="10"
         elevation="20"
         className={classes.waves}
-      />
+      /> */}
     </div>
   );
 }
