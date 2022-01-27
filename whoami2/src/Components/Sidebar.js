@@ -1,4 +1,5 @@
 import React from "react";
+import CustomIcon from "./Icon";
 
 export default function Sidebar() {
   return (
@@ -14,7 +15,7 @@ export default function Sidebar() {
           alignItems: "center",
         }}
       >
-        fish
+        <CustomIcon image="github" />
       </div>
     </div>
   );

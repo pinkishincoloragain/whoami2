@@ -21,10 +21,6 @@ export default function Header(props) {
     }
   }, []);
 
-  const handleClick = () => {
-    dispatch(changeMode());
-  };
-
   const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
