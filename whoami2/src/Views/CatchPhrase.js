@@ -1,4 +1,4 @@
-import catchPhrase from "../assets/CatchPhrase.png";
+import catchPhrase from "../assets/icons/CatchPhrase.png";
 import { useStyles } from "../Components/styles/Styles";
 
 export default function CatchPhrase(props) {

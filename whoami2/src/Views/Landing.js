@@ -3,7 +3,6 @@ import Links from "../Components/containers/Links";
 import Introduction from "./Introduction";
 import Frames from "./Frames";
 import BlogBtn from "../Components/buttons/BlogBtn";
-import HomeBtn from "../Components/buttons/HomeBtn";
 import ProjectBtn from "../Components/buttons/ProjectBtn";
 import Header from "../Components/containers/Header";
 import LightBtn from "../Components/buttons/LightBtn";
@@ -14,11 +13,8 @@ import Subheader from "../Components/containers/Subheader";
 import Backgrounds from "../Components/containers/Backgrounds";
 import { Snackbar, Typography } from "@mui/material";
 import InfoBtn from "../Components/buttons/InfoBtn";
-import Waves from "../Components/objects/Waves";
-import UnderWaves from "../Components/objects/UnderWaves";
-import CatchPhrase from "./CatchPhrase";
 import { CSSTransition } from "react-transition-group";
-import Sidebar from "../Components/containers/Sidebar";
+import HeaderBar from "../Components/containers/HeaderBar";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -91,14 +87,14 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      <Sidebar />
-      <Snackbar
+      <HeaderBar />
+      {/* <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
         onClose={handleClose}
         message="Touch here!"
         key={vertical + horizontal}
-      />
+      /> */}
       <div
         style={{
           zIndex: 1,
@@ -123,21 +119,12 @@ function Landing(props) {
           }}
         >
           <Header />
-          <Subheader windowWidth={windowWidth} />
-          {/*           
-          <LightBtn
-            darkMode={darkMode}
-            color={darkMode ? "white" : "black"}
-            handleChange={handleChange}
-            title={darkMode ? "DARKEN" : "LIGHTEN"}
-          /> */}
+          {/* <Subheader windowWidth={windowWidth} /> */}
           <br />
           <Introduction
             darkMode={darkMode}
             color={darkMode ? "white" : "black"}
           />
-          {/* <br /> */}
-          {/* <Links color={darkMode ? "white" : "black"} /> */}
           <br />
           <BlogBtn color={darkMode ? "white" : "black"} />
           <br />
@@ -145,6 +132,7 @@ function Landing(props) {
             color={darkMode ? "white" : "black"}
             handleFrame={handleFrame}
           />
+          <br />
           <ProjectBtn
             color={darkMode ? "white" : "black"}
             handleFrame={handleFrame}

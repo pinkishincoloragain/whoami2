@@ -2,6 +2,12 @@ import zIndex from "@mui/material/styles/zIndex";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
+  centerdiv: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    alignContent: "center",
+  },
   button: {
     "&:hover": {
       color: "#FFCC00",
@@ -81,6 +87,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "1s",
     },
   },
+
   frame: {
     width: "45vw",
     height: "45vh",
@@ -210,6 +217,17 @@ const useStyles = makeStyles(() => ({
   },
   transition: {
     transition: "opacity 300ms, transform 300ms",
+  },
+  iconWrapper: {
+    width: "",
+  },
+  icon: {
+    width: "32px",
+    marginTop: "2vh",
+    "&:hover": {
+      cursor: "pointer",
+      filter: "sephia(100%)",
+    },
   },
 }));
 
