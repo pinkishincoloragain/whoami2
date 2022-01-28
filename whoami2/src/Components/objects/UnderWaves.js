@@ -4,7 +4,7 @@ import { OrbitControls } from "../controls/OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import { useEffect, useState } from "react";
-import waterNormals from "../textures/waternormals.jpeg";
+import waterNormals from "../../assets/textures/waternormals.jpeg";
 import { useSelector } from "react-redux";
 import { WebGLRenderer } from "three";
 import { red } from "@mui/material/colors";

@@ -14,7 +14,7 @@ import {
   experience,
   projects,
   skills,
-} from "../Components/IntroContents";
+} from "../Components/containers/IntroContents";
 import Waves from "../Components/objects/Waves";
 import { useStyles } from "../Components/styles/Styles";
 export default function Introduction(props) {

@@ -1,20 +1,12 @@
 import react from "react";
 import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/objects/Waves";
-import Boxes from "../Components/objects/Boxes";
-import Links from "../Components/Links";
-import Introduction from "../Views/Introduction";
-import Typography from "@mui/material/Typography";
+import Links from "../Components/containers/Links";
 import { useStyles } from "../Components/styles/Styles";
-import BlogBtn from "../Components/buttons/BlogBtn";
 import HomeBtn from "../Components/buttons/HomeBtn";
-import { useNavigate } from "react-router-dom";
-import Header from "../Components/Header";
-import LightBtn from "../Components/buttons/LightBtn";
+import Header from "../Components/containers/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
-import Subheader from "../Components/Subheader";
-import stars from "../Components/textures/stars.png";
 
 function Blog(props) {
   const darkMode = useSelector((state) => state.mode.value);

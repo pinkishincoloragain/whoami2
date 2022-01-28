@@ -1,4 +1,4 @@
-import github from "../assets/github.png";
+import github from "../../assets/github.png";
 // import instagram from "./assets/instagram.png";
 import SvgIcon from "@mui/material/SvgIcon";
 

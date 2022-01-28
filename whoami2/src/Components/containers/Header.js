@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { useStyles } from "./styles/Styles";
+import { useStyles } from "../styles/Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import { styled } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
-import { changeMode } from "./controls/modeSlice";
+import { changeMode } from "../controls/modeSlice";
 import { Link } from "react-router-dom";
 import Login from "./Clock";
 

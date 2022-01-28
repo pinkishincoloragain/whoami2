@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import Boxes from "./objects/Boxes";
-import Waves from "./objects/Waves";
-import DarkWave from "./objects/DarkWave";
+import Boxes from "../objects/Boxes";
+import Waves from "../objects/Waves";
+import DarkWave from "../objects/DarkWave";
 import { useState } from "react";
-import { useStyles } from "./styles/Styles";
+import { useStyles } from "../styles/Styles";
 import { useRef } from "react";
 import {
   Transition,

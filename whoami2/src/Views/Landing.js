@@ -1,24 +1,24 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import Links from "../Components/Links";
+import Links from "../Components/containers/Links";
 import Introduction from "./Introduction";
 import Frames from "./Frames";
 import BlogBtn from "../Components/buttons/BlogBtn";
 import HomeBtn from "../Components/buttons/HomeBtn";
 import ProjectBtn from "../Components/buttons/ProjectBtn";
-import Header from "../Components/Header";
+import Header from "../Components/containers/Header";
 import LightBtn from "../Components/buttons/LightBtn";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
-import Subheader from "../Components/Subheader";
-import Backgrounds from "../Components/Backgrounds";
+import Subheader from "../Components/containers/Subheader";
+import Backgrounds from "../Components/containers/Backgrounds";
 import { Snackbar, Typography } from "@mui/material";
 import InfoBtn from "../Components/buttons/InfoBtn";
 import Waves from "../Components/objects/Waves";
 import UnderWaves from "../Components/objects/UnderWaves";
 import CatchPhrase from "./CatchPhrase";
 import { CSSTransition } from "react-transition-group";
-import Sidebar from "../Components/Sidebar";
+import Sidebar from "../Components/containers/Sidebar";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -37,6 +37,7 @@ function Landing(props) {
 
   const { vertical, horizontal, open } = state;
   const classes = useStyles();
+  const [scroll, setScroll] = useState(0);
 
   const handleClick = (newState) => () => {
     setState({ open: true, ...newState });

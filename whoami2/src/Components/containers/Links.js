@@ -6,7 +6,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
-import { useStyles } from "./styles/Styles";
+import { useStyles } from "../styles/Styles";
 
 export default function Links(props) {
   const [state, setState] = React.useState({

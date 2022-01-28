@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useStyles } from "./styles/Styles";
+import { useStyles } from "../styles/Styles";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
 import { Tooltip } from "@mui/material";

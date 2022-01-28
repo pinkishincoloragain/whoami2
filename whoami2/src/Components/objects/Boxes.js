@@ -2,11 +2,11 @@ import react from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import * as THREE from "three";
-import water from "../textures/waternormals.jpeg";
-import water2 from "../textures/water2.png";
-import water3 from "../textures/water3.png";
-import stone from "../textures/solid_stone.jpeg";
-import stone2 from "../textures/stone_2.jpeg";
+import water from "../../assets/textures/waternormals.jpeg";
+import water2 from "../../assets/textures/water2.png";
+import water3 from "../../assets/textures/water3.png";
+import stone from "../../assets/textures/solid_stone.jpeg";
+import stone2 from "../../assets/textures/stone_2.jpeg";
 // import stars from "../textures/stars.jpeg";
 
 function Boxes(props) {
