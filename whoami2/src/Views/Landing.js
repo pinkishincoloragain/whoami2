@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Links from "../Components/containers/Links";
-import Introduction from "./Introduction";
 import Frames from "./Frames";
 import BlogBtn from "../Components/buttons/BlogBtn";
 import ProjectBtn from "../Components/buttons/ProjectBtn";
@@ -87,57 +86,20 @@ function Landing(props) {
         // overflow: "hidden",
       }}
     >
-      <HeaderBar />
-      {/* <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={open}
-        onClose={handleClose}
-        message="Touch here!"
-        key={vertical + horizontal}
-      /> */}
       <div
         style={{
           zIndex: 1,
           position: "absolute",
-          display: "flex",
+          display: "grid | flex",
           margin: "auto",
           alignItems: "center",
-          flexDirection: "row",
           justifyContent: "space-evenly",
           backgroundColor: "transparent",
+          width: "80vw",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "80vw",
-            paddingLeft: "10vw",
-            height: "100vh",
-            overflow: "hidden",
-            flexWrap: "wrap",
-          }}
-        >
-          <Header />
-          {/* <Subheader windowWidth={windowWidth} /> */}
-          <br />
-          <Introduction
-            darkMode={darkMode}
-            color={darkMode ? "white" : "black"}
-          />
-          <br />
-          <BlogBtn color={darkMode ? "white" : "black"} />
-          <br />
-          <InfoBtn
-            color={darkMode ? "white" : "black"}
-            handleFrame={handleFrame}
-          />
-          <br />
-          <ProjectBtn
-            color={darkMode ? "white" : "black"}
-            handleFrame={handleFrame}
-          />
-        </div>
+        <HeaderBar />
+        <Header />
       </div>
       {frameOpen ? (
         <Frames desktop={windowWidth > 1280} handleChange={handleFrame} />

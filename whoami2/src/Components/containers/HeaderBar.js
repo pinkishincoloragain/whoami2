@@ -1,22 +1,21 @@
-import { Box } from "@mui/system";
 import React from "react";
+import StatusBar from "./StatusBar";
 import CustomIcon from "./CustomIcon";
 
 export default function HeaderBar() {
   return (
-    <div style={{ position: "absolute", display: "flex", zIndex: "10" }}>
-      <div
-        style={{
-          width: "100vw",
-          height: "80px",
-          backgroundColor: "#C2C2DD",
-          display: "grid | inline-grid",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <CustomIcon />
-      </div>
+    <div
+      style={{
+        width: "80vw",
+        marginLeft: "10vw",
+        backgroundColor: "#1B1b1b",
+        display: "grid | inline-grid",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <StatusBar />
+      {/* <CustomIcon /> */}
     </div>
   );
 }
