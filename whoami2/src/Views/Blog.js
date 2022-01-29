@@ -98,9 +98,9 @@ function Blog(props) {
         }}
       >
         <Header />
-        <Links color={darkMode ? "white" : "black"} darkMode={darkMode} />
+        <Links color={darkMode ? "white" : "#1b1b1b"} darkMode={darkMode} />
         <div>
-          <HomeBtn color={darkMode ? "white" : "black"} darkMode={darkMode} />
+          <HomeBtn color={darkMode ? "white" : "#1b1b1b"} darkMode={darkMode} />
         </div>
       </div>
       {windowWidth > 1280 ? (

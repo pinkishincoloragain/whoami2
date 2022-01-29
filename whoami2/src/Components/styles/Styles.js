@@ -2,6 +2,25 @@ import zIndex from "@mui/material/styles/zIndex";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
+  landing: {
+    position: "absolute",
+  },
+  headerWrapper: {
+    zIndex: 1,
+    position: "absolute",
+    display: "grid | flex",
+    margin: "auto",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    backgroundColor: "transparent",
+    width: "80vw",
+  },
+
+  bodyWrapper: {
+    width: "80vw",
+    marginLeft: "10vw",
+  },
+
   centerdiv: {
     display: "flex",
     alignItems: "center",
@@ -9,12 +28,13 @@ const useStyles = makeStyles(() => ({
     alignContent: "center",
   },
   button: {
+    color: "black",
     "&:hover": {
       color: "#FFCC00",
-      transitionDuration: "0.1s",
+      // transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "12s",
+    transitionDuration: "0.1s",
   },
   button1: {
     "&:hover": {

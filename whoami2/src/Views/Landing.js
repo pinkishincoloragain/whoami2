@@ -8,12 +8,12 @@ import LightBtn from "../Components/buttons/LightBtn";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
-import Subheader from "../Components/containers/Subheader";
 import Backgrounds from "../Components/containers/Backgrounds";
 import { Snackbar, Typography } from "@mui/material";
 import InfoBtn from "../Components/buttons/InfoBtn";
 import { CSSTransition } from "react-transition-group";
 import HeaderBar from "../Components/containers/HeaderBar";
+import Body from "./Body";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -81,25 +81,17 @@ function Landing(props) {
 
   return (
     <div
-      style={{
-        position: "absolute",
-        // overflow: "hidden",
+      className={classes.landing}
+      onWheel={(e) => {
+        console.log(e.deltaY);
+        setScroll(e.deltaY);
       }}
+      style={{ backgroundColor: darkMode ? "#1f1f1f" : "white" }}
     >
-      <div
-        style={{
-          zIndex: 1,
-          position: "absolute",
-          display: "grid | flex",
-          margin: "auto",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          backgroundColor: "transparent",
-          width: "80vw",
-        }}
-      >
+      <div className={classes.headerWrapper}>
         <HeaderBar />
         <Header />
+        <Body />
       </div>
       {frameOpen ? (
         <Frames desktop={windowWidth > 1280} handleChange={handleFrame} />
@@ -108,7 +100,6 @@ function Landing(props) {
         <Backgrounds windowWidth={windowWidth} />
         {/* <UnderWaves /> */}
       </div>
-      <div style={{ transitionDuration: "0.2s" }}></div>
     </div>
   );
 }

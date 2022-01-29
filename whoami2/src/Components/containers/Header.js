@@ -86,66 +86,6 @@ export default function Header(props) {
             </Typography>
           </Tooltip>
         </div>
-
-        {/* <Login /> */}
-        {/* <div
-          style={{
-            paddingTop: "1vh",
-            heigth: "6vh",
-            display: "flex",
-            height: "10vh",
-            flex: 1,
-            marginLeft: "1vh",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "4.5vw",
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <div
-              style={{
-                color: "grey",
-              }}
-              onClick={handleClick}
-            >
-              <HtmlTooltip
-                arrow
-                title={
-                  <React.Fragment>
-                    <Typography color="inherit">means</Typography>
-                    <b>{"Ocean"}</b>
-                  </React.Fragment>
-                }
-              >
-                <div className={classes.hiddenText}>
-                  <b>溟</b>
-                </div>
-              </HtmlTooltip>
-            </div>
-            <div
-              style={{
-                color: "grey",
-                marginLeft: "2vh",
-              }}
-              onClick={handleClick}
-            >
-              <HtmlTooltip
-                arrow
-                title={
-                  <React.Fragment>
-                    <Typography color="inherit">means</Typography>
-                    <b>{"Light"}</b>
-                  </React.Fragment>
-                }
-              >
-                <b className={classes.hiddenText}>彬</b>
-              </HtmlTooltip>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
