@@ -52,40 +52,45 @@ export default function Header(props) {
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
           display: "flex",
           flexDirection: "row",
-          width: "100%",
-          //   transitionDuration:"0.2s"
+            width: "80vw",
         }}
       >
-        <div>
-          <Tooltip
-            arrow
-            placement="right"
-            title={
-              <Typography fontSize={15}>
-                {darkMode ? "Sleep now" : "Wake up"}
-              </Typography>
-            }
-          >
-            <Typography
-              variant="h5"
-              component="div"
-              fontWeight={"bold"}
-              gutterBottom
-              color={darkMode ? "blue" : "white"}
-              flex={3}
-              className={classes.letter}
-              onClick={() => dispatch(changeMode())}
-              sx={{ ml: "9px", pr: "2vh", mb: "10vh", mt: "5vh" }}
-            >
-              PINKISHINCOLORAGAIN
+        <Tooltip
+          arrow
+          placement="left"
+          title={
+            <Typography fontSize={15}>
+              {darkMode ? "Sleep now" : "Wake up"}
             </Typography>
-          </Tooltip>
-        </div>
+          }
+        >
+          <Typography
+            fontSize={"max(16px, 5vw)"}
+            component="div"
+            fontWeight={"bold"}
+            gutterBottom
+            color={darkMode ? "blue" : "white"}
+            flex={3}
+            className={classes.letter}
+            onClick={() => dispatch(changeMode())}
+            sx={{ pr: "2vh" }}
+            overflow="hidden"
+          >
+            PINKISHINCOLORAGAIN
+          </Typography>
+        </Tooltip>
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 export default function Status(props) {
   const classes = useStyles();
   const mode = useSelector((state) => state.mode.value);
-  console.log(mode);
 
   return (
     <div
@@ -21,6 +20,7 @@ export default function Status(props) {
     >
       <Typography
         fontSize={"min(2vh, 15rem)"}
+        fontWeight={"300"}
         color={mode ? "#1b1b1b" : "white"}
         className={classes.button}
         sx={{ ml: "0%" }}

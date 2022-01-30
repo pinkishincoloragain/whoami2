@@ -10,7 +10,6 @@ export default function HeaderBar() {
     <div
       style={{
         width: "80vw",
-        marginLeft: "10vw",
         backgroundColor: !mode ? "#1b1b1b" : "white",
         display: "grid | inline-grid",
         justifyContent: "center",

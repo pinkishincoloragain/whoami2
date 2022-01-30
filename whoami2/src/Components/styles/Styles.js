@@ -5,7 +5,14 @@ const useStyles = makeStyles(() => ({
   landing: {
     position: "absolute",
   },
-  headerWrapper: {
+  font1: {
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    fontSize: "min(2vh, 15rem)",
+  },
+  font2: {
+    fontFamily: `'Press Start 2P', cursive`,
+  },
+  mainWrapper: {
     zIndex: 1,
     position: "absolute",
     display: "grid | flex",
@@ -14,13 +21,8 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-evenly",
     backgroundColor: "transparent",
     width: "80vw",
-  },
-
-  bodyWrapper: {
-    width: "80vw",
     marginLeft: "10vw",
   },
-
   centerdiv: {
     display: "flex",
     alignItems: "center",
@@ -248,6 +250,11 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
       filter: "sephia(100%)",
     },
+  },
+  project: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#1b1b1b",
   },
 }));
 

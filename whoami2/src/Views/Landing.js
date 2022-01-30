@@ -14,6 +14,7 @@ import InfoBtn from "../Components/buttons/InfoBtn";
 import { CSSTransition } from "react-transition-group";
 import HeaderBar from "../Components/containers/HeaderBar";
 import Body from "./Body";
+import Description from "../Components/containers/Description";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -88,9 +89,10 @@ function Landing(props) {
       }}
       style={{ backgroundColor: darkMode ? "#1f1f1f" : "white" }}
     >
-      <div className={classes.headerWrapper}>
+      <div className={classes.mainWrapper}>
         <HeaderBar />
         <Header />
+        <Description />
         <Body />
       </div>
       {frameOpen ? (
