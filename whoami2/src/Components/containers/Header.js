@@ -51,49 +51,60 @@ export default function Header(props) {
     },
   });
 
+  const handleMouseDown = (e) => {
+    e.target.style.color = "red";
+  };
+
+  const handleMouseUp = (e) => {
+    e.target.style.color = "#1b1b1b";
+  };
+  const handleMouseEnter = (e) => {
+    e.target.style.color = "#FFCC00";
+  };
+  const handleMouseOut = (e) => {
+    e.target.style.color = "#1b1b1b";
+  };
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "row",
+        width: "80vw",
+        height: "8vw",
+        marginTop: "1vh",
+        borderTop: "1vh solid #1b1b1b",
+        borderBottom: "1vh solid #1b1b1b",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "80vw",
-          height: "10vw",
-          marginBottom: "0vh",
-          marginTop: "2vh",
-        }}
-      >
-        <Tooltip
-          arrow
-          placement="left"
-          title={
-            <Typography fontSize={15}>
-              {darkMode ? "Sleep now" : "Wake up"}
-            </Typography>
-          }
-        >
-          <Typography
-            fontSize={"max(16px, 5vw)"}
-            component="div"
-            fontWeight={"bold"}
-            letterSpacing={"-0.03vw"}
-            gutterBottom
-            color={"#1b1b1b"}
-            flex={3}
-            className={classes.letter}
-            onClick={() => dispatch(changeMode())}
-          >
-            PINKISHINCOLORAGAIN
+      <Tooltip
+        arrow
+        placement="left"
+        title={
+          <Typography fontSize={15}>
+            {darkMode ? "Sleep now" : "Wake up"}
           </Typography>
-        </Tooltip>
-      </div>
+        }
+      >
+        <Typography
+          fontSize={"max(16px, 6.8vw)"}
+          component="div"
+          fontWeight={"bold"}
+          letterSpacing={"-0.03vw"}
+          color={"#1b1b1b"}
+          flex={3}
+          className={classes.letter}
+          onClick={() => dispatch(changeMode())}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseEnter={handleMouseEnter}
+          onMouseOut={handleMouseOut}
+        >
+          PINKISHINCOLORAGAIN
+        </Typography>
+      </Tooltip>
     </div>
   );
 }

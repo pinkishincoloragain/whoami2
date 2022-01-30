@@ -94,6 +94,7 @@ function Landing(props) {
         <Header />
         <Description />
         <Body />
+        {/* <InfoBtn handleFrame={handleFrame} /> */}
       </div>
       {frameOpen ? (
         <Frames desktop={windowWidth > 1280} handleChange={handleFrame} />

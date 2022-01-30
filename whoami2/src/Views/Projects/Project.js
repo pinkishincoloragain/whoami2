@@ -1,4 +1,4 @@
-import { useStyles } from "../Components/styles/Styles";
+import { useStyles } from "../../Components/styles/Styles";
 import { useSelector } from "react-redux";
 
 export default function Project() {
@@ -9,7 +9,7 @@ export default function Project() {
     <div
       className={classes.project}
       style={{
-        backgroundColor: !mode ? "#1b1b1b" : "white",
+        backgroundColor: "#D3DEDC",
       }}
     >
       <div>fish</div>
