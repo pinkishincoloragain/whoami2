@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => ({
   font2: {
     fontFamily: `'Press Start 2P', cursive`,
   },
+  font3: {
+    fontFamily: `'Ropa Sans', sans-serif`,
+  },
   mainWrapper: {
     zIndex: 1,
     position: "absolute",
@@ -99,7 +102,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "12s",
+    transitionDuration: "1s",
   },
 
   linkBtn: {

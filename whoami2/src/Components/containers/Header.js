@@ -64,7 +64,10 @@ export default function Header(props) {
         style={{
           display: "flex",
           flexDirection: "row",
-            width: "80vw",
+          width: "80vw",
+          height: "10vw",
+          marginBottom: "0vh",
+          marginTop: "2vh",
         }}
       >
         <Tooltip
@@ -80,13 +83,12 @@ export default function Header(props) {
             fontSize={"max(16px, 5vw)"}
             component="div"
             fontWeight={"bold"}
+            letterSpacing={"-0.03vw"}
             gutterBottom
-            color={darkMode ? "blue" : "white"}
+            color={"#1b1b1b"}
             flex={3}
             className={classes.letter}
             onClick={() => dispatch(changeMode())}
-            sx={{ pr: "2vh" }}
-            overflow="hidden"
           >
             PINKISHINCOLORAGAIN
           </Typography>

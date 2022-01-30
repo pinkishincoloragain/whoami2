@@ -1,23 +1,58 @@
 import { useStyles } from "../styles/Styles";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
+import reactIcon from "../../assets/icons/react.gif";
+import { styled } from "@mui/material/styles";
 
 export default function Description() {
   const classes = useStyles();
+
+  const DescTypo = styled(Typography)(({ theme, color }) => ({
+    ...theme.typography.body2,
+    fontSize: "min(2vh, 15rem)",
+    letterSpacing: "-0.3",
+    lineHeight: "2",
+  }));
+
   return (
     <>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          marginBottom: "5vh",
         }}
       >
-        <Typography fontSize="min(2vh, 15rem)">
-          software developer with a passion for creating beautiful applications.
-          I have a background in mathematics and computer science and I am
-          currently pursuing a degree in computer science at the University of
-          Waterloo.
-        </Typography>
+        <DescTypo>
+          Versatile and creative software developer.
+          <br />
+        </DescTypo>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <DescTypo>Interested in&nbsp;</DescTypo>
+          <DescTypo>FE</DescTypo>
+          <img
+            src={reactIcon}
+            style={{
+              //   paddingTop: "2px",
+              width: "min(4vh, 15rem)",
+              marginLeft: "max(-32px,-3.4vh)",
+              zIndex: "-1",
+            }}
+          />
+          <DescTypo>development.</DescTypo>
+        </div>
+        <DescTypo>
+          <br />
+          Currently in&nbsp;
+          <a
+            href="https://youtu.be/Gz-d3Y7pHe4"
+            target="_blank"
+            style={{ textDecoration: "none", color: "#0057D9" }}
+          >
+            Ireland.
+          </a>
+          <br />
+          {/* </Typography> */}
+        </DescTypo>
       </div>
     </>
   );
