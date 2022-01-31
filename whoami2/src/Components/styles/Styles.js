@@ -3,7 +3,20 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
   landing: {
-    position: "absolute",
+    // position: "absolute",
+    // backgroundColor: "black",
+  },
+  flexColumn: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  flexRow: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   font1: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
@@ -17,7 +30,6 @@ const useStyles = makeStyles(() => ({
   },
   mainWrapper: {
     zIndex: 1,
-    position: "absolute",
     display: "grid | flex",
     margin: "auto",
     alignItems: "center",
@@ -25,6 +37,17 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "transparent",
     width: "80vw",
     marginLeft: "10vw",
+  },
+  headerWrapper:{
+    display: "flex",
+    flexDirection: "row",
+    width: "80vw",
+    height: "8vw",
+    marginTop: "1vh",
+    borderTop: "1vh solid #1b1b1b",
+    borderBottom: "1vh solid #1b1b1b",
+    alignItems: "center",
+    justifyContent: "center",
   },
   centerdiv: {
     display: "flex",

@@ -87,7 +87,11 @@ function Landing(props) {
         console.log(e.deltaY);
         setScroll(e.deltaY);
       }}
-      style={{ backgroundColor: darkMode ? "#1f1f1f" : "white" }}
+      style={{
+        backgroundColor: darkMode ? "#1f1f1f" : "white",
+        // display: "flex",
+        // flexDirection: "row",
+      }}
     >
       <div className={classes.mainWrapper}>
         <HeaderBar />

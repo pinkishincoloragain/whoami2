@@ -54,7 +54,6 @@ export default function Header(props) {
   const handleMouseDown = (e) => {
     e.target.style.color = "red";
   };
-
   const handleMouseUp = (e) => {
     e.target.style.color = "#1b1b1b";
   };
@@ -66,19 +65,7 @@ export default function Header(props) {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "80vw",
-        height: "8vw",
-        marginTop: "1vh",
-        borderTop: "1vh solid #1b1b1b",
-        borderBottom: "1vh solid #1b1b1b",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className={classes.headerWrapper}>
       <Tooltip
         arrow
         placement="left"

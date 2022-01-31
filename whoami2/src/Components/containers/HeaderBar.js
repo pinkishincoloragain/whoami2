@@ -9,6 +9,8 @@ export default function HeaderBar() {
   return (
     <div
       style={{
+        position: "sticky",
+        top: "0",
         width: "80vw",
         backgroundColor: !mode ? "#1b1b1b" : "white",
         display: "grid | inline-grid",

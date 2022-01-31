@@ -11,7 +11,7 @@ export default function Status(props) {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-between",
         height: "6vh",
         flexDirection: "row",
         marginLeft: "2vw",
@@ -19,7 +19,7 @@ export default function Status(props) {
       }}
     >
       <Typography
-        fontSize={"min(2vh, 15rem)"}
+        fontSize={"max(1.4vw, 15px)"}
         fontWeight={"300"}
         color={mode ? "#1b1b1b" : "white"}
         className={classes.button}

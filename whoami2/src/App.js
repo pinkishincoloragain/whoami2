@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={{ width: "100vw" }}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route

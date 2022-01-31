@@ -5,41 +5,74 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Project from "./Projects/Project";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useStyles } from "../Components/styles/Styles";
+import { Typography } from "@mui/material";
 
-const Item = styled(Paper)(({ theme, backgroundColor, height }) => ({
+const Item = styled(Paper)(({ theme, mr, f, bc, h }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
-  backgroundColor: backgroundColor,
-  height: height,
-  minWidth: "100px",
+  backgroundColor: bc,
+  height: h,
+  flex: f,
+  minWidth: "300px",
+  minHieght: "300px",
+  animation: "fadeIn 0.5s",
+}));
+
+const Heading = styled(Typography)(({ theme }) => ({
+  ...theme.typography.h6,
+  color: "#1b1b1b",
+  fontWeight: "200",
+  margin: "0px",
+  padding: "0px",
+  fontSize: "3rem",
+  textAlign: "center",
+  animation: "fadeIn 0.5s",
 }));
 
 export default function Projects() {
+  const [height, setHeight] = React.useState("10vh");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHeight("60vh");
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs>
-          <Item height="40vh">
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Heading>2022 F/W</Heading>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <Item f="8" h={height}>
+          <Project />
+        </Item>
+        <div style={{ display: "flex", flexDirection: "column", flex: "4" }}>
+          <Item f="1">
             <Project />
           </Item>
-        </Grid>
-        <Grid item xs>
-          <Item height="60vh">
+          <Item f="1">
             <Project />
           </Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>
+        </div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        <Item f="2" h="74vh">
+          <Project />
+        </Item>
+        <div style={{ display: "flex", flexDirection: "column", flex: "4" }}>
+          <Item f="2" h="30vh">
             <Project />
           </Item>
-        </Grid>
-        <Grid item xs={8}>
-          <Item>
+          <Item f="1" h="40vh">
             <Project />
           </Item>
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+        <Item f="1" h="74vh">
+          <Project />
+        </Item>
+      </div>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Project() {
     <div
       className={classes.project}
       style={{
-        backgroundColor: "#D3DEDC",
+        backgroundColor: "#EFEFEF",
       }}
     >
       <div>fish</div>

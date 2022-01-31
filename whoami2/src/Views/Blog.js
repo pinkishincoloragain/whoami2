@@ -85,7 +85,6 @@ function Blog(props) {
     <div
       style={{
         position: "absolute",
-        // overflow: "hidden",
       }}
     >
       <div

@@ -17,21 +17,14 @@ export default function Description() {
     fontWeight: "bold",
   }));
 
-  const handleMouseDown = () => {
-    setFe("");
-  };
-  const handleMouseUp = () => {
-    setFe("FE");
-  };
-
   return (
     <>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          marginBottom: "5vh",
-          marginTop: "1vh",
+          marginBottom: "10vh",
+          marginTop: "10vh",
         }}
       >
         <DescTypo>
@@ -40,11 +33,7 @@ export default function Description() {
         </DescTypo>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <DescTypo>Interested in&nbsp;</DescTypo>
-          <div
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            style={{ display: "flex", flexDirection: "row" }}
-          >
+          <div style={{ display: "flex", flexDirection: "row" }}>
             <DescTypo>{fe}</DescTypo>
             <img
               src={reactIcon}
