@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
     width: "80vw",
     marginLeft: "10vw",
   },
-  headerWrapper:{
+  headerWrapper: {
     display: "flex",
     flexDirection: "row",
     width: "80vw",
@@ -48,6 +48,11 @@ const useStyles = makeStyles(() => ({
     borderBottom: "1vh solid #1b1b1b",
     alignItems: "center",
     justifyContent: "center",
+  },
+  headerWrapperSticky: {
+    position: "sticky",
+    top: 0,
+    left: 0,
   },
   centerdiv: {
     display: "flex",

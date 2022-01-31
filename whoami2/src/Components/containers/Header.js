@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useStyles } from "../styles/Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
@@ -10,6 +10,7 @@ import Login from "./Clock";
 
 export default function Header(props) {
   const darkMode = useSelector((state) => state.mode.value);
+  const [headerBar, setHeaderBar] = useState(false);
   const dispatch = useDispatch();
 
   const classes = useStyles();
@@ -51,6 +52,14 @@ export default function Header(props) {
     },
   });
 
+  const changeHeader = (scroll) => {
+    if (scroll >= 80) {
+      setHeaderBar(true);
+    } else {
+      setHeaderBar(false);
+    }
+  };
+
   const handleMouseDown = (e) => {
     e.target.style.color = "red";
   };
@@ -64,8 +73,14 @@ export default function Header(props) {
     e.target.style.color = "#1b1b1b";
   };
 
+  window.addEventListener("resize", changeHeader);
+
   return (
-    <div className={classes.headerWrapper}>
+    <div
+      className={
+        headerBar ? classes.headerWrapperSticky : classes.headerWrapper
+      }
+    >
       <Tooltip
         arrow
         placement="left"
