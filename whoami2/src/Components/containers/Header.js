@@ -103,6 +103,9 @@ export default function Header(props) {
           onMouseUp={handleMouseUp}
           onMouseEnter={handleMouseEnter}
           onMouseOut={handleMouseOut}
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="1000"
         >
           PINKISHINCOLORAGAIN
         </Typography>

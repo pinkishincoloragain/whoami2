@@ -9,11 +9,13 @@ export default function StatusBar() {
   return (
     <>
       <div
+        data-aos="zoom-in"
         style={{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
+          opacity: "1",
         }}
       >
         <Status name="Home" />

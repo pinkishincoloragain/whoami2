@@ -34,14 +34,14 @@ export default function Description() {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <DescTypo>Interested in&nbsp;</DescTypo>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <DescTypo>{fe}</DescTypo>
+            <DescTypo >{fe}</DescTypo>
             <img
               src={reactIcon}
               style={{
                 //   paddingTop: "2px",
                 width: "min(4vh, 15rem)",
                 marginLeft: "max(-32px,-3.4vh)",
-                zIndex: "-1",
+                zIndex: "0",
               }}
             />
           </div>

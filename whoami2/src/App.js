@@ -7,9 +7,17 @@ import Admin from "./Views/Admin";
 import Error from "./Views/Error";
 import Projects from "./Views/Projects";
 import GerardWay from "./Views/Gerardway";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(LocalTheme);
+
+  useEffect(() => {
+    Aos.init();
+    Aos.refresh();
+  }, []);
+
   const mode = useSelector((state) => state.mode.value);
 
   useEffect(() => {
