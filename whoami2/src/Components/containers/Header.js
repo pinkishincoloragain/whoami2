@@ -105,7 +105,7 @@ export default function Header(props) {
           onMouseOut={handleMouseOut}
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
-          data-aos-duration="1000"
+          data-aos-duration="800"
         >
           PINKISHINCOLORAGAIN
         </Typography>

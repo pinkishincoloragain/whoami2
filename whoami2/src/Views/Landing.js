@@ -94,7 +94,7 @@ function Landing(props) {
       }}
     >
       <div className={classes.mainWrapper}>
-        <HeaderBar />
+        <HeaderBar scroll={scroll} />
         <Header />
         <Description />
         <Body />

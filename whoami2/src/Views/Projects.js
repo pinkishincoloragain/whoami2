@@ -53,7 +53,7 @@ export default function Projects() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Heading>2022 F/W</Heading>
+      <Heading>2021 F/W</Heading>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Item data-aos="fade-up" f="8" h={`${height * 2}vh`}>
           <Project />
