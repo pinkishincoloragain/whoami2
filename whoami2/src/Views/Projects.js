@@ -10,6 +10,8 @@ import { useStyles } from "../Components/styles/Styles";
 import { Typography } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import AOS from "aos";
+import Waves from "../Components/objects/Waves";
+import Boxes from "../Components/objects/Boxes";
 
 const Item = styled(Paper)(({ theme, mr, w, f, bc, h }) => ({
   ...theme.typography.body2,
@@ -37,7 +39,7 @@ const Heading = styled(Typography)(({ theme }) => ({
   animationDuration: "0.5s",
 }));
 
-export default function Projects() {
+export default function Projects(props) {
   const [height, setHeight] = React.useState("10vh");
   let size = 0;
 
@@ -56,31 +58,31 @@ export default function Projects() {
       <Heading>2021 F/W</Heading>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Item data-aos="fade-up" f="8" h={`${height * 2}vh`}>
-          <Project />
+          <Project name="6" />
         </Item>
         <div style={{ display: "flex", flexDirection: "column", flex: "4" }}>
           <Item f="1">
-            <Project />
+            <Project name="5" />
           </Item>
           <Item f="1">
-            <Project />
+            <Project name="4" />
           </Item>
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Item f="2" h="74vh">
-          <Project />
+          <Project project="3" />
         </Item>
         <div style={{ display: "flex", flexDirection: "column", flex: "4" }}>
           <Item f="2" h="30vh">
-            <Project />
+            <Project name="2" />
           </Item>
           <Item f="1" h="40vh">
-            <Project />
+            <Project name="1" />
           </Item>
         </div>
         <Item f="1" h="74vh">
-          <Project />
+          <Project name="0" />
         </Item>
       </div>
     </div>

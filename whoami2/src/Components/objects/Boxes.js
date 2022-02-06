@@ -26,10 +26,9 @@ function Boxes(props) {
   }, []);
 
   function init() {
-    container = document.getElementById("container");
-    // document.body.appendChild(container);
+    container = document.getElementById(`${props.name}`);
 
-    const aspect = window.innerWidth / window.innerHeight;
+    const aspect = props.width / props.height;
     camera = new THREE.OrthographicCamera(
       (frustumSize * aspect) / -2,
       (frustumSize * aspect) / 2,
@@ -169,7 +168,8 @@ function Boxes(props) {
 
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(props.width, props.height);
+    renderer.domElement.setAttribute("display", "flex");
     container.appendChild(renderer.domElement);
 
     document.addEventListener("pointermove", onPointerMove);
@@ -177,7 +177,7 @@ function Boxes(props) {
   }
 
   function onWindowResize() {
-    const aspect = window.innerWidth / window.innerHeight;
+    const aspect = props.width / props.height;
 
     camera.left = (-frustumSize * aspect) / 2;
     camera.right = (frustumSize * aspect) / 2;
@@ -186,12 +186,12 @@ function Boxes(props) {
 
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(props.width, props.height);
   }
 
   function onPointerMove(event) {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    pointer.x = (event.clientX / props.width) * 2 - 1;
+    pointer.y = -(event.clientY / props.height) * 2 + 1;
   }
 
   //
@@ -239,8 +239,12 @@ function Boxes(props) {
 
   return (
     <div
-      id="container"
-      style={{ width: "100vw", transitionDuration: "0.1s" }}
+      id={`${props.name}`}
+      style={{
+        // width: "100vw",
+        height: "10vh",
+        transitionDuration: "0.1s",
+      }}
     ></div>
   );
 }

@@ -18,9 +18,9 @@ function Waves(props) {
   useEffect(() => {
     init();
     animate();
-    return () => {
-      container.removeChild(renderer.domElement);
-    };
+    // return () => {
+    //   container.removeChild(renderer.domElement);
+    // };
   }, []);
 
   const darkMode = useSelector((state) => state.mode.value);
@@ -50,7 +50,7 @@ function Waves(props) {
     container = document.getElementById("container");
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(props.width, props.height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     container.appendChild(renderer.domElement);
     renderer.domElement.style.transitionDuration = "0.2s";
@@ -58,7 +58,7 @@ function Waves(props) {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       60,
-      window.innerWidth / window.innerHeight,
+      props.width / props.height,
       1,
       20000
     );
@@ -148,14 +148,14 @@ function Waves(props) {
     //   .name("wave amplitude");
     // folderWater.open();
 
-    window.addEventListener("resize", onWindowResize);
+    // window.addEventListener("resize", onWindowResize);
   }
 
   function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = props.width / props.height;
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(props.width, props.height);
   }
 
   function animate() {
