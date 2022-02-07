@@ -91,10 +91,11 @@ export default function Header(props) {
         }
       >
         <Typography
-          fontSize={"max(16px, 6.8vw)"}
+          fontSize={"max(16px, 6.81vw)"}
           component="div"
           fontWeight={"bold"}
-          letterSpacing={"-0.03vw"}
+          marginLeft={"-2px"}
+          letterSpacing={"-0.001px"}
           color={"#1b1b1b"}
           flex={3}
           className={classes.letter}

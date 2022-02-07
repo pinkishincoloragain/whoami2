@@ -15,13 +15,14 @@ export default function Project(props) {
         color: mode ? "black" : "white",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
       }}
+      id={props.name + "wrapper"}
     >
       <Boxes
         name={`Box${props.name}`}
-        width="300"
+        width="1000"
         height="300"
         container={`container${props.name}`}
       />

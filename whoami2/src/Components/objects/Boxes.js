@@ -13,7 +13,7 @@ function Boxes(props) {
   let container, stats;
   let camera, scene, raycaster, renderer;
   let theta = 0;
-  let theta_speed = 0.12;
+  let theta_speed = Math.random() * 0.4;
   let INTERSECTED;
   const pointer = new THREE.Vector2();
   const radius = 500;
@@ -190,8 +190,8 @@ function Boxes(props) {
   }
 
   function onPointerMove(event) {
-    pointer.x = (event.clientX / props.width) * 2 - 1;
-    pointer.y = -(event.clientY / props.height) * 2 + 1;
+    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
   }
 
   //
