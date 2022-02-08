@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pinkishincoloragain.github.io/static/css/main.fa4071bd.css",
+    "main.js": "/pinkishincoloragain.github.io/static/js/main.9fd84aab.js",
+    "static/media/water2.png": "/pinkishincoloragain.github.io/static/media/water2.c9e5011b7e23bea6ee2e.png",
+    "static/media/water3.png": "/pinkishincoloragain.github.io/static/media/water3.21acb2c751d1aa45846c.png",
+    "static/media/stone_2.jpeg": "/pinkishincoloragain.github.io/static/media/stone_2.76e4228c178eab6f3a92.jpeg",
+    "static/media/waternormals.jpeg": "/pinkishincoloragain.github.io/static/media/waternormals.537ec85b965d414829ab.jpeg",
+    "static/media/solid_stone.jpeg": "/pinkishincoloragain.github.io/static/media/solid_stone.08b96ddde3fe268b2957.jpeg",
+    "static/media/github.png": "/pinkishincoloragain.github.io/static/media/github.d3263084234dc705b2ae.png",
+    "static/media/react.gif": "/pinkishincoloragain.github.io/static/media/react.86b75615525bd83ea0a4.gif",
+    "static/media/instagram.png": "/pinkishincoloragain.github.io/static/media/instagram.edb90ecc706a7a25542b.png",
+    "static/media/linkedin.png": "/pinkishincoloragain.github.io/static/media/linkedin.9a1a7f8162140e296345.png",
+    "index.html": "/pinkishincoloragain.github.io/index.html",
+    "main.fa4071bd.css.map": "/pinkishincoloragain.github.io/static/css/main.fa4071bd.css.map",
+    "main.9fd84aab.js.map": "/pinkishincoloragain.github.io/static/js/main.9fd84aab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa4071bd.css",
+    "static/js/main.9fd84aab.js"
+  ]
+}
