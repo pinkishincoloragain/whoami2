@@ -2,7 +2,7 @@
   "name": "whoami2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://pinkishincoloragain.github.io/whoami2/",
+  "homepage": "http://pinkishincoloragain.github.io/whoami2",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
