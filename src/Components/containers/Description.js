@@ -3,9 +3,10 @@ import { Link, Typography } from "@mui/material";
 import reactIcon from "../../assets/icons/react.gif";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 
 export default function Description() {
-  const classes = useStyles();
+  const darkMode = useSelector((state) => state.mode.value);
 
   const [fe, setFe] = useState("FE");
 
@@ -14,7 +15,7 @@ export default function Description() {
     fontSize: "min(2vh, 15rem)",
     letterSpacing: "-0.3",
     lineHeight: "2",
-    fontWeight: "bold",
+    fontWeight: "400",
   }));
 
   return (
@@ -25,6 +26,7 @@ export default function Description() {
           flexDirection: "column",
           marginBottom: "10vh",
           marginTop: "10vh",
+          color: !darkMode ? "#1b1b1b" : "#ffffff",
         }}
       >
         <DescTypo>
@@ -34,7 +36,7 @@ export default function Description() {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <DescTypo>Interested in&nbsp;</DescTypo>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <DescTypo >{fe}</DescTypo>
+            <DescTypo>{fe}</DescTypo>
             <img
               src={reactIcon}
               style={{

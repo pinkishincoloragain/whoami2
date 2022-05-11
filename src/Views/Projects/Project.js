@@ -20,12 +20,12 @@ export default function Project(props) {
       }}
       id={props.name + "wrapper"}
     >
-      <Boxes
+      {/* <Boxes
         name={`Box${props.name}`}
         width="1000"
         height="300"
         container={`container${props.name}`}
-      />
+      /> */}
     </div>
   );
 }

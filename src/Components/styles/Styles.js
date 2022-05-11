@@ -44,8 +44,7 @@ const useStyles = makeStyles(() => ({
     width: "80vw",
     height: "8vw",
     marginTop: "1vh",
-    borderTop: "1vh solid #1b1b1b",
-    borderBottom: "1vh solid #1b1b1b",
+
     alignItems: "center",
     justifyContent: "center",
   },

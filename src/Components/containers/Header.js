@@ -22,36 +22,6 @@ export default function Header(props) {
     }
   }, []);
 
-  const HtmlTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} />
-  ))(({ theme }) => ({
-    [`& .${tooltipClasses.tooltip}`]: {
-      backgroundColor: "#f0f0f0",
-      color: "rgba(0, 0, 0, 0.87)",
-      maxWidth: 220,
-      border: "1px solid #f0f0f0",
-      fontSize: "1rem",
-      placement: "top-start",
-    },
-  }));
-
-  const title = (
-    <Typography fontSize={18}>
-      Pinkish in color again -&nbsp;
-      <Link className={classes.hiddenLink} to="/gerardway">
-        Gerard way
-      </Link>
-    </Typography>
-  );
-
-  const NoMaxWidthTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} title={title}></Tooltip>
-  ))({
-    [`& .${tooltipClasses.tooltip}`]: {
-      maxWidth: "none",
-    },
-  });
-
   const changeHeader = (scroll) => {
     if (scroll >= 80) {
       setHeaderBar(true);
@@ -64,13 +34,13 @@ export default function Header(props) {
     e.target.style.color = "red";
   };
   const handleMouseUp = (e) => {
-    e.target.style.color = "#1b1b1b";
+    e.target.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
   };
   const handleMouseEnter = (e) => {
     e.target.style.color = "#FFCC00";
   };
   const handleMouseOut = (e) => {
-    e.target.style.color = "#1b1b1b";
+    e.target.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
   };
 
   window.addEventListener("resize", changeHeader);
@@ -80,6 +50,10 @@ export default function Header(props) {
       className={
         headerBar ? classes.headerWrapperSticky : classes.headerWrapper
       }
+      style={{
+        borderTop: !darkMode ? "1vh solid #1b1b1b" : "1vh solid #ffffff",
+        borderBottom: !darkMode ? "1vh solid #1b1b1b" : "1vh solid #ffffff",
+      }}
     >
       <Tooltip
         arrow
@@ -96,7 +70,7 @@ export default function Header(props) {
           fontWeight={"bold"}
           marginLeft={"-2px"}
           letterSpacing={"-0.001px"}
-          color={"#1b1b1b"}
+          color={darkMode ? "red" : "#1b1b1b"}
           flex={3}
           className={classes.letter}
           onClick={() => dispatch(changeMode())}
@@ -104,8 +78,8 @@ export default function Header(props) {
           onMouseUp={handleMouseUp}
           onMouseEnter={handleMouseEnter}
           onMouseOut={handleMouseOut}
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
+          // data-aos="fade-up"
+          // data-aos-anchor-placement="center-bottom"
           data-aos-duration="800"
         >
           PINKISHINCOLORAGAIN

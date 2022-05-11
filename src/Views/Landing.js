@@ -1,20 +1,13 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import Links from "../Components/containers/Links";
 import Frames from "./Frames";
-import BlogBtn from "../Components/buttons/BlogBtn";
-import ProjectBtn from "../Components/buttons/ProjectBtn";
 import Header from "../Components/containers/Header";
-import LightBtn from "../Components/buttons/LightBtn";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import Backgrounds from "../Components/containers/Backgrounds";
-import { Snackbar, Typography } from "@mui/material";
-import InfoBtn from "../Components/buttons/InfoBtn";
-import { CSSTransition } from "react-transition-group";
 import HeaderBar from "../Components/containers/HeaderBar";
-import Body from "./Body";
 import Description from "../Components/containers/Description";
+import Projects from "./Projects";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -30,8 +23,6 @@ function Landing(props) {
     horizontal: "center",
   });
   const [catchOpen, setCatchOpen] = useState(true);
-
-  const { vertical, horizontal, open } = state;
   const classes = useStyles();
   const [scroll, setScroll] = useState(0);
 
@@ -43,10 +34,6 @@ function Landing(props) {
     if (localStorage.getItem("darkMode") === null)
       setState({ open: true, vertical: "top", horizontal: "left" });
   }, []);
-
-  const handleClose = () => {
-    setState({ ...state, open: false });
-  };
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -97,7 +84,7 @@ function Landing(props) {
         <HeaderBar scroll={scroll} />
         <Header />
         <Description />
-        <Body />
+        <Projects />
         {/* <InfoBtn handleFrame={handleFrame} /> */}
       </div>
       {frameOpen ? (

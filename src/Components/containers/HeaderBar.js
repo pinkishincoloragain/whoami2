@@ -1,7 +1,7 @@
 import React from "react";
-import StatusBar from "./StatusBar";
 import CustomIcon from "./CustomIcon";
 import { useSelector } from "react-redux";
+import Status from "./Status";
 
 export default function HeaderBar(props) {
   const mode = useSelector((state) => state.mode.value);
@@ -20,7 +20,21 @@ export default function HeaderBar(props) {
         alignItems: "center",
       }}
     >
-      <StatusBar />
+      <div
+        data-aos="zoom-in"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: "1",
+        }}
+      >
+        <Status name="Home" to="/home" />
+        <Status name="Introduction" />
+        <Status name="Projects" />
+        <Status name="Blog" />
+      </div>
     </div>
   );
 }
