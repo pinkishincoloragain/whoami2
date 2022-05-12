@@ -1,7 +1,7 @@
 import React from "react";
 import CustomIcon from "./CustomIcon";
 import { useSelector } from "react-redux";
-import Status from "./Status";
+import HeaderBarLink from "./Status";
 
 export default function HeaderBar(props) {
   const mode = useSelector((state) => state.mode.value);
@@ -30,10 +30,10 @@ export default function HeaderBar(props) {
           opacity: "1",
         }}
       >
-        <Status name="Home" to="/home" />
-        <Status name="Introduction" />
-        <Status name="Projects" />
-        <Status name="Blog" />
+        <HeaderBarLink name="Home" href="/" />
+        <HeaderBarLink name="Introduction" href="introduction" />
+        <HeaderBarLink name="Projects" href="projects" />
+        <HeaderBarLink name="Blog" href="blog" />
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { createTheme } from "@mui/system";
+import { useSelector } from "react-redux";
 import Landing from "./Views/Landing";
 import Blog from "./Views/Blog";
 import Admin from "./Views/Admin";
@@ -10,7 +9,7 @@ import Projects from "./Views/Projects";
 import GerardWay from "./Views/Gerardway";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { ThemeProvider } from "@mui/styles";
+import Introduction from "./Views/Introduction";
 
 function App() {
   // const [darkMode, setDarkMode] = useState(LocalTheme);
@@ -20,7 +19,7 @@ function App() {
     Aos.refresh();
   }, []);
 
-  const mode = useSelector((state) => state.mode.value);
+  const darkMode = useSelector((state) => state.mode.value);
 
   useEffect(() => {
     console.log(
@@ -47,6 +46,16 @@ function App() {
             path="/blog"
             element={
               <Blog
+                width={window.innerWidth}
+                height={window.innerHeight}
+                style={{ transitionDuration: "0.1s" }}
+              />
+            }
+          />
+          <Route
+            path="/introduction"
+            element={
+              <Introduction
                 width={window.innerWidth}
                 height={window.innerHeight}
                 style={{ transitionDuration: "0.1s" }}

@@ -1,4 +1,3 @@
-import zIndex from "@mui/material/styles/zIndex";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
@@ -129,7 +128,7 @@ const useStyles = makeStyles(() => ({
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
-    transitionDuration: "1s",
+    transitionDuration: "0.2s",
   },
 
   linkBtn: {

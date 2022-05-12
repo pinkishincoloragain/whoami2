@@ -2,7 +2,7 @@ import { Link, Typography } from "@mui/material";
 import { useStyles } from "../styles/Styles";
 import { useSelector } from "react-redux";
 
-export default function Status(props) {
+export default function HeaderBarLink(props) {
   const classes = useStyles();
   const mode = useSelector((state) => state.mode.value);
 
@@ -18,7 +18,7 @@ export default function Status(props) {
         marginRight: "2vw",
       }}
     >
-      <Link>
+      <Link href={props.href}>
         <Typography
           fontSize={"max(1.4vw, 15px)"}
           fontWeight={"300"}

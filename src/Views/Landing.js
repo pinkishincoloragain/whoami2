@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Frames from "./Frames";
 import Header from "../Components/containers/Header";
 import { useStyles } from "../Components/styles/Styles";
@@ -8,6 +8,8 @@ import Backgrounds from "../Components/containers/Backgrounds";
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
 import Projects from "./Projects";
+import Boxes from "../Components/objects/Boxes";
+import { Box } from "@mui/system";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -84,6 +86,22 @@ function Landing(props) {
         <HeaderBar scroll={scroll} />
         <Header />
         <Description />
+        <Box
+          style={{
+            height: "30vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+          }}
+        >
+          <Boxes
+            name={`Box${props.name}`}
+            width={windowWidth}
+            height={windowHeight / 2}
+            container={`container${props.name}`}
+          />
+        </Box>
         <Projects />
         {/* <InfoBtn handleFrame={handleFrame} /> */}
       </div>

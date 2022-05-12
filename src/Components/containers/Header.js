@@ -34,7 +34,7 @@ export default function Header(props) {
     e.target.style.color = "red";
   };
   const handleMouseUp = (e) => {
-    e.target.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
+    e.target.style.color = darkMode ? "#1b1b1b" : "#ffffff";
   };
   const handleMouseEnter = (e) => {
     e.target.style.color = "#FFCC00";
@@ -80,7 +80,7 @@ export default function Header(props) {
           onMouseOut={handleMouseOut}
           // data-aos="fade-up"
           // data-aos-anchor-placement="center-bottom"
-          data-aos-duration="800"
+          // data-aos-duration="800"
         >
           PINKISHINCOLORAGAIN
         </Typography>

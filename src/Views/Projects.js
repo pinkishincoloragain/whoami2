@@ -1,14 +1,9 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import { keyframes } from "@emotion/react";
 import { VisualHelper } from "./Items/VisualHelper";
-import Waves from "../Components/objects/Waves";
-import Boxes from "../Components/objects/Boxes";
-import ThemeTypo from "../Components/styles/ThemeTypo";
 
 const Item = styled(Paper)(({ theme, mr, w, f, bc, h }) => ({
   ...theme.typography.body2,
