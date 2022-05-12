@@ -2,7 +2,6 @@
   "name": "whoami2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pinkishincoloragain.github.io/whoami2/",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -32,9 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "eject": "react-scripts eject"
+    // "deploy": "gh-pages -d build",
+    // "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
