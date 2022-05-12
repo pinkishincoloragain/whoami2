@@ -12,13 +12,15 @@ import stone2 from "../../assets/textures/stone_2.jpeg";
 function Boxes(props) {
   let container, stats;
   let camera, scene, raycaster, renderer;
-  let theta = 0;
-  let theta_speed = Math.random() * 0.4;
   let INTERSECTED;
   const pointer = new THREE.Vector2();
   const radius = 500;
   const frustumSize = 1000;
   const darkMode = useSelector((state) => state.mode.value);
+  let thetaSpeed = darkMode ? 0.1 : 0.2;
+
+  // const [theta, setTheta] = useState(0);
+  let theta = 0;
 
   useEffect(() => {
     init();
@@ -39,7 +41,7 @@ function Boxes(props) {
     );
 
     scene = new THREE.Scene();
-    scene.background = null;
+    scene.background = new THREE.Color(props.bkgColor);
 
     const colors = [
       [
@@ -190,8 +192,8 @@ function Boxes(props) {
   }
 
   function onPointerMove(event) {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    pointer.x = (event.clientX / props.width) * 2 - 1;
+    pointer.y = -(event.clientY / props.height) * 2 + 1;
   }
 
   //
@@ -203,7 +205,9 @@ function Boxes(props) {
   }
 
   function render() {
-    theta += theta_speed;
+    // setTheta(theta + props.thetaSpeed);
+    // theta += props.thetaSpeed;
+    theta += thetaSpeed;
 
     camera.position.x = radius * Math.sin(THREE.MathUtils.degToRad(theta));
     camera.position.y = radius * Math.sin(THREE.MathUtils.degToRad(theta));

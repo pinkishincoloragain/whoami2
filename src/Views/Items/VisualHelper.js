@@ -1,12 +1,12 @@
 import Box from "@mui/material/Box";
 
-const VisualHelper = () => {
+const Project = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        width: "100%",
-        height: "100%",
+        width: "20vw",
+        height: "30vh",
+        backgroundColor: "red",
       }}
     >
       <Box>fish</Box>
@@ -14,4 +14,4 @@ const VisualHelper = () => {
   );
 };
 
-export { VisualHelper };
+export { Project as Project };

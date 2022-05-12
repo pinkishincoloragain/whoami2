@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import { VisualHelper } from "./Items/VisualHelper";
+import { Project as Project } from "./Items/VisualHelper";
 
 const Item = styled(Paper)(({ theme, mr, w, f, bc, h }) => ({
   ...theme.typography.body2,
@@ -17,6 +17,9 @@ const Item = styled(Paper)(({ theme, mr, w, f, bc, h }) => ({
   minWidth: "300px",
   minHieght: "300px",
   animation: "pulse 0.5s ease-in-out ",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
 }));
 
 const Heading = styled(Typography)(({ theme, color }) => ({
@@ -39,9 +42,22 @@ export default function Projects(props) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2021 F/W</Heading>
+      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2022</Heading>
       <Item>
-        <VisualHelper />
+        <Project />
+        <Project />
+      </Item>
+      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2021</Heading>
+      <Item>
+        <Project />
+      </Item>
+      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2020</Heading>
+      <Item>
+        <Project />
+      </Item>
+      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2019</Heading>
+      <Item>
+        <Project />
       </Item>
     </div>
   );

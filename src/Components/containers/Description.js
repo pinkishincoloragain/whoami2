@@ -25,7 +25,7 @@ export default function Description() {
           display: "flex",
           flexDirection: "column",
           marginBottom: "10vh",
-          marginTop: "10vh",
+          marginTop: "3vh",
           color: !darkMode ? "#1b1b1b" : "#ffffff",
         }}
       >

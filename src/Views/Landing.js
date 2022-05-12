@@ -85,12 +85,10 @@ function Landing(props) {
       <div className={classes.mainWrapper}>
         <HeaderBar scroll={scroll} />
         <Header />
-        <Description />
         <Box
           style={{
-            height: "30vh",
+            height: windowHeight / 2,
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
           }}
@@ -100,8 +98,12 @@ function Landing(props) {
             width={windowWidth}
             height={windowHeight / 2}
             container={`container${props.name}`}
+            bkgColor={darkMode ? "#1f1f1f" : "white"}
+            thetaSpeed={darkMode ? 0.1 : 0.5}
           />
         </Box>
+        <Description />
+
         <Projects />
         {/* <InfoBtn handleFrame={handleFrame} /> */}
       </div>
