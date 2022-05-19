@@ -1,64 +1,55 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
+import { Button, Collapse } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import { Project as Project } from "./Items/VisualHelper";
+import { Project } from "./Items/Project";
 
-const Item = styled(Paper)(({ theme, mr, w, f, bc, h }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  backgroundColor: bc,
-  height: h,
-  width: w,
-  flex: f,
-  padding: "10px",
-  minWidth: "300px",
-  minHieght: "300px",
-  animation: "pulse 0.5s ease-in-out ",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-evenly",
-}));
-
-const Heading = styled(Typography)(({ theme, color }) => ({
-  ...theme.typography.h6,
-  color: color,
-  fontWeight: "200",
-  margin: "0px",
-  padding: "0px",
-  fontSize: "3rem",
-  // textAlign: "center",
-
-  animation: "fadeIn 0.5s",
-  animationDuration: "0.5s",
-}));
-
-export default function Projects(props) {
-  const [height, setHeight] = React.useState("10vh");
-  let size = 0;
+const Year = (props) => {
+  const [open, setOpen] = useState(true);
   const darkMode = useSelector((state) => state.mode.value);
 
   return (
+    <React.Fragment key={props.year + "fragment"}>
+      <Button
+        onClick={() => setOpen(!open)}
+        sx={{
+          width: "10vw",
+        }}
+        key={props.year + "button"}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: "200",
+            margin: "0px",
+            padding: "0px",
+            fontSize: "5rem",
+          }}
+        >
+          {props.year}
+        </Typography>
+      </Button>
+      <Collapse in={open}>
+        <Project />
+      </Collapse>
+    </React.Fragment>
+  );
+};
+
+export default function Projects(props) {
+  const [height, setHeight] = useState("10vh");
+  let size = 0;
+
+  const years = [2022, 2021, 2020, 2019, 2018, 2017];
+
+  return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2022</Heading>
-      <Item>
-        <Project />
-        <Project />
-      </Item>
-      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2021</Heading>
-      <Item>
-        <Project />
-      </Item>
-      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2020</Heading>
-      <Item>
-        <Project />
-      </Item>
-      <Heading color={!darkMode ? "#1f1f1f" : "#ffffff"}>2019</Heading>
-      <Item>
-        <Project />
-      </Item>
+      {years.map((year) => (
+        <React.Fragment key={year}>
+          <Year year={year} />
+        </React.Fragment>
+      ))}
     </div>
   );
 }

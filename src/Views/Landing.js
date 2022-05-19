@@ -10,6 +10,7 @@ import Description from "../Components/containers/Description";
 import Projects from "./Projects";
 import Boxes from "../Components/objects/Boxes";
 import { Box } from "@mui/system";
+import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -78,8 +79,7 @@ function Landing(props) {
       }}
       style={{
         backgroundColor: darkMode ? "#1f1f1f" : "white",
-        // display: "flex",
-        // flexDirection: "row",
+        color: !darkMode ? "#1f1f1f" : "white",
       }}
     >
       <div className={classes.mainWrapper}>
@@ -93,14 +93,23 @@ function Landing(props) {
             overflow: "hidden",
           }}
         >
-          <Boxes
-            name={`Box${props.name}`}
-            width={windowWidth}
-            height={windowHeight / 2}
-            container={`container${props.name}`}
-            bkgColor={darkMode ? "#1f1f1f" : "white"}
-            thetaSpeed={darkMode ? 0.1 : 0.5}
-          />
+          {!darkMode ? (
+            <Boxes
+              name={`Box${props.name}`}
+              width={windowWidth}
+              height={windowHeight / 2}
+              container={`container${props.name}`}
+              bkgColor={"#ffffff"}
+              thetaSpeed={darkMode ? 0.1 : 0.5}
+            />
+          ) : (
+            <Waves
+              width={windowWidth}
+              height={windowHeight / 2}
+              azimuth="1"
+              elevation="2"
+            />
+          )}
         </Box>
         <Description />
 

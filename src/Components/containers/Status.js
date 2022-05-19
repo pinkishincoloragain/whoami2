@@ -18,13 +18,14 @@ export default function HeaderBarLink(props) {
         marginRight: "2vw",
       }}
     >
-      <Link href={props.href}>
+      <Link href={props.href} sx={{ textDecoration: "none" }}>
         <Typography
           fontSize={"max(1.4vw, 15px)"}
           fontWeight={"300"}
           color={mode ? "#1b1b1b" : "white"}
           className={classes.button}
           sx={{ ml: "0%" }}
+          letterSpacing={"-0.1px"}
         >
           {props.name}
         </Typography>

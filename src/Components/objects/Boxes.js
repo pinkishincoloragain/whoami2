@@ -193,7 +193,7 @@ function Boxes(props) {
 
   function onPointerMove(event) {
     pointer.x = (event.clientX / props.width) * 2 - 1;
-    pointer.y = -(event.clientY / props.height) * 2 + 1;
+    pointer.y = -(event.clientY / props.height) * 2 + 2;
   }
 
   //

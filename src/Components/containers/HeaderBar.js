@@ -18,6 +18,7 @@ export default function HeaderBar(props) {
         display: "grid | inline-grid",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: "2px",
       }}
     >
       <div

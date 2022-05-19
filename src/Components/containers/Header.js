@@ -70,7 +70,7 @@ export default function Header(props) {
           fontWeight={"bold"}
           marginLeft={"-2px"}
           letterSpacing={"-0.001px"}
-          color={darkMode ? "red" : "#1b1b1b"}
+          color={darkMode ? "#ffffff" : "#1b1b1b"}
           flex={3}
           className={classes.letter}
           onClick={() => dispatch(changeMode())}
