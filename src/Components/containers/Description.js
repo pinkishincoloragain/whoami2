@@ -14,7 +14,7 @@ export default function Description(props) {
 
   const DescTypo = styled(Button)(({ theme, color }) => ({
     ...theme.button,
-    fontSize: "min(2vh, 15rem)",
+    fontSize: "min(3vh, 20rem)",
     letterSpacing: "-0.3",
     lineHeight: "1",
     fontWeight: "400",
@@ -36,9 +36,8 @@ export default function Description(props) {
         }}
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <DescTypo onClick={() => dispatch(changeMode())}>Versatile</DescTypo>
-          <DescTypo onClick={() => props.setGraphicOpen(!props.GraphicOpen)}>
-            and creative software developer.
+          <DescTypo onClick={() => props.setGraphicOpen(!props.graphicOpen)}>
+            Versatile and creative software developer.
             <br />
           </DescTypo>
         </div>

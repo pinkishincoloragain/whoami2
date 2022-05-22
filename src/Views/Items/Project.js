@@ -7,17 +7,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import reactGif from "../../assets/icons/react.gif";
 
-const Project = () => {
+const Project = (props) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia component="img" alt="react" height="140" image={reactGif} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {props.subtitle}
         </Typography>
       </CardContent>
       <CardActions>

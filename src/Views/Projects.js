@@ -31,7 +31,10 @@ const Year = (props) => {
         </Typography>
       </Button>
       <Collapse in={open}>
-        <Project />
+        <Project
+          title={"Lizard"}
+          subtitle={`Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica`}
+        />
       </Collapse>
     </React.Fragment>
   );
@@ -45,11 +48,7 @@ export default function Projects(props) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      {years.map((year) => (
-        <React.Fragment key={year}>
-          <Year year={year} />
-        </React.Fragment>
-      ))}
+      <Year year={2022} />
     </div>
   );
 }

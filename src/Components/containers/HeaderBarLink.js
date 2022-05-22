@@ -48,14 +48,21 @@ export default function HeaderBarLink(props) {
       }
     }
     return (
-      // <div>
-      <img
-        src={src}
+      <div
         style={{
-          width: "10vw",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "3vh",
         }}
-      />
-      // </div>
+      >
+        <img
+          src={src}
+          style={{
+            width: "6vw",
+          }}
+        />
+      </div>
     );
   };
 
@@ -72,16 +79,20 @@ export default function HeaderBarLink(props) {
       }}
     >
       <Link href={props.href} sx={{ textDecoration: "none" }}>
-        <Typography
-          fontSize={"max(1.4vw, 20px)"}
-          fontWeight={"500"}
-          color={!mode ? "#1b1b1b" : "white"}
-          className={classes.button}
-          sx={{ ml: "0%" }}
-          letterSpacing={"-0.1px"}
-        >
-          {width > 600 ? props.name : <Icon />}
-        </Typography>
+        {width > 600 ? (
+          <Typography
+            fontSize={"max(1.4vw, 20px)"}
+            fontWeight={"500"}
+            color={!mode ? "#1b1b1b" : "white"}
+            className={classes.button}
+            sx={{ ml: "0%" }}
+            letterSpacing={"-0.1px"}
+          >
+            {props.name}
+          </Typography>
+        ) : (
+          <Icon />
+        )}
       </Link>
     </div>
   );

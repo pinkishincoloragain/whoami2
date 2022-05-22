@@ -6,7 +6,6 @@ import Blog from "./Views/Blog";
 import Admin from "./Views/Admin";
 import Error from "./Views/Error";
 import Projects from "./Views/Projects";
-import GerardWay from "./Views/Gerardway";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Introduction from "./Views/Introduction";
@@ -56,16 +55,6 @@ function App() {
             path="/introduction"
             element={
               <Introduction
-                width={window.innerWidth}
-                height={window.innerHeight}
-                style={{ transitionDuration: "0.1s" }}
-              />
-            }
-          />
-          <Route
-            path="/gerardway"
-            element={
-              <GerardWay
                 width={window.innerWidth}
                 height={window.innerHeight}
                 style={{ transitionDuration: "0.1s" }}
