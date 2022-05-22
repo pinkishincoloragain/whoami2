@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import Frames from "./Frames";
 import Header from "../Components/containers/Header";
-import { Button } from "@mui/material";
+import { Button, Collapse } from "@mui/material";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
@@ -26,7 +26,7 @@ function Landing(props) {
     vertical: "top",
     horizontal: "center",
   });
-  const [catchOpen, setCatchOpen] = useState(true);
+  const [graphicOpen, setGraphicOpen] = useState(false);
   const classes = useStyles();
   const [scroll, setScroll] = useState(0);
 
@@ -64,7 +64,7 @@ function Landing(props) {
   };
 
   const handleCatchClick = () => {
-    setCatchOpen(false);
+    setGraphicOpen(false);
   };
 
   const handleFrame = () => {
@@ -86,44 +86,48 @@ function Landing(props) {
       <div className={classes.mainWrapper}>
         <HeaderBar scroll={scroll} />
         <Header />
-        <Box
-          style={{
-            height: windowHeight / 2,
-            display: "flex",
-            justifyContent: "center",
-            overflow: "hidden",
-          }}
-        >
-          {/* <Button onClick={setCatchOpen(!catchOpen)}>Open</Button> */}
-          {!darkMode ? (
-            <Boxes
-              name={`Box${props.name}`}
-              width={windowWidth}
-              height={windowHeight / 2}
-              container={`container${props.name}`}
-              bkgColor={"#ffffff"}
-              thetaSpeed={darkMode ? 0.1 : 0.5}
-            />
-          ) : (
-            <Waves
-              width={windowWidth}
-              height={windowHeight / 2}
-              azimuth="1"
-              elevation="2"
-            />
-          )}
-        </Box>
-        <Description />
+
+        <Description
+          graphicOpen={graphicOpen}
+          setGraphicOpen={setGraphicOpen}
+        />
+        <Collapse orientation="vertical" in={graphicOpen}>
+          <Box
+            style={{
+              height: windowHeight / 2,
+              display: "flex",
+              justifyContent: "center",
+              overflow: "hidden",
+            }}
+            onClick={() => setGraphicOpen(!graphicOpen)}
+          >
+            {!darkMode ? (
+              <Boxes
+                name={`Box${props.name}`}
+                width={windowWidth}
+                height={windowHeight / 2}
+                container={`container${props.name}`}
+                bkgColor={"#ffffff"}
+                thetaSpeed={darkMode ? 0.1 : 0.5}
+              />
+            ) : (
+              <Waves
+                width={windowWidth}
+                height={windowHeight / 2}
+                azimuth="1"
+                elevation="2"
+              />
+            )}
+          </Box>
+        </Collapse>
 
         <Projects />
-        {/* <InfoBtn handleFrame={handleFrame} /> */}
       </div>
       {frameOpen ? (
         <Frames desktop={windowWidth > 1280} handleChange={handleFrame} />
       ) : null}
       <div style={{ transitionDuration: "0.2s" }}>
         <Backgrounds windowWidth={windowWidth} />
-        {/* <UnderWaves /> */}
       </div>
     </div>
   );

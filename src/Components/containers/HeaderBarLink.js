@@ -48,12 +48,14 @@ export default function HeaderBarLink(props) {
       }
     }
     return (
+      // <div>
       <img
         src={src}
         style={{
           width: "10vw",
         }}
       />
+      // </div>
     );
   };
 
@@ -71,8 +73,8 @@ export default function HeaderBarLink(props) {
     >
       <Link href={props.href} sx={{ textDecoration: "none" }}>
         <Typography
-          fontSize={"max(1.4vw, 15px)"}
-          fontWeight={"300"}
+          fontSize={"max(1.4vw, 20px)"}
+          fontWeight={"500"}
           color={!mode ? "#1b1b1b" : "white"}
           className={classes.button}
           sx={{ ml: "0%" }}

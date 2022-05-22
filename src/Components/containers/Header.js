@@ -12,13 +12,13 @@ export default function Header(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const [headerBar, setHeaderBar] = useState(false);
   const dispatch = useDispatch();
+  const logoRef = useRef();
 
   const classes = useStyles();
-  const pinkRef = useRef(null);
 
   useEffect(() => {
-    if (pinkRef.current) {
-      pinkRef.current.focus();
+    if (logoRef.current) {
+      logoRef.current.focus();
     }
   }, []);
 
@@ -30,17 +30,17 @@ export default function Header(props) {
     }
   };
 
-  const handleMouseDown = (e) => {
-    e.target.style.color = "red";
+  const handleMouseDown = () => {
+    logoRef.current.style.color = "red";
   };
-  const handleMouseUp = (e) => {
-    e.target.style.color = darkMode ? "#1b1b1b" : "#ffffff";
+  const handleMouseUp = () => {
+    logoRef.current.style.color = darkMode ? "#1b1b1b" : "#ffffff";
   };
-  const handleMouseEnter = (e) => {
-    e.target.style.color = "#FFCC00";
+  const handleMouseEnter = () => {
+    logoRef.current.style.color = "#FFCC00";
   };
-  const handleMouseOut = (e) => {
-    e.target.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
+  const handleMouseOut = () => {
+    logoRef.current.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
   };
 
   window.addEventListener("resize", changeHeader);
@@ -78,6 +78,7 @@ export default function Header(props) {
           onMouseUp={handleMouseUp}
           onMouseEnter={handleMouseEnter}
           onMouseOut={handleMouseOut}
+          ref={logoRef}
           // data-aos="fade-up"
           // data-aos-anchor-placement="center-bottom"
           // data-aos-duration="800"

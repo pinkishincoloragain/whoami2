@@ -18,6 +18,7 @@ function Boxes(props) {
   const frustumSize = 1000;
   const darkMode = useSelector((state) => state.mode.value);
   let thetaSpeed = darkMode ? 0.1 : 0.2;
+  const [open, setOpen] = useState(true);
 
   // const [theta, setTheta] = useState(0);
   let theta = 0;
@@ -244,6 +245,7 @@ function Boxes(props) {
   return (
     <div
       id={`${props.name}`}
+      onClick={() => setOpen(!open)}
       style={{
         // width: "100vw",
         height: "10vh",

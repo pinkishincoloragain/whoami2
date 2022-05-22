@@ -2,6 +2,7 @@ import React from "react";
 import CustomIcon from "./CustomIcon";
 import { useSelector } from "react-redux";
 import HeaderBarLink from "./HeaderBarLink";
+import { Button } from "@mui/material";
 
 export default function HeaderBar(props) {
   const mode = useSelector((state) => state.mode.value);
