@@ -1,7 +1,7 @@
 import React from "react";
 import CustomIcon from "./CustomIcon";
 import { useSelector } from "react-redux";
-import HeaderBarLink from "./Status";
+import HeaderBarLink from "./HeaderBarLink";
 
 export default function HeaderBar(props) {
   const mode = useSelector((state) => state.mode.value);
@@ -13,7 +13,7 @@ export default function HeaderBar(props) {
         top: "0",
         zIndex: "1",
         width: "80vw",
-        backgroundColor: !mode ? "#1b1b1b" : "white",
+        backgroundColor: mode ? "transparent" : "white",
         opacity: "  1",
         display: "grid | inline-grid",
         justifyContent: "center",

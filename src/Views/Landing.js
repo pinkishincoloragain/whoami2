@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import Frames from "./Frames";
 import Header from "../Components/containers/Header";
+import { Button } from "@mui/material";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
@@ -93,6 +94,7 @@ function Landing(props) {
             overflow: "hidden",
           }}
         >
+          {/* <Button onClick={setCatchOpen(!catchOpen)}>Open</Button> */}
           {!darkMode ? (
             <Boxes
               name={`Box${props.name}`}
