@@ -10,10 +10,8 @@ export default function Description(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const dispatch = useDispatch();
 
-  const [fe, setFe] = useState("FE");
-
-  const DescTypo = styled(Button)(({ theme, color }) => ({
-    ...theme.button,
+  const DescTypo = styled(Typography)(({ theme, color }) => ({
+    ...theme.typography.h1,
     fontSize: "min(3vh, 20rem)",
     letterSpacing: "-0.3",
     lineHeight: "1",
@@ -21,6 +19,9 @@ export default function Description(props) {
     height: "3vh",
     maxHeight: "3vh",
     color: darkMode ? "#ffffff" : "#1f1f1f",
+    ":hover": {
+      color: "yellow",
+    },
     // margin: "-2px",
   }));
 
@@ -33,34 +34,45 @@ export default function Description(props) {
           marginBottom: "10vh",
           marginTop: "3vh",
           color: !darkMode ? "#1b1b1b" : "#ffffff",
+          fontSize: "min(3vh, 20rem)",
         }}
       >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <DescTypo onClick={() => props.setGraphicOpen(!props.graphicOpen)}>
-            Versatile and creative software developer.
-            <br />
-          </DescTypo>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <DescTypo>Interested in&nbsp;</DescTypo>
+          Versatile and creative software developer.
+          
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <DescTypo>
-              {fe}
+            &nbsp;Interested in&nbsp;
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <div style={{ zIndex: "2" }}>
+                <b>FE</b>
+              </div>
               <img
                 src={reactIcon}
                 style={{
                   //   paddingTop: "2px",
                   width: "min(4vh, 15rem)",
-                  marginLeft: "max(-32px,-3.4vh)",
+                  height: "min(4vh, 15rem)",
+                  marginTop: "-8px",
+                  marginLeft: "max(-28px,-3.4vh)",
                   zIndex: "0",
                 }}
               />
-            </DescTypo>
-          </div>
-          <DescTypo>development.</DescTypo>
-          <DescTypo>
-            Currently in&nbsp;
+              <div style={{ zIndex: "2" }}>
+                <b>ML</b>
+              </div>
+              <img
+                src={reactIcon}
+                style={{
+                  //   paddingTop: "2px",
+                  width: "min(4vh, 15rem)",
+                  height: "min(4vh, 15rem)",
+                  marginTop: "-8px",
+                  marginLeft: "max(-28px,-3.4vh)",
+                  zIndex: "0",
+                }}
+              />
+            </div>
+            development. Currently in&nbsp;
             <a
               href="https://youtu.be/Gz-d3Y7pHe4"
               target="_blank"
@@ -72,7 +84,10 @@ export default function Description(props) {
               Dublin, Ireland.
             </a>
             <br />
-          </DescTypo>
+          </div>
+          <Button onClick={() => props.setGraphicOpen(!props.graphicOpen)}>
+            fish
+          </Button>
         </div>
       </div>
     </>

@@ -49,6 +49,8 @@ export default function Projects(props) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Year year={2022} />
+      <Year year={2022} />
+      <Year year={2022} />
     </div>
   );
 }
