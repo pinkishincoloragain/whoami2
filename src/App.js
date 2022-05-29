@@ -11,16 +11,10 @@ import "aos/dist/aos.css";
 import Introduction from "./Views/Introduction";
 
 function App() {
-  // const [darkMode, setDarkMode] = useState(LocalTheme);
-
   useEffect(() => {
     Aos.init();
     Aos.refresh();
-  }, []);
 
-  const darkMode = useSelector((state) => state.mode.value);
-
-  useEffect(() => {
     console.log(
       "%cHi there!",
       "background: black; color: white; font-size: 20px;"
@@ -28,38 +22,20 @@ function App() {
   }, []);
 
   return (
-    <div className="App" style={{ width: "100vw" }}>
+    <div className="App" style={{ width: "100%" }}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route
             path="/"
-            element={
-              <Landing
-                width={window.innerWidth}
-                height={window.innerHeight}
-                style={{ transitionDuration: "0.1s" }}
-              />
-            }
+            element={<Landing style={{ transitionDuration: "0.1s" }} />}
           />
           <Route
             path="/blog"
-            element={
-              <Blog
-                width={window.innerWidth}
-                height={window.innerHeight}
-                style={{ transitionDuration: "0.1s" }}
-              />
-            }
+            element={<Blog style={{ transitionDuration: "0.1s" }} />}
           />
           <Route
             path="/introduction"
-            element={
-              <Introduction
-                width={window.innerWidth}
-                height={window.innerHeight}
-                style={{ transitionDuration: "0.1s" }}
-              />
-            }
+            element={<Introduction style={{ transitionDuration: "0.1s" }} />}
           />
           <Route path="/admin" element={<Admin />} />
           <Route path="/projects" element={<Projects />} />

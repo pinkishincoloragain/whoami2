@@ -7,6 +7,7 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
 import { useStyles } from "../styles/Styles";
+import { styled } from "@mui/styles";
 
 export default function Links(props) {
   const [state, setState] = React.useState({
@@ -29,6 +30,13 @@ export default function Links(props) {
     setState({ ...state, [anchor]: open });
   };
 
+  const ListItem = styled(ListItem)({
+    height: "2.5vh",
+    width: "max(8%,150px)",
+    marginTop: "2vh",
+    marginBottom: "2vh",
+  });
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
@@ -41,14 +49,8 @@ export default function Links(props) {
         <ListItem
           button
           key="Github"
-          sx={{
-            height: "2.5vh",
-            width: "max(8vw,150px)",
-            marginTop: "2vh",
-            marginBottom: "2vh",
-          }}
+          sx={{}}
           style={{ backgroundColor: "grey", overflow: "visible" }}
-          className={classes.linkBtn}
           onClick={() => window.open("https://github.com/pinkishincoloragain")}
         >
           {/* <ListItemText primary="Github" /> */}
@@ -57,14 +59,7 @@ export default function Links(props) {
         <ListItem
           button
           key="Linkedin"
-          sx={{
-            height: "2.5vh",
-            width: "max(8vw,150px)",
-            marginTop: "4vh",
-            marginBottom: "2vh",
-          }}
           style={{ backgroundColor: "#2867B2", overflow: "visible" }}
-          className={classes.linkBtn}
           onClick={() => {
             window.open("https://www.linkedin.com/in/myungbin-son-998881141/");
           }}
@@ -74,14 +69,7 @@ export default function Links(props) {
         <ListItem
           button
           key="Youtube"
-          sx={{
-            height: "2.5vh",
-            width: "max(8vw,150px)",
-            marginTop: "4vh",
-            marginBottom: "2vh",
-          }}
           style={{ backgroundColor: "#FF0000", overflow: "visible" }}
-          className={classes.linkBtn}
           onClick={() => {
             window.open(
               "https://www.youtube.com/channel/UCXj_KgsEq4wuVy8d9Z7TxNg"
@@ -93,14 +81,7 @@ export default function Links(props) {
         <ListItem
           button
           key="Instagram"
-          sx={{
-            height: "2.5vh",
-            width: "max(8vw,150px)",
-            marginTop: "4vh",
-            marginBottom: "2vh",
-          }}
           style={{ backgroundColor: "#FFDC80", overflow: "visible" }}
-          className={classes.linkBtn}
           onClick={() => {
             window.open("https://www.instagram.com/pinkishincoloragain/");
           }}
@@ -113,7 +94,7 @@ export default function Links(props) {
           key="Yeonha"
           sx={{
             height: "1.5vh",
-            width: "max(8vw,150px)",
+            width: "max(8%,150px)",
             marginTop: "4vh",
             marginBottom: "2vh",
           }}
@@ -141,7 +122,7 @@ export default function Links(props) {
               margin="auto"
               color={props.color}
               className={classes.button2}
-              paddingRight="12vw"
+              paddingRight="12%"
             >
               {btnName}
             </Typography>

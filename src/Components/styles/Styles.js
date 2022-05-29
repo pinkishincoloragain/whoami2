@@ -1,10 +1,36 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
-  landing: {
-    // position: "absolute",
-    // backgroundColor: "black",
+  headerBarLinkWrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: "6vh",
+    flexDirection: "row",
+    marginLeft: "2vw",
+    marginRight: "2vw",
   },
+
+  link: {
+    color: "black",
+    transitionduration: "0.1s",
+    "&:hover ": {
+      color: "#FFCC00",
+      cursor: "pointer",
+    },
+  },
+
+  linkBtnText: {
+    transitionDuration: "0.05s",
+    fontSize: "max(1.4vw, 20px)",
+    fontWeight: "500",
+
+    "&:hover": {
+      color: "#FFCC00",
+      transitionDuration: "0.05s",
+    },
+  },
+
   flexColumn: {
     display: "flex",
     flexDirection: "column",
@@ -27,6 +53,19 @@ const useStyles = makeStyles(() => ({
   font3: {
     fontFamily: `'Ropa Sans', sans-serif`,
   },
+
+  descTypo: {
+    fontSize: "max(22px, 1.6rem)",
+    flexDirection: "row",
+    flexWrap: "true",
+    // marginTop: "2vh",
+    lineHeight: "1.8",
+    textAlign: "center",
+    padding: "5vh",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   mainWrapper: {
     zIndex: 1,
     display: "grid | flex",
@@ -37,76 +76,12 @@ const useStyles = makeStyles(() => ({
     width: "80vw",
     marginLeft: "10vw",
   },
-  headerWrapper: {
+  graphWrapper: {
     display: "flex",
-    flexDirection: "row",
-    width: "80vw",
-    height: "8vw",
-    marginTop: "1vh",
-
-    alignItems: "center",
     justifyContent: "center",
+    overflow: "hidden",
   },
-  headerWrapperSticky: {
-    position: "sticky",
-    top: 0,
-    left: 0,
-  },
-  centerdiv: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    alignContent: "center",
-  },
-  button: {
-    color: "black",
-    "&:hover": {
-      color: "#FFCC00",
-      // transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "0.1s",
-  },
-  button1: {
-    "&:hover": {
-      color: "#FFCC00",
-      transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "12s",
-  },
-  button2: {
-    "&:hover": {
-      color: "#0057D9",
-      transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "12s",
-  },
-  button3: {
-    "&:hover": {
-      color: "#DD4124",
-      transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "12s",
-  },
-  button4: {
-    "&:hover": {
-      color: "#009473",
-      transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "12s",
-  },
-  button5: {
-    "&:hover": {
-      color: "#9400D3",
-      transitionDuration: "0.1s",
-      cursor: "pointer",
-    },
-    transitionDuration: "12s",
-  },
+
   hiddenText: {
     filter: "blur(4px) opacity(0.5)",
     display: "flex",
@@ -129,14 +104,6 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
     },
     transitionDuration: "0.2s",
-  },
-
-  linkBtn: {
-    transitionDuration: "0.1s",
-    "&:hover": {
-      color: "white",
-      transitionDuration: "1s",
-    },
   },
 
   frame: {
@@ -235,6 +202,21 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
     },
   },
+  hambergBtn: {
+    marginRight: "2vw",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  dropDown: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "right",
+    marginRight: "10vw",
+    backgroundColor: "transparent",
+    // width: "100vw",
+  },
 
   textHolder: {
     marginLeft: "20px",
@@ -269,9 +251,6 @@ const useStyles = makeStyles(() => ({
   transition: {
     transition: "opacity 300ms, transform 300ms",
   },
-  iconWrapper: {
-    width: "",
-  },
   icon: {
     width: "32px",
     marginTop: "2vh",
@@ -279,6 +258,13 @@ const useStyles = makeStyles(() => ({
       cursor: "pointer",
       filter: "sephia(100%)",
     },
+  },
+
+  imageWrapper: {
+    width: "min(3vh, 15rem)",
+    height: "min(3vh, 15rem)",
+    zIndex: "0",
+    marginLeft: "4px",
   },
   project: {
     minWidth: "200px",

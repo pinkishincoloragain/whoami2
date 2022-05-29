@@ -17,7 +17,7 @@ export default function LightBtn(props) {
     >
       <div
         style={{
-          width: "13vw",
+          width: "13%",
           marginLeft: "1vh",
           height: "8vh",
           paddingTop: "2.6vh",

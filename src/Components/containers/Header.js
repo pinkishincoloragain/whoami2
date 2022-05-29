@@ -47,31 +47,26 @@ export default function Header(props) {
 
   return (
     <div
-      className={
-        headerBar ? classes.headerWrapperSticky : classes.headerWrapper
-      }
       style={{
-        borderTop: !darkMode ? "1vh solid #1b1b1b" : "1vh solid #ffffff",
-        borderBottom: !darkMode ? "1vh solid #1b1b1b" : "1vh solid #ffffff",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Tooltip
         arrow
-        placement="left"
+        placement="right"
         title={
           <Typography fontSize={15}>
-            {darkMode ? "Sleep now" : "Wake up"}
+            {darkMode ? "Now dark mode" : "Now light mode"}
           </Typography>
         }
       >
         <Typography
-          fontSize={"max(16px, 6.81vw)"}
-          component="div"
-          fontWeight={"bold"}
-          marginLeft={"-2px"}
-          letterSpacing={"-0.001px"}
-          color={darkMode ? "#ffffff" : "#1b1b1b"}
-          flex={3}
+          variant="h2"
+          fontSize="max(1.4rem, 10px)"
+          // color={darkMode ? "#ffffff" : "#1b1b1b"}
           className={classes.letter}
           onClick={() => dispatch(changeMode())}
           onMouseDown={handleMouseDown}
@@ -79,9 +74,6 @@ export default function Header(props) {
           onMouseEnter={handleMouseEnter}
           onMouseOut={handleMouseOut}
           ref={logoRef}
-          // data-aos="fade-up"
-          // data-aos-anchor-placement="center-bottom"
-          // data-aos-duration="800"
         >
           PINKISHINCOLORAGAIN
         </Typography>

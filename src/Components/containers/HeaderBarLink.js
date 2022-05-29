@@ -59,7 +59,7 @@ export default function HeaderBarLink(props) {
         <img
           src={src}
           style={{
-            width: "6vw",
+            width: "20px",
           }}
         />
       </div>
@@ -67,26 +67,12 @@ export default function HeaderBarLink(props) {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        height: "6vh",
-        flexDirection: "row",
-        marginLeft: "2vw",
-        marginRight: "2vw",
-      }}
-    >
+    <div className={classes.headerBarLinkWrapper}>
       <Link href={props.href} sx={{ textDecoration: "none" }}>
-        {width > 600 ? (
+        {width > 800 ? (
           <Typography
-            fontSize={"max(1.4vw, 20px)"}
-            fontWeight={"500"}
             color={!mode ? "#1b1b1b" : "white"}
-            className={classes.button}
-            sx={{ ml: "0%" }}
-            letterSpacing={"-0.1px"}
+            className={classes.linkBtnText}
           >
             {props.name}
           </Typography>
