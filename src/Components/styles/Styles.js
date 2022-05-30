@@ -5,10 +5,17 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    height: "6vh",
+    height: "max(2vh,30px)",
     flexDirection: "row",
-    marginLeft: "2vw",
-    marginRight: "2vw",
+    borderRadius: "6px",
+    paddingLeft: "2vw",
+    paddingRight: "2vw",
+
+    "&:hover": {
+      backgroundColor: "#f5f5f5",
+      cursor: "pointer",
+      // boxShadow: "0px 3px 3px  rgba(255, 105, 135, .3)",
+    },
   },
 
   link: {
@@ -26,7 +33,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: "500",
 
     "&:hover": {
-      color: "#FFCC00",
+      // color: "#FFCC00",
       transitionDuration: "0.05s",
     },
   },
@@ -43,6 +50,13 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  center: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "auto",
+  },
+
   font1: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     fontSize: "min(2vh, 15rem)",
@@ -55,13 +69,13 @@ const useStyles = makeStyles(() => ({
   },
 
   descTypo: {
-    fontSize: "max(22px, 1.6rem)",
+    fontSize: "max(20px, 1.5rem)",
     flexDirection: "row",
     flexWrap: "true",
     // marginTop: "2vh",
     lineHeight: "1.8",
     textAlign: "center",
-    padding: "5vh",
+    padding: "max(3vw,20px)",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -210,7 +224,7 @@ const useStyles = makeStyles(() => ({
   },
   dropDown: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "right",
     marginRight: "10vw",

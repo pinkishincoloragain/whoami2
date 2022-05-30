@@ -6,6 +6,7 @@ import { Button, Box, Collapse } from "@mui/material";
 import Header from "./Header";
 import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { useStyles } from "../styles/Styles";
 
 export default function HeaderBar(props) {
@@ -31,18 +32,17 @@ export default function HeaderBar(props) {
     position: "sticky",
     top: "0",
     zIndex: "1",
-    width: "80vw",
+    width: "90vw",
     height: "6vh",
     backgroundColor: darkMode ? "#1f1f1f" : "white",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: "flex-end",
     borderRadius: "2px",
     paddingLeft: "10vw",
-    paddingRight: "10vw",
-    borderBottom: "1px solid black",
-    boxShadow: "0px 3px 3px  rgba(255, 105, 135, .3)",
+    // paddingRight: "10vw",
+    borderBottom: "2px solid rgba(255, 105, 135, .3)",
+    
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
   });
 
   const Menu = () => {
@@ -51,14 +51,22 @@ export default function HeaderBar(props) {
         className={classes.hambergBtn}
         onClick={() => setDropDownOpen(!dropDownOpen)}
       >
-        <MenuIcon />
+        {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
       </div>
     );
   };
 
   return (
-    <>
-      <GoodHeader>
+    <GoodHeader>
+      <div
+        style={{
+          width: "180vw",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <Header />
         {width > 800 ? (
           <div className={classes.flexRow}>
@@ -68,15 +76,17 @@ export default function HeaderBar(props) {
             <HeaderBarLink name="Blog" href="blog" />
           </div>
         ) : (
-          <div
-            style={{
-              flexDirection: "column",
-            }}
-          >
-            <Menu />
-          </div>
+          <>
+            <div
+              style={{
+                flexDirection: "column",
+              }}
+            >
+              <Menu />
+            </div>
+          </>
         )}
-      </GoodHeader>
+      </div>
       <Collapse in={dropDownOpen}>
         <div className={classes.dropDown}>
           <HeaderBarLink name="Home" href="/" />
@@ -85,6 +95,6 @@ export default function HeaderBar(props) {
           <HeaderBarLink name="Blog" href="blog" />
         </div>
       </Collapse>
-    </>
+    </GoodHeader>
   );
 }

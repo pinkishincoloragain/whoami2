@@ -6,7 +6,6 @@ import { styled } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
 import { Link } from "react-router-dom";
-import Login from "./Clock";
 
 export default function Header(props) {
   const darkMode = useSelector((state) => state.mode.value);

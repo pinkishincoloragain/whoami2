@@ -9,11 +9,9 @@ const RedContainer = styled(Box)({
   color: "white",
   //   height: 36,
   padding: "6px",
-  margin: "4px",
   alignItems: "center",
   justifyContent: "center",
   transitionDuration: "0.2s",
-
 });
 
 export { RedContainer };

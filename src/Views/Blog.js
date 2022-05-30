@@ -3,10 +3,10 @@ import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/objects/Waves";
 import Links from "../Components/containers/Links";
 import { useStyles } from "../Components/styles/Styles";
-import HomeBtn from "../Components/buttons/HomeBtn";
 import Header from "../Components/containers/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
+import { Button } from "@mui/material";
 
 function Blog(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -99,7 +99,7 @@ function Blog(props) {
         <Header />
         <Links color={darkMode ? "white" : "#1b1b1b"} darkMode={darkMode} />
         <div>
-          <HomeBtn color={darkMode ? "white" : "#1b1b1b"} darkMode={darkMode} />
+          <Button color={darkMode ? "white" : "#1b1b1b"} darkMode={darkMode} />
         </div>
       </div>
       {windowWidth > 1280 ? (

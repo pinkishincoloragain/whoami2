@@ -37,16 +37,12 @@ export default function Description(props) {
         }}
         className={classes.descTypo}
       >
-        {width > 800 ? (
-          "Creative software developer interested in"
-        ) : (
-          <>
-            <InsertEmoticonIcon fontSize="large" />
-          </>
-        )}
+        {width > 800
+          ? "I'm a creative software developer interested in"
+          : "I do "}
         &nbsp;
         <DescBtn name="FE development" src={reactIcon} />
-        &nbsp; and &nbsp;
+        &nbsp;and&nbsp;
         <DescBtn name="Data analysis" src={pythonIcon} />
         &nbsp;
         {/* <Button onClick={() => props.setGraphicOpen(!props.graphicOpen)}>

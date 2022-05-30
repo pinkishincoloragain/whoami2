@@ -26,7 +26,7 @@ function Boxes(props) {
   useEffect(() => {
     init();
     animate();
-  }, []);
+  }, [open]);
 
   function init() {
     container = document.getElementById(`${props.name}`);
