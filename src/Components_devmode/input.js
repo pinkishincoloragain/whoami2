@@ -1,8 +1,8 @@
-import React from 'react';
-import { commandExists } from '../utils/commandExists';
-import { shell } from '../utils/shell';
-import { handleTabCompletion } from '../utils/tabCompletion';
-import { Ps1 } from './Ps1';
+import React from "react";
+import { commandExists } from "./utils/commandExists";
+import { shell } from "./utils/shell";
+import { handleTabCompletion } from "./utils/tabCompletion";
+import { Ps1 } from "./Ps1";
 
 export const Input = ({
   inputRef,
@@ -15,66 +15,64 @@ export const Input = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
-  const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const commands: [string] = history
+  const onSubmit = async (e) => {
+    const commands = [history]
       .map(({ command }) => command)
-      .filter((command: string) => command);
+      .filter((command) => command);
 
-    if (event.key === 'c' && event.ctrlKey) {
-      event.preventDefault();
-      setCommand('');
-      setHistory('');
+    if (e.key === "c" && e.ctrlKey) {
+      e.preventDefault();
+      setCommand("");
+      setHistory("");
       setLastCommandIndex(0);
     }
 
-    if (event.key === 'l' && event.ctrlKey) {
-      event.preventDefault();
+    if (e.key === "l" && e.ctrlKey) {
+      e.preventDefault();
       clearHistory();
     }
 
-    if (event.key === 'Tab') {
-      event.preventDefault();
+    if (e.key === "Tab") {
+      e.preventDefault();
       handleTabCompletion(command, setCommand);
     }
 
-    if (event.key === 'Enter' || event.code === '13') {
-      event.preventDefault();
+    if (e.key === "Enter" || e.code === "13") {
+      e.preventDefault();
       setLastCommandIndex(0);
       await shell(command, setHistory, clearHistory, setCommand);
       containerRef.current.scrollTo(0, containerRef.current.scrollHeight);
     }
 
-    if (event.key === 'ArrowUp') {
-      event.preventDefault();
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
       if (!commands.length) {
         return;
       }
-      const index: number = lastCommandIndex + 1;
+      const index = lastCommandIndex + 1;
       if (index <= commands.length) {
         setLastCommandIndex(index);
         setCommand(commands[commands.length - index]);
       }
     }
 
-    if (event.key === 'ArrowDown') {
-      event.preventDefault();
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
       if (!commands.length) {
         return;
       }
-      const index: number = lastCommandIndex - 1;
+      const index = lastCommandIndex - 1;
       if (index > 0) {
         setLastCommandIndex(index);
         setCommand(commands[commands.length - index]);
       } else {
         setLastCommandIndex(0);
-        setCommand('');
+        setCommand("");
       }
     }
   };
 
-  const onChange = ({
-    target: { value },
-  }: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = ({ target: { value } }) => {
     setCommand(value);
   };
 
@@ -89,9 +87,9 @@ export const Input = ({
         id="prompt"
         type="text"
         className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
-          commandExists(command) || command === ''
-            ? 'text-dark-green'
-            : 'text-dark-red'
+          commandExists(command) || command === ""
+            ? "text-dark-green"
+            : "text-dark-red"
         }`}
         value={command}
         onChange={onChange}
