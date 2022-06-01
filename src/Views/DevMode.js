@@ -7,6 +7,7 @@ import { Input } from "../Components_devmode/input";
 import { useHistory } from "../Components_devmode/history/hook";
 import { banner } from "../Components_devmode/utils/bin";
 import { History } from "../Components_devmode/history/History";
+import TerminalBtn from "../Components/buttons/TerminalBtn";
 
 const DevMode = ({}) => {
   const inputRef = useRef(null);
@@ -27,9 +28,9 @@ const DevMode = ({}) => {
 
   const init = useCallback(() => setHistory(banner()), []);
 
-  // useEffect(() => {
-  //   init();
-  // }, [init]);
+  useEffect(() => {
+    init();
+  }, [init]);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -41,7 +42,7 @@ const DevMode = ({}) => {
   return (
     <>
       <div
-        className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
+        className="text-light-foreground dark:text-dark-foreground text-xs md:min-w-full md:text-base"
         onClick={onClickAnywhere}
       >
         <div className="bg-light-background dark:bg-dark-background w-full h-full p-2">

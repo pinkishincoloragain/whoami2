@@ -1,7 +1,7 @@
 import { useStyles } from "../styles/Styles";
 import { Tooltip, Typography } from "@mui/material";
 
-export default function Button(props) {
+export default function TerminalBtn(props) {
   const classes = useStyles();
 
   return (
