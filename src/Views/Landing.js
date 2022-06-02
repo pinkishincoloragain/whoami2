@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
 import { useStyles } from "../Components/styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
+import { Button } from "@mui/material";
+import { Box } from "@mui/system";
+import { styled } from "@mui/styles";
+
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
-import { Box } from "@mui/system";
-import BasicMasonry from "./BasicMasonry";
 import LandingExpl from "../Components/containers/LandingExpl";
-import { styled } from "@mui/styles";
 
 function Landing(props) {
   const classes = useStyles();
@@ -16,7 +16,18 @@ function Landing(props) {
 
   const [scroll, setScroll] = useState(0);
   const [graphicOpen, setGraphicOpen] = useState(false);
-  const [devMode, setDevMode] = useState(false);
+  const [devMode, setDevMode] = useState();
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("devMode") === "true") {
+  //     setDevMode(true);
+  //   } else {
+  //     {
+  //       setDevMode(false);
+  //       localStorage.setItem("devMode", false);
+  //     }
+  //   }
+  // });
 
   useEffect(() => {
     handleCatchClick();
@@ -36,29 +47,29 @@ function Landing(props) {
     fontSize: "1.5rem",
   }));
 
+  const NormalMode = () => (
+    <LandingWrapper
+      onWheel={(e) => {
+        console.log(e.deltaY);
+        setScroll(e.deltaY);
+      }}
+    >
+      <HeaderBar scroll={scroll} />
+      <div className={classes.mainWrapper}>
+        <Description
+          graphicOpen={graphicOpen}
+          setGraphicOpen={setGraphicOpen}
+        />
+        <LandingExpl />
+      </div>
+    </LandingWrapper>
+  );
+
   return (
-    <>
+    <div style={{ width: "100%", height: "100%" }}>
       <ModeButton onClick={() => setDevMode(!devMode)}>Change!</ModeButton>
-      {devMode ? (
-        <LandingWrapper
-          onWheel={(e) => {
-            console.log(e.deltaY);
-            setScroll(e.deltaY);
-          }}
-        >
-          <HeaderBar scroll={scroll} />
-          <div className={classes.mainWrapper}>
-            <Description
-              graphicOpen={graphicOpen}
-              setGraphicOpen={setGraphicOpen}
-            />
-            <LandingExpl />
-          </div>
-        </LandingWrapper>
-      ) : (
-        <DevMode />
-      )}
-    </>
+      {devMode ? <DevMode /> : <NormalMode />}
+    </div>
   );
 }
 

@@ -43,15 +43,6 @@ export const resume = async (args) => {
   return "Opening resume...";
 };
 
-// Donate
-export const donate = async (args) => {
-  return `thank you for your interest. 
-here are the ways you can support my work:
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.paypal}" target="_blank">paypal</a></u>
-- <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.donate_urls.patreon}" target="_blank">patreon</a></u>
-`;
-};
-
 // Contact
 export const email = async (args) => {
   window.open(`mailto:${config.email}`);
@@ -76,18 +67,17 @@ export const google = async (args) => {
   return `Searching google for ${args.join(" ")}...`;
 };
 
-export const duckduckgo = async (args) => {
-  window.open(`https://duckduckgo.com/?q=${args.join(" ")}`);
-  return `Searching duckduckgo for ${args.join(" ")}...`;
-};
-
-export const bing = async (args) => {
-  window.open(`https://bing.com/search?q=${args.join(" ")}`);
-  return `Wow, really? You are using bing for ${args.join(" ")}?`;
-};
-
 export const reddit = async (args) => {
   window.open(`https://www.reddit.com/search/?q=${args.join(" ")}`);
+  return `Searching reddit for ${args.join(" ")}...`;
+};
+
+export const naver = async (args) => {
+  window.open(
+    `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=${args.join(
+      " "
+    )}`
+  );
   return `Searching reddit for ${args.join(" ")}...`;
 };
 
@@ -109,8 +99,7 @@ directories`;
 };
 
 export const cd = async (args) => {
-  return `unfortunately, i cannot afford more directories.
-if you want to help, you can type 'donate'.`;
+  return `unfortunately, I am working on this.`;
 };
 
 export const date = async (args) => {
@@ -118,19 +107,7 @@ export const date = async (args) => {
 };
 
 export const vi = async (args) => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
-};
-
-export const vim = async (args) => {
-  return `'vim' is so outdated. how about 'nvim'?`;
-};
-
-export const nvim = async (args) => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
-};
-
-export const emacs = async (args) => {
-  return `you know what? just use vscode.`;
+  return `You must be a developer`;
 };
 
 export const sudo = async (args) => {
