@@ -1,9 +1,9 @@
-import { useStyles } from "../styles/Styles";
+import { useStyles } from "./Styles";
 import { useState, useEffect } from "react";
 import reactIcon from "../../assets/icons/react.gif";
 import pythonIcon from "../../assets/icons/python.gif";
 import { useDispatch, useSelector } from "react-redux";
-import { RedButton } from "../buttons/MyButton";
+import { RedButton } from "../MyButton";
 import { RedContainer } from "./MyContainer";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 
@@ -45,9 +45,6 @@ export default function Description(props) {
         &nbsp;and&nbsp;
         <DescBtn name="Data analysis" src={pythonIcon} />
         &nbsp;
-        {/* <Button onClick={() => props.setGraphicOpen(!props.graphicOpen)}>
-          fish
-        </Button> */}
       </div>
     </RedContainer>
   );

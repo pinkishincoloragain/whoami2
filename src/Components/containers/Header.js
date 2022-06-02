@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useStyles } from "../styles/Styles";
+import { useStyles } from "./Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import { styled } from "@mui/styles";
@@ -12,7 +12,6 @@ export default function Header(props) {
   const [headerBar, setHeaderBar] = useState(false);
   const dispatch = useDispatch();
   const logoRef = useRef();
-
   const classes = useStyles();
 
   useEffect(() => {
@@ -45,14 +44,7 @@ export default function Header(props) {
   window.addEventListener("resize", changeHeader);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className={classes.flexRow}>
       <Tooltip
         arrow
         placement="right"

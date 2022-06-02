@@ -7,7 +7,6 @@ import { Input } from "../Components_devmode/input";
 import { useHistory } from "../Components_devmode/history/hook";
 import { banner } from "../Components_devmode/utils/bin";
 import { History } from "../Components_devmode/history/History";
-import TerminalBtn from "../Components/buttons/TerminalBtn";
 
 const DevMode = ({}) => {
   const inputRef = useRef(null);

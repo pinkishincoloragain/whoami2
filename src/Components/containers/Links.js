@@ -6,7 +6,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import { Typography } from "@mui/material";
-import { useStyles } from "../styles/Styles";
+import { useStyles } from "./Styles";
 import { styled } from "@mui/styles";
 
 export default function Links(props) {
@@ -37,19 +37,20 @@ export default function Links(props) {
     marginBottom: "2vh",
   });
 
+  const ListWrapper = styled(`div`)({
+    backgroundColor: "transparent",
+  });
+
   const list = (anchor) => (
-    <Box
+    <ListWrapper
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-      style={{ backgroundColor: "transparent" }}
     >
       <List>
         <ListItem
           button
           key="Github"
-          sx={{}}
           style={{ backgroundColor: "grey", overflow: "visible" }}
           onClick={() => window.open("https://github.com/pinkishincoloragain")}
         >
@@ -107,7 +108,7 @@ export default function Links(props) {
           <Typography variant="h4">연하장</Typography>
         </ListItem>
       </List>
-    </Box>
+    </ListWrapper>
   );
 
   return (

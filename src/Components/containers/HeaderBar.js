@@ -1,13 +1,21 @@
 import { useState, useEffect } from "react";
-import CustomIcon from "./CustomIcon";
 import { useSelector } from "react-redux";
-import HeaderBarLink from "./HeaderBarLink";
 import { Button, Box, Collapse } from "@mui/material";
 import Header from "./Header";
 import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { useStyles } from "../styles/Styles";
+import { useStyles } from "./Styles";
+
+import { Link, Typography } from "@mui/material";
+import blog from "../../assets/icons/blog.png";
+import blog2 from "../../assets/icons/blog2.png";
+import folder from "../../assets/icons/folder.png";
+import folder2 from "../../assets/icons/folder2.png";
+import home from "../../assets/icons/home.png";
+import home2 from "../../assets/icons/home2.png";
+import intro from "../../assets/icons/intro.png";
+import intro2 from "../../assets/icons/intro2.png";
 
 export default function HeaderBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -41,7 +49,7 @@ export default function HeaderBar(props) {
     paddingLeft: "10vw",
     // paddingRight: "10vw",
     borderBottom: "2px solid rgba(255, 105, 135, .3)",
-    
+
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
   });
 
@@ -56,45 +64,114 @@ export default function HeaderBar(props) {
     );
   };
 
+  const HeaderWrapper = styled(`div`)({
+    width: "180vw",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  });
+
   return (
     <GoodHeader>
-      <div
-        style={{
-          width: "180vw",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <HeaderWrapper>
         <Header />
         {width > 800 ? (
           <div className={classes.flexRow}>
-            <HeaderBarLink name="Home" href="/" />
             <HeaderBarLink name="Introduction" href="introduction" />
             <HeaderBarLink name="Projects" href="projects" />
+            <HeaderBarLink name="Developer" href="/" />
             <HeaderBarLink name="Blog" href="blog" />
           </div>
         ) : (
           <>
-            <div
-              style={{
-                flexDirection: "column",
-              }}
-            >
+            <div className={classes.flexColumn}>
               <Menu />
             </div>
           </>
         )}
-      </div>
+      </HeaderWrapper>
       <Collapse in={dropDownOpen}>
         <div className={classes.dropDown}>
-          <HeaderBarLink name="Home" href="/" />
           <HeaderBarLink name="Introduction" href="introduction" />
           <HeaderBarLink name="Projects" href="projects" />
+          <HeaderBarLink name="Developer" href="/" />
           <HeaderBarLink name="Blog" href="blog" />
         </div>
       </Collapse>
     </GoodHeader>
+  );
+}
+
+const ImageWrapper = styled(`div`)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "3vh",
+});
+
+function HeaderBarLink(props) {
+  const classes = useStyles();
+  const mode = useSelector((state) => state.mode.value);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  });
+
+  const Icon = () => {
+    let src = "";
+    if (props.name === "Home") {
+      if (!mode) {
+        src = home;
+      } else {
+        src = home2;
+      }
+    } else if (props.name === "Introduction") {
+      if (!mode) {
+        src = intro;
+      } else {
+        src = intro2;
+      }
+    } else if (props.name === "Projects") {
+      if (!mode) {
+        src = folder;
+      } else {
+        src = folder2;
+      }
+    } else if (props.name === "Blog") {
+      if (!mode) {
+        src = blog;
+      } else {
+        src = blog2;
+      }
+    }
+    return (
+      <ImageWrapper>
+        <img
+          src={src}
+          style={{
+            width: "20px",
+          }}
+        />
+      </ImageWrapper>
+    );
+  };
+
+  return (
+    <div className={classes.headerBarLinkWrapper}>
+      <Link href={props.href} sx={{ textDecoration: "none" }}>
+        {width > 800 ? (
+          <Typography
+            color={!mode ? "#1b1b1b" : "white"}
+            className={classes.linkBtnText}
+          >
+            {props.name}
+          </Typography>
+        ) : (
+          <Icon />
+        )}
+      </Link>
+    </div>
   );
 }

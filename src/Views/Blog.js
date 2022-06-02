@@ -2,7 +2,7 @@ import react from "react";
 import React, { useEffect, useState, useRef } from "react";
 import Waves from "../Components/objects/Waves";
 import Links from "../Components/containers/Links";
-import { useStyles } from "../Components/styles/Styles";
+import { useStyles } from "../Components/containers/Styles";
 import Header from "../Components/containers/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";

@@ -1,7 +1,7 @@
 import { Box, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
 import { styled } from "@mui/styles";
-import { useStyles } from "../styles/Styles";
+import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "@mui/material/Skeleton";
 import { Collapse } from "@mui/material";
@@ -43,17 +43,16 @@ export default function LandingExpl() {
     elevation: "1",
   });
 
+  const GraphicWrapper = styled(Paper)({
+    borderRadius: "20px",
+    width: "40vw",
+    height: "30vh",
+    boxShadow: "0px 2px 12px 1px #cfcfcf",
+  });
+
   return (
     <Paragraph>
-      <Paper
-        elevation={6}
-        sx={{
-          borderRadius: "20px",
-          width: "40vw",
-          height: "30vh",
-          boxShadow: "0px 2px 12px 1px #cfcfcf",
-        }}
-      >
+      <GraphicWrapper>
         {/* <Boxes
           name={`Box`}
           width={windowWidth}
@@ -89,7 +88,7 @@ export default function LandingExpl() {
             )}
           </Box>
         </Collapse> */}
-      </Paper>
+      </GraphicWrapper>
     </Paragraph>
   );
 }

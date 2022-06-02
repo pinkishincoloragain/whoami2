@@ -2,12 +2,10 @@ import github from "../../assets/icons/github.png";
 import linkedin from "../../assets/icons/linkedin.png";
 import instagram from "../../assets/icons/instagram.png";
 import youtube from "../../assets/icons/youtube.png";
-import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { useSelector } from "react-redux";
 
-import SvgIcon from "@mui/material/SvgIcon";
 import { useStyles } from "../styles/Styles";
 
 export default function CustomIcon(props) {
@@ -34,7 +32,7 @@ export default function CustomIcon(props) {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div className={classes.flexRow}>
       <Tooltip
         arrow
         placement="right"
@@ -81,7 +79,6 @@ export default function CustomIcon(props) {
           alt="youtube"
           className={classes.icon}
           onClick={handleYoutube}
-          style={{ marginTop: "1.6vh" }}
         />
       </Tooltip>
     </div>

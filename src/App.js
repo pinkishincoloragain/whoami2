@@ -22,21 +22,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App" style={{ width: "100%" }}>
+    <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route
-            path="/"
-            element={<Landing style={{ transitionDuration: "0.1s" }} />}
-          />
-          <Route
-            path="/blog"
-            element={<Blog style={{ transitionDuration: "0.1s" }} />}
-          />
-          <Route
-            path="/introduction"
-            element={<Introduction style={{ transitionDuration: "0.1s" }} />}
-          />
+          <Route path="/" element={<Landing />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/introduction" element={<Introduction />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="*" element={<Error />} />

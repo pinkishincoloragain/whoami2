@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStyles } from "../Components/styles/Styles";
+import { useStyles } from "../Components/containers/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
@@ -18,16 +18,21 @@ function Landing(props) {
   const [graphicOpen, setGraphicOpen] = useState(false);
   const [devMode, setDevMode] = useState();
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("devMode") === "true") {
-  //     setDevMode(true);
-  //   } else {
-  //     {
-  //       setDevMode(false);
-  //       localStorage.setItem("devMode", false);
-  //     }
-  //   }
-  // });
+  useEffect(() => {
+    if (localStorage.getItem("devMode") === "true") {
+      setDevMode(true);
+    } else {
+      {
+        setDevMode(false);
+        localStorage.setItem("devMode", false);
+      }
+    }
+  });
+
+  const handleDevMode = () => {
+    setDevMode(!devMode);
+    localStorage.setItem("devMode", !devMode);
+  };
 
   useEffect(() => {
     handleCatchClick();
@@ -67,7 +72,7 @@ function Landing(props) {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <ModeButton onClick={() => setDevMode(!devMode)}>Change!</ModeButton>
+      <ModeButton onClick={handleDevMode}>Change!</ModeButton>
       {devMode ? <DevMode /> : <NormalMode />}
     </div>
   );

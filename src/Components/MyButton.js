@@ -22,4 +22,16 @@ const BlueButton = styled(Button)({
   padding: "0 30px",
 });
 
+const TerminalBtn = styled(Button)({
+  width: "12px",
+  height: "12px",
+  border: `0.8px solid black`,
+  borderRadius: "30px",
+  marginLeft: "2px",
+  filter: "saturate(1.4)",
+  "&:hover": {
+    cursor: "pointer",
+  },
+});
+
 export { RedButton, BlueButton };
