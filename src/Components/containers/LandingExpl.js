@@ -35,7 +35,7 @@ export default function LandingExpl() {
     });
   }, [window.innerHeight]);
 
-  const Paragraph = styled("div")({
+  const Paragraph = styled(`div`)({
     width: "80vw",
     height: "80vh",
     marginTop: "5vh",

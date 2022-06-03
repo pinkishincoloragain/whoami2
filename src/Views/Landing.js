@@ -55,8 +55,8 @@ function Landing(props) {
   const NormalMode = () => (
     <LandingWrapper
       onWheel={(e) => {
-        console.log(e.deltaY);
-        setScroll(e.deltaY);
+        // console.log(e.deltaY);
+        // setScroll(e.deltaY);
       }}
     >
       <HeaderBar scroll={scroll} />

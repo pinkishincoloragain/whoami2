@@ -7,16 +7,50 @@ import { RedButton } from "../MyButton";
 import { RedContainer } from "./MyContainer";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 
-export default function Description(props) {
-  const darkMode = useSelector((state) => state.mode.value);
-  let classes = useStyles();
-  const [width, setWidth] = useState(window.innerWidth);
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+function useWindowSize() {
+  function getSize() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize);
 
   useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWidth(window.innerWidth);
-    });
-  }, [window.innerWidth]);
+    // Debounce to avoid the function fire multiple times
+    var handleResizeDebounced = debounce(function handleResize() {
+      setWindowSize(getSize());
+    }, 250);
+
+    window.addEventListener("resize", handleResizeDebounced);
+    return () => window.removeEventListener("resize", handleResizeDebounced);
+  }, []);
+
+  return windowSize;
+}
+
+export default function Description() {
+  const darkMode = useSelector((state) => state.mode.value);
+  let classes = useStyles();
+  const width = useWindowSize();
+  console.log(width);
 
   const DescBtn = (props) => {
     return (

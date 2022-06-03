@@ -23,12 +23,12 @@ export default function HeaderBar(props) {
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const classes = useStyles();
 
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    if (window.innerWidth > 800) {
-      setDropDownOpen(false);
-    }
-  }, [window.innerWidth]);
+  // useEffect(() => {
+  //   setWidth(window.innerWidth);
+  //   if (window.innerWidth > 800) {
+  //     setDropDownOpen(false);
+  //   }
+  // }, [window.innerWidth]);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
@@ -36,11 +36,11 @@ export default function HeaderBar(props) {
     });
   }, [window.innerWidth]);
 
-  const GoodHeader = styled(Box)({
+  const GoodHeader = styled(`div`)({
     position: "sticky",
     top: "0",
     zIndex: "1",
-    width: "90vw",
+    width: "90%",
     height: "6vh",
     backgroundColor: darkMode ? "#1f1f1f" : "white",
     display: "flex",
