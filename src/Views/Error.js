@@ -1,4 +1,3 @@
-import Waves from "../Components/objects/Waves";
 import { Card, Paper } from "@mui/material";
 import { useSelector } from "react-redux";
 import { display } from "@mui/system";
@@ -39,9 +38,6 @@ export default function Error() {
               Thank you for visiting Hidden page
             </Typography>
             <Typography variant="h5" component="div"></Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              and fuck you if you are a hacker.
-            </Typography>
             <Typography variant="body2">
               well meaning and kindly.
               <br />
@@ -55,7 +51,6 @@ export default function Error() {
           </CardActions>
         </Card>
       </div>
-      <Waves />
     </>
   );
 }

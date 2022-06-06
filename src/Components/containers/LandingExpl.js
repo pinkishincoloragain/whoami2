@@ -5,7 +5,6 @@ import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "@mui/material/Skeleton";
 import { Collapse } from "@mui/material";
-import Boxes from "../objects/Boxes";
 
 const data = [
   {
@@ -16,24 +15,9 @@ const data = [
   },
 ];
 
-export default function LandingExpl() {
+export default function LandingExpl(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [window.innerWidth]);
-
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWindowHeight(window.innerHeight);
-    });
-  }, [window.innerHeight]);
 
   const Paragraph = styled(`div`)({
     width: "80vw",
@@ -52,43 +36,7 @@ export default function LandingExpl() {
 
   return (
     <Paragraph>
-      <GraphicWrapper>
-        {/* <Boxes
-          name={`Box`}
-          width={windowWidth}
-          height={windowHeight / 2}
-          container={`container`}
-          bkgColor={"#ffffff"}
-          thetaSpeed={darkMode ? 0.1 : 0.5}
-        /> */}
-        {/* <Collapse orientation="vertical" in={graphicOpen}>
-          <Box
-            sx={{
-              height: windowHeight / 2,
-            }}
-            className={classes.graphicWrapper}
-            onClick={() => setGraphicOpen(!graphicOpen)}
-          >
-            {!darkMode ? (
-              <Boxes
-                name={`Box${props.name}`}
-                width={windowWidth}
-                height={windowHeight / 2}
-                container={`container${props.name}`}
-                bkgColor={"#ffffff"}
-                thetaSpeed={darkMode ? 0.1 : 0.5}
-              />
-            ) : (
-              <Waves
-                width={windowWidth}
-                height={windowHeight / 2}
-                azimuth="1"
-                elevation="2"
-              />
-            )}
-          </Box>
-        </Collapse> */}
-      </GraphicWrapper>
+      <GraphicWrapper>fish</GraphicWrapper>
     </Paragraph>
   );
 }

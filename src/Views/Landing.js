@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { styled } from "@mui/styles";
+import debounce from "@mui/material";
 
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
@@ -17,6 +18,20 @@ function Landing(props) {
   const [scroll, setScroll] = useState(0);
   const [graphicOpen, setGraphicOpen] = useState(false);
   const [devMode, setDevMode] = useState();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, [window.innerWidth]);
+
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      setWindowHeight(window.innerHeight);
+    });
+  }, [window.innerHeight]);
 
   useEffect(() => {
     if (localStorage.getItem("devMode") === "true") {
@@ -34,11 +49,7 @@ function Landing(props) {
     localStorage.setItem("devMode", !devMode);
   };
 
-  useEffect(() => {
-    handleCatchClick();
-  }, []);
-
-  const handleCatchClick = () => {
+  const handleGraphicOpen = () => {
     setGraphicOpen(false);
   };
 
@@ -59,11 +70,12 @@ function Landing(props) {
         // setScroll(e.deltaY);
       }}
     >
-      <HeaderBar scroll={scroll} />
+      <HeaderBar width={windowWidth} scroll={scroll} />
       <div className={classes.mainWrapper}>
         <Description
           graphicOpen={graphicOpen}
-          setGraphicOpen={setGraphicOpen}
+          handleGraphicOpen={handleGraphicOpen}
+          width={windowWidth}
         />
         <LandingExpl />
       </div>

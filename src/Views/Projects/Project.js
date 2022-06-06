@@ -1,7 +1,6 @@
 import { useStyles } from "../../Components/styles/Styles";
 import { useSelector } from "react-redux";
 import Waves from "../../Components/objects/Waves";
-import Boxes from "../../Components/objects/Boxes";
 
 export default function Project(props) {
   const classes = useStyles();

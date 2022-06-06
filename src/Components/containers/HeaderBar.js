@@ -19,22 +19,8 @@ import intro2 from "../../assets/icons/intro2.png";
 
 export default function HeaderBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
-  const [width, setWidth] = useState(window.innerWidth);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const classes = useStyles();
-
-  // useEffect(() => {
-  //   setWidth(window.innerWidth);
-  //   if (window.innerWidth > 800) {
-  //     setDropDownOpen(false);
-  //   }
-  // }, [window.innerWidth]);
-
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWidth(window.innerWidth);
-    });
-  }, [window.innerWidth]);
 
   const GoodHeader = styled(`div`)({
     position: "sticky",
@@ -76,7 +62,7 @@ export default function HeaderBar(props) {
     <GoodHeader>
       <HeaderWrapper>
         <Header />
-        {width > 800 ? (
+        {props.width > 800 ? (
           <div className={classes.flexRow}>
             <HeaderBarLink name="Introduction" href="introduction" />
             <HeaderBarLink name="Projects" href="projects" />
@@ -93,10 +79,14 @@ export default function HeaderBar(props) {
       </HeaderWrapper>
       <Collapse in={dropDownOpen}>
         <div className={classes.dropDown}>
-          <HeaderBarLink name="Introduction" href="introduction" />
-          <HeaderBarLink name="Projects" href="projects" />
-          <HeaderBarLink name="Developer" href="/" />
-          <HeaderBarLink name="Blog" href="blog" />
+          <HeaderBarLink
+            width={props.width}
+            name="Introduction"
+            href="introduction"
+          />
+          <HeaderBarLink width={props.width} name="Projects" href="projects" />
+          <HeaderBarLink width={props.width} name="Developer" href="/" />
+          <HeaderBarLink width={props.width} name="Blog" href="blog" />
         </div>
       </Collapse>
     </GoodHeader>
@@ -110,14 +100,9 @@ const ImageWrapper = styled(`div`)({
   height: "3vh",
 });
 
-function HeaderBarLink(props) {
+const HeaderBarLink = (props) => {
   const classes = useStyles();
   const mode = useSelector((state) => state.mode.value);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  });
 
   const Icon = () => {
     let src = "";
@@ -161,7 +146,7 @@ function HeaderBarLink(props) {
   return (
     <div className={classes.headerBarLinkWrapper}>
       <Link href={props.href} sx={{ textDecoration: "none" }}>
-        {width > 800 ? (
+        {props.width > 800 ? (
           <Typography
             color={!mode ? "#1b1b1b" : "white"}
             className={classes.linkBtnText}
@@ -174,4 +159,4 @@ function HeaderBarLink(props) {
       </Link>
     </div>
   );
-}
+};
