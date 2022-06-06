@@ -58,9 +58,9 @@ function Landing(props) {
           />
           <LandingExpl />
         </div>
-        {/* <Box> */}
+        <Box>
           <DevMode />
-        {/* </Box> */}
+        </Box>
       </LandingWrapper>
     </Suspense>
   );

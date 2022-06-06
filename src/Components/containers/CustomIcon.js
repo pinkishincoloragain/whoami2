@@ -3,24 +3,43 @@ import linkedin from "../../assets/icons/linkedin.png";
 import instagram from "../../assets/icons/instagram.png";
 import youtube from "../../assets/icons/youtube.png";
 import { Typography } from "@mui/material";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import LinkToolTip, { tooltipClasses } from "@mui/material/Tooltip";
 import { useSelector } from "react-redux";
 
 import { useStyles } from "../styles/Styles";
+import { styled } from "@mui/styles";
 
 export default function CustomIcon(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
-  const handleGithub = () => {
+  const LinkToolTip = styled({ Tooltip: LinkToolTip })((theme) => {
+    return {
+      ...tooltipClasses(theme),
+      arrow,
+      placement: "right",
+      backgroundColor: darkMode ? "#1b1b1b" : "#ffffff",
+      color: darkMode ? "#ffffff" : "#1b1b1b",
+    };
+  });
+
+  const IconImage = styled(`img`)({
+    width: "32px",
+    marginTop: "2vh",
+    "&:hover": {
+      cursor: "pointer",
+      filter: "sephia(100%)",
+    },
+  });
+
+  const handleGithub = () =>
     window.open("https://www.github.com/pinkishincoloragain", "_blank");
-  };
-  const handleLinkedin = () => {
+
+  const handleLinkedin = () =>
     window.open(
       "https://www.linkedin.com/in/myungbin-son-998881141/",
       "_blank"
     );
-  };
   const handleYoutube = () => {
     window.open(
       "https://www.youtube.com/channel/UCXj_KgsEq4wuVy8d9Z7TxNg",
@@ -33,54 +52,18 @@ export default function CustomIcon(props) {
 
   return (
     <div className={classes.flexRow}>
-      <Tooltip
-        arrow
-        placement="right"
-        title={<Typography fontSize={16}>Github</Typography>}
-      >
-        <img
-          src={github}
-          alt="github"
-          className={classes.icon}
-          onClick={handleGithub}
-        />
-      </Tooltip>
-      <Tooltip
-        arrow
-        placement="right"
-        title={<Typography fontSize={16}>Linkedin</Typography>}
-      >
-        <img
-          src={linkedin}
-          alt="linkedin"
-          className={classes.icon}
-          onClick={handleLinkedin}
-        />
-      </Tooltip>
-      <Tooltip
-        arrow
-        placement="right"
-        title={<Typography fontSize={16}>Instagram</Typography>}
-      >
-        <img
-          src={instagram}
-          alt="instagram"
-          className={classes.icon}
-          onClick={handleInstagram}
-        />
-      </Tooltip>
-      <Tooltip
-        arrow
-        placement="right"
-        title={<Typography fontSize={16}>Youtube</Typography>}
-      >
-        <img
-          src={youtube}
-          alt="youtube"
-          className={classes.icon}
-          onClick={handleYoutube}
-        />
-      </Tooltip>
+      <LinkToolTip title={<Typography fontSize={16}>Github</Typography>}>
+        <IconImage src={github} alt="github" onClick={handleGithub} />
+      </LinkToolTip>
+      <LinkToolTip title={<Typography fontSize={16}>Linkedin</Typography>}>
+        <IconImage src={linkedin} alt="linkedin" onClick={handleLinkedin} />
+      </LinkToolTip>
+      <LinkToolTip title={<Typography fontSize={16}>Instagram</Typography>}>
+        <IconImage src={instagram} alt="instagram" onClick={handleInstagram} />
+      </LinkToolTip>
+      <LinkToolTip title={<Typography fontSize={16}>Youtube</Typography>}>
+        <IconImage src={youtube} alt="youtube" onClick={handleYoutube} />
+      </LinkToolTip>
     </div>
   );
 }

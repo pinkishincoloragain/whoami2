@@ -14,7 +14,6 @@ export default function Header(props) {
   const logoRef = useRef();
   const classes = useStyles();
 
-
   const changeHeader = (scroll) => {
     if (scroll >= 80) {
       setHeaderBar(true);
@@ -36,6 +35,15 @@ export default function Header(props) {
     logoRef.current.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
   };
 
+  const HeaderTypography = styled(Typography)({
+    "&:hover": {
+      color: "#FFCC00",
+      transitionDuration: "0.1s",
+      cursor: "pointer",
+    },
+    transitionDuration: "0.2s",
+  });
+
   window.addEventListener("resize", changeHeader);
 
   return (
@@ -49,7 +57,7 @@ export default function Header(props) {
           </Typography>
         }
       >
-        <Typography
+        <HeaderTypography
           variant="h2"
           fontSize="max(1.4rem, 10px)"
           // color={darkMode ? "#ffffff" : "#1b1b1b"}
@@ -62,7 +70,7 @@ export default function Header(props) {
           ref={logoRef}
         >
           PINKISHINCOLORAGAIN
-        </Typography>
+        </HeaderTypography>
       </Tooltip>
     </div>
   );

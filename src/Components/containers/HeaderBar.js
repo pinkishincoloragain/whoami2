@@ -44,6 +44,22 @@ export default function HeaderBar(props) {
     justifyContent: "space-between",
   });
 
+  const HambergerWrapper = styled(`div`)({
+    marginRight: "2vw",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  });
+
+  const DropDown = styled(`div`)({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "right",
+    marginRight: "10vw",
+    backgroundColor: "transparent",
+  });
+
   return (
     <FullHeader>
       <HeaderWrapper>
@@ -56,20 +72,15 @@ export default function HeaderBar(props) {
             <HeaderBarLink name="Blog" href="blog" />
           </div>
         ) : (
-          <>
-            <div className={classes.flexColumn}>
-              <div
-                className={classes.hambergBtn}
-                onClick={() => setDropDownOpen(!dropDownOpen)}
-              >
-                {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
-              </div>
-            </div>
-          </>
+          <div className={classes.flexColumn}>
+            <HambergerWrapper onClick={() => setDropDownOpen(!dropDownOpen)}>
+              {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
+            </HambergerWrapper>
+          </div>
         )}
       </HeaderWrapper>
       <Collapse in={dropDownOpen}>
-        <div className={classes.dropDown}>
+        <DropDown>
           <HeaderBarLink
             width={props.width}
             name="Introduction"
@@ -78,18 +89,11 @@ export default function HeaderBar(props) {
           <HeaderBarLink width={props.width} name="Projects" href="projects" />
           <HeaderBarLink width={props.width} name="Developer" href="/" />
           <HeaderBarLink width={props.width} name="Blog" href="blog" />
-        </div>
+        </DropDown>
       </Collapse>
     </FullHeader>
   );
 }
-
-const ImageWrapper = styled(`div`)({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "3vh",
-});
 
 const HeaderBarLink = (props) => {
   const classes = useStyles();
@@ -124,29 +128,42 @@ const HeaderBarLink = (props) => {
     }
 
     return (
-      <ImageWrapper>
-        <img
-          src={src}
-          style={{
-            width: "20px",
-          }}
-        />
-      </ImageWrapper>
+      <img
+        src={src}
+        style={{
+          width: "20px",
+        }}
+      />
     );
   };
+
+  const IconWrapper = styled(`div`)({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "3vh",
+  });
+
+  const linkBtnText = styled({ Typography })(({ theme }) => ({
+    transitionDuration: "0.05s",
+    fontSize: "max(1.4vw, 20px)",
+    fontWeight: "500",
+    color: !mode ? "#1b1b1b" : "white",
+    "&:hover": {
+      // color: "#FFCC00",
+      transitionDuration: "0.05s",
+    },
+  }));
 
   return (
     <div className={classes.headerBarLinkWrapper}>
       <Link href={props.href} sx={{ textDecoration: "none" }}>
         {props.width > 800 ? (
-          <Typography
-            color={!mode ? "#1b1b1b" : "white"}
-            className={classes.linkBtnText}
-          >
-            {props.name}
-          </Typography>
+          <linkBtnText>{props.name}</linkBtnText>
         ) : (
-          <Icon />
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
         )}
       </Link>
     </div>

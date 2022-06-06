@@ -6,38 +6,50 @@ import { useDispatch, useSelector } from "react-redux";
 import { RedButton } from "../MyButton";
 import { RedContainer } from "./MyContainer";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
+import { styled } from "@mui/styles";
+
+const DescBtn = (props) => {
+  const Image = styled(`img`)({
+    width: "min(3vh, 15rem)",
+    height: "min(3vh, 15rem)",
+    zIndex: "0",
+    marginLeft: "4px",
+  });
+  const BtnName = styled(`div`)({
+    zIndex: "2",
+    fontWeight: 500,
+    fontSize: "large",
+  });
+  return (
+    <RedButton>
+      <BtnName>{props.name}</BtnName>
+      <Image src={props.src} />
+    </RedButton>
+  );
+};
+
+const DescWrapper = styled(`div`)({
+  padding: "20px",
+  alignItems: "center",
+  justifyContent: "center",
+  lineHeight: "1.5",
+  backgroundColor: "inherit",
+  color: "inherit",
+});
 
 export default function Description(props) {
   const darkMode = useSelector((state) => state.mode.value);
-  let classes = useStyles();
   const width = props.width;
-  // console.log(width);
 
-  const DescBtn = (props) => {
-    return (
-      <RedButton>
-        <div style={{ zIndex: "2", fontWeight: 500, fontSize: "large" }}>
-          {props.name}
-        </div>
-        <img src={props.src} className={classes.imageWrapper} />
-      </RedButton>
-    );
-  };
   return (
     <RedContainer style={{ marginTop: "3vh" }}>
-      <div
-        style={{
-          backgroundColor: darkMode ? "#1b1b1b" : "#ffffff",
-          color: !darkMode ? "#1b1b1b" : "#ffffff",
-        }}
-        className={classes.descTypo}
-      >
+      <DescWrapper>
         I'm a creative software developer interested in &nbsp;
         <DescBtn name="FE development" src={reactIcon} />
         &nbsp;and&nbsp;
         <DescBtn name="Data analysis" src={pythonIcon} />
         &nbsp;
-      </div>
+      </DescWrapper>
     </RedContainer>
   );
 }

@@ -6,6 +6,14 @@ export default function Project(props) {
   const classes = useStyles();
   const mode = useSelector((state) => state.mode.value);
 
+  const ProjectPage = styled(Box)({
+    minWidth: "200px",
+    minHeight: "200px",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#1b1b1b",
+  });
+
   return (
     <div
       className={classes.project}

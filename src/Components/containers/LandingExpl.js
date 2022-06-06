@@ -4,7 +4,6 @@ import { styled } from "@mui/styles";
 import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "@mui/material/Skeleton";
-import { Collapse } from "@mui/material";
 
 const data = [
   {
