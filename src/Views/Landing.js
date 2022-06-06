@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useTransition } from "react";
 import { useStyles } from "../Components/containers/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { styled } from "@mui/styles";
-import debounce from "@mui/material";
 
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
 import LandingExpl from "../Components/containers/LandingExpl";
+import LandingSkeleton from "./Skeleton";
 
 function Landing(props) {
   const classes = useStyles();
@@ -17,7 +17,6 @@ function Landing(props) {
 
   const [scroll, setScroll] = useState(0);
   const [graphicOpen, setGraphicOpen] = useState(false);
-  const [devMode, setDevMode] = useState();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
@@ -33,22 +32,6 @@ function Landing(props) {
     });
   }, [window.innerHeight]);
 
-  useEffect(() => {
-    if (localStorage.getItem("devMode") === "true") {
-      setDevMode(true);
-    } else {
-      {
-        setDevMode(false);
-        localStorage.setItem("devMode", false);
-      }
-    }
-  });
-
-  const handleDevMode = () => {
-    setDevMode(!devMode);
-    localStorage.setItem("devMode", !devMode);
-  };
-
   const handleGraphicOpen = () => {
     setGraphicOpen(false);
   };
@@ -58,29 +41,28 @@ function Landing(props) {
     color: !darkMode ? "#1f1f1f" : "white",
   });
 
-  const ModeButton = styled(Button)(({ theme }) => ({
-    width: "20vw",
-    fontSize: "1.5rem",
-  }));
-
   return (
-    <LandingWrapper
-      onWheel={(e) => {
-        // console.log(e.deltaY);
-        // setScroll(e.deltaY);
-      }}
-    >
-      <HeaderBar width={windowWidth} scroll={scroll} />
-      <div className={classes.mainWrapper}>
-        <Description
-          graphicOpen={graphicOpen}
-          handleGraphicOpen={handleGraphicOpen}
-          width={windowWidth}
-        />
-        <LandingExpl />
-      </div>
-      <DevMode />
-    </LandingWrapper>
+    <Suspense fallback={<LandingSkeleton />}>
+      <LandingWrapper
+        onWheel={(e) => {
+          // console.log(e.deltaY);
+          // setScroll(e.deltaY);
+        }}
+      >
+        <HeaderBar width={windowWidth} scroll={scroll} />
+        <div className={classes.mainWrapper}>
+          <Description
+            graphicOpen={graphicOpen}
+            handleGraphicOpen={handleGraphicOpen}
+            width={windowWidth}
+          />
+          <LandingExpl />
+        </div>
+        {/* <Box> */}
+          <DevMode />
+        {/* </Box> */}
+      </LandingWrapper>
+    </Suspense>
   );
 }
 

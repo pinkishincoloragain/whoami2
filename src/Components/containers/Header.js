@@ -14,11 +14,6 @@ export default function Header(props) {
   const logoRef = useRef();
   const classes = useStyles();
 
-  // useEffect(() => {
-  //   if (logoRef.current) {
-  //     logoRef.current.focus();
-  //   }
-  // }, []);
 
   const changeHeader = (scroll) => {
     if (scroll >= 80) {

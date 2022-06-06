@@ -3,7 +3,6 @@ import { useStyles } from "../../Components/containers/Styles";
 import { Directory } from "../Directory";
 
 export const History = ({ history }) => {
-  console.log(history);
   let classes = useStyles();
   return (
     <>

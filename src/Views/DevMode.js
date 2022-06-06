@@ -1,8 +1,7 @@
 // Inspired by https://liveterm.vercel.app/,
 // translated to js by pinkishincoloragain
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import "../developer.css";
-import config from "../config.json";
 import { Input } from "../Components_devmode/input";
 import { useHistory } from "../Components_devmode/history/hook";
 import { banner } from "../Components_devmode/utils/bin";

@@ -32,10 +32,7 @@ export default function Description(props) {
         }}
         className={classes.descTypo}
       >
-        {width > 800
-          ? "I'm a creative software developer interested in"
-          : "I do "}
-        &nbsp;
+        I'm a creative software developer interested in &nbsp;
         <DescBtn name="FE development" src={reactIcon} />
         &nbsp;and&nbsp;
         <DescBtn name="Data analysis" src={pythonIcon} />

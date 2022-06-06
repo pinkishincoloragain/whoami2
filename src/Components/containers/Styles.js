@@ -56,28 +56,11 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     margin: "auto",
   },
-
-  font1: {
-    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    fontSize: "min(2vh, 15rem)",
-  },
-  font2: {
-    fontFamily: `'Press Start 2P', cursive`,
-  },
-  font3: {
-    fontFamily: `'Ropa Sans', sans-serif`,
-  },
-
   descTypo: {
-    fontSize: "max(20px, 1.5rem)",
-    flexDirection: "row",
-    flexWrap: "true",
-    // marginTop: "2vh",
-    lineHeight: "1.8",
-    textAlign: "center",
-    padding: "max(3vw,20px)",
+    padding: "20px",
     alignItems: "center",
     justifyContent: "center",
+    lineHeight: "1.5",
   },
 
   mainWrapper: {
@@ -129,7 +112,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: "right",
     marginRight: "10vw",
     backgroundColor: "transparent",
-    // width: "100vw",
   },
 
   textHolder: {
@@ -143,28 +125,6 @@ const useStyles = makeStyles(() => ({
       color: "skyblue",
     },
   },
-
-  waves: {
-    transitionDuration: "0.2s",
-  },
-
-  catchPhraseHolder: {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2D2D2F",
-    zIndex: "100",
-    // transitionDuration: "0.2s",
-  },
-  transition: {
-    transition: "opacity 300ms, transform 300ms",
-  },
   icon: {
     width: "32px",
     marginTop: "2vh",
@@ -173,7 +133,6 @@ const useStyles = makeStyles(() => ({
       filter: "sephia(100%)",
     },
   },
-
   imageWrapper: {
     width: "min(3vh, 15rem)",
     height: "min(3vh, 15rem)",
