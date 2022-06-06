@@ -2,7 +2,9 @@ import React from "react";
 import { commandExists } from "./utils/commandExists";
 import { shell } from "./utils/shell";
 import { handleTabCompletion } from "./utils/tabCompletion";
-import { Ps1 } from "./Ps1";
+import { Directory } from "./Directory";
+import { useStyles } from "../Components/containers/Styles";
+import { styled } from "@mui/styles";
 
 export const Input = ({
   inputRef,
@@ -15,6 +17,8 @@ export const Input = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
+  let classes = useStyles();
+
   const onSubmit = async (e) => {
     const commands = [history]
       .map(({ command }) => command)
@@ -76,17 +80,22 @@ export const Input = ({
     setCommand(value);
   };
 
+  const PrompotLabel = styled(`label`)({
+    htmlFor: "prompt",
+    flexShrink: "initial",
+  });
+
   return (
-    <div className="flex flex-row space-x-2">
-      <label htmlFor="prompt" className="flex-shrink">
-        <Ps1 />
-      </label>
+    <div className={classes.flexRow}>
+      <PrompotLabel>
+        <Directory />
+      </PrompotLabel>
 
       <input
         ref={inputRef}
         id="prompt"
         type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+        className={`focus:outline-none flex-grow ${
           commandExists(command) || command === ""
             ? "text-dark-green"
             : "text-dark-red"
@@ -97,6 +106,7 @@ export const Input = ({
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"
+        style={{ backgroundColor: "inherit" }}
       />
     </div>
   );

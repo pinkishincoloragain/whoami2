@@ -63,7 +63,7 @@ function Landing(props) {
     fontSize: "1.5rem",
   }));
 
-  const NormalMode = () => (
+  return (
     <LandingWrapper
       onWheel={(e) => {
         // console.log(e.deltaY);
@@ -79,14 +79,8 @@ function Landing(props) {
         />
         <LandingExpl />
       </div>
+      <DevMode />
     </LandingWrapper>
-  );
-
-  return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <ModeButton onClick={handleDevMode}>Change!</ModeButton>
-      {devMode ? <DevMode /> : <NormalMode />}
-    </div>
   );
 }
 

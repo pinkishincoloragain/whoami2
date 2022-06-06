@@ -1,17 +1,18 @@
 import React from "react";
-import { Ps1 } from "../Ps1";
+import { useStyles } from "../../Components/containers/Styles";
+import { Directory } from "../Directory";
 
 export const History = ({ history }) => {
   console.log(history);
+  let classes = useStyles();
   return (
     <>
       {history.map((entry, index) => (
         <div key={entry.command + index}>
-          <div className="flex flex-row space-x-2">
+          <div className={classes.flexRow}>
             <div className="flex-shrink">
-              <Ps1 />
+              <Directory />
             </div>
-
             <div className="flex-grow">{entry.command}</div>
           </div>
 

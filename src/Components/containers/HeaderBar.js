@@ -22,33 +22,19 @@ export default function HeaderBar(props) {
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const classes = useStyles();
 
-  const GoodHeader = styled(`div`)({
+  const FullHeader = styled(`div`)({
     position: "sticky",
     top: "0",
     zIndex: "1",
-    width: "90%",
+    width: "100%",
     height: "6vh",
     backgroundColor: darkMode ? "#1f1f1f" : "white",
     display: "flex",
     flexDirection: "flex-end",
-    borderRadius: "2px",
     paddingLeft: "10vw",
-    // paddingRight: "10vw",
     borderBottom: "2px solid rgba(255, 105, 135, .3)",
-
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
   });
-
-  const Menu = () => {
-    return (
-      <div
-        className={classes.hambergBtn}
-        onClick={() => setDropDownOpen(!dropDownOpen)}
-      >
-        {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
-      </div>
-    );
-  };
 
   const HeaderWrapper = styled(`div`)({
     width: "180vw",
@@ -59,7 +45,7 @@ export default function HeaderBar(props) {
   });
 
   return (
-    <GoodHeader>
+    <FullHeader>
       <HeaderWrapper>
         <Header />
         {props.width > 800 ? (
@@ -72,7 +58,12 @@ export default function HeaderBar(props) {
         ) : (
           <>
             <div className={classes.flexColumn}>
-              <Menu />
+              <div
+                className={classes.hambergBtn}
+                onClick={() => setDropDownOpen(!dropDownOpen)}
+              >
+                {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
+              </div>
             </div>
           </>
         )}
@@ -89,7 +80,7 @@ export default function HeaderBar(props) {
           <HeaderBarLink width={props.width} name="Blog" href="blog" />
         </div>
       </Collapse>
-    </GoodHeader>
+    </FullHeader>
   );
 }
 
@@ -131,6 +122,7 @@ const HeaderBarLink = (props) => {
         src = blog2;
       }
     }
+
     return (
       <ImageWrapper>
         <img

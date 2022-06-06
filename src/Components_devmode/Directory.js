@@ -1,7 +1,7 @@
 import React from "react";
 import config from "../config.json";
 
-export const Ps1 = () => {
+export const Directory = () => {
   return (
     <div>
       <span className="text-light-yellow dark:text-dark-yellow">
@@ -11,9 +11,9 @@ export const Ps1 = () => {
       <span className="text-light-green dark:text-dark-green">
         {config.ps1_hostname}
       </span>
-      <span className="text-light-gray dark:text-dark-gray">:$ ~ </span>
+      <span className="text-light-gray dark:text-dark-gray">:$ ~&nbsp;</span>
     </div>
   );
 };
 
-export default Ps1;
+export default Directory;

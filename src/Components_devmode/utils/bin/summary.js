@@ -1,9 +1,9 @@
 import config from "../../../config.json";
 
-const sumfetch = async (args) => {
+const summary = async (args) => {
   if (config.ascii === "cveinnt") {
     return `                                                  
-             @@@@@@@@@@@@@                   sumfetch: summary display
+             @@@@@@@@@@@@@                   summary: summary display
         @@@@               @@@@             -----------
       @@                       @@            ABOUT
     @@                           @@          ${config.name}
@@ -23,7 +23,7 @@ const sumfetch = async (args) => {
 `;
   } else {
     return `
-           ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  sumfetch
+           ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  summary
         ▄▓▓▀ ▄▓▓▀▓▓▓▀▓▓▄ ▀▀▓▓▄              -----------
       ▓▓▀  ▄▓▀   ▐▓▓  ▀▓▓    ▓▓▄             ABOUT
     ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓            ${config.name}
@@ -43,4 +43,4 @@ const sumfetch = async (args) => {
   }
 };
 
-export default sumfetch;
+export default summary;
