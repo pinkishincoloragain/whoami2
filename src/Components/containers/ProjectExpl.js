@@ -20,7 +20,7 @@ export default function ProjectExpl(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   const Paragraph = styled(`div`)({
-    width: "80vw",
+    width: "82vw",
     height: "100%",
     marginTop: "5vh",
     marginBottom: "5vh",
@@ -30,8 +30,11 @@ export default function ProjectExpl(props) {
     // borderRadius: "20px",
     width: "80vw",
     height: "30vh",
+    marginTop: "10vh",
+    marginBottom: "10vh",
     border: "1px solid white",
     overflowY: "scroll",
+    padding: "10px",
     // boxShadow: "0px 2px 12px 1px #cfcfcf",
   });
 

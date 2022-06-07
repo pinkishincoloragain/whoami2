@@ -145,12 +145,15 @@ export default function HeaderBar(props) {
   });
 
   const DropDown = styled(`div`)({
+    width: "80vw",
     marginTop: "2vh",
+    marginLeft: "10vw",
+    paddingRight: "4px",
+    paddingLeft: "10vw",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-between",
-    marginRight: "10vw",
+    justifyContent: "flex-end",
     backgroundColor: "transparent",
   });
 
