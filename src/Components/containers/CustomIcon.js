@@ -52,7 +52,7 @@ export default function CustomIcon(props) {
 
   return (
     <div className={classes.flexRow}>
-      <LinkToolTip title={<Typography fontSize={16}>Github</Typography>}>
+      <LinkToolTip title={"Github"}>
         <IconImage src={github} alt="github" onClick={handleGithub} />
       </LinkToolTip>
       <LinkToolTip title={<Typography fontSize={16}>Linkedin</Typography>}>

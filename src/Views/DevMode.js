@@ -2,10 +2,11 @@
 // translated to js by pinkishincoloragain
 import { useEffect, useRef, useCallback } from "react";
 import "../developer.css";
-import { Input } from "../Components_devmode/input";
-import { useHistory } from "../Components_devmode/history/hook";
-import { banner } from "../Components_devmode/utils/bin";
-import { History } from "../Components_devmode/history/History";
+import { Input } from "../Components/input";
+import { useHistory } from "../Components/history/hook";
+import { banner } from "../Components/utils/bin";
+import { History } from "../Components/history/History";
+import styled from "@emotion/styled";
 
 const DevMode = ({}) => {
   const inputRef = useRef(null);
@@ -37,8 +38,12 @@ const DevMode = ({}) => {
     }
   }, [history]);
 
+  const DevModeWrapper = styled(`div`)({
+    width: "80vw",
+  });
+
   return (
-    <div ref={containerRef}>
+    <DevModeWrapper ref={containerRef}>
       <History history={history} />
       <Input
         inputRef={inputRef}
@@ -51,7 +56,7 @@ const DevMode = ({}) => {
         setLastCommandIndex={setLastCommandIndex}
         clearHistory={clearHistory}
       />
-    </div>
+    </DevModeWrapper>
   );
 };
 

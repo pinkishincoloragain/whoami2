@@ -1,11 +1,7 @@
 const { colors } = require("./src/config.json");
 
 module.exports = {
-  content: [
-    "./src/Views/**/*.{js,jsx}",
-    "./src/Components_devmode/**/*.{js,jsx}",
-    "./src/Components/**/*.{js,jsx}",
-  ],
+  content: ["./src/Views/**/*.{js,jsx}", "./src/Components/**/*.{js,jsx}"],
   theme: {
     colors: {
       transparent: "transparent",

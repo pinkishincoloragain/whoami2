@@ -1,12 +1,13 @@
 import { useStyles } from "../../Components/styles/Styles";
 import { useSelector } from "react-redux";
 import Waves from "../../Components/objects/Waves";
+import styled from "@emotion/styled";
 
 export default function Project(props) {
   const classes = useStyles();
   const mode = useSelector((state) => state.mode.value);
 
-  const ProjectPage = styled(Box)({
+  const ProjectPage = styled(`div`)({
     minWidth: "200px",
     minHeight: "200px",
     width: "100%",

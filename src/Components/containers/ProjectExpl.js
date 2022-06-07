@@ -1,9 +1,10 @@
 import { Box, Paper } from "@mui/material";
 import { useState, useEffect } from "react";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "@mui/material/Skeleton";
+import DevMode from "../../Views/DevMode";
 
 const data = [
   {
@@ -14,28 +15,31 @@ const data = [
   },
 ];
 
-export default function LandingExpl(props) {
+export default function ProjectExpl(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
   const Paragraph = styled(`div`)({
     width: "80vw",
-    height: "80vh",
+    height: "100%",
     marginTop: "5vh",
     marginBottom: "5vh",
-    elevation: "1",
   });
 
-  const GraphicWrapper = styled(Paper)({
-    borderRadius: "20px",
-    width: "40vw",
+  const GraphicWrapper = styled(`div`)({
+    // borderRadius: "20px",
+    width: "80vw",
     height: "30vh",
-    boxShadow: "0px 2px 12px 1px #cfcfcf",
+    border: "1px solid white",
+    overflowY: "scroll",
+    // boxShadow: "0px 2px 12px 1px #cfcfcf",
   });
 
   return (
     <Paragraph>
-      <GraphicWrapper>fish</GraphicWrapper>
+      <GraphicWrapper>
+        <DevMode />
+      </GraphicWrapper>
     </Paragraph>
   );
 }

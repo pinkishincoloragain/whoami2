@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Digitalt";
-  src: url("../src/assets/fonts/Digitalt-04no.ttf") format("truetype"),
-    url("../src/assets/fonts/Digitalt-nGZM.otf") format("opentype");
+  font-family: "BebasKai";
+  src: url("./assets/fonts/BebasKai.woff") format("woff");
   /* font-weight: 400; */
   /* font-style: normal; */
+}
+
+.superBold {
+  font-family: "BebasKai", sans-serif;
 }
 
 body {

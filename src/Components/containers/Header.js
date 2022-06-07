@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useStyles } from "./Styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
 import { Link } from "react-router-dom";
@@ -35,12 +35,13 @@ export default function Header(props) {
     logoRef.current.style.color = !darkMode ? "#1b1b1b" : "#ffffff";
   };
 
-  const HeaderTypography = styled(Typography)({
+  const HeaderTypography = styled(`div`)({
     "&:hover": {
       color: "#FFCC00",
       transitionDuration: "0.1s",
       cursor: "pointer",
     },
+    fontSize: "max(2rem, 10px)",
     transitionDuration: "0.2s",
   });
 
@@ -58,10 +59,8 @@ export default function Header(props) {
         }
       >
         <HeaderTypography
+          className="superBold"
           variant="h2"
-          fontSize="max(1.4rem, 10px)"
-          // color={darkMode ? "#ffffff" : "#1b1b1b"}
-          className={classes.letter}
           onClick={() => dispatch(changeMode())}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}

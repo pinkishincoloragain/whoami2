@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "../../Components/containers/Styles";
+import { useStyles } from "../containers/Styles";
 import { Directory } from "../Directory";
 
 export const History = ({ history }) => {

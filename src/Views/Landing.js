@@ -1,15 +1,16 @@
 import { Suspense, useEffect, useState, useTransition } from "react";
 import { useStyles } from "../Components/containers/Styles";
 import { useSelector, useDispatch } from "react-redux";
-import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { styled } from "@mui/styles";
 
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
-import LandingExpl from "../Components/containers/LandingExpl";
-import LandingSkeleton from "./Skeleton";
+import ProjectExpl from "../Components/containers/ProjectExpl";
+import LandingSkeleton from "../Components/Skeleton";
+import Rain from "../Components/Rain";
+// import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
   const classes = useStyles();
@@ -36,9 +37,20 @@ function Landing(props) {
     setGraphicOpen(false);
   };
 
-  const LandingWrapper = styled(Box)({
+  const LandingWrapper = styled(`div`)({
     backgroundColor: darkMode ? "#1f1f1f" : "white",
     color: !darkMode ? "#1f1f1f" : "white",
+  });
+
+  const MainWrapper = styled(`div`)({
+    zIndex: 1,
+    display: "grid | flex",
+    margin: "auto",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    backgroundColor: "transparent",
+    width: "80vw",
+    marginLeft: "10vw",
   });
 
   return (
@@ -50,17 +62,15 @@ function Landing(props) {
         }}
       >
         <HeaderBar width={windowWidth} scroll={scroll} />
-        <div className={classes.mainWrapper}>
+        <MainWrapper>
           <Description
             graphicOpen={graphicOpen}
             handleGraphicOpen={handleGraphicOpen}
             width={windowWidth}
           />
-          <LandingExpl />
-        </div>
-        <Box>
-          <DevMode />
-        </Box>
+          <ProjectExpl />
+          {/* <DevMode /> */}
+        </MainWrapper>
       </LandingWrapper>
     </Suspense>
   );

@@ -80,16 +80,16 @@ export const Input = ({
     setCommand(value);
   };
 
-  const PrompotLabel = styled(`label`)({
+  const PromptLabel = styled(`label`)({
     htmlFor: "prompt",
     flexShrink: "initial",
   });
 
   return (
     <div className={classes.flexRow}>
-      <PrompotLabel>
+      <PromptLabel>
         <Directory />
-      </PrompotLabel>
+      </PromptLabel>
 
       <input
         ref={inputRef}
