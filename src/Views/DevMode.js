@@ -39,7 +39,9 @@ const DevMode = ({}) => {
   }, [history]);
 
   const DevModeWrapper = styled(`div`)({
-    width: "80vw",
+    fontFamily: "monospace",
+    fontSize: "1.2em",
+    width: "100%",
   });
 
   return (

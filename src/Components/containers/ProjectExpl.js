@@ -1,5 +1,5 @@
 import { Box, Paper } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,8 +19,10 @@ export default function ProjectExpl(props) {
   const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
+  const [devModeOpen, setDevModeOpen] = useState(false);
+
   const Paragraph = styled(`div`)({
-    width: "82vw",
+    width: "80vw",
     height: "100%",
     marginTop: "5vh",
     marginBottom: "5vh",
@@ -30,13 +32,21 @@ export default function ProjectExpl(props) {
     // borderRadius: "20px",
     width: "80vw",
     height: "30vh",
-    marginTop: "10vh",
+    // marginTop: "10vh",
     marginBottom: "10vh",
     border: "1px solid white",
     overflowY: "scroll",
-    padding: "10px",
+    padding: "20px",
     // boxShadow: "0px 2px 12px 1px #cfcfcf",
   });
+
+  const [size, setSize] = useState(true);
+
+  function mouseDownHandler(e) {
+    e.stopPropagation();
+  }
+  const headerDraggerRef = useRef(null);
+  const exitRef = useRef(null);
 
   return (
     <Paragraph>
