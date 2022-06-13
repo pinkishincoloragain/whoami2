@@ -11,6 +11,8 @@ import ProjectExpl from "../Components/containers/ProjectExpl";
 import LandingSkeleton from "../Components/Skeleton";
 import Rain from "../Components/Rain";
 import Introduction from "./Introduction";
+import { Project } from "./Items/Project";
+import Projects from "./Projects";
 // import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
@@ -71,7 +73,9 @@ function Landing(props) {
           />
           {/* <ProjectExpl /> */}
           <DevMode />
-          <Introduction />
+          {/* <Introduction /> */}
+          {/* <Project /> */}
+          <Projects />
         </MainWrapper>
       </LandingWrapper>
     </Suspense>
