@@ -102,7 +102,7 @@ export const Input = ({
         }`}
         value={command}
         onChange={onChange}
-        autoFocus
+        // autoFocus
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"

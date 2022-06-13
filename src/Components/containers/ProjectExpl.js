@@ -5,6 +5,7 @@ import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
 import Skeleton from "@mui/material/Skeleton";
 import DevMode from "../../Views/DevMode";
+import { Introduction } from "../../Views/Introduction";
 
 const data = [
   {
@@ -20,39 +21,21 @@ export default function ProjectExpl(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   const [devModeOpen, setDevModeOpen] = useState(false);
+  const [size, setSize] = useState(true);
 
   const Paragraph = styled(`div`)({
     width: "80vw",
     height: "100%",
-    marginTop: "5vh",
-    marginBottom: "5vh",
+    paddingTop: "10vh",
+    paddingBottom: "10vh",
   });
 
-  const GraphicWrapper = styled(`div`)({
-    // borderRadius: "20px",
-    width: "80vw",
-    height: "30vh",
-    // marginTop: "10vh",
-    marginBottom: "10vh",
-    border: "1px solid white",
-    overflowY: "scroll",
-    padding: "20px",
-    // boxShadow: "0px 2px 12px 1px #cfcfcf",
-  });
-
-  const [size, setSize] = useState(true);
-
-  function mouseDownHandler(e) {
-    e.stopPropagation();
-  }
   const headerDraggerRef = useRef(null);
   const exitRef = useRef(null);
 
   return (
     <Paragraph>
-      <GraphicWrapper>
-        <DevMode />
-      </GraphicWrapper>
+      <DevMode />
     </Paragraph>
   );
 }

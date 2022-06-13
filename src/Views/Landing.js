@@ -10,6 +10,7 @@ import DevMode from "./DevMode";
 import ProjectExpl from "../Components/containers/ProjectExpl";
 import LandingSkeleton from "../Components/Skeleton";
 import Rain from "../Components/Rain";
+import Introduction from "./Introduction";
 // import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
@@ -68,8 +69,9 @@ function Landing(props) {
             handleGraphicOpen={handleGraphicOpen}
             width={windowWidth}
           />
-          <ProjectExpl />
-          {/* <DevMode /> */}
+          {/* <ProjectExpl /> */}
+          <DevMode />
+          <Introduction />
         </MainWrapper>
       </LandingWrapper>
     </Suspense>

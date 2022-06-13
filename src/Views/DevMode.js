@@ -41,11 +41,22 @@ const DevMode = ({}) => {
   const DevModeWrapper = styled(`div`)({
     fontFamily: "monospace",
     fontSize: "1.2em",
-    width: "100%",
+    width: "80vw",
+    height: "40vh",
+    // marginTop: "10vh",
+    marginBottom: "10vh",
+    border: "1px solid white",
+    overflowY: "scroll",
+    padding: "20px",
+  });
+
+  const GraphicWrapper = styled(`div`)({
+    // borderRadius: "20px",
+    // boxShadow: "0px 2px 12px 1px #cfcfcf",
   });
 
   return (
-    <DevModeWrapper ref={containerRef}>
+    <DevModeWrapper ref={containerRef} onClick={onClickAnywhere}>
       <History history={history} />
       <Input
         inputRef={inputRef}
