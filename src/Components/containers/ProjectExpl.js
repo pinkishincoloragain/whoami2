@@ -35,7 +35,7 @@ export default function ProjectExpl(props) {
 
   return (
     <Paragraph>
-      <DevMode />
+      <Introduction />
     </Paragraph>
   );
 }

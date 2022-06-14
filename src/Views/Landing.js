@@ -1,17 +1,12 @@
-import { Suspense, useEffect, useState, useTransition } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useStyles } from "../Components/containers/Styles";
 import { useSelector, useDispatch } from "react-redux";
-import { Box } from "@mui/system";
 import { styled } from "@mui/styles";
 
 import HeaderBar from "../Components/containers/HeaderBar";
 import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
-import ProjectExpl from "../Components/containers/ProjectExpl";
 import LandingSkeleton from "../Components/Skeleton";
-import Rain from "../Components/Rain";
-import Introduction from "./Introduction";
-import { Project } from "./Items/Project";
 import Projects from "./Projects";
 // import Waves from "../Components/objects/Waves";
 
@@ -71,7 +66,6 @@ function Landing(props) {
             handleGraphicOpen={handleGraphicOpen}
             width={windowWidth}
           />
-          {/* <ProjectExpl /> */}
           <DevMode />
           {/* <Introduction /> */}
           {/* <Project /> */}
