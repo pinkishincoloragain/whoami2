@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 
 const RedContainer = styled(`div`)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",

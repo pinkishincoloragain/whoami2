@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 import { useRef } from "react";
 
 const Rain = () => {

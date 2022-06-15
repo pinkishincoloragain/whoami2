@@ -7,7 +7,7 @@ import LinkToolTip, { tooltipClasses } from "@mui/material/Tooltip";
 import { useSelector } from "react-redux";
 
 import { useStyles } from "../styles/Styles";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 
 export default function CustomIcon(props) {
   const classes = useStyles();

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { commandExists } from "./utils/commandExists";
 import { shell } from "./utils/shell";
 import { handleTabCompletion } from "./utils/tabCompletion";
 import { Directory } from "./Directory";
 import { useStyles } from "../Components/containers/Styles";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 
 export const Input = ({
   inputRef,
@@ -18,6 +18,9 @@ export const Input = ({
   clearHistory,
 }) => {
   let classes = useStyles();
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const onSubmit = async (e) => {
     const commands = [history]

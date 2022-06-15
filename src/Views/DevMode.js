@@ -1,6 +1,6 @@
 // Inspired by https://liveterm.vercel.app/,
 // translated to js by pinkishincoloragain
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useTransition } from "react";
 import "../developer.css";
 import { Input } from "../Components/input";
 import { useHistory } from "../Components/history/hook";
@@ -8,9 +8,8 @@ import { banner } from "../Components/utils/bin";
 import { History } from "../Components/history/History";
 import styled from "@emotion/styled";
 
-const DevMode = ({}) => {
+const DevMode = () => {
   const inputRef = useRef(null);
-
   const onClickAnywhere = () => {
     inputRef.current.focus();
   };
@@ -25,15 +24,17 @@ const DevMode = ({}) => {
     setLastCommandIndex,
   } = useHistory([]);
 
+  const [isPending, startTransition] = useTransition();
+
   const init = useCallback(() => setHistory(banner()), []);
 
   useEffect(() => {
-    init();
+    startTransition(() => init());
   }, [init]);
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.scrollIntoView();
+      // inputRef.current.scrollIntoView();
       inputRef.current.focus({ preventScroll: true });
     }
   }, [history]);
@@ -42,17 +43,12 @@ const DevMode = ({}) => {
     fontFamily: "monospace",
     fontSize: "1.2em",
     width: "80vw",
-    height: "80vh",
+    height: "50vh",
     marginTop: "10vh",
     marginBottom: "10vh",
     border: "1px solid white",
     overflowY: "scroll",
     padding: "20px",
-  });
-
-  const GraphicWrapper = styled(`div`)({
-    // borderRadius: "20px",
-    // boxShadow: "0px 2px 12px 1px #cfcfcf",
   });
 
   return (

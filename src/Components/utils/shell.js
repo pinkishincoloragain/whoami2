@@ -1,4 +1,3 @@
-import React from "react";
 import * as bin from "./bin";
 
 export const shell = async (command, setHistory, clearHistory, setCommand) => {
@@ -11,7 +10,7 @@ export const shell = async (command, setHistory, clearHistory, setCommand) => {
     setHistory("");
   } else if (Object.keys(bin).indexOf(args[0]) === -1) {
     setHistory(
-      `shell: command not found: ${args[0]}. Try 'help' to get started.`
+      `pinkish: command not found: ${args[0]}. Try 'help' to get started.`
     );
   } else {
     const output = await bin[args[0]](args.slice(1));
