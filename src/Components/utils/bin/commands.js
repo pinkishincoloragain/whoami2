@@ -111,9 +111,13 @@ export const vi = async (args) => {
 };
 
 export const sudo = async (args) => {
-  window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank"); // ...I'm sorry
-  return `Permission denied: with little power comes... no responsibility? `;
+  window.open("https://www.youtube.com/watch?v=N2qYepAHAO0", "_blank");
+  return `Permission denied: ${args.join(
+    " "
+  )} is not allowed. Please watch this video.`;
 };
+
+export const login = async (args) => {};
 
 // Banner
 export const banner = (args) => {
