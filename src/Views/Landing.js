@@ -17,19 +17,12 @@ function Landing(props) {
   const [scroll, setScroll] = useState(0);
   const [graphicOpen, setGraphicOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     window.addEventListener("resize", (e) => {
       setWindowWidth(window.innerWidth);
     });
   }, [window.innerWidth]);
-
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWindowHeight(window.innerHeight);
-    });
-  }, [window.innerHeight]);
 
   const handleGraphicOpen = () => {
     setGraphicOpen(false);

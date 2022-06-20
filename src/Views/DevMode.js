@@ -52,7 +52,7 @@ const DevMode = () => {
   });
 
   return (
-    <DevModeWrapper ref={containerRef} onClick={onClickAnywhere}>
+    <DevModeWrapper ref={containerRef}>
       <History history={history} />
       <Input
         inputRef={inputRef}

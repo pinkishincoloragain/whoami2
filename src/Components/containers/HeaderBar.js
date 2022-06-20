@@ -127,6 +127,7 @@ export default function HeaderBar(props) {
     paddingRight: "10vw",
     // borderBottom: "2px solid rgba(255, 105, 135, .3)",
     borderBottom: "1px solid white",
+    animationDuration: "2s",
   });
 
   const HeaderWrapper = styled(`div`)({

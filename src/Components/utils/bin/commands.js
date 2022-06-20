@@ -2,6 +2,8 @@
 
 import * as bin from "./index";
 import config from "../../../config.json";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { authService } from "../../controls/firebaseControl";
 
 // Help
 export const help = async (args) => {
@@ -91,11 +93,11 @@ export const whoami = async (args) => {
 };
 
 export const ls = async (args) => {
-  return `a
-bunch
-of
-fake
-directories`;
+  return `Introduction
+Projects
+Contact
+Email
+`;
 };
 
 export const cd = async (args) => {
@@ -117,7 +119,9 @@ export const sudo = async (args) => {
   )} is not allowed. Please watch this video.`;
 };
 
-export const login = async (args) => {};
+export const login = async (args) => {
+  return `.`;
+};
 
 // Banner
 export const banner = (args) => {
