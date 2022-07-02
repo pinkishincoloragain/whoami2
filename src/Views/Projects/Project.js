@@ -26,8 +26,7 @@ export default function Project(props) {
         // alignItems: "center",
         // justifyContent: "center",
       }}
-      id={props.name + "wrapper"}
-    >
+      id={props.name + "wrapper"}>
       {/* <Boxes
         name={`Box${props.name}`}
         width="1000"
