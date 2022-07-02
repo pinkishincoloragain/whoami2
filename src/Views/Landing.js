@@ -8,6 +8,7 @@ import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
 import LandingSkeleton from "../Components/Skeleton";
 import Projects from "./Projects";
+import Introduction from "./Introduction";
 // import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
@@ -53,6 +54,7 @@ function Landing(props) {
         }}
       >
         <HeaderBar width={windowWidth} scroll={scroll} />
+        <Introduction />
         <MainWrapper>
           <Description
             graphicOpen={graphicOpen}
@@ -60,7 +62,6 @@ function Landing(props) {
             width={windowWidth}
           />
           <DevMode />
-          {/* <Introduction /> */}
           {/* <Project /> */}
           <Projects />
         </MainWrapper>
