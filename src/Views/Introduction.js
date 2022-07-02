@@ -19,17 +19,22 @@ export default function Introduction(props) {
     marginBottom: "2vh",
     marginRight: "0px",
     overflow: "visible",
+    marginLeft: "0px",
   });
 
   return (
-    <List>
-      <CustomListItem key="Education">Education</CustomListItem>
+    <List
+      sx={{
+        ml: "10vw",
+      }}
+    >
+      Education
       <Education />
-      <CustomListItem key="Experience">Experience</CustomListItem>
+      Experience
       <Experience />
-      <CustomListItem key="Skills">Skills</CustomListItem>
+      Skills
       <Skills />
-      <CustomListItem key="Projects">Projects</CustomListItem>
+      Projects
       <Projects />
       <Divider />
     </List>

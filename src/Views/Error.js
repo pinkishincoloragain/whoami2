@@ -39,7 +39,6 @@ export default function Error() {
             </Typography>
             <Typography variant="h5" component="div"></Typography>
             <Typography variant="body2">
-              well meaning and kindly.
               <br />
               {'"a benevolent smile"'}
             </Typography>
