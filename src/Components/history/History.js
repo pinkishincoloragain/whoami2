@@ -1,6 +1,6 @@
 import React from "react";
 import { useStyles } from "../containers/Styles";
-import { Directory } from "../Directory";
+import { Directory } from "../devmode/Directory";
 
 export const History = ({ history }) => {
   let classes = useStyles();

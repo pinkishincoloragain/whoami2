@@ -2,7 +2,7 @@
 // translated to js by pinkishincoloragain
 import { useState, useEffect, useRef, useCallback, useTransition } from "react";
 import "../developer.css";
-import { Input } from "../Components/input";
+import { Input } from "../Components/devmode/input";
 import { useHistory } from "../Components/history/hook";
 import { banner } from "../Components/utils/bin";
 import { History } from "../Components/history/History";
@@ -49,7 +49,7 @@ const DevMode = () => {
     <DevModeWrapper
       ref={containerRef}
       onClick={onClickAnywhere}
-      className="w-100 font-mono h-6/12"
+      className="w-100 font-mono h-"
     >
       <History history={history} />
       <Input

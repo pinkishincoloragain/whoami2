@@ -3,8 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { useStyles } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
-import Skeleton from "@mui/material/Skeleton";
-import DevMode from "../../Views/DevMode";
 import { Introduction } from "../../Views/Introduction";
 
 const data = [

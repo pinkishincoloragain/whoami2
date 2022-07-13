@@ -21,6 +21,9 @@ export const modeSlice = createSlice({
     changeMode: (state) => {
       state.value = !state.value;
       window.localStorage.setItem("theme", state.value);
+      if (document.documentElement.classList.contains("dark"))
+        document.documentElement.classList.remove("dark");
+      else document.documentElement.classList.add("dark");
     },
     setMode: (state, action) => {
       state.value = action.payload;

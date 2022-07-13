@@ -1,26 +1,78 @@
 import * as React from "react";
-import Divider from "@mui/material/Divider";
 import { List } from "@mui/material";
-import {
-  Education,
-  Experience,
-  Projects,
-  Skills,
-} from "../Components/containers/IntroContents";
-export default function Introduction(props) {
+import reactGif from "../assets/icons/react.gif";
+import { useSelector } from "react-redux";
+import styled from "@emotion/styled";
+import config from "../config.json";
+
+const Card = ({ props }) => {
+  const mode = useSelector((state) => state.mode.value);
+  const Expls = props.expls.map((item) => {
+    return (
+      <p key={item} className="text-gray-700 text-base leading-8">
+        {item}
+      </p>
+    );
+  });
+
+  const CardWrapper = styled(`div`)({
+    backgroundColor: mode
+      ? config.colors.dark.background
+      : config.colors.light.background,
+  });
+
   return (
-    <div className="ml-32">
-      <List>
-        Education
-        <Education />
-        Experience
-        <Experience />
-        Skills
-        <Skills />
-        Projects
-        <Projects />
-        {/* <Divider /> */}
-      </List>
+    <CardWrapper className="max-w-md rounded overflow-hidden shadow-xl align-middle justify-center bg-dark-background my-8 ">
+      <div className="flex align-middle justify-center">
+        <img className="w-4/12" src={reactGif} alt="Sunset in the mountains" />
+      </div>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{props.title}</div>
+        {Expls}
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          #photography
+        </span>
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          #travel
+        </span>
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          #winter
+        </span> */}
+      </div>
+    </CardWrapper>
+  );
+};
+
+export default function Introduction(props) {
+  const education = {
+    title: `Education`,
+    expls: [
+      `Kyungpook Nat'l University (2017 - )`,
+      `Technological University Dublin(2021 - 2022)`,
+    ],
+  };
+  const experience = {
+    title: `Experience`,
+    expls: [
+      `KNU DEAL LAB researcher (2020 - 2021)`,
+      `LG WebOS Internship (2021S)`,
+    ],
+  };
+  const skills = {
+    title: `Skills`,
+    expls: [
+      `Korean(native), English(fluent)`,
+      `Front-end development`,
+      `Data analysis`,
+    ],
+  };
+  return (
+    <div className="w-full flex flex-wrap justify-between">
+      <Card props={education} />
+      <Card props={experience} />
+      <Card props={skills} />
     </div>
   );
 }

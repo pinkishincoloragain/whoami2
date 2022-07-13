@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useStyles } from "./Styles";
+import { useStyles } from "../containers/Styles";
 import Tooltip from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";

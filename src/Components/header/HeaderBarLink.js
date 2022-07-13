@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
-import { useStyles } from "./Styles";
+import { useStyles } from "../containers/Styles";
 import { Link, Typography } from "@mui/material";
 
 import blog from "../../assets/icons/blog.png";
@@ -62,8 +62,6 @@ const HeaderBarLink = (props) => {
   });
 
   const LinkBtnText = styled(`div`)({
-    transitionDuration: "0.05s",
-    fontSize: "max(1.4vw, 20px)",
     fontWeight: "500",
     color: !mode ? "#1b1b1b" : "white",
     "&:hover": {
@@ -73,15 +71,6 @@ const HeaderBarLink = (props) => {
   });
 
   const LinkWrapper = styled(`div`)({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "max(2vh,30px)",
-    flexDirection: "row",
-    borderRadius: "6px",
-    paddingLeft: "2vw",
-    paddingRight: "2vw",
-
     "&:hover": {
       backgroundColor: "#f5f5f5",
       cursor: "pointer",
@@ -90,7 +79,7 @@ const HeaderBarLink = (props) => {
   });
 
   return (
-    <LinkWrapper>
+    <div className="flex align-middle justify-between flex-row round px-6">
       <Link href={props.href} sx={{ textDecoration: "none" }}>
         {props.width > 800 ? (
           <LinkBtnText>{props.name}</LinkBtnText>
@@ -100,7 +89,7 @@ const HeaderBarLink = (props) => {
           </IconWrapper>
         )}
       </Link>
-    </LinkWrapper>
+    </div>
   );
 };
 

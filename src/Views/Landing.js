@@ -3,7 +3,7 @@ import { useStyles } from "../Components/containers/Styles";
 import { useSelector, useDispatch } from "react-redux";
 import { styled } from "@mui/styles";
 
-import HeaderBar from "../Components/containers/HeaderBar";
+import HeaderBar from "../Components/header/HeaderBar";
 import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
 import LandingSkeleton from "../Components/Skeleton";
@@ -37,12 +37,7 @@ function Landing(props) {
   const MainWrapper = styled(`div`)({
     zIndex: 1,
     display: "grid | flex",
-    margin: "auto",
-    alignItems: "center",
-    justifyContent: "space-evenly",
     backgroundColor: "transparent",
-    width: "80vw",
-    marginLeft: "10vw",
   });
 
   return (
@@ -54,8 +49,8 @@ function Landing(props) {
         }}
       >
         <HeaderBar width={windowWidth} scroll={scroll} />
-        <Introduction />
-        <MainWrapper>
+        <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full px-32 flex-wrap">
+          <Introduction />
           <DevMode />
           {/* <Projects /> */}
         </MainWrapper>

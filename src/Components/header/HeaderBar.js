@@ -5,7 +5,7 @@ import Banner from "./Banner";
 import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { useStyles } from "./Styles";
+import { useStyles } from "../containers/Styles";
 import HeaderBarLink from "./HeaderBarLink";
 
 export default function HeaderBar(props) {
@@ -18,28 +18,11 @@ export default function HeaderBar(props) {
     flexDirection: "flex-end",
   });
 
-  const Header = styled(`div`)({
-    width: "180vw",
-  });
-
   const HamburgerWrapper = styled(`div`)({
     marginRight: "2vw",
     "&:hover": {
       cursor: "pointer",
     },
-  });
-
-  const DropDown = styled(`div`)({
-    width: "80vw",
-    marginTop: "2vh",
-    marginLeft: "10vw",
-    paddingRight: "4px",
-    paddingLeft: "10vw",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    backgroundColor: "transparent",
   });
 
   const HeaderBorderBottom = styled(`div`)({
@@ -53,23 +36,13 @@ export default function HeaderBar(props) {
   return (
     <>
       <HeaderWrapper className="flex sticky top-0 z-1 w-10 h-16 ml-32 pr-32">
-        <Header className="flex flex-row justify-between align-middle w-full">
+        <div className="flex flex-row justify-between align-middle w-full">
           <Banner />
-          {props.width > 800 ? (
-            <div className={classes.flexRow}>
-              <HeaderBarLink name="Introduction" href="introduction" />
-              <HeaderBarLink name="Projects" href="projects" />
-              {/* <HeaderBarLink name="Developer" href="/" /> */}
-              <HeaderBarLink name="Blog" href="blog" />
-            </div>
-          ) : (
-            <div className={classes.flexColumn}>
-              <HamburgerWrapper onClick={() => setDropDownOpen(!dropDownOpen)}>
-                {dropDownOpen ? <MenuOpenIcon /> : <MenuIcon />}
-              </HamburgerWrapper>
-            </div>
-          )}
-          <Collapse in={dropDownOpen}>
+          <HeaderBarLink name="Introduction" href="introduction" />
+          <HeaderBarLink name="Projects" href="projects" />
+          {/* <HeaderBarLink name="Developer" href="/" /> */}
+          <HeaderBarLink name="Blog" href="blog" />
+          {/* <Collapse in={dropDownOpen}>
             <DropDown className="w-9/12 mt-2 mx-32">
               <HeaderBarLink
                 width={props.width}
@@ -84,8 +57,8 @@ export default function HeaderBar(props) {
               <HeaderBarLink width={props.width} name="Developer" href="/" />
               <HeaderBarLink width={props.width} name="Blog" href="blog" />
             </DropDown>
-          </Collapse>
-        </Header>
+          </Collapse> */}
+        </div>
         {/* <HeaderBorderBottom /> */}
       </HeaderWrapper>
     </>
