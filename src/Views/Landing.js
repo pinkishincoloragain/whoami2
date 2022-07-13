@@ -56,14 +56,8 @@ function Landing(props) {
         <HeaderBar width={windowWidth} scroll={scroll} />
         <Introduction />
         <MainWrapper>
-          <Description
-            graphicOpen={graphicOpen}
-            handleGraphicOpen={handleGraphicOpen}
-            width={windowWidth}
-          />
           <DevMode />
-          {/* <Project /> */}
-          <Projects />
+          {/* <Projects /> */}
         </MainWrapper>
       </LandingWrapper>
     </Suspense>

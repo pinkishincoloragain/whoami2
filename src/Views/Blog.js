@@ -1,7 +1,7 @@
 import react from "react";
 import React, { useEffect, useState, useRef } from "react";
 import { useStyles } from "../Components/containers/Styles";
-import Header from "../Components/containers/Header";
+// import Banner from "../Components/containers/Banner";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Components/controls/modeSlice";
 import { Button } from "@mui/material";

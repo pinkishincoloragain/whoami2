@@ -1,6 +1,5 @@
 import { useStyles } from "../../Components/styles/Styles";
 import { useSelector } from "react-redux";
-import Waves from "../../Components/objects/Waves";
 import styled from "@emotion/styled";
 
 export default function Project(props) {
@@ -26,13 +25,7 @@ export default function Project(props) {
         // alignItems: "center",
         // justifyContent: "center",
       }}
-      id={props.name + "wrapper"}>
-      {/* <Boxes
-        name={`Box${props.name}`}
-        width="1000"
-        height="300"
-        container={`container${props.name}`}
-      /> */}
-    </div>
+      id={props.name + "wrapper"}
+    ></div>
   );
 }

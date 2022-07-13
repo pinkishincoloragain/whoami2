@@ -41,8 +41,8 @@ export default function Description(props) {
   return (
     <DescWrapper className="superBold">
       {/* Sustainable developer. I do */}
-      <DescBtn src={reactIcon} />
-      <DescBtn src={pythonIcon} />
+      {/* <DescBtn src={reactIcon} />
+      <DescBtn src={pythonIcon} /> */}
       &nbsp;
     </DescWrapper>
   );

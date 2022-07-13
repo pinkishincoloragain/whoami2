@@ -35,17 +35,18 @@ export default function Error() {
               color="text.secondary"
               gutterBottom
             >
-              Thank you for visiting Hidden page
+              Thank you for visiting Hidden page. I am working on making easter
+              eggs.
             </Typography>
             <Typography variant="h5" component="div"></Typography>
             <Typography variant="body2">
               <br />
-              {'"a benevolent smile"'}
+              {'"pinkishincoloragain"'}
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" onClick={() => nav("/")}>
-              Learn More
+              Go home
             </Button>
           </CardActions>
         </Card>

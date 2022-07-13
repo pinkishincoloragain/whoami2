@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useStyles } from "./Styles";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import Tooltip from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
-import { Link } from "react-router-dom";
 
-export default function Header(props) {
+export default function Banner(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const [headerBar, setHeaderBar] = useState(false);
   const dispatch = useDispatch();

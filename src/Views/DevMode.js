@@ -1,6 +1,6 @@
 // Inspired by https://liveterm.vercel.app/,
 // translated to js by pinkishincoloragain
-import { useEffect, useRef, useCallback, useTransition } from "react";
+import { useState, useEffect, useRef, useCallback, useTransition } from "react";
 import "../developer.css";
 import { Input } from "../Components/input";
 import { useHistory } from "../Components/history/hook";
@@ -40,19 +40,17 @@ const DevMode = () => {
   }, [history]);
 
   const DevModeWrapper = styled(`div`)({
-    fontFamily: "monospace",
-    fontSize: "1.2em",
-    width: "80vw",
+    // width: "80vw",
     height: "50vh",
-    marginTop: "10vh",
-    marginBottom: "10vh",
-    border: "1px solid white",
     overflowY: "scroll",
-    padding: "20px",
   });
 
   return (
-    <DevModeWrapper ref={containerRef}>
+    <DevModeWrapper
+      ref={containerRef}
+      onClick={onClickAnywhere}
+      className="w-100 font-mono h-6/12"
+    >
       <History history={history} />
       <Input
         inputRef={inputRef}
