@@ -15,17 +15,13 @@ export default function HeaderBar(props) {
 
   const HeaderWrapper = styled(`div`)({
     backgroundColor: darkMode ? "#1f1f1f" : "white",
-    flexDirection: "flex-end",
   });
 
   return (
     <>
-      <HeaderWrapper className="flex sticky top-0 z-1 w-10 h-16 ml-32">
+      <HeaderWrapper className="flex sticky top-0 z-1 w-10 h-16">
         <div className="flex flex-row justify-between align-middle w-full">
           <Banner />
-          <HeaderBarLink name="Introduction" href="introduction" />
-          <HeaderBarLink name="Projects" href="projects" />
-          <HeaderBarLink name="Blog" href="blog" />
         </div>
       </HeaderWrapper>
     </>

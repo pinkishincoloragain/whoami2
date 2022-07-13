@@ -32,7 +32,7 @@ function Landing(props) {
   const LandingWrapper = styled(`div`)({
     backgroundImage: darkMode
       ? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
-      : "white",
+      : "linear-gradient(180deg, #ffffff, #2D4263 90.71%)",
     color: !darkMode ? "#1f1f1f" : "white",
   });
 
@@ -44,14 +44,9 @@ function Landing(props) {
 
   return (
     <Suspense fallback={<LandingSkeleton />}>
-      <LandingWrapper
-        onWheel={(e) => {
-          // console.log(e.deltaY);
-          // setScroll(e.deltaY);
-        }}
-      >
+      <LandingWrapper className="px-[10%]">
         <HeaderBar width={windowWidth} scroll={scroll} />
-        <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full px-32 flex-wrap">
+        <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
           <Introduction />
           <DevMode />
           <Projects />

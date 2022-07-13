@@ -22,10 +22,13 @@ const Card = ({ props }) => {
     backgroundColor: mode
       ? config.colors.dark.background
       : config.colors.light.background,
+    ":hover": {
+      scale: 1.1,
+    },
   });
 
   return (
-    <CardWrapper className="min-w-[30%] max-w-full rounded overflow-hidden shadow-xl align-middle justify-center bg-dark-background my-8 ">
+    <CardWrapper className="min-w-[30%] max-w-full rounded overflow-hidden shadow-xl align-middle justify-center bg-dark-background my-8">
       <div className="flex">
         <div className="w-20 h-20 ml-6 mt-4 bg-light-background rounded-md flex align-middle justify-center">
           <img
@@ -34,7 +37,7 @@ const Card = ({ props }) => {
             alt={props.title + " image"}
           />
         </div>
-        <div className="font-bold text-2xl ml-12 mt-9">{props.title}</div>
+        <div className="font-bold text-2xl ml-6 pr-6 mt-9">{props.title}</div>
       </div>
       <div className="px-6 py-4">{Expls}</div>
       <div className="px-6 pt-4 pb-2"></div>
@@ -73,7 +76,7 @@ export default function Introduction(props) {
     backgroundImage: "linear-gradient(217deg, #231955, #1F4690 71.71%)",
   });
   return (
-    <div className="w-full flex flex-wrap justify-between">
+    <div className="w-full flex flex-wrap grow justify-between">
       <BeatifulBar className="w-full h-2 "></BeatifulBar>
       <Card props={education} />
       <Card props={experience} />
