@@ -68,8 +68,15 @@ export default function Introduction(props) {
       `Data analysis`,
     ],
   };
+
+  const BeatifulBar = styled(`div`)({
+    backgroundImage:
+      "linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)",
+  });
   return (
     <div className="w-full flex flex-wrap justify-between">
+      <BeatifulBar className="w-full h-4 "></BeatifulBar>
+      <div className="w-full h-4 bg-gradient-to-r from-indigo-500"></div>
       <Card props={education} />
       <Card props={experience} />
       <Card props={skills} />

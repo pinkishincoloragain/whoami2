@@ -16,14 +16,11 @@ export default function Project(props) {
 
   return (
     <div
-      className={classes.project}
       style={{
         backgroundColor: "#EFEFEF",
         color: mode ? "black" : "white",
         display: "flex",
         flexDirection: "column",
-        // alignItems: "center",
-        // justifyContent: "center",
       }}
       id={props.name + "wrapper"}
     ></div>

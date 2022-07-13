@@ -89,7 +89,7 @@ export const Input = ({
   });
 
   return (
-    <div className={classes.flexRow}>
+    <div className="flex-row">
       <PromptLabel>
         <Directory />
       </PromptLabel>

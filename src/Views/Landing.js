@@ -52,7 +52,7 @@ function Landing(props) {
         <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full px-32 flex-wrap">
           <Introduction />
           <DevMode />
-          {/* <Projects /> */}
+          <Projects />
         </MainWrapper>
       </LandingWrapper>
     </Suspense>

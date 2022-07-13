@@ -8,7 +8,7 @@ export const History = ({ history }) => {
     <>
       {history.map((entry, index) => (
         <div key={entry.command + index}>
-          <div className={classes.flexRow}>
+          <div className="flex-row">
             <div className="flex-shrink">
               <Directory />
             </div>
