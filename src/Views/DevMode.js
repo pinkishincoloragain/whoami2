@@ -11,7 +11,7 @@ import styled from "@emotion/styled";
 const DevMode = () => {
   const inputRef = useRef(null);
   const onClickAnywhere = () => {
-    inputRef.current.focus();
+    // inputRef.current.focus();
   };
   const containerRef = useRef(null);
   const {

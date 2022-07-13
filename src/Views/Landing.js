@@ -30,7 +30,9 @@ function Landing(props) {
   };
 
   const LandingWrapper = styled(`div`)({
-    backgroundColor: darkMode ? "#1f1f1f" : "white",
+    backgroundImage: darkMode
+      ? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
+      : "white",
     color: !darkMode ? "#1f1f1f" : "white",
   });
 
