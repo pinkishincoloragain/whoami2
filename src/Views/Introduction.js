@@ -8,6 +8,7 @@ import educationImage from "../assets/icons/education.png";
 import workImage from "../assets/icons/work.png";
 import skillImage from "../assets/icons/skills.png";
 import profileImage from "../assets/icons/profile.jpeg";
+import Graph from "./graphs/graph";
 
 const Banner = () => {
   const mode = useSelector((state) => state.mode.value);
@@ -15,35 +16,31 @@ const Banner = () => {
     backgroundColor: mode
       ? config.colors.dark.background
       : config.colors.light.background,
-    ":hover": {
-      scale: 1.1,
-    },
   });
   return (
-    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden shadow-xl align-middle justify-center bg-dark-background pb-4 mt-4 mr-4">
-      <div className="flex">
-        <div className=" min-w-fit w-32 h-32 ml-6 mt-4 p-4 bg-light-background rounded-md flex align-middle justify-center">
-          <img
-            className=" w-24 h-24  min-w-fit"
-            src={profileImage}
-            alt="react logo"
-          />
-        </div>
-        <div className="font-bold text-xl ml-6 pr-6 mt-4">
-          <span className="text-gray-700 text-base leading-8">
-            Hi! I'm a software developer who is passionate about building
-            beautiful and responsive websites.
-            <br />
-            You can visit my github at&nbsp;
-            <a
-              href="https://github.com/pinkishincoloragain"
-              className="underline"
-              color="red"
-            >
-              Here.
-            </a>
-          </span>
-        </div>
+    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden shadow-xl align-middle flex flex-wrap bg-dark-green pb-4 mt-4 mr-4">
+      <div className="float-left min-w-fit w-32 h-32 ml-6 mt-4 p-4 bg-light-background rounded-md flex align-middle justify-center">
+        <img
+          className="w-24 h-24 min-w-fit rounded-md"
+          src={profileImage}
+          alt="react logo"
+        />
+      </div>
+      <div className="float-left mt-4 min-w-fit w-6/12 mr-4 ml-6 rounded-md ">
+        <Graph />
+      </div>
+      <div className="font-bold text-xl ml-6 pr-6 mt-4">
+        <span className="text-gray-700 text-base leading-8">
+          Hi! I'm a software developer who is passionate about building
+          interactive and responsive websites. You can visit my github at&nbsp;
+          <a
+            href="https://github.com/pinkishincoloragain"
+            className="underline"
+            color="red"
+          >
+            Here.
+          </a>
+        </span>
       </div>
     </BannerWrapper>
   );
@@ -63,9 +60,6 @@ const Card = ({ props }) => {
     backgroundColor: mode
       ? config.colors.dark.background
       : config.colors.light.background,
-    ":hover": {
-      scale: 1.1,
-    },
   });
 
   return (
