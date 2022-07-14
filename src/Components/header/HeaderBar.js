@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Button, Box, Collapse } from "@mui/material";
-import Banner from "./Banner";
+import Logo from "./Logo";
 import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
@@ -21,7 +21,7 @@ export default function HeaderBar(props) {
     <>
       <HeaderWrapper className="flex sticky top-0 z-1 w-10 h-16">
         <div className="flex flex-row justify-between align-middle w-full">
-          <Banner />
+          <Logo />
         </div>
       </HeaderWrapper>
     </>
