@@ -19,30 +19,63 @@ ChartJS.register(
   Legend
 );
 
+const options = {
+    elements: {
+        line: {
+            borderWidth: 1
+        }
+    },
+    scales: {
+        r: {
+            ticks: {
+                beginAtZero: true,
+                max: 5,
+                min: 0,
+                stepSize: 1,
+                font: {
+                    size: 6
+                }
+            },
+            pointLabels: {
+                fontSize: 24
+            }
+        }
+    },
+  plugins: {
+    legend: {
+      labels: {
+        // This more specific font property overrides the global property
+        font: {
+          size: 14,
+        },
+      },
+    },
+  },
+};
+
 export const data = {
   labels: [
     "Web development",
     "Data analysis",
-    "Thing 3",
-    "Thing 4",
-    "Thing 5",
-    "Thing 6",
+    "Project management",
+    "Communication",
+    "fish",
   ],
   datasets: [
     {
-      label: "# of Votes",
-      data: [2, 9, 3, 5, 2, 3],
+      label: "My ability",
+      data: [1, 2, 4, 3, 3],
       backgroundColor: "rgba(255, 99, 132, 0.2)",
       borderColor: "rgba(255, 99, 132, 1)",
-      borderWidth: 1,
+      borderWidth: 2,
     },
   ],
 };
 
 export function Graph() {
   return (
-    <div className="w-10/12 flex align-middle justify-center">
-      <Radar data={data} width={40} />
+    <div className="ml-3 w-full flex p-6">
+      <Radar data={data} options={options} />
     </div>
   );
 }
