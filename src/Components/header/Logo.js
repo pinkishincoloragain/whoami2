@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import { useStyles } from "../containers/Styles";
+import { useRef } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
@@ -8,18 +7,8 @@ import { changeMode } from "../controls/modeSlice";
 
 export default function Logo(props) {
   const darkMode = useSelector((state) => state.mode.value);
-  const [headerBar, setHeaderBar] = useState(false);
   const dispatch = useDispatch();
   const logoRef = useRef();
-  const classes = useStyles();
-
-  const changeHeader = (scroll) => {
-    if (scroll >= 80) {
-      setHeaderBar(true);
-    } else {
-      setHeaderBar(false);
-    }
-  };
 
   const handleMouseDown = () => {
     logoRef.current.style.color = "red";
@@ -44,10 +33,8 @@ export default function Logo(props) {
     transitionDuration: "0.2s",
   });
 
-  window.addEventListener("resize", changeHeader);
-
   return (
-    <div className={classes.flexRow}>
+    <div className="flex flex-row">
       <Tooltip
         arrow
         placement="right"

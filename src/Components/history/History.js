@@ -1,9 +1,7 @@
 import React from "react";
-import { useStyles } from "../containers/Styles";
 import { Directory } from "../devmode/Directory";
 
 export const History = ({ history }) => {
-  let classes = useStyles();
   return (
     <>
       {history.map((entry, index) => (

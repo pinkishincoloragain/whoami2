@@ -3,7 +3,6 @@ import { commandExists } from "../utils/commandExists";
 import { shell } from "../utils/shell";
 import { handleTabCompletion } from "../utils/tabCompletion";
 import { Directory } from "../devmode/Directory";
-import { useStyles } from "../../Components/containers/Styles";
 import styled from "@emotion/styled";
 
 export const Input = ({
@@ -17,7 +16,6 @@ export const Input = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
-  let classes = useStyles();
   useEffect(() => {
     inputRef.current.focus();
   });

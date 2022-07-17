@@ -1,6 +1,6 @@
 // Inspired by https://liveterm.vercel.app/,
 // translated to js by pinkishincoloragain
-import { useState, useEffect, useRef, useCallback, useTransition } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../developer.css";
 import { Input } from "../Components/devmode/input";
 import { useHistory } from "../Components/history/hook";
@@ -24,14 +24,13 @@ const DevMode = () => {
     setLastCommandIndex,
   } = useHistory([]);
 
-  const [isPending, startTransition] = useTransition();
   const [devMode, setDevMode] = useState(false);
 
-  const init = useCallback(() => setHistory(banner()), []);
+  // const init = useCallback(() => setHistory(banner()));
 
   useEffect(() => {
-    startTransition(() => init());
-  }, [init]);
+    setHistory(banner());
+  }, []);
 
   useEffect(() => {
     if (inputRef.current) {

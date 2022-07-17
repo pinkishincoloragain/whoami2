@@ -1,19 +1,12 @@
-import { Card, Paper } from "@mui/material";
-import { useSelector } from "react-redux";
-import { display } from "@mui/system";
-import Box from "@mui/material/Box";
+import { Card } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function Error() {
-  const darkMode = useSelector((state) => state.mode.value);
   let nav = useNavigate();
-
-  const [clicked, setClicked] = useState(false);
 
   return (
     <>

@@ -1,6 +1,4 @@
 import * as React from "react";
-import { List } from "@mui/material";
-import reactGif from "../assets/icons/react.gif";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 import config from "../config.json";

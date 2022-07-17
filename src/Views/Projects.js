@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
 import { Button, Collapse } from "@mui/material";
-import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import { Project } from "./Items/Project";
+import { Project } from "../Components/containers/Project";
 
 const Year = (props) => {
   const [open, setOpen] = useState(true);
-  const darkMode = useSelector((state) => state.mode.value);
 
   return (
     <React.Fragment key={props.year + "fragment"}>
@@ -41,10 +38,9 @@ const Year = (props) => {
 };
 
 export default function Projects(props) {
-  const [height, setHeight] = useState("10vh");
-  let size = 0;
+  // let size = 0;
 
-  const years = [2022, 2021, 2020, 2019, 2018, 2017];
+  // const years = [2022, 2021, 2020, 2019, 2018, 2017];
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

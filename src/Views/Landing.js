@@ -1,6 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
-import { useStyles } from "../Components/containers/Styles";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { styled } from "@mui/styles";
 
 import HeaderBar from "../Components/header/HeaderBar";
@@ -10,22 +8,16 @@ import Introduction from "./Introduction";
 // import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
-  const classes = useStyles();
   const darkMode = useSelector((state) => state.mode.value);
 
-  const [scroll, setScroll] = useState(0);
-  const [graphicOpen, setGraphicOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const [scroll, setScroll] = useState(0);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [window.innerWidth]);
-
-  const handleGraphicOpen = () => {
-    setGraphicOpen(false);
-  };
+  // useEffect(() => {
+  //   window.addEventListener("resize", (e) => {
+  //     setWindowWidth(window.innerWidth);
+  //   });
+  // }, [window.innerWidth]);
 
   const LandingWrapper = styled(`div`)({
     backgroundImage: darkMode
@@ -42,7 +34,7 @@ function Landing(props) {
 
   return (
     <LandingWrapper className="px-[10%]">
-      <HeaderBar width={windowWidth} scroll={scroll} />
+      <HeaderBar />
       <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
         <Introduction />
         <DevMode />
