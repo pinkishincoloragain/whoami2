@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { Button, Box, Collapse } from "@mui/material";
 import Logo from "./Logo";
 import styled from "@emotion/styled";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { useStyles } from "../containers/Styles";
 import HeaderBarLink from "./HeaderBarLink";
 

@@ -15,8 +15,5 @@
     "main.fa4071bd.css.map": "/static/css/main.fa4071bd.css.map",
     "main.13ef9fff.js.map": "/static/js/main.13ef9fff.js.map"
   },
-  "entrypoints": [
-    "static/css/main.fa4071bd.css",
-    "static/js/main.13ef9fff.js"
-  ]
+  "entrypoints": ["static/css/main.fa4071bd.css", "static/js/main.13ef9fff.js"]
 }

@@ -4,9 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { styled } from "@mui/styles";
 
 import HeaderBar from "../Components/header/HeaderBar";
-import Description from "../Components/containers/Description";
 import DevMode from "./DevMode";
-import LandingSkeleton from "../Components/Skeleton";
 import Projects from "./Projects";
 import Introduction from "./Introduction";
 // import Waves from "../Components/objects/Waves";
@@ -43,16 +41,14 @@ function Landing(props) {
   });
 
   return (
-    <Suspense fallback={<LandingSkeleton />}>
-      <LandingWrapper className="px-[10%]">
-        <HeaderBar width={windowWidth} scroll={scroll} />
-        <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
-          <Introduction />
-          <DevMode />
-          <Projects />
-        </MainWrapper>
-      </LandingWrapper>
-    </Suspense>
+    <LandingWrapper className="px-[10%]">
+      <HeaderBar width={windowWidth} scroll={scroll} />
+      <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
+        <Introduction />
+        <DevMode />
+        <Projects />
+      </MainWrapper>
+    </LandingWrapper>
   );
 }
 
