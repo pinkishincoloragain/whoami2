@@ -20,27 +20,27 @@ ChartJS.register(
 );
 
 const options = {
-    elements: {
-        line: {
-            borderWidth: 1
-        }
+  elements: {
+    line: {
+      borderWidth: 1,
     },
-    scales: {
-        r: {
-            ticks: {
-                beginAtZero: true,
-                max: 5,
-                min: 0,
-                stepSize: 1,
-                font: {
-                    size: 6
-                }
-            },
-            pointLabels: {
-                fontSize: 24
-            }
-        }
+  },
+  scales: {
+    r: {
+      ticks: {
+        beginAtZero: true,
+        max: 5,
+        min: 0,
+        stepSize: 1,
+        font: {
+          size: 6,
+        },
+      },
+      pointLabels: {
+        fontSize: 24,
+      },
     },
+  },
   plugins: {
     legend: {
       labels: {

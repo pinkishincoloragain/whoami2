@@ -28,34 +28,30 @@ const Banner = () => {
           />
         </div>
         <div className="font-bold text-xl ml-6 pr-6 mt-4">
-          <span className="text-gray-700 text-base leading-7">
-            Hi! I'm Myungbin son.
-            <br />
-            <br />
-            I'm a software developer who is passionate about building
-            interactive and responsive websites. You can visit my github
-            at&nbsp;
+          <span className="text-base leading-7">
+            Hi! I'm Myungbin son. I'm a software developer who is passionate
+            about building interactive and responsive websites. You can visit my
+            github at&nbsp;
             <a
               href="https://github.com/pinkishincoloragain"
-              className="underline"
-              color="red"
+              className="text-[color:orange] underline"
             >
-              Here.
+              Here
             </a>
+            .
             <br />
             <br />
-            안녕하세요! 손명빈입니다.
-            <br />
-            <br />
-            저는 아주 멋집니다. 제 깃허브 링크는&nbsp;
+            안녕하세요! 손명빈입니다. 인터랙티브하고 반응형인 웹사이트를 만드는
+            데 관심이 많은 개발자입니다.
+            <br />제 깃허브 링크는&nbsp;
             <a
               href="https://github.com/pinkishincoloragain"
-              className="underline"
+              className="text-[color:orange] underline"
               color="red"
             >
-              여깁
+              여기
             </a>
-            니다.
+            &nbsp;있습니다.
           </span>
         </div>
       </div>

@@ -25,6 +25,7 @@ const DevMode = () => {
   } = useHistory([]);
 
   const [isPending, startTransition] = useTransition();
+  const [devMode, setDevMode] = useState(false);
 
   const init = useCallback(() => setHistory(banner()), []);
 
@@ -52,17 +53,23 @@ const DevMode = () => {
       className="w-100 font-mono mt-4"
     >
       <History history={history} />
-      <Input
-        inputRef={inputRef}
-        containerRef={containerRef}
-        command={command}
-        history={history}
-        lastCommandIndex={lastCommandIndex}
-        setCommand={setCommand}
-        setHistory={setHistory}
-        setLastCommandIndex={setLastCommandIndex}
-        clearHistory={clearHistory}
-      />
+      {devMode ? (
+        <Input
+          inputRef={inputRef}
+          containerRef={containerRef}
+          command={command}
+          history={history}
+          lastCommandIndex={lastCommandIndex}
+          setCommand={setCommand}
+          setHistory={setHistory}
+          setLastCommandIndex={setLastCommandIndex}
+          clearHistory={clearHistory}
+        />
+      ) : (
+        <button onClick={setDevMode(!devMode)}>
+          Click here to start devmode
+        </button>
+      )}
     </DevModeWrapper>
   );
 };
