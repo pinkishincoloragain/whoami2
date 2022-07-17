@@ -10,10 +10,8 @@ export default function HeaderBar(props) {
 
   return (
     <>
-      <HeaderWrapper className="flex sticky top-0 z-1 w-10 h-16">
-        <div className="flex flex-row justify-between align-middle w-full">
-          <Logo />
-        </div>
+      <HeaderWrapper className="flex flex-row sticky top-0 z-1 w-0 h-16">
+        <Logo />
       </HeaderWrapper>
     </>
   );

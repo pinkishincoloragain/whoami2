@@ -49,7 +49,7 @@ const DevMode = () => {
     <DevModeWrapper
       ref={containerRef}
       onClick={onClickAnywhere}
-      className="w-100 font-mono mt-4"
+      className="w-full font-mono mt-4 ml-2"
     >
       <History history={history} />
       {devMode ? (

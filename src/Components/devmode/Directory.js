@@ -2,14 +2,13 @@ import React from "react";
 import config from "../../config.json";
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import { yellow, orange } from "@mui/material/colors";
 
 export const Directory = () => {
   const mode = useSelector((state) => state.mode.value);
 
   const Font1 = styled(`span`)({
     // color: mode ? yellow.A100 : "white",
-    color: mode ? yellow.A100 : orange.A700,
+    color: mode ? "yellow" : "orange",
   });
 
   const Font2 = styled(`span`)({

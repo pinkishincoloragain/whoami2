@@ -1,6 +1,4 @@
 import { useRef } from "react";
-import Tooltip from "@mui/material/Tooltip";
-import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
@@ -35,28 +33,18 @@ export default function Logo(props) {
 
   return (
     <div className="flex flex-row">
-      <Tooltip
-        arrow
-        placement="right"
-        title={
-          <Typography fontSize={15}>
-            {darkMode ? "Now dark mode" : "Now light mode"}
-          </Typography>
-        }
+      <HeaderTypography
+        className="superBold"
+        variant="h2"
+        onClick={() => dispatch(changeMode())}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseEnter={handleMouseEnter}
+        onMouseOut={handleMouseOut}
+        ref={logoRef}
       >
-        <HeaderTypography
-          className="superBold"
-          variant="h2"
-          onClick={() => dispatch(changeMode())}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseEnter={handleMouseEnter}
-          onMouseOut={handleMouseOut}
-          ref={logoRef}
-        >
-          PINKISHINCOLORAGAIN
-        </HeaderTypography>
-      </Tooltip>
+        PINKISHINCOLORAGAIN
+      </HeaderTypography>
     </div>
   );
 }

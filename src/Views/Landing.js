@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
-import { styled } from "@mui/styles";
 
 import HeaderBar from "../Components/header/HeaderBar";
 import DevMode from "./DevMode";
-import Projects from "./Projects";
 import Introduction from "./Introduction";
+import styled from "@emotion/styled";
 // import Waves from "../Components/objects/Waves";
 
 function Landing(props) {
@@ -38,7 +37,6 @@ function Landing(props) {
       <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
         <Introduction />
         <DevMode />
-        <Projects />
       </MainWrapper>
     </LandingWrapper>
   );

@@ -6,7 +6,7 @@ import educationImage from "../assets/icons/education.png";
 import workImage from "../assets/icons/work.png";
 import skillImage from "../assets/icons/skills.png";
 import profileImage from "../assets/icons/profile.jpeg";
-import Graph from "./graphs/graph";
+import Graph from "../Components/graphs/graph";
 
 const Banner = () => {
   const mode = useSelector((state) => state.mode.value);
@@ -126,7 +126,7 @@ export default function Introduction(props) {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row w-full">
         <BeatifulBar className="w-full h-2"></BeatifulBar>
         <div className="w-4 h-2"></div>
       </div>
