@@ -70,7 +70,8 @@
     "build": "react-scripts build --stats",
     "test": "node scripts/test.js",
     "preanalyse": "yarn build",
-    "analyse": "webpack-bundle-analyzer build/bundle-stats.json"
+    "analyse": "webpack-bundle-analyzer build/bundle-stats.json",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
