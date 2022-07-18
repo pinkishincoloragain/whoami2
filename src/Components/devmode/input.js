@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { commandExists } from "../utils/commandExists";
 import { shell } from "../utils/shell";
 import { handleTabCompletion } from "../utils/tabCompletion";
@@ -15,9 +15,14 @@ export const Input = ({
   setHistory,
   setLastCommandIndex,
   clearHistory,
+  modeOn,
 }) => {
   useEffect(() => {
-    inputRef.current.focus();
+    if (modeOn) {
+      console.log(modeOn);
+      inputRef.current.focus();
+      inputRef.current.setAttribute("autofocus", "true");
+    }
   });
 
   const onSubmit = async (e) => {

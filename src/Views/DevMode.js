@@ -24,13 +24,13 @@ const DevMode = () => {
     setLastCommandIndex,
   } = useHistory([]);
 
-  const [devMode, setDevMode] = useState(false);
-
   // const init = useCallback(() => setHistory(banner()));
 
   useEffect(() => {
     setHistory(banner());
   }, []);
+
+  const [devModeOn, setDevModeOn] = useState(false);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -52,23 +52,18 @@ const DevMode = () => {
       className="w-full font-mono mt-4 ml-2"
     >
       <History history={history} />
-      {devMode ? (
-        <Input
-          inputRef={inputRef}
-          containerRef={containerRef}
-          command={command}
-          history={history}
-          lastCommandIndex={lastCommandIndex}
-          setCommand={setCommand}
-          setHistory={setHistory}
-          setLastCommandIndex={setLastCommandIndex}
-          clearHistory={clearHistory}
-        />
-      ) : (
-        <button onClick={setDevMode(!devMode)}>
-          Click here to start devmode
-        </button>
-      )}
+      <Input
+        modeOn={devModeOn}
+        inputRef={inputRef}
+        containerRef={containerRef}
+        command={command}
+        history={history}
+        lastCommandIndex={lastCommandIndex}
+        setCommand={setCommand}
+        setHistory={setHistory}
+        setLastCommandIndex={setLastCommandIndex}
+        clearHistory={clearHistory}
+      />
     </DevModeWrapper>
   );
 };
