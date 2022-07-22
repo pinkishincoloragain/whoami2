@@ -96,7 +96,6 @@ export const Input = ({
       <PromptLabel>
         <Directory />
       </PromptLabel>
-
       <input
         ref={inputRef}
         id="prompt"
@@ -108,7 +107,7 @@ export const Input = ({
         }`}
         value={command}
         onChange={onChange}
-        autoFocus
+        autoFocus={command !== ""}
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"
