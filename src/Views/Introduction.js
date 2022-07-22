@@ -15,8 +15,9 @@ const Banner = () => {
       ? config.colors.dark.background
       : config.colors.light.background,
   });
-  return (
-    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden shadow-xl flex flex-row flex-wrap align-middle justify-between bg-dark-green pb-4 mt-4 mr-4">
+
+  const BannerText = () => {
+    return (
       <div className="flex flex-col w-5/12">
         <div className="min-w-fit w-48 h-48 ml-6 mt-4 p-8 bg-light-background rounded-md flex align-middle justify-center">
           <img
@@ -53,9 +54,12 @@ const Banner = () => {
           </span>
         </div>
       </div>
-      <div className="mt-4 min-w-64 w-6/12 mr-12 my-6 align-middle justify-center bg-light-background rounded-lg ">
-        <Graph />
-      </div>
+    );
+  };
+  return (
+    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden shadow-xl flex flex-row flex-wrap align-middle justify-between bg-dark-green pb-4 mt-4 mr-4">
+      <BannerText />
+      <Graph />
     </BannerWrapper>
   );
 };
