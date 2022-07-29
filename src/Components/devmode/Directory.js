@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
 
 export const Directory = () => {
-  const mode = useSelector((state) => state.mode.value);
+  const mode = useSelector(state => state.mode.value);
 
   const Font1 = styled(`span`)({
     // color: mode ? yellow.A100 : "white",

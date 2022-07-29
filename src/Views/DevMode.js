@@ -41,7 +41,7 @@ const DevMode = () => {
 
   const DevModeWrapper = styled(`div`)({
     // width: "80vw",
-    height: "50vh",
+    // height: "50vh",
     overflowY: "scroll",
   });
 
@@ -49,7 +49,7 @@ const DevMode = () => {
     <DevModeWrapper
       ref={containerRef}
       onClick={onClickAnywhere}
-      className="w-full font-mono mt-4 ml-2"
+      className="w-9/12 font-mono ml-2"
     >
       <History history={history} />
       <Input

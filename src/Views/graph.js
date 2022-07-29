@@ -28,7 +28,7 @@ const options = {
       labels: {
         // This more specific font property overrides the global property
         font: {
-          size: 20,
+          size: "14rem",
         },
       },
     },
@@ -62,12 +62,12 @@ export function Graph() {
   const [chartClicked, setChartClicked] = useState(-1);
   const chartRef = useRef(null);
 
-  const clickChart = (e) => {
-    const clickedElemIdx = getElementAtEvent(chartRef.current, e)[0].index;
-    setChartClicked(clickedElemIdx);
+  const clickChart = e => {
+    const clickedElem = getElementAtEvent(chartRef.current, e)[0];
+    setChartClicked(clickedElem.index);
 
-    if (clickedElemIdx >= 0) {
-    }
+    // if (clickedElem.index >= 0) {
+    // }
   };
 
   const ChartExplanation = () => {
@@ -85,7 +85,7 @@ export function Graph() {
     );
   };
   return (
-    <div className="mt-4 min-w-64 w-6/12 mr-12 my-6 align-middle justify-center bg-light-background rounded-lg ">
+    <div className="mt-4 min-w-[300px] w-6/12 mr-12 my-6 align-middle justify-center bg-light-background rounded-lg">
       <div className="ml-3 w-full flex p-6">
         <PolarArea
           ref={chartRef}

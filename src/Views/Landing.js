@@ -1,22 +1,11 @@
 import { useSelector } from "react-redux";
-
-import HeaderBar from "../Components/header/HeaderBar";
-import DevMode from "./DevMode";
-import Introduction from "./Introduction";
+import Cards from "./Introduction";
+import Logo from "../Components/Logo";
 import styled from "@emotion/styled";
-// import Waves from "../Components/objects/Waves";
+import SoftObject from "./SoftShadowsScene";
 
 function Landing(props) {
-  const darkMode = useSelector((state) => state.mode.value);
-
-  // const [scroll, setScroll] = useState(0);
-  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", (e) => {
-  //     setWindowWidth(window.innerWidth);
-  //   });
-  // }, [window.innerWidth]);
+  const darkMode = useSelector(state => state.mode.value);
 
   const LandingWrapper = styled(`div`)({
     backgroundImage: darkMode
@@ -31,12 +20,17 @@ function Landing(props) {
     backgroundColor: "transparent",
   });
 
+  const HeaderWrapper = styled(`div`)({
+    backgroundColor: darkMode ? "#1f1f1f" : "white",
+  });
+
   return (
-    <LandingWrapper className="px-[10%]">
-      <HeaderBar />
+    <LandingWrapper className="px-[10%] overflow-hidden">
+      <HeaderWrapper className="flex flex-row sticky top-0 z-1 w-0 h-16">
+        <Logo />
+      </HeaderWrapper>
       <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
-        <Introduction />
-        <DevMode />
+        <Cards />
       </MainWrapper>
     </LandingWrapper>
   );

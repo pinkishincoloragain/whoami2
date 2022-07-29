@@ -25,10 +25,10 @@ export const Input = ({
     }
   });
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     const commands = [history]
       .map(({ command }) => command)
-      .filter((command) => command);
+      .filter(command => command);
 
     if (e.key === "c" && e.ctrlKey) {
       e.preventDefault();
@@ -95,24 +95,24 @@ export const Input = ({
     <div className="flex-row">
       <PromptLabel>
         <Directory />
+        <input
+          ref={inputRef}
+          id="prompt"
+          type="text"
+          className={`focus:outline-none flex-grow w-8/12 ${
+            commandExists(command) || command === ""
+              ? "text-dark-green"
+              : "text-dark-red"
+          }`}
+          value={command}
+          onChange={onChange}
+          autoFocus={command !== ""}
+          onKeyDown={onSubmit}
+          autoComplete="off"
+          spellCheck="false"
+          style={{ backgroundColor: "inherit" }}
+        />
       </PromptLabel>
-      <input
-        ref={inputRef}
-        id="prompt"
-        type="text"
-        className={`focus:outline-none flex-grow w-9/12 ${
-          commandExists(command) || command === ""
-            ? "text-dark-green"
-            : "text-dark-red"
-        }`}
-        value={command}
-        onChange={onChange}
-        autoFocus={command !== ""}
-        onKeyDown={onSubmit}
-        autoComplete="off"
-        spellCheck="false"
-        style={{ backgroundColor: "inherit" }}
-      />
     </div>
   );
 };

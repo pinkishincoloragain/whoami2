@@ -6,7 +6,7 @@ export const History = ({ history }) => {
     <>
       {history.map((entry, index) => (
         <div key={entry.command + index}>
-          <div className="flex-row w-full">
+          <div className="flex flex-row">
             <div className="flex-shrink">
               <Directory />
             </div>

@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import styled from "@emotion/styled";
 import { useSelector, useDispatch } from "react-redux";
-import { changeMode } from "../controls/modeSlice";
+import { changeMode } from "./controls/modeSlice";
 
 export default function Logo(props) {
-  const darkMode = useSelector((state) => state.mode.value);
+  const darkMode = useSelector(state => state.mode.value);
   const dispatch = useDispatch();
   const logoRef = useRef();
 
