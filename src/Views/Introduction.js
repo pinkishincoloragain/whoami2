@@ -17,49 +17,19 @@ const Banner = () => {
   const Profile = () => {
     return (
       <div className="flex pr-6 mt-4 flex-row flex-wrap text-base overflow-hidden">
-        <>
-          <img
-            className="w-2/12 min-w-[12rem] rounded-md mr-8"
-            src={profileImage}
-            alt="react logo"
-          />
-          <div></div>
-        </>
+        <img
+          className="w-2/12 min-w-[12rem] rounded-md mr-8"
+          src={profileImage}
+          alt="react logo"
+        />
         <DevMode />
-        {/* <p className="p-2 w-9/12">
-          I make Inclusive.&nbsp;
-          <a
-            href="https://github.com/pinkishincoloragain"
-            className="text-[color:orange] underline"
-          >
-            Here
-          </a>
-          .
-          <br />
-          <br />
-          안녕하세요! 손명빈입니다. 저는 인터랙티브하고 반응형인 웹사이트를
-          만드는 데 관심이 많은 개발자입니다.
-          <br />제 깃허브 링크는&nbsp;
-          <a
-            href="https://github.com/pinkishincoloragain"
-            className="text-[color:orange] underline"
-            color="red"
-          >
-            여기
-          </a>
-          &nbsp;있습니다.
-        </p> */}
       </div>
     );
   };
-  const BannerLink = () => {
-    // projects = [];
-    return <div className="flex flex-col w-6/12">{/* <Card></Card> */}</div>;
-  };
+
   return (
-    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden shadow-xl flex flex-row flex-wrap align-middle justify-between bg-dark-green pb-4 mt-4 mr-4">
+    <BannerWrapper className="max-w-full min-h-fit min-w-fit rounded overflow-hidden flex flex-row flex-wrap align-middle justify-between bg-dark-green pb-4 mt-4">
       <Profile />
-      <BannerLink />
       <Cards />
       <Graph />
     </BannerWrapper>
@@ -83,7 +53,7 @@ const Card = ({ expls, src, title }) => {
   });
 
   return (
-    <CardWrapper className="max-w-7xl w-3/12 min-w-[200px] grow rounded overflow-hidden shadow-xl align-middle justify-center bg-dark-background mt-4 mr-4">
+    <CardWrapper className="max-w-lg w-3/12 min-w-[20rem] mt-4 grow rounded overflow-hidden shadow-xl align-middle justify-center mr-2 bg-dark-background">
       <div className="flex">
         <div className="w-20 h-20 ml-6 mt-4 bg-light-background rounded-md flex align-middle justify-center">
           <img className="w-8 h-8 mt-6" src={src} alt={title + " image"} />
@@ -97,28 +67,18 @@ const Card = ({ expls, src, title }) => {
 
 const Cards = () => {
   const education = {
-    title: `Education`,
-    expls: [
-      `Kyungpook Nat'l University (2017 - )`,
-      `Technological University Dublin(2021 - 2022)`,
-    ],
+    title: config.education.title,
+    expls: config.education.expls,
     src: educationImage,
   };
   const experience = {
-    title: `Experience`,
-    expls: [
-      `KNU DEAL LAB researcher (2020 - 2021)`,
-      `LG WebOS Internship (2021S)`,
-    ],
+    title: config.experience.title,
+    expls: config.experience.expls,
     src: workImage,
   };
   const skills = {
-    title: `Skills`,
-    expls: [
-      `Korean(native), English(fluent)`,
-      `Front-end development`,
-      `Data analysis`,
-    ],
+    title: config.skills.title,
+    expls: config.skills.expls,
     src: skillImage,
   };
   const introCardContents = [education, experience, skills];
@@ -141,7 +101,6 @@ export default function Introduction(props) {
     <div className="w-full">
       <div className="flex flex-row w-full">
         <BeatifulBar className="w-full h-6 px-6 rounded-md"></BeatifulBar>
-        <div className="w-4 h-2"></div>
       </div>
       <Banner />
     </div>

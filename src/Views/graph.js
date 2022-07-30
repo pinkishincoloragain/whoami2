@@ -62,22 +62,24 @@ export function Graph() {
   const [chartClicked, setChartClicked] = useState(-1);
   const chartRef = useRef(null);
 
+  const explanation = [
+    "Web development",
+    "Communication",
+    "Data analysis",
+    "Machine",
+    "Blue",
+  ];
+
   const clickChart = e => {
     const clickedElem = getElementAtEvent(chartRef.current, e)[0];
     setChartClicked(clickedElem.index);
+    alert(explanation[clickedElem.index]);
 
     // if (clickedElem.index >= 0) {
     // }
   };
 
   const ChartExplanation = () => {
-    const explanation = [
-      "Web development",
-      "Communication",
-      "Data analysis",
-      "Machine",
-      "Blue",
-    ];
     return (
       <div>
         <p>{explanation[chartClicked]}</p>

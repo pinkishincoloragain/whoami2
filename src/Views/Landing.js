@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Cards from "./Introduction";
+import Introduction from "./Introduction";
 import Logo from "../Components/Logo";
 import styled from "@emotion/styled";
 import SoftObject from "./SoftShadowsScene";
@@ -30,7 +30,7 @@ function Landing(props) {
         <Logo />
       </HeaderWrapper>
       <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
-        <Cards />
+        <Introduction />
       </MainWrapper>
     </LandingWrapper>
   );

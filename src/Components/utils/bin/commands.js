@@ -6,7 +6,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { authService } from "../../controls/firebaseControl";
 
 // Help
-export const help = async (args) => {
+export const help = async args => {
   const commands = Object.keys(bin).sort().join(", ");
   var c = "";
   for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
@@ -25,13 +25,13 @@ Type 'summary' to display summary.
 };
 
 // Redirection
-export const repo = async (args) => {
+export const repo = async args => {
   window.open(`${config.repo}`);
   return "Opening Github repository...";
 };
 
 // About
-export const about = async (args) => {
+export const about = async args => {
   return `Hi, I am ${config.name}. 
 Welcome to my website!
 More about me:
@@ -40,41 +40,41 @@ More about me:
 'readme' - my github readme.`;
 };
 
-export const resume = async (args) => {
+export const resume = async args => {
   window.open(`${config.resume_url}`);
   return "Opening resume...";
 };
 
 // Contact
-export const email = async (args) => {
+export const email = async args => {
   window.open(`mailto:${config.email}`);
   return `Opening mailto:${config.email}...`;
 };
 
-export const github = async (args) => {
+export const github = async args => {
   window.open(`https://github.com/${config.social.github}/`);
 
   return "Opening github...";
 };
 
-export const linkedin = async (args) => {
+export const linkedin = async args => {
   window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
 
   return "Opening linkedin...";
 };
 
 // Search
-export const google = async (args) => {
+export const google = async args => {
   window.open(`https://google.com/search?q=${args.join(" ")}`);
   return `Searching google for ${args.join(" ")}...`;
 };
 
-export const reddit = async (args) => {
+export const reddit = async args => {
   window.open(`https://www.reddit.com/search/?q=${args.join(" ")}`);
   return `Searching reddit for ${args.join(" ")}...`;
 };
 
-export const naver = async (args) => {
+export const naver = async args => {
   window.open(
     `https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=${args.join(
       " "
@@ -84,15 +84,15 @@ export const naver = async (args) => {
 };
 
 // Typical linux commands
-export const echo = async (args) => {
+export const echo = async args => {
   return args.join(" ");
 };
 
-export const whoami = async (args) => {
+export const whoami = async args => {
   return `${config.ps1_username}`;
 };
 
-export const ls = async (args) => {
+export const ls = async args => {
   return `Introduction
 Projects
 Contact
@@ -100,33 +100,33 @@ Email
 `;
 };
 
-export const cd = async (args) => {
+export const cd = async args => {
   return `unfortunately, I am working on this.`;
 };
 
-export const date = async (args) => {
+export const date = async args => {
   return new Date().toString();
 };
 
-export const vi = async (args) => {
+export const vi = async args => {
   return `You must be a developer`;
 };
 
-export const sudo = async (args) => {
+export const sudo = async args => {
   window.open("https://www.youtube.com/watch?v=N2qYepAHAO0", "_blank");
   return `Permission denied: ${args.join(
     " "
   )} is not allowed. Please watch this video.`;
 };
 
-export const login = async (args) => {
+export const login = async args => {
   return `.`;
 };
 
 // Banner
-export const banner = (args) => {
-  return `Type 'help' to see the list of available commands.
+export const banner = args => {
+  return `Hi! I'm Myungbin Son. <a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository
+Type 'help' to see the list of available commands.
 Type 'summary' to display summary.
-Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
 `;
 };

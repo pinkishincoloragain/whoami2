@@ -1,6 +1,6 @@
 import config from "../../../config.json";
 
-const summary = async (args) => {
+const summary = async args => {
   if (config.ascii === "cveinnt") {
     return `                                                  
              @@@@@@@@@@@@@                   summary: summary display
@@ -17,8 +17,8 @@ const summary = async (args) => {
    @@             @@@@@@          @@         <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
      @@@                        @@@         -----------
         @@@                  @@@ @@          
-         @|  @@@@@@@@@@@@@@@@   @@           <u><a href="${config.donate_urls.paypal}" target="_blank">${config.donate_urls.paypal}</a></u>
-         @|                      @@          <u><a href="${config.donate_urls.patreon}" target="_blank">${config.donate_urls.patreon}</a></u>
+         @|  @@@@@@@@@@@@@@@@   @@           <u><a href="${config.extra.paypal}" target="_blank">${config.extra.paypal}</a></u>
+         @|                      @@          <u><a href="${config.extra.patreon}" target="_blank">${config.extra.patreon}</a></u>
 
 `;
   } else {
@@ -36,8 +36,8 @@ const summary = async (args) => {
    ▓▓      ▐▓▓    ▓▓    ▐▓▓     ▓▓           <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓           -----------
       ▓▓▓   ▐▓▓   ▓▓   ▓▓▓   ▓▓▀             
-        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀                <u><a href="${config.donate_urls.paypal}" target="_blank">${config.donate_urls.paypal}</a></u>
-            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                   <u><a href="${config.donate_urls.patreon}" target="_blank">${config.donate_urls.patreon}</a></u>
+        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀                <u><a href="${config.extra.paypal}" target="_blank">${config.extra.paypal}</a></u>
+            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                   <u><a href="${config.extra.patreon}" target="_blank">${config.extra.patreon}</a></u>
 
 `;
   }

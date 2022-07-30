@@ -7,13 +7,36 @@
     "github": "github",
     "linkedin": "linkedin"
   },
+  "education": {
+    "title": "Education",
+    "expls": [
+      "Kyungpook Nat'l University (2017 - )",
+      "Technological University Dublin(2021 - 2022)"
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "expls": [
+      "KNU DEAL LAB researcher (2020 - 2021)",
+      "LG WebOS Internship (2021S)"
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "expls": [
+      "Korean(native), English(fluent)",
+      "Front-end development",
+      "Data analysis"
+    ]
+  },
+
   "email": "smb1103@gmail.com",
   "ps1_hostname": "pinkish",
   "ps1_username": "visitor",
   "repo": "https://github.com/pinkishincoloragain",
   "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
-  "donate_urls": {
-    "paypal": "https://paypal.me/cveinnt",
+  "extra": {
+    "instagram": "https://www.instagram.com/pinkishincoloragain",
     "patreon": "https://patreon.com/cveinnt"
   },
   "colors": {
