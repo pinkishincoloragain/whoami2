@@ -5,7 +5,7 @@
 html,
 div#__next,
 div#__next > div {
-  height: 100%;
-  overflow: auto;
-  font-family: "Source Code Pro", monospace;
+	height: 100%;
+	overflow: auto;
+	font-family: "Source Code Pro", monospace;
 }
