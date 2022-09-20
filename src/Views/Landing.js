@@ -11,24 +11,41 @@ function Landing(props) {
 			? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
 			: "linear-gradient(180deg, #ffffff, #2D4263 90.71%)",
 		color: !darkMode ? "#1f1f1f" : "white",
+		paddingRight: "10%",
+		paddingLeft: "10%",
+		paddingTop: "3%",
+		paddingBottom: "5%",
+		overflow: "hidden",
 	});
 
 	const MainWrapper = styled(`div`)({
 		zIndex: 1,
-		display: "grid | flex",
+		display: "flex",
+		flexWrap: "wrap",
+		width: "100%",
 		backgroundColor: "transparent",
+		alignItems: "center",
+		flexDirection: "column",
+		justifyContent: "center",
 	});
 
 	const HeaderWrapper = styled(`div`)({
 		backgroundColor: darkMode ? "#1f1f1f" : "white",
+		display: "flex",
+		flexDirection: "flex-row",
+		top: 0,
+		zIndex: 1,
+		position: "sticky",
+		height: "fit-content",
+		backgroundColor: "transparent",
 	});
 
 	return (
-		<LandingWrapper className="px-[10%] overflow-hidden">
-			<HeaderWrapper className="flex flex-row sticky top-0 z-1 w-0 h-16">
+		<LandingWrapper>
+			<HeaderWrapper>
 				<Logo />
 			</HeaderWrapper>
-			<MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
+			<MainWrapper className="w-full ">
 				<Introduction />
 			</MainWrapper>
 		</LandingWrapper>

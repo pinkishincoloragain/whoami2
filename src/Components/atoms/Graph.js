@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "@emotion/styled";
 
 import {
 	Chart as ChartJS,
@@ -87,18 +88,27 @@ export function Graph() {
 			</div>
 		);
 	};
+
+	const ChartWrapper = styled("div")({
+		width: "30vw",
+		height: "50vh",
+		backgroundImage: "linear-gradient(45deg, #FE6B8B 30%, #FFFFFF 90%)",
+		borderRadius: "1rem",
+		padding: "4rem",
+	});
+
 	return (
-		<div className="mt-4 min-w-[300px] w-6/12 mr-12 my-6 align-middle justify-center bg-light-background rounded-lg">
-			<div className="ml-3 w-full flex p-6">
-				<PolarArea
-					ref={chartRef}
-					data={data}
-					options={options}
-					onClick={clickChart}
-				/>
-			</div>
+		<ChartWrapper>
+			{/* <div className="ml-3 w-full flex"> */}
+			<PolarArea
+				ref={chartRef}
+				data={data}
+				options={options}
+				onClick={clickChart}
+			/>
+			{/* </div> */}
 			<ChartExplanation className="mt-12" />
-		</div>
+		</ChartWrapper>
 	);
 }
 
