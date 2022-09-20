@@ -1,0 +1,62 @@
+{
+	"readmeUrl": "http://pinkishincoloragain.me/",
+	"title": "Pinkishincoloragain",
+	"name": "Myungbin Son",
+	"ascii": "pinkishincoloragain",
+	"social": {
+		"github": "github",
+		"linkedin": "linkedin"
+	},
+	"education": {
+		"title": "Education",
+		"expls": [
+			"Kyungpook Nat'l University (2017 - )",
+			"Technological University Dublin(2021 - 2022)"
+		]
+	},
+	"experience": {
+		"title": "Experience",
+		"expls": [
+			"KNU DEAL LAB researcher (2020 - 2021)",
+			"LG WebOS Internship (2021S)"
+		]
+	},
+	"skills": {
+		"title": "Skills",
+		"expls": [
+			"Korean(native), English(fluent)",
+			"Front-end development",
+			"Data analysis"
+		]
+	},
+
+	"email": "smb1103@gmail.com",
+	"ps1_hostname": "pinkish",
+	"ps1_username": "visitor",
+	"repo": "https://github.com/pinkishincoloragain",
+	"resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
+	"extra": {
+		"instagram": "https://www.instagram.com/pinkishincoloragain",
+		"patreon": "https://patreon.com/cveinnt"
+	},
+	"colors": {
+		"light": {
+			"background": "#E3F6F6",
+			"foreground": "#3C3836",
+			"yellow": "#D79921",
+			"green": "#98971A",
+			"gray": "#7C6F64",
+			"blue": "#458588",
+			"red": "#CA2124"
+		},
+		"dark": {
+			"background": "#2E3440",
+			"foreground": "#E5E9F0",
+			"blue": "#5E81AC",
+			"green": "#A3BE8C",
+			"gray": "#88C0D0",
+			"yellow": "#EBCB8B",
+			"red": "#BF616A"
+		}
+	}
+}

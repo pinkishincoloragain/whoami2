@@ -1,55 +1,55 @@
-import { Suspense, useEffect, useState } from "react";
-import { useStyles } from "../Components/containers/Styles";
-import { useSelector, useDispatch } from "react-redux";
-import { styled } from "@mui/styles";
-
-import HeaderBar from "../Components/header/HeaderBar";
-import DevMode from "./DevMode";
-import Projects from "./Projects";
-import Introduction from "./Introduction";
-// import Waves from "../Components/objects/Waves";
+import { useSelector } from "react-redux";
+import Introduction from "../Components/templates/Introduction";
+import Logo from "../Components/atoms/Logo";
+import styled from "@emotion/styled";
 
 function Landing(props) {
-  const classes = useStyles();
-  const darkMode = useSelector((state) => state.mode.value);
+	const darkMode = useSelector(state => state.mode.value);
 
-  const [scroll, setScroll] = useState(0);
-  const [graphicOpen, setGraphicOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	const LandingWrapper = styled(`div`)({
+		backgroundImage: darkMode
+			? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
+			: "linear-gradient(180deg, #ffffff, #2D4263 90.71%)",
+		color: !darkMode ? "#1f1f1f" : "white",
+		paddingRight: "10%",
+		paddingLeft: "10%",
+		paddingTop: "3%",
+		paddingBottom: "5%",
+		overflow: "hidden",
+	});
 
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [window.innerWidth]);
+	const MainWrapper = styled(`div`)({
+		zIndex: 1,
+		display: "flex",
+		flexWrap: "wrap",
+		width: "100%",
+		backgroundColor: "transparent",
+		alignItems: "center",
+		flexDirection: "column",
+		justifyContent: "center",
+	});
 
-  const handleGraphicOpen = () => {
-    setGraphicOpen(false);
-  };
+	const HeaderWrapper = styled(`div`)({
+		backgroundColor: darkMode ? "#1f1f1f" : "white",
+		display: "flex",
+		flexDirection: "flex-row",
+		top: 0,
+		zIndex: 1,
+		position: "sticky",
+		height: "fit-content",
+		backgroundColor: "transparent",
+	});
 
-  const LandingWrapper = styled(`div`)({
-    backgroundImage: darkMode
-      ? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
-      : "linear-gradient(180deg, #ffffff, #2D4263 90.71%)",
-    color: !darkMode ? "#1f1f1f" : "white",
-  });
-
-  const MainWrapper = styled(`div`)({
-    zIndex: 1,
-    display: "grid | flex",
-    backgroundColor: "transparent",
-  });
-
-  return (
-    <LandingWrapper className="px-[10%]">
-      <HeaderBar width={windowWidth} scroll={scroll} />
-      <MainWrapper className="z-1 flex align-middle flex-col justify-even w-full flex-wrap">
-        <Introduction />
-        <DevMode />
-        <Projects />
-      </MainWrapper>
-    </LandingWrapper>
-  );
+	return (
+		<LandingWrapper>
+			<HeaderWrapper>
+				<Logo />
+			</HeaderWrapper>
+			<MainWrapper className="w-full ">
+				<Introduction />
+			</MainWrapper>
+		</LandingWrapper>
+	);
 }
 
 export default Landing;
