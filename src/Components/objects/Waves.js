@@ -6,8 +6,6 @@ import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../assets/textures/waternormals.jpeg";
 import { useSelector } from "react-redux";
-import { WebGLRenderer } from "three";
-import { red } from "@mui/material/colors";
 
 function Waves(props) {
 	let container;
@@ -18,9 +16,6 @@ function Waves(props) {
 	React.useEffect(() => {
 		init();
 		animate();
-		// return () => {
-		//   container.removeChild(renderer.domElement);
-		// };
 	}, []);
 
 	const darkMode = useSelector(state => state.mode.value);
@@ -48,10 +43,14 @@ function Waves(props) {
 
 	function init() {
 		container = document.getElementById("container");
+
 		renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(props.width, props.height);
 		renderer.toneMapping = THREE.ACESFilmicToneMapping;
+		if (container.hasChildNodes()) {
+			container.removeChild(container.childNodes[0]);
+		}
 		container.appendChild(renderer.domElement);
 		renderer.domElement.style.transitionDuration = "0.2s";
 
@@ -63,8 +62,6 @@ function Waves(props) {
 			20000
 		);
 		camera.position.set(-100, 20, 100);
-
-		//
 
 		sun = new THREE.Vector3();
 
@@ -183,4 +180,4 @@ function Waves(props) {
 	);
 }
 
-export default Waves;
+export default Waves = React.memo(Waves);

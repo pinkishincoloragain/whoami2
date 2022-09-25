@@ -1,7 +1,10 @@
 import { useSelector } from "react-redux";
-import Introduction from "../Components/templates/Introduction";
 import Logo from "../Components/atoms/Logo";
+import BeatifulBar from "../Components/atoms/BeautifulBar";
 import styled from "@emotion/styled";
+
+import Banner from "../Components/templates/Banner";
+import DecoObject from "../Components/templates/DecoObject";
 
 function Landing(props) {
 	const darkMode = useSelector(state => state.mode.value);
@@ -30,13 +33,9 @@ function Landing(props) {
 	});
 
 	const HeaderWrapper = styled(`div`)({
-		backgroundColor: darkMode ? "#1f1f1f" : "white",
 		display: "flex",
 		flexDirection: "flex-row",
-		top: 0,
 		zIndex: 1,
-		position: "sticky",
-		height: "fit-content",
 		backgroundColor: "transparent",
 	});
 
@@ -45,8 +44,10 @@ function Landing(props) {
 			<HeaderWrapper>
 				<Logo />
 			</HeaderWrapper>
-			<MainWrapper className="w-full ">
-				<Introduction />
+			<MainWrapper>
+				<BeatifulBar />
+				<Banner />
+				<DecoObject />
 			</MainWrapper>
 		</LandingWrapper>
 	);

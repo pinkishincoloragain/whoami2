@@ -240,7 +240,7 @@ function Boxes(props) {
 		<div
 			id={`${props.name}`}
 			style={{
-				// width: "100vw",
+				width: "100vw",
 				height: "10vh",
 				transitionDuration: "0.1s",
 			}}
