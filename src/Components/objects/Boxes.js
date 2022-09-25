@@ -25,7 +25,7 @@ function Boxes(props) {
 	}, []);
 
 	function init() {
-		container = document.getElementById(`boxContainer`);
+		container = document.getElementById(props.container);
 
 		const aspect = props.width / props.height;
 		camera = new THREE.OrthographicCamera(
@@ -213,32 +213,10 @@ function Boxes(props) {
 
 		camera.updateMatrixWorld();
 
-		// find intersections
-
-		raycaster.setFromCamera(pointer, camera);
-
-		const intersects = raycaster.intersectObjects(scene.children, false);
-
-		if (intersects.length > 0) {
-			if (INTERSECTED != intersects[0].object) {
-				if (INTERSECTED)
-					INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-				INTERSECTED = intersects[0].object;
-				INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-				INTERSECTED.material.emissive.setHex(0xff0000);
-			}
-		} else {
-			if (INTERSECTED)
-				INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-			INTERSECTED = null;
-		}
-
 		renderer.render(scene, camera);
 	}
 
-	return <div id="boxContainer"></div>;
+	return <div id={props.container}></div>;
 }
 
 export default Boxes;

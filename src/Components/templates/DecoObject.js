@@ -22,8 +22,11 @@ const DecoObject = () => {
 
 	return (
 		<DecoWrapper>
-			fish
-			<Boxes width={windowSize.width / 2} height={windowSize.height / 8} />
+			<Boxes
+				width={windowSize.width * 0.8}
+				height={windowSize.height / 4}
+				container="boxContainer"
+			/>
 		</DecoWrapper>
 	);
 };

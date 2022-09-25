@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 
 import Banner from "../Components/templates/Banner";
 import DecoObject from "../Components/templates/DecoObject";
+import TalkTemplate from "../Components/templates/TalkTemplate";
 
 function Landing(props) {
 	const darkMode = useSelector(state => state.mode.value);
@@ -48,6 +49,7 @@ function Landing(props) {
 				<BeatifulBar />
 				<Banner />
 				<DecoObject />
+				<TalkTemplate />
 			</MainWrapper>
 		</LandingWrapper>
 	);
