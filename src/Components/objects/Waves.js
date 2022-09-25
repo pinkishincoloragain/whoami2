@@ -24,7 +24,7 @@ function Waves(props) {
 		elevation: props.elevation,
 		// azimuth: darkMode === true ? 180 : 0,
 		azimuth: props.azimuth,
-		time: 0.0,
+		time: 10.0,
 		sunSize: 10.0,
 	});
 
@@ -56,12 +56,12 @@ function Waves(props) {
 
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(
-			60,
+			100,
 			props.width / props.height,
 			1,
-			20000
+			10000
 		);
-		camera.position.set(-100, 20, 100);
+		camera.position.set(100, 0, -200);
 
 		sun = new THREE.Vector3();
 
@@ -80,8 +80,8 @@ function Waves(props) {
 			),
 			sunDirection: new THREE.Vector3(),
 			// sunColor: 0xffffff,
-			sunColor: "red",
-			// waterColor: 0x001e0f,
+			sunColor: 0xde5050,
+			// waterColor: 0xde5050,
 			waterColor: 0x001e0f,
 			distortionScale: 3,
 			fog: scene.fog !== undefined,
@@ -96,13 +96,12 @@ function Waves(props) {
 		sky = new Sky();
 		sky.scale.setScalar(10000);
 		scene.add(sky);
-
 		const skyUniforms = sky.material.uniforms;
 
 		skyUniforms["turbidity"].value = 10;
 		skyUniforms["rayleigh"].value = 0.2;
 		skyUniforms["mieCoefficient"].value = 0.005;
-		skyUniforms["mieDirectionalG"].value = 0.8;
+		// skyUniforms["mieDirectionalG"].value = 8;
 
 		pmremGenerator = new THREE.PMREMGenerator(renderer);
 
@@ -125,34 +124,6 @@ function Waves(props) {
 		controls.minDistance = 40.0;
 		controls.maxDistance = 200.0;
 		controls.update();
-
-		// GUI;
-
-		// const gui = new GUI();
-
-		// const folderSky = gui.addFolder("Sky");
-		// folderSky.add(parameters, "elevation", -3, 90, 0.1).onChange(updateSun);
-		// folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
-		// folderSky.add(parameters, "time", 0, 24).onChange(updateSun);
-		// folderSky.add(parameters, "sunSize", 0.0, 1.0, 0.001).onChange(updateSun);
-		// folderSky.open();
-
-		// const waterUniforms = water.material.uniforms;
-
-		// const folderWater = gui.addFolder("Water");
-		// folderWater
-		//   .add(waterUniforms.size, "value", 0.1, 10, 0.1)
-		//   .name("wave amplitude");
-		// folderWater.open();
-
-		// window.addEventListener("resize", onWindowResize);
-	}
-
-	function onWindowResize() {
-		camera.aspect = props.width / props.height;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize(props.width, props.height);
 	}
 
 	function animate() {

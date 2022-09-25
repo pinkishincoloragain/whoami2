@@ -25,7 +25,7 @@ function Boxes(props) {
 	}, []);
 
 	function init() {
-		container = document.getElementById(`${props.name}`);
+		container = document.getElementById(`boxContainer`);
 
 		const aspect = props.width / props.height;
 		camera = new THREE.OrthographicCamera(
@@ -169,6 +169,9 @@ function Boxes(props) {
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(props.width, props.height);
 		renderer.domElement.setAttribute("display", "flex");
+		if (container.hasChildNodes()) {
+			container.removeChild(container.childNodes[0]);
+		}
 		container.appendChild(renderer.domElement);
 
 		document.addEventListener("pointermove", onPointerMove);
@@ -198,7 +201,6 @@ function Boxes(props) {
 	function animate() {
 		requestAnimationFrame(animate);
 		render();
-		// stats.update();
 	}
 
 	function render() {
@@ -236,16 +238,7 @@ function Boxes(props) {
 		renderer.render(scene, camera);
 	}
 
-	return (
-		<div
-			id={`${props.name}`}
-			style={{
-				width: "100vw",
-				height: "10vh",
-				transitionDuration: "0.1s",
-			}}
-		></div>
-	);
+	return <div id="boxContainer"></div>;
 }
 
 export default Boxes;

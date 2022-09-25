@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 // import Boxes from "../objects/Boxes";
 import Waves from "../objects/Waves";
+import Boxes from "../objects/Boxes";
 import * as React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 
@@ -22,7 +23,7 @@ const DecoObject = () => {
 	return (
 		<DecoWrapper>
 			fish
-			<Waves azimuth="180" elevation="-1" width="1000" height="100" />
+			<Boxes width={windowSize.width / 2} height={windowSize.height / 8} />
 		</DecoWrapper>
 	);
 };
