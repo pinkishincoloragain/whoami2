@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import profileImage from "../../assets/icons/memoji.jpg";
-import Graph from "../atoms/Graph";
 import Cards from "./Cards";
 
 const Banner = () => {
@@ -22,7 +21,6 @@ const Banner = () => {
 		<BannerWrapper>
 			<BannerImg src={profileImage} alt="react logo" />
 			<Cards />
-			<Graph />
 		</BannerWrapper>
 	);
 };

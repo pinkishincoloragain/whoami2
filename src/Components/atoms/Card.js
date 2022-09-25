@@ -16,10 +16,14 @@ const Card = ({ expls, src, title }) => {
 		backgroundColor: mode
 			? config.colors.dark.background
 			: config.colors.light.background,
+		minWidth: "320px",
+		marginTop: "2%",
+		backgroundColor: "transparent",
+		width: "32%",
 	});
 
 	return (
-		<CardWrapper className="max-w-lg w-3/12 min-w-[20rem] mt-4 grow rounded overflow-hidden shadow-xl align-middle justify-center mr-2 bg-dark-background">
+		<CardWrapper>
 			<div className="flex">
 				<div className="w-20 h-20 ml-6 mt-4 bg-light-background rounded-md flex align-middle justify-center">
 					<img className="w-8 h-8 mt-6" src={src} alt={title + " image"} />

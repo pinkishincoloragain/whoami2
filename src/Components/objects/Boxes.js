@@ -173,6 +173,7 @@ function Boxes(props) {
 			container.removeChild(container.childNodes[0]);
 		}
 		container.appendChild(renderer.domElement);
+		renderer.domElement.style.borderRadius = "10px";
 
 		document.addEventListener("pointermove", onPointerMove);
 		window.addEventListener("resize", onWindowResize);

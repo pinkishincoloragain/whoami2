@@ -13,30 +13,36 @@ const TalkTemplate = () => {
 		height: "100%",
 		display: "flex",
 		flexDirection: "column",
-		paddingLeft: "20%",
-		paddingRight: "20%",
+		alignItems: "center",
+	});
+
+	const TalkResizer = styled(`div`)({
+		backgroundColor: "transparent",
+		maxWidth: "80%",
 	});
 
 	const windowSize = useWindowSize();
 
 	return (
 		<TalkWrapper>
-			{talks.firstTalk.map((talk, index) => {
-				const [type, text] = talk.split(": ");
-				if (type.includes("file")) {
-					const [user, _] = type.split(" ");
-					return (
-						<TalkWithFile
-							text={text}
-							type={user}
-							key={index}
-							width={windowSize.width * 0.3}
-							height={windowSize.width * 0.3}
-						/>
-					);
-				}
-				return <Talk key={index} type={type} text={text} />;
-			})}
+			<TalkResizer>
+				{talks.firstTalk.map((talk, index) => {
+					const [type, text] = talk.split(": ");
+					if (type.includes("file")) {
+						const [user, _] = type.split(" ");
+						return (
+							<TalkWithFile
+								text={text}
+								type={user}
+								key={index}
+								width={windowSize.width * 0.4}
+								height={windowSize.width * 0.4}
+							/>
+						);
+					}
+					return <Talk key={index} type={type} text={text} />;
+				})}
+			</TalkResizer>
 		</TalkWrapper>
 	);
 };

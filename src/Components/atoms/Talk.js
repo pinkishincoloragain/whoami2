@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import Boxes from "../objects/Boxes";
+import useScrollFadeIn from "../../hooks/useScroll";
 
 const Talk = ({ type, text }) => {
 	const TalkWrapper = styled(`div`)({
@@ -11,10 +12,12 @@ const Talk = ({ type, text }) => {
 		paddingBottom: "2%",
 	});
 
+	const element = useScrollFadeIn("left", 0.3, 0);
+
 	const TextWrapper = styled(`div`)({
 		color: type === "me" ? "white" : "black",
 		backgroundColor: type === "me" ? "#12C11A" : "#ffffff",
-		fontSize: "1.5rem",
+		fontSize: "max(1rem, 1.5vw)",
 		width: "fitContent",
 		maxWidth: "80%",
 		padding: "1rem",
@@ -23,7 +26,7 @@ const Talk = ({ type, text }) => {
 	});
 
 	return (
-		<TalkWrapper>
+		<TalkWrapper {...element}>
 			<TextWrapper>{text}</TextWrapper>
 		</TalkWrapper>
 	);
