@@ -3,9 +3,10 @@
 import * as React from "react";
 import "./developer.css";
 import Input from "./devmode/input";
-import useHistory from "../../../hooks/hook";
+
 import { banner } from "./utils/bin";
-import History from "../../history/History";
+import History from "./devmode/history/History";
+import { useHistory } from "./devmode/history/useHistory";
 import styled from "@emotion/styled";
 
 const DevMode = () => {

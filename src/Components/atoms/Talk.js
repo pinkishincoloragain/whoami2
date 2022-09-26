@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import Boxes from "../objects/Boxes";
-import useScrollFadeIn from "../../hooks/useScroll";
+import Waves from "../objects/Waves";
+import useScroll from "../../hooks/useScroll";
+import StateBox from "./StateBox";
 
 const Talk = ({ type, text }) => {
 	const TalkWrapper = styled(`div`)({
@@ -12,7 +13,7 @@ const Talk = ({ type, text }) => {
 		paddingBottom: "2%",
 	});
 
-	const element = useScrollFadeIn("left", 0.3, 0);
+	const element = useScroll("up", 0.3, 0);
 
 	const TextWrapper = styled(`div`)({
 		color: type === "me" ? "white" : "black",
@@ -20,7 +21,7 @@ const Talk = ({ type, text }) => {
 		fontSize: "max(1rem, 1.5vw)",
 		width: "fitContent",
 		maxWidth: "80%",
-		padding: "1rem",
+		padding: "min(1rem, 3vw)",
 		borderRadius: "1rem",
 		fontWeight: "500",
 	});
@@ -32,8 +33,7 @@ const Talk = ({ type, text }) => {
 	);
 };
 
-const TalkWithFile = ({ type, text, width, height }) => {
-	console.log(type);
+const TalkWithEmoji = ({ type, text }) => {
 	const TalkWrapper = styled(`div`)({
 		backgroundColor: "transparent",
 		display: "flex",
@@ -57,7 +57,7 @@ const TalkWithFile = ({ type, text, width, height }) => {
 		<>
 			<TalkWrapper>
 				<TextWrapper>
-					<Boxes width={width} height={height} container="boxContainer2" />
+					<StateBox />
 				</TextWrapper>
 			</TalkWrapper>
 			<Talk type={type} text={text} />
@@ -65,4 +65,42 @@ const TalkWithFile = ({ type, text, width, height }) => {
 	);
 };
 
-export { Talk, TalkWithFile };
+const TalkWithObject = ({ type, text, width, height }) => {
+	const TalkWrapper = styled(`div`)({
+		backgroundColor: "transparent",
+		display: "flex",
+		justifyContent: type === "me" ? "flex-end" : "flex-start",
+		paddingTop: "1%",
+		paddingBottom: "2%",
+	});
+
+	const TextWrapper = styled(`div`)({
+		color: type === "me" ? "white" : "black",
+		backgroundColor: type === "me" ? "#12C11A" : "#ffffff",
+		fontSize: "1.5rem",
+		width: "fitContent",
+		maxWidth: "80%",
+		padding: "0.5rem",
+		borderRadius: "1rem",
+		fontWeight: "500",
+	});
+
+	return (
+		<>
+			<TalkWrapper>
+				<TextWrapper>
+					{/* <Waves
+						width={width}
+						height={height}
+						elevation="10"
+						azimuth="45"
+						// container="boxContainer"
+					/> */}
+				</TextWrapper>
+			</TalkWrapper>
+			<Talk type={type} text={text} />
+		</>
+	);
+};
+
+export { Talk, TalkWithEmoji, TalkWithObject };

@@ -22,10 +22,12 @@ const DecoObject = () => {
 
 	return (
 		<DecoWrapper>
-			<Boxes
+			<Waves
 				width={windowSize.width * 0.8}
 				height={windowSize.height / 4}
-				container="boxContainer"
+				elevation="10"
+				azimuth="45"
+				// container="boxContainer"
 			/>
 		</DecoWrapper>
 	);

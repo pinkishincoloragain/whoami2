@@ -1,10 +1,16 @@
 {
 	"firstTalk": [
-		"you: 그래서 하고 싶은 게 뭔데요?",
-		"me: 다.. 해 보고 싶습니다",
-		"you: Myungbin Son?",
-		"me: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,",
-		"you: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,",
-		"me (file): Like this?"
-	]
+		"you: 요즘 뭐 하고 지내?",
+		"me: 이런 거 만들고 지내",
+		"you: ㅋㅋㅋㅋㅋㅋ 이런 거 어떤 거?",
+		"me: 본인 '주요 성장과정' 및 다른 지원자 대비 본인만의 '차별화된 강점'과 '보완해야 할 약점'에 대해 사례를 들어 구체적으로 기술해 주세요.(1000)",
+		"me: 이런 것보다 재밌잖아",
+		"me: 이런 형식으로 내가 하는 생각들을 쓰는 것도 그래. 긴 줄글로 읽는 것보다 이런 게 더 쉽지 않을까 생각하기도 했고.내가 어떻게 생각하고.. ",
+		"me: 어떻게 느낀 것들을 다 표현하기엔 아직 난 실력이 부족하거든.",
+		"you: 그럼 어떻게 표현하고 싶은데?",
+		"me (file): 최대한 인터랙티브하게 표현하고 싶었어. 그래서 이런 형식으로 만든 거지..",
+		"me: 난 아직 배울 게 많은 것 같아",
+		"you: 어떤 걸 더 배우고 싶은데?"
+	],
+	"secondTalk": []
 }

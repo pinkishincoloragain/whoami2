@@ -1,11 +1,12 @@
+import * as React from "react";
 import { useSelector } from "react-redux";
 import Logo from "../Components/atoms/Logo";
 import BeatifulBar from "../Components/atoms/BeautifulBar";
 import styled from "@emotion/styled";
 
 import Banner from "../Components/templates/Banner";
-import DecoObject from "../Components/templates/DecoObject";
 import TalkTemplate from "../Components/templates/TalkTemplate";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 function Landing(props) {
 	const darkMode = useSelector(state => state.mode.value);
@@ -34,11 +35,42 @@ function Landing(props) {
 	});
 
 	const HeaderWrapper = styled(`div`)({
+		width: "80%",
 		display: "flex",
 		flexDirection: "flex-row",
-		zIndex: 1,
+		zIndex: 0,
 		backgroundColor: "transparent",
+		position: "fixed",
 	});
+
+	const parallax = React.useRef(null);
+
+	const ParallaxPage = (
+		<Parallax ref={parallax} pages={3}>
+			<ParallaxLayer
+				offset={1}
+				speed={1}
+				style={{ backgroundColor: "#805E73" }}
+			/>
+			<ParallaxLayer
+				offset={2}
+				speed={1}
+				style={{ backgroundColor: "#87BCDE" }}
+			>
+				<p>Layers can contain anything</p>
+			</ParallaxLayer>
+
+			<ParallaxLayer
+				offset={0}
+				speed={0}
+				factor={3}
+				style={{
+					// backgroundImage: url("stars", true),
+					backgroundSize: "cover",
+				}}
+			/>
+		</Parallax>
+	);
 
 	return (
 		<LandingWrapper>
@@ -46,9 +78,8 @@ function Landing(props) {
 				<Logo />
 			</HeaderWrapper>
 			<MainWrapper>
-				<BeatifulBar />
+				{/* <BeatifulBar /> */}
 				<Banner />
-				<DecoObject />
 				<TalkTemplate />
 			</MainWrapper>
 		</LandingWrapper>

@@ -1,15 +1,13 @@
 import styled from "@emotion/styled";
-// import Boxes from "../objects/Boxes";
 import Boxes from "../objects/Boxes";
 import * as React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Talk, TalkWithFile } from "../atoms/Talk";
+import { Talk, TalkWithEmoji, TalkWithObject } from "../atoms/Talk";
 import talks from "../../assets/data/talk.json";
 
 const TalkTemplate = () => {
 	const TalkWrapper = styled(`div`)({
 		backgroundColor: "transparent",
-		width: "100%",
 		height: "100%",
 		display: "flex",
 		flexDirection: "column",
@@ -18,7 +16,7 @@ const TalkTemplate = () => {
 
 	const TalkResizer = styled(`div`)({
 		backgroundColor: "transparent",
-		maxWidth: "80%",
+		maxWidth: "min(100%,1080px)",
 	});
 
 	const windowSize = useWindowSize();
@@ -31,14 +29,18 @@ const TalkTemplate = () => {
 					if (type.includes("file")) {
 						const [user, _] = type.split(" ");
 						return (
-							<TalkWithFile
+							<TalkWithObject
 								text={text}
 								type={user}
 								key={index}
 								width={windowSize.width * 0.4}
 								height={windowSize.width * 0.4}
 							/>
+							// <TalkWithEmoji text={text} type={user} key={index} />
 						);
+					} else if (type.includes("emoji")) {
+						const [user, _] = type.split(" ");
+						return <TalkWithEmoji text={text} type={user} key={index} />;
 					}
 					return <Talk key={index} type={type} text={text} />;
 				})}

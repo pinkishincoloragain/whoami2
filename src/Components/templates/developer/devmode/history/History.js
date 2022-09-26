@@ -1,5 +1,5 @@
 import React from "react";
-import { Directory } from "../templates/developer/devmode/Directory";
+import { Directory } from "../Directory";
 
 export const History = ({ history }) => {
 	return (

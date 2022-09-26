@@ -1,11 +1,10 @@
 import * as THREE from "three";
-import { GUI } from "lil-gui";
 import { OrbitControls } from "../controls/OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../assets/textures/waternormals.jpeg";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 function Waves(props) {
 	let container;
@@ -16,9 +15,9 @@ function Waves(props) {
 	React.useEffect(() => {
 		init();
 		animate();
-	}, []);
+	});
 
-	const darkMode = useSelector(state => state.mode.value);
+	// const darkMode = useSelector(state => state.mode.value);
 	const [parameters, setParameters] = React.useState({
 		// elevation: darkMode === true ? -1 : 10,
 		elevation: props.elevation,
@@ -52,7 +51,7 @@ function Waves(props) {
 			container.removeChild(container.childNodes[0]);
 		}
 		container.appendChild(renderer.domElement);
-		renderer.domElement.style.transitionDuration = "0.2s";
+		renderer.domElement.style.borderRadius = "10px";
 
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(
@@ -115,8 +114,8 @@ function Waves(props) {
 			color: 0xf0f0f0,
 		});
 
-		mesh = new THREE.Mesh(geometry, material);
-		scene.add(mesh);
+		// mesh = new THREE.Mesh(geometry, material);
+		// scene.add(mesh);
 
 		let controls = new OrbitControls(camera, renderer.domElement);
 		controls.maxPolarAngle = Math.PI * 0.495;
@@ -134,9 +133,9 @@ function Waves(props) {
 	function render() {
 		const time = performance.now() * 0.001;
 
-		mesh.position.y = Math.sin(time) * 20 + 5;
-		mesh.rotation.x = time * 0.5;
-		mesh.rotation.z = time * 0.51;
+		// mesh.position.y = Math.sin(time) * 20 + 5;
+		// mesh.rotation.x = time * 0.5;
+		// mesh.rotation.z = time * 0.51;
 
 		water.material.uniforms["time"].value += 1.0 / 60.0;
 
@@ -151,4 +150,4 @@ function Waves(props) {
 	);
 }
 
-export default Waves = React.memo(Waves);
+export default Waves;

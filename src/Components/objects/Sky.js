@@ -40,9 +40,6 @@ class Sky extends Mesh {
 
 Sky.prototype.isSky = true;
 
-let now = new Date();
-// alert(now.getHours());
-
 Sky.SkyShader = {
 	uniforms: {
 		turbidity: { value: 0.3 },
