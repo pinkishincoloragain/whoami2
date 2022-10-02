@@ -1,6 +1,7 @@
 import { useRef, useEffect, useCallback } from "react";
+import { useSpring } from "react-spring";
 
-const useScroll = (direction = "up", duration, delay = 0) => {
+const useScroll = (type = "up", threshold, delay = 0) => {
 	const element = useRef();
 
 	const handleDirection = name => {
@@ -23,21 +24,21 @@ const useScroll = (direction = "up", duration, delay = 0) => {
 			const { current } = element;
 			if (entry.isIntersecting) {
 				current.style.transitionProperty = "all";
-				current.style.transitionDuration = `${duration}s`;
+				current.style.transitionDuration = `0.3s`;
 				current.style.transitionTimingFunction = "cubic-bezier(0, 0, 0.2, 1)";
 				current.style.transitionDelay = `${delay}s`;
 				current.style.opacity = 1;
 				current.style.transform = "translate3d(0, 0, 0)";
 			}
 		},
-		[delay, duration]
+		[delay]
 	);
 
 	useEffect(() => {
 		let observer;
 
 		if (element.current) {
-			observer = new IntersectionObserver(onScroll, { threshold: 0.7 });
+			observer = new IntersectionObserver(onScroll, { threshold: threshold });
 			observer.observe(element.current);
 		}
 
@@ -46,7 +47,7 @@ const useScroll = (direction = "up", duration, delay = 0) => {
 
 	return {
 		ref: element,
-		style: { opacity: 0, transform: handleDirection(direction) },
+		style: { opacity: 0, transform: handleDirection(type) },
 	};
 };
 

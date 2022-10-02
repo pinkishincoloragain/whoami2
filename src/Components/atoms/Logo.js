@@ -5,19 +5,6 @@ import { changeMode } from "../controls/modeSlice";
 import StateBox from "./StateBox";
 
 export default function Logo(props) {
-	const [scrollPosition, setScrollPosition] = React.useState(0);
-	const handleScroll = () => {
-		const position = window.pageYOffset;
-		setScrollPosition(position);
-	};
-
-	React.useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
-
 	const darkMode = useSelector(state => state.mode.value);
 	const dispatch = useDispatch();
 	const logoRef = React.useRef();

@@ -2,6 +2,15 @@ import config from "../config.json";
 import Card from "../atoms/Card";
 import styled from "@emotion/styled";
 
+const CardsWrapper = styled(`div`)({
+	backgroundColor: "transparent",
+	width: "100%",
+	display: "flex",
+	flexWrap: "wrap",
+	flexGrow: 1,
+	justifyContent: "space-between",
+});
+
 const Cards = () => {
 	const education = {
 		title: config.education.title,
@@ -17,15 +26,6 @@ const Cards = () => {
 	};
 
 	const introCardContents = [education, experience, skills];
-
-	const CardsWrapper = styled(`div`)({
-		backgroundColor: "transparent",
-		width: "100%",
-		display: "flex",
-		flexWrap: "wrap",
-		flexGrow: 1,
-		justifyContent: "space-between",
-	});
 
 	return (
 		<CardsWrapper>

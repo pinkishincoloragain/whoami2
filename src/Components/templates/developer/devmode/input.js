@@ -5,6 +5,11 @@ import { handleTabCompletion } from "../utils/tabCompletion";
 import { Directory } from "./Directory";
 import styled from "@emotion/styled";
 
+const PromptLabel = styled(`label`)({
+	htmlFor: "prompt",
+	flexShrink: "initial",
+});
+
 export const Input = ({
 	inputRef,
 	containerRef,
@@ -85,11 +90,6 @@ export const Input = ({
 	const onChange = ({ target: { value } }) => {
 		setCommand(value);
 	};
-
-	const PromptLabel = styled(`label`)({
-		htmlFor: "prompt",
-		flexShrink: "initial",
-	});
 
 	return (
 		<div className="flex-row">

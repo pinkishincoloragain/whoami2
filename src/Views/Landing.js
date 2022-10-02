@@ -8,40 +8,42 @@ import Banner from "../Components/templates/Banner";
 import TalkTemplate from "../Components/templates/TalkTemplate";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
-function Landing(props) {
-	const darkMode = useSelector(state => state.mode.value);
-
-	const LandingWrapper = styled(`div`)({
-		backgroundImage: darkMode
+const LandingWrapper = styled.div(props => {
+	return {
+		backgroundImage: props.darkMode
 			? "linear-gradient(180deg, #131221, #2D4263 90.71%)"
 			: "linear-gradient(180deg, #ffffff, #2D4263 90.71%)",
-		color: !darkMode ? "#1f1f1f" : "white",
+		color: !props.darkMode ? "#1f1f1f" : "white",
 		paddingRight: "10%",
 		paddingLeft: "10%",
 		paddingTop: "3%",
 		paddingBottom: "5%",
 		overflow: "hidden",
-	});
+	};
+});
 
-	const MainWrapper = styled(`div`)({
-		zIndex: 1,
-		display: "flex",
-		flexWrap: "wrap",
-		width: "100%",
-		backgroundColor: "transparent",
-		alignItems: "center",
-		flexDirection: "column",
-		justifyContent: "center",
-	});
+const MainWrapper = styled(`div`)({
+	zIndex: 1,
+	display: "flex",
+	flexWrap: "wrap",
+	width: "100%",
+	backgroundColor: "transparent",
+	alignItems: "center",
+	flexDirection: "column",
+	justifyContent: "center",
+});
 
-	const HeaderWrapper = styled(`div`)({
-		width: "80%",
-		display: "flex",
-		flexDirection: "flex-row",
-		zIndex: 0,
-		backgroundColor: "transparent",
-		position: "fixed",
-	});
+const HeaderWrapper = styled(`div`)({
+	width: "80%",
+	display: "flex",
+	flexDirection: "flex-row",
+	zIndex: 0,
+	backgroundColor: "transparent",
+	position: "fixed",
+});
+
+function Landing(props) {
+	const darkMode = useSelector(state => state.mode.value);
 
 	const parallax = React.useRef(null);
 
@@ -73,12 +75,12 @@ function Landing(props) {
 	);
 
 	return (
-		<LandingWrapper>
+		<LandingWrapper darkMode={darkMode}>
 			<HeaderWrapper>
 				<Logo />
 			</HeaderWrapper>
 			<MainWrapper>
-				{/* <BeatifulBar /> */}
+				<BeatifulBar />
 				<Banner />
 				<TalkTemplate />
 			</MainWrapper>

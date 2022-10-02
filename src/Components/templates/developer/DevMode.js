@@ -9,6 +9,12 @@ import History from "./devmode/history/History";
 import { useHistory } from "./devmode/history/useHistory";
 import styled from "@emotion/styled";
 
+const DevModeWrapper = styled(`div`)({
+	// width: "80vw",
+	// height: "50vh",
+	overflowY: "scroll",
+});
+
 const DevMode = () => {
 	const inputRef = React.useRef(null);
 	const onClickAnywhere = () => {
@@ -39,12 +45,6 @@ const DevMode = () => {
 			inputRef.current.focus({ preventScroll: true });
 		}
 	}, [history]);
-
-	const DevModeWrapper = styled(`div`)({
-		// width: "80vw",
-		// height: "50vh",
-		overflowY: "scroll",
-	});
 
 	return (
 		<DevModeWrapper
