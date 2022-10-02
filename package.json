@@ -30,7 +30,7 @@
 	},
 	"eslintConfig": {
 		"env": {
-			"NODE_ENV": "development"
+			"NODE_ENV": "production"
 		},
 		"extends": [
 			"react-app",
