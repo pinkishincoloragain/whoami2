@@ -1,13 +1,10 @@
 import * as THREE from "three";
-import { GUI } from "lil-gui";
 import { OrbitControls } from "../controls/OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../assets/textures/waternormals.jpeg";
-import { useSelector } from "react-redux";
-import { WebGLRenderer } from "three";
-import { red } from "@mui/material/colors";
+// import { useSelector } from "react-redux";
 
 function Waves(props) {
 	let container;
@@ -18,18 +15,15 @@ function Waves(props) {
 	React.useEffect(() => {
 		init();
 		animate();
-		// return () => {
-		//   container.removeChild(renderer.domElement);
-		// };
-	}, []);
+	});
 
-	const darkMode = useSelector(state => state.mode.value);
+	// const darkMode = useSelector(state => state.mode.value);
 	const [parameters, setParameters] = React.useState({
 		// elevation: darkMode === true ? -1 : 10,
 		elevation: props.elevation,
 		// azimuth: darkMode === true ? 180 : 0,
 		azimuth: props.azimuth,
-		time: 0.0,
+		time: 10.0,
 		sunSize: 10.0,
 	});
 
@@ -48,23 +42,25 @@ function Waves(props) {
 
 	function init() {
 		container = document.getElementById("container");
+
 		renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(props.width, props.height);
 		renderer.toneMapping = THREE.ACESFilmicToneMapping;
+		if (container.hasChildNodes()) {
+			container.removeChild(container.childNodes[0]);
+		}
 		container.appendChild(renderer.domElement);
-		renderer.domElement.style.transitionDuration = "0.2s";
+		renderer.domElement.style.borderRadius = "10px";
 
 		scene = new THREE.Scene();
 		camera = new THREE.PerspectiveCamera(
-			60,
+			100,
 			props.width / props.height,
 			1,
-			20000
+			10000
 		);
-		camera.position.set(-100, 20, 100);
-
-		//
+		camera.position.set(100, 0, -200);
 
 		sun = new THREE.Vector3();
 
@@ -83,8 +79,8 @@ function Waves(props) {
 			),
 			sunDirection: new THREE.Vector3(),
 			// sunColor: 0xffffff,
-			sunColor: "red",
-			// waterColor: 0x001e0f,
+			sunColor: 0xde5050,
+			// waterColor: 0xde5050,
 			waterColor: 0x001e0f,
 			distortionScale: 3,
 			fog: scene.fog !== undefined,
@@ -99,13 +95,12 @@ function Waves(props) {
 		sky = new Sky();
 		sky.scale.setScalar(10000);
 		scene.add(sky);
-
 		const skyUniforms = sky.material.uniforms;
 
 		skyUniforms["turbidity"].value = 10;
 		skyUniforms["rayleigh"].value = 0.2;
 		skyUniforms["mieCoefficient"].value = 0.005;
-		skyUniforms["mieDirectionalG"].value = 0.8;
+		// skyUniforms["mieDirectionalG"].value = 8;
 
 		pmremGenerator = new THREE.PMREMGenerator(renderer);
 
@@ -119,8 +114,8 @@ function Waves(props) {
 			color: 0xf0f0f0,
 		});
 
-		mesh = new THREE.Mesh(geometry, material);
-		scene.add(mesh);
+		// mesh = new THREE.Mesh(geometry, material);
+		// scene.add(mesh);
 
 		let controls = new OrbitControls(camera, renderer.domElement);
 		controls.maxPolarAngle = Math.PI * 0.495;
@@ -128,34 +123,6 @@ function Waves(props) {
 		controls.minDistance = 40.0;
 		controls.maxDistance = 200.0;
 		controls.update();
-
-		// GUI;
-
-		// const gui = new GUI();
-
-		// const folderSky = gui.addFolder("Sky");
-		// folderSky.add(parameters, "elevation", -3, 90, 0.1).onChange(updateSun);
-		// folderSky.add(parameters, "azimuth", -180, 180, 0.1).onChange(updateSun);
-		// folderSky.add(parameters, "time", 0, 24).onChange(updateSun);
-		// folderSky.add(parameters, "sunSize", 0.0, 1.0, 0.001).onChange(updateSun);
-		// folderSky.open();
-
-		// const waterUniforms = water.material.uniforms;
-
-		// const folderWater = gui.addFolder("Water");
-		// folderWater
-		//   .add(waterUniforms.size, "value", 0.1, 10, 0.1)
-		//   .name("wave amplitude");
-		// folderWater.open();
-
-		// window.addEventListener("resize", onWindowResize);
-	}
-
-	function onWindowResize() {
-		camera.aspect = props.width / props.height;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize(props.width, props.height);
 	}
 
 	function animate() {
@@ -166,9 +133,9 @@ function Waves(props) {
 	function render() {
 		const time = performance.now() * 0.001;
 
-		mesh.position.y = Math.sin(time) * 20 + 5;
-		mesh.rotation.x = time * 0.5;
-		mesh.rotation.z = time * 0.51;
+		// mesh.position.y = Math.sin(time) * 20 + 5;
+		// mesh.rotation.x = time * 0.5;
+		// mesh.rotation.z = time * 0.51;
 
 		water.material.uniforms["time"].value += 1.0 / 60.0;
 

@@ -1,10 +1,10 @@
 import {
-  BackSide,
-  BoxGeometry,
-  Mesh,
-  ShaderMaterial,
-  UniformsUtils,
-  Vector3,
+	BackSide,
+	BoxGeometry,
+	Mesh,
+	ShaderMaterial,
+	UniformsUtils,
+	Vector3,
 } from "three";
 
 /**
@@ -22,42 +22,39 @@ import {
  */
 
 class Sky extends Mesh {
-  constructor() {
-    const shader = Sky.SkyShader;
+	constructor() {
+		const shader = Sky.SkyShader;
 
-    const material = new ShaderMaterial({
-      name: "SkyShader",
-      fragmentShader: shader.fragmentShader,
-      vertexShader: shader.vertexShader,
-      uniforms: UniformsUtils.clone(shader.uniforms),
-      side: BackSide,
-      depthWrite: false,
-    });
+		const material = new ShaderMaterial({
+			name: "SkyShader",
+			fragmentShader: shader.fragmentShader,
+			vertexShader: shader.vertexShader,
+			uniforms: UniformsUtils.clone(shader.uniforms),
+			side: BackSide,
+			depthWrite: false,
+		});
 
-    super(new BoxGeometry(1, 1, 1), material);
-  }
+		super(new BoxGeometry(1, 1, 1), material);
+	}
 }
 
 Sky.prototype.isSky = true;
 
-let now = new Date();
-// alert(now.getHours());
-
 Sky.SkyShader = {
-  uniforms: {
-    turbidity: { value: 0.3 },
-    rayleigh: { value: 1 },
-    mieCoefficient: { value: 0.005 },
-    mieDirectionalG: { value: 0.8 },
-    sunPosition: { value: new Vector3() },
-    up: { value: new Vector3(0, 2, 0) },
-    // up: { value: new Vector3(0, -1, 0) },
-    // up: { value: new Vector3(0, -1, 0) },
-    // up: { value: new Vector3(0, -1, 0) },
-    // up: { value: new Vector3(0, -1, 0) },
-  },
+	uniforms: {
+		turbidity: { value: 0.3 },
+		rayleigh: { value: 1 },
+		mieCoefficient: { value: 0.005 },
+		mieDirectionalG: { value: 0.9 },
+		sunPosition: { value: new Vector3() },
+		up: { value: new Vector3(0, 1, 0) },
+		// up: { value: new Vector3(0, -1, 0) },
+		// up: { value: new Vector3(0, -1, 0) },
+		// up: { value: new Vector3(0, -1, 0) },
+		// up: { value: new Vector3(0, -1, 0) },
+	},
 
-  vertexShader: /* glsl */ `
+	vertexShader: /* glsl */ `
 		uniform vec3 sunPosition;
 		uniform float rayleigh;
 		uniform float turbidity;
@@ -112,7 +109,7 @@ Sky.SkyShader = {
 			vBetaM = totalMie( turbidity ) * mieCoefficient;
 		}`,
 
-  fragmentShader: /* glsl */ `
+	fragmentShader: /* glsl */ `
 		varying vec3 vWorldPosition;
 		varying vec3 vSunDirection;
 		varying float vSunfade;

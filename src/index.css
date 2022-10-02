@@ -3,29 +3,35 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "BebasKai";
-  src: url("./assets/fonts/BebasKai.woff") format("woff");
-  /* font-weight: 400; */
-  /* font-style: normal; */
+	font-family: "BebasKai";
+	src: url("./assets/fonts/BebasKai.woff") format("woff");
+	/* font-weight: 400; */
+	/* font-style: normal; */
 }
 
 .superBold {
-  font-family: "BebasKai", sans-serif;
+	font-family: "BebasKai", sans-serif;
+}
+
+html {
+	overflow: hidden;
+	height: 100%;
+	overscroll-behavior-y: none;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    "Digitalt", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		"Digitalt", Bebaskai sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }

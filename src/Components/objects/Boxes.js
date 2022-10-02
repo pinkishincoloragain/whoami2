@@ -1,31 +1,22 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
 import * as THREE from "three";
-import water from "../../assets/textures/waternormals.jpeg";
-import water2 from "../../assets/textures/water2.png";
-import water3 from "../../assets/textures/water3.png";
-import stone from "../../assets/textures/solid_stone.jpeg";
-import stone2 from "../../assets/textures/stone_2.jpeg";
-// import stars from "../textures/stars.jpeg";
 
 function Boxes(props) {
-	let container, stats;
-	let camera, scene, raycaster, renderer;
+	let container;
+	let camera, scene, renderer;
 	let theta = 0;
-	let theta_speed = Math.random() * 0.4;
-	let INTERSECTED;
+	let theta_speed = Math.random() * 0.4 + 0.2;
 	const pointer = new THREE.Vector2();
 	const radius = 500;
 	const frustumSize = 1000;
-	const darkMode = useSelector(state => state.mode.value);
 
 	React.useEffect(() => {
 		init();
 		animate();
-	}, []);
+	});
 
 	function init() {
-		container = document.getElementById(`${props.name}`);
+		container = document.getElementById(props.container);
 
 		const aspect = props.width / props.height;
 		camera = new THREE.OrthographicCamera(
@@ -82,28 +73,12 @@ function Boxes(props) {
 		let rand_color_idx = Math.floor(Math.random() * colors.length);
 		let shape_case = Math.floor(Math.random() * 7);
 		let color_length = colors[rand_color_idx].length;
-		const texture_water = new THREE.TextureLoader().load(water);
-		const texture_water2 = new THREE.TextureLoader().load(water2);
-		const texture_water3 = new THREE.TextureLoader().load(water3);
-		const texture_stone = new THREE.TextureLoader().load(stone);
-		const texture_stone2 = new THREE.TextureLoader().load(stone2);
-		const textures = [
-			// texture_water,
-			// texture_water2,
-			// texture_water3,
-			// texture_stone,
-			// texture_stone2,
-			// texture_black,
-		];
-		// texture.wrapS = THREE.RepeatWrapping;
-		// texture.wrapT = THREE.RepeatWrapping;
-		// texture.repeat.set(4, 4);
 
-		// if (randNum == 1) {
-		geometry = new THREE.BoxGeometry(16, 16, 16);
-		// } else {
-		//   geometry = new THREE.IcosahedronGeometry(6, 16, 16);
-		// }
+		if (shape_case < 3) {
+			geometry = new THREE.IcosahedronGeometry(6, 16, 16);
+		} else {
+			geometry = new THREE.BoxGeometry(16, 16, 16);
+		}
 		for (let i = 0; i < 200; i++) {
 			const object = new THREE.Mesh(
 				geometry,
@@ -111,7 +86,6 @@ function Boxes(props) {
 					// color: Math.random() * 0xffffff,
 					color:
 						colors[rand_color_idx][Math.floor(Math.random() * color_length)],
-					// map: textures[i % textures.length],
 				})
 			);
 
@@ -125,11 +99,11 @@ function Boxes(props) {
 				object.position.y = Math.cos(i) * 360;
 				object.position.z = Math.tan(i) * 360;
 			}
-			// else if (randNum2 === 2) {
+			// else if (shape_case === 2) {
 			//   object.position.x = i * 400;
 			//   object.position.y = Math.sin(i) * 400;
 			//   object.position.z = Math.cos(i) * 400;
-			// } else if (randNum2 === 3) {
+			// } else if (shape_case === 3) {
 			//   object.position.x = Math.sin(i) * 400;
 			//   object.position.y = Math.cos(i) * 400;
 			//   object.position.z = Math.tan(i) * 400;
@@ -162,14 +136,15 @@ function Boxes(props) {
 			//   alert("fish");
 			// });
 		}
-
-		raycaster = new THREE.Raycaster();
-
 		renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(props.width, props.height);
 		renderer.domElement.setAttribute("display", "flex");
+		if (container.hasChildNodes()) {
+			container.removeChild(container.childNodes[0]);
+		}
 		container.appendChild(renderer.domElement);
+		renderer.domElement.style.borderRadius = "10px";
 
 		document.addEventListener("pointermove", onPointerMove);
 		window.addEventListener("resize", onWindowResize);
@@ -198,7 +173,6 @@ function Boxes(props) {
 	function animate() {
 		requestAnimationFrame(animate);
 		render();
-		// stats.update();
 	}
 
 	function render() {
@@ -211,41 +185,10 @@ function Boxes(props) {
 
 		camera.updateMatrixWorld();
 
-		// find intersections
-
-		raycaster.setFromCamera(pointer, camera);
-
-		const intersects = raycaster.intersectObjects(scene.children, false);
-
-		if (intersects.length > 0) {
-			if (INTERSECTED != intersects[0].object) {
-				if (INTERSECTED)
-					INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-				INTERSECTED = intersects[0].object;
-				INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-				INTERSECTED.material.emissive.setHex(0xff0000);
-			}
-		} else {
-			if (INTERSECTED)
-				INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-			INTERSECTED = null;
-		}
-
 		renderer.render(scene, camera);
 	}
 
-	return (
-		<div
-			id={`${props.name}`}
-			style={{
-				// width: "100vw",
-				height: "10vh",
-				transitionDuration: "0.1s",
-			}}
-		></div>
-	);
+	return <div id={props.container}></div>;
 }
 
 export default Boxes;
