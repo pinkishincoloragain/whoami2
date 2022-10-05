@@ -40,6 +40,19 @@ const EnlargeWrapper = styled.div(props => {
 	};
 });
 
+const LinkTextWrapper = styled.div(props => {
+	return {
+		color: props.user === "me" ? "white" : "black",
+		backgroundColor: props.user === "me" ? "#12C11A" : "#ffffff",
+		fontSize: "max(1rem, 1.5vw)",
+		width: "400px",
+		maxWidth: "80%",
+		padding: "min(1rem, 3vw)",
+		borderRadius: "1rem",
+		fontWeight: "500",
+	};
+});
+
 const Talk = ({ user, text }) => {
 	const element = useScroll("up", 0.7, 0);
 
@@ -54,24 +67,25 @@ const TalkWithEnlarge = ({ user, text, width, height }) => {
 	const element = useScroll("enlarge", 0.7, 0);
 	console.log(element);
 
-	const [scrollPosition, setScrollPosition] = React.useState(0);
-	const handleScroll = () => {
-		const position = window.pageYOffset;
-		setScrollPosition(position);
-	};
+	return (
+		<>
+			<TalkWrapper {...element} user={user}>
+				<EnlargeWrapper user={user}>{text}</EnlargeWrapper>
+			</TalkWrapper>
+		</>
+	);
+};
 
-	React.useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
+const TalkWithLink = ({ user, text, width, height }) => {
+	const element = useScroll("up", 0.7, 0);
+	console.log(element);
+
 	// console.log(scrollPosition);
 
 	return (
 		<>
 			<TalkWrapper {...element} user={user}>
-				<EnlargeWrapper user={user}>{text}</EnlargeWrapper>
+				<LinkTextWrapper user={user}>{text}</LinkTextWrapper>
 			</TalkWrapper>
 		</>
 	);
@@ -98,4 +112,4 @@ const TalkWithObject = ({ user, text, width, height }) => {
 	);
 };
 
-export { Talk, TalkWithEnlarge, TalkWithObject };
+export { Talk, TalkWithEnlarge, TalkWithLink, TalkWithObject };

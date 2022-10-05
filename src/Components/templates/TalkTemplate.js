@@ -2,7 +2,12 @@ import styled from "@emotion/styled";
 import Boxes from "../objects/Boxes";
 import * as React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Talk, TalkWithEnlarge, TalkWithObject } from "../atoms/Talk";
+import {
+	Talk,
+	TalkWithEnlarge,
+	TalkWithLink,
+	TalkWithObject,
+} from "../atoms/Talk";
 import talks from "../../assets/data/talk.json";
 
 const TalkWrapper = styled(`div`)({
@@ -20,6 +25,19 @@ const TalkResizer = styled(`div`)({
 
 const TalkTemplate = () => {
 	const windowSize = useWindowSize();
+
+	const [scrollPosition, setScrollPosition] = React.useState(0);
+	const handleScroll = () => {
+		const position = window.pageYOffset;
+		setScrollPosition(position);
+	};
+
+	React.useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
 		<TalkWrapper>
@@ -42,6 +60,8 @@ const TalkTemplate = () => {
 						// 	return <TalkWithEmoji text={text} user={user} key={index} />;
 						case "enlarge":
 							return <TalkWithEnlarge text={text} user={user} key={index} />;
+						case "link":
+							return <TalkWithLink text={text} user={user} key={index} />;
 						default:
 							return <Talk key={index} user={user} text={text} />;
 					}
