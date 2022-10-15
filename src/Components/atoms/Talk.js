@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import Waves from "../objects/Waves";
 import useScroll from "../../hooks/useScroll";
 import StateBox from "./StateBox";
@@ -32,7 +32,7 @@ const EnlargeWrapper = styled.div(props => {
 		color: props.user === "me" ? "white" : "black",
 		backgroundColor: props.user === "me" ? "#12C11A" : "#ffffff",
 		fontSize: "max(1rem, 1.5vw)",
-		width: "400px",
+		width: "fitContent",
 		maxWidth: "80%",
 		padding: "min(1rem, 3vw)",
 		borderRadius: "1rem",
@@ -45,7 +45,7 @@ const LinkTextWrapper = styled.div(props => {
 		color: props.user === "me" ? "white" : "black",
 		backgroundColor: props.user === "me" ? "#12C11A" : "#ffffff",
 		fontSize: "max(1rem, 1.5vw)",
-		width: "400px",
+		width: "fitContent",
 		maxWidth: "80%",
 		padding: "min(1rem, 3vw)",
 		borderRadius: "1rem",
@@ -65,29 +65,21 @@ const Talk = ({ user, text }) => {
 
 const TalkWithEnlarge = ({ user, text, width, height }) => {
 	const element = useScroll("enlarge", 0.7, 0);
-	console.log(element);
 
 	return (
-		<>
-			<TalkWrapper {...element} user={user}>
-				<EnlargeWrapper user={user}>{text}</EnlargeWrapper>
-			</TalkWrapper>
-		</>
+		<TalkWrapper {...element} user={user}>
+			<EnlargeWrapper user={user}>{text}</EnlargeWrapper>
+		</TalkWrapper>
 	);
 };
 
 const TalkWithLink = ({ user, text, width, height }) => {
 	const element = useScroll("up", 0.7, 0);
-	console.log(element);
-
-	// console.log(scrollPosition);
 
 	return (
-		<>
-			<TalkWrapper {...element} user={user}>
-				<LinkTextWrapper user={user}>{text}</LinkTextWrapper>
-			</TalkWrapper>
-		</>
+		<TalkWrapper {...element} user={user}>
+			<LinkTextWrapper user={user}>{text}</LinkTextWrapper>
+		</TalkWrapper>
 	);
 };
 
@@ -98,13 +90,13 @@ const TalkWithObject = ({ user, text, width, height }) => {
 		<>
 			<TalkWrapper {...element} user={user}>
 				<TextWrapper user={user}>
-					<Waves
+					{/* <Waves
 						width={width}
 						height={height}
 						elevation="10"
 						azimuth="45"
 						// container="boxContainer"
-					/>
+					/> */}
 				</TextWrapper>
 			</TalkWrapper>
 			<Talk user={user} text={text} />

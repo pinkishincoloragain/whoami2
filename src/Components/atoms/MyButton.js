@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components"
 
 const RedButton = styled(`button`)({
   // background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",

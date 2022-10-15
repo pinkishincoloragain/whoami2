@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components"
 // import Boxes from "../objects/Boxes";
 import Waves from "../objects/Waves";
 import Boxes from "../objects/Boxes";

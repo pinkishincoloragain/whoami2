@@ -7,7 +7,7 @@ import Input from "./devmode/input";
 import { banner } from "./utils/bin";
 import History from "./devmode/history/History";
 import { useHistory } from "./devmode/history/useHistory";
-import styled from "@emotion/styled";
+import styled from "styled-components"
 
 const DevModeWrapper = styled(`div`)({
 	// width: "80vw",

@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../../../config.json";
-import styled from "@emotion/styled";
+import styled from "styled-components"
 import { useSelector } from "react-redux";
 
 const Font1 = styled.span(props => {

@@ -1,6 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import profileImage from "../../assets/icons/memoji.jpg";
-import Cards from "./Cards";
 import CatchPhrase from "../atoms/CatchPhrase";
 import DevMode from "./developer/DevMode";
 const BannerWrapper = styled(`div`)({
@@ -20,7 +19,7 @@ const BannerImg = styled(`img`)({
 const Banner = () => {
 	return (
 		<BannerWrapper>
-			<BannerImg src={profileImage} alt="react logo" />
+			{/* <BannerImg src={profileImage} alt="react logo" /> */}
 			{/* <Cards /> */}
 			{/* <DevMode /> */}
 		</BannerWrapper>

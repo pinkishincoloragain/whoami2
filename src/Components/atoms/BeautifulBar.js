@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const BeatifulBar = styled(`div`)({
 	backgroundImage: "linear-gradient(217deg, #231955, #1F4690 71.71%)",

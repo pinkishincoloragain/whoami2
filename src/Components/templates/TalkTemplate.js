@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import Boxes from "../objects/Boxes";
 import * as React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
