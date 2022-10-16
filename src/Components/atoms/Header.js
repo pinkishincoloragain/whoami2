@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
 import StateBox from "./StateBox";
 import CircleText from "./CircleText";
-import Video from "./Video";
 
 const HeaderTypography = styled(`div`)({
 	"&:hover": {
@@ -16,21 +15,9 @@ const HeaderTypography = styled(`div`)({
 	color: "red",
 });
 
-const SubHeaderTypography = styled(`div`)({
-	"&:hover": {
-		color: "#FFCC00",
-		transitionDuration: "0.1s",
-		cursor: "pointer",
-	},
-	fontSize: "2rem",
-});
-
 const HeaderWrapper = styled(`div`)({
 	backgroundColor: "transparent",
-	display: "flex",
-	flexDirection: "flex-row",
-	flexWrap: "wrap",
-	height: "100%",
+	height: "80%",
 	zIndex: 2,
 });
 
@@ -46,7 +33,7 @@ export default function Header(props) {
 		logoRef.current.style.color = darkMode ? "#1b1b1b" : "#FFCC00";
 	};
 	const handleMouseEnter = () => {
-		logoRef.current.style.color = "#ffffff";
+		logoRef.current.style.color = "#FFCC00";
 	};
 	const handleMouseOut = () => {
 		logoRef.current.style.color = !darkMode ? "#1b1b1b" : "#FFCC00";
@@ -68,13 +55,6 @@ export default function Header(props) {
 			>
 				TONE AND MANNER
 			</HeaderTypography>
-
-			<SubHeaderTypography className="superBold">
-				&nbsp;PINKISHINCOLORAGAIN
-			</SubHeaderTypography>
-			<SubHeaderTypography className="superBold">
-				&nbsp;WORKS
-			</SubHeaderTypography>
 		</HeaderWrapper>
 	);
 }

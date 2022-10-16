@@ -23,14 +23,18 @@ const DrawCircle = styled.path({
 	`,
 });
 
-const SvgWrapper = styled.div({
-	width: "100%",
-	height: "40vh",
+const SvgWrapper = styled.div(props => {
+	return {
+		zIndex: "-1",
+		width: "100%",
+		height: "100%",
+		visibility: props.visibility,
+	};
 });
 
-const CircleSvg = () => {
+const CircleSvg = visibility => {
 	return (
-		<SvgWrapper>
+		<SvgWrapper visibility={visibility}>
 			<svg
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
