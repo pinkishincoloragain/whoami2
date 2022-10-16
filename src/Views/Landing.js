@@ -36,8 +36,6 @@ const MainWrapper = styled.div({
 	marginTop: "20%",
 });
 
-// const  = styled(`div`)({});
-
 const HeaderWrapper = styled.div({
 	width: "80%",
 	display: "flex",

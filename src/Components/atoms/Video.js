@@ -1,9 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import bkg from "../../assets/images/bkg.jpg";
-import CircleSvg from "./CircleSvg";
+import LoadingSvg from "./LoadingSvg";
 
-const BackgroundVideoWrapper = styled.div({
+const BackgroundWrapper = styled.div({
 	position: "absolute",
 	top: 0,
 	left: 0,
@@ -26,6 +26,11 @@ const BackgroundImageWrapper = styled.div({
 	scale: 1.1,
 });
 
+const BackgroundVideo = styled.iframe({
+	width: "100%",
+	height: "100%",
+});
+
 function Video() {
 	const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
 	const [videoPlay, setVideoPlay] = React.useState(false);
@@ -33,7 +38,7 @@ function Video() {
 	React.useEffect(() => {
 		setTimeout(() => {
 			setVideoPlay(true);
-		}, 1000);
+		}, 2100);
 	});
 
 	React.useEffect(() => {
@@ -48,26 +53,29 @@ function Video() {
 	}, []);
 
 	return (
-		<BackgroundVideoWrapper>
-			{/* <CircleSvg visibility={videoPlay ? "hidden" : "visible"} /> */}
+		<BackgroundWrapper>
+			<LoadingSvg display={videoPlay ? "none" : "flex"} />
+			<BackgroundVideo
+				src="https://www.youtube.com/embed/NU6ynXp7uUE?autoplay=1&playlist=NU6ynXp7uUE&loop=1&controls=0&mute=1&modestbranding=1&showinfo=0&start=5&enablejsapi=1&&widgetid=3"
+				frameBorder="0"
+				// allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowFullScreen
+				title="Hello world youtube video"
+			/>
 			{windowWidth > 768 ? (
-				<iframe
+				<BackgroundVideo
 					src="https://www.youtube.com/embed/NU6ynXp7uUE?autoplay=1&playlist=NU6ynXp7uUE&loop=1&controls=0&mute=1&modestbranding=1&showinfo=0&start=5&enablejsapi=1&&widgetid=3"
 					frameBorder="0"
 					// allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen
-					style={{
-						width: "100%",
-						height: "100%",
-					}}
-					title="Hello world 1.mp4"
-				></iframe>
+					title="Hello world youtube video"
+				/>
 			) : (
 				<BackgroundImageWrapper>
 					<img src={bkg} />
 				</BackgroundImageWrapper>
 			)}
-		</BackgroundVideoWrapper>
+		</BackgroundWrapper>
 	);
 }
 
