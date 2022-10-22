@@ -3,7 +3,7 @@ import { commandExists } from "../utils/commandExists";
 import { shell } from "../utils/shell";
 import { handleTabCompletion } from "../utils/tabCompletion";
 import { Directory } from "./Directory";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const PromptLabel = styled(`label`)({
 	htmlFor: "prompt",

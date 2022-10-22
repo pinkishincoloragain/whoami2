@@ -56,7 +56,7 @@ function Landing(props) {
 			<SubHeader />
 
 			<MainWrapper>
-				{/* <BeatifulBar /> */}
+				<BeatifulBar />
 				{/* <DrawSvg /> */}
 				<Banner />
 				<TalkTemplate />
