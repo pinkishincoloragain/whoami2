@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../../../config.json";
-import styled from "styled-components"
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 const Font1 = styled.span(props => {
@@ -25,7 +25,7 @@ export const Directory = () => {
 
 	return (
 		<>
-			<Font1 mode={mode}>{config.ps1_username}</Font1>
+			<Font1 mode={mode.toString()}>{config.ps1_username}</Font1>
 			<Font2>@</Font2>
 			<Font3>{config.ps1_hostname}</Font3>
 			<Font2> &gt;&gt;&nbsp;</Font2>

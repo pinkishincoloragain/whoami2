@@ -21,7 +21,7 @@ const Banner = () => {
 		<BannerWrapper>
 			{/* <BannerImg src={profileImage} alt="react logo" /> */}
 			{/* <Cards /> */}
-			{/* <DevMode /> */}
+			<DevMode />
 		</BannerWrapper>
 	);
 };
