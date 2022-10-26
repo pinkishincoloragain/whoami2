@@ -90,13 +90,13 @@ const TalkWithObject = ({ user, text, width, height }) => {
 		<>
 			<TalkWrapper {...element} user={user}>
 				<TextWrapper user={user}>
-					{/* <Waves
+					<Waves
 						width={width}
 						height={height}
 						elevation="10"
 						azimuth="45"
 						// container="boxContainer"
-					/> */}
+					/>
 				</TextWrapper>
 			</TalkWrapper>
 			<Talk user={user} text={text} />
