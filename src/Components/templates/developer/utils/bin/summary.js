@@ -1,8 +1,8 @@
 import config from "../../../../config.json";
 
 const summary = async args => {
-	if (config.ascii === "cveinnt") {
-		return `                                                  
+  if (config.ascii === "cveinnt") {
+    return `                                                  
              @@@@@@@@@@@@@                   summary: summary display
         @@@@               @@@@             -----------
       @@                       @@            ABOUT
@@ -21,8 +21,8 @@ const summary = async args => {
          @|                      @@          <u><a href="${config.extra.patreon}" target="_blank">${config.extra.patreon}</a></u>
 
 `;
-	} else {
-		return `
+  } else {
+    return `
            ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  summary
         ▄▓▓▀ ▄▓▓▀▓▓▓▀▓▓▄ ▀▀▓▓▄              -----------
       ▓▓▀  ▄▓▀   ▐▓▓  ▀▓▓    ▓▓▄             ABOUT
@@ -40,7 +40,7 @@ const summary = async args => {
             ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                   <u><a href="${config.extra.patreon}" target="_blank">${config.extra.patreon}</a></u>
 
 `;
-	}
+  }
 };
 
 export default summary;
