@@ -18,9 +18,9 @@ function Box(props) {
       {...props}
       ref={ref}
       scale={clicked ? 3 : 2}
-      onClick={(e) => click(!clicked)}
-      onPointerOver={(e) => hover(true)}
-      onPointerOut={(e) => hover(false)}
+      onClick={e => click(!clicked)}
+      onPointerOver={e => hover(true)}
+      onPointerOut={e => hover(false)}
     >
       <boxGeometry args={[1, 1, 1]} />
       {/* <circleGeometry args={[1, 1, 1]} /> */}
