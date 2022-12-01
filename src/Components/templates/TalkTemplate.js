@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import Boxes from "../objects/Boxes";
 import * as React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Talk, TalkWithEnlarge, TalkWithLink, TalkWithObject } from "../atoms/Talk";
+import { Talk, TalkWithEnlarge, TalkWithLink, TalkWithObject } from "../molecules/Talk";
 import talks from "../../assets/data/talk.json";
 
 const TalkWrapper = styled(`div`)({
