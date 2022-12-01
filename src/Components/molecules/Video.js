@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import bkg from "../../assets/images/bkg.jpg";
-import LoadingSvg from "./LoadingSvg";
+import LoadingSvg from "../atoms/LoadingSvg";
 
 const BackgroundWrapper = styled.div({
   position: "absolute",
