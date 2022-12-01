@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
-import StateBox from "../atoms/StateBox";
+import StateBox from "./StateBox";
 import CircleText from "../atoms/CircleText";
 
 const HeaderTypography = styled(`div`)({
