@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import professorImg from "../../assets/images/professor2.png";
 import anniversary from "../../assets/data/anniversary.json";
+// import { Link } from "react-router-dom";
 
-import { DarkButton } from "../atoms/MyButton";
+import { DarkLink } from "../atoms/MyButton";
 import { H1, H2, H3 } from "../atoms/Text";
 
 const AnniversaryImg = styled.img({
@@ -23,7 +24,7 @@ export default function AnniversaryContent({ handlePopupStep }) {
       <br />
       <H3>{anniversary.content}</H3>
       <br />
-      <DarkButton onClick={handlePopupStep}>{anniversary.button}</DarkButton>
+      <DarkLink to='/fish'>{anniversary.button}</DarkLink>
     </div>
   );
 }

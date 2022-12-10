@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../colors.json";
+import { Link } from "react-router-dom";
 
 const RedButton = styled(`button`)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -30,11 +31,11 @@ const TerminalButton = styled.button({
   filter: "saturate(1.2)",
 });
 
-const DarkButton = styled.button({
+const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
-  padding: "10px 20px 10px 20px",
-  borderRadius: "10px",
+  padding: "10px 12px 10px 12px",
+  borderRadius: "8px",
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, DarkButton };
+export { RedButton, BlueButton, TerminalButton, DarkLink };
