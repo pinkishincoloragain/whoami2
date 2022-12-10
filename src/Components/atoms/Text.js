@@ -7,10 +7,12 @@ const H1 = styled.h1({
 
 const H2 = styled.h2({
   fontSize: "1.2rem",
+  fontWeight: "bold",
 });
 
 const H3 = styled.h3({
   fontSize: "1rem",
+  fontWeight: "bold",
 });
 
 export { H1, H2, H3 };

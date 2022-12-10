@@ -31,6 +31,19 @@ const TerminalButton = styled.button({
   filter: "saturate(1.2)",
 });
 
+const DarkButton = styled.button(props => {
+  return {
+    width: "100%",
+    display: "flex",
+    backgroundColor: "#2A3C5B",
+    padding: props.selected ? "6px 12px 6px 12px" : "10px 12px 10px 12px",
+    borderRadius: "8px",
+    fontWeight: "bold",
+    fontSize: "0.8rem",
+    margin: "8px 0 8px 0",
+  };
+});
+
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
   padding: "10px 12px 10px 12px",
@@ -38,4 +51,4 @@ const DarkLink = styled(Link)({
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, DarkLink };
+export { RedButton, BlueButton, TerminalButton, DarkLink, DarkButton };
