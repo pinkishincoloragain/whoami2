@@ -10,7 +10,7 @@ const AnniversaryImg = styled.img({
   borderRadius: "20px",
 });
 
-export default function AnniversaryContent() {
+export default function AnniversaryContent({ handlePopupStep }) {
   return (
     <div>
       <H1>{anniversary.title}</H1>
@@ -23,7 +23,7 @@ export default function AnniversaryContent() {
       <br />
       <H3>{anniversary.content}</H3>
       <br />
-      <DarkButton>{anniversary.button}</DarkButton>
+      <DarkButton onClick={handlePopupStep}>{anniversary.button}</DarkButton>
     </div>
   );
 }

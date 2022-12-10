@@ -1,4 +1,7 @@
+import React from "react";
+
 import AnniversaryContent from "../molecules/AnniversaryContent";
+import AnniversaryForm from "../molecules/AnniversaryForm";
 import styled from "styled-components";
 
 const ContentWrapper = styled.div({
@@ -11,10 +14,27 @@ const ContentWrapper = styled.div({
   overflow: "scroll",
 });
 
+const PopupStepper = ({ popupStep, handlePopupStep }) => {
+  switch (popupStep) {
+    case 0:
+      return <AnniversaryContent handlePopupStep={handlePopupStep} />;
+    case 1:
+      return <AnniversaryForm handlePopupStep={handlePopupStep} />;
+    default:
+      return <AnniversaryContent handlePopupStep={handlePopupStep} />;
+  }
+};
+
 export default function PopupContent() {
+  const [popupStep, setPopupStep] = React.useState(0);
+
+  const handlePopupStep = () => {
+    setPopupStep(popupStep + 1);
+  };
+
   return (
     <ContentWrapper>
-      <AnniversaryContent />
+      <PopupStepper popupStep={popupStep} handlePopupStep={handlePopupStep} />
     </ContentWrapper>
   );
 }
