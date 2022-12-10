@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Video from "../Components/molecules/Video";
-import Header from "../Components/molecules/Header";
 import BeatifulBar from "../Components/atoms/BeautifulBar";
 
+import Video from "../Components/templates/Video";
+import Header from "../Components/templates/Header";
 import Banner from "../Components/templates/Banner";
 import TalkTemplate from "../Components/templates/TalkTemplate";
 import SubHeader from "../Components/templates/SubHeader";

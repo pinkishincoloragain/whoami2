@@ -55,16 +55,9 @@ function Video() {
   return (
     <BackgroundWrapper>
       <LoadingSvg display={videoPlay ? "none" : "flex"} />
-      <BackgroundVideo
-        src='https://www.youtube.com/embed/NU6ynXp7uUE?autoplay=1&playlist=NU6ynXp7uUE&loop=1&controls=0&mute=1&modestbranding=1&showinfo=0&start=5&enablejsapi=1&&widgetid=3'
-        frameBorder='0'
-        // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title='Hello world youtube video'
-      />
       {windowWidth > 768 ? (
         <BackgroundVideo
-          src='https://www.youtube.com/embed/NU6ynXp7uUE?autoplay=1&playlist=NU6ynXp7uUE&loop=1&controls=0&mute=1&modestbranding=1&showinfo=0&start=5&enablejsapi=1&&widgetid=3'
+          // src='https://www.youtube.com/embed/NU6ynXp7uUE?autoplay=1&playlist=NU6ynXp7uUE&loop=1&controls=0&mute=1&modestbranding=1&showinfo=0&start=5&enablejsapi=1&&widgetid=3'
           frameBorder='0'
           // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

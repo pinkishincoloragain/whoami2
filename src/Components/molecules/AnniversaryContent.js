@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import professorImg from "../../../assets/images/professor2.png";
-import anniversary from "../../../assets/data/anniversary.json";
-import { DarkButton } from "../MyButton";
+import professorImg from "../../assets/images/professor2.png";
+import anniversary from "../../assets/data/anniversary.json";
 
-import { H1, H2, H3 } from "../text/Text";
+import { DarkButton } from "../atoms/MyButton";
+import { H1, H2, H3 } from "../atoms/Text";
 
 const AnniversaryImg = styled.img({
   width: "60%",

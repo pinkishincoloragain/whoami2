@@ -1,4 +1,4 @@
-import AnniversaryContent from "../atoms/popup/AnniversaryContent";
+import AnniversaryContent from "../molecules/AnniversaryContent";
 import styled from "styled-components";
 
 const ContentWrapper = styled.div({
@@ -6,7 +6,7 @@ const ContentWrapper = styled.div({
   flexDirection: "column",
   width: "100%",
   height: "100%",
-  color: "black",
+  color: "white",
   padding: "1rem 2rem 1rem 2rem",
   overflow: "scroll",
 });

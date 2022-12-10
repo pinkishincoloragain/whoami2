@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { TerminalBtn } from "../atoms/MyButton";
+import { TerminalButton } from "../atoms/MyButton";
 
 const ButtonGroupWrapper = styled.div({
   width: "3.5rem",
@@ -13,7 +13,7 @@ const ButtonGroupWrapper = styled.div({
 export default function PopupButtonGroup({ handlePopupClose }) {
   return (
     <ButtonGroupWrapper>
-      <TerminalBtn onClick={handlePopupClose} color='red' />
+      <TerminalButton onClick={handlePopupClose} color='red' />
     </ButtonGroupWrapper>
   );
 }

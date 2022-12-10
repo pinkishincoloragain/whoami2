@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import AnniversaryContent from "../atoms/popup/AnniversaryContent";
-import PopupContent from "../molecules/PopupContent";
+import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
+
+import colors from "../colors.json";
 
 const PopupBackground = styled.div({
   position: "absolute",
@@ -21,12 +22,9 @@ const PopupBackground = styled.div({
 const PopupWrapper = styled.div({
   width: "50%",
   minWidth: "20rem",
-  height: "50%",
   minHeight: "30rem",
-  backgroundColor: "white",
-  borderRadius: "0.5rem",
-  display: "flex",
-  flexDirection: "column",
+  backgroundColor: colors.dark.background,
+  borderRadius: "1rem",
 });
 
 export default function Popup() {
