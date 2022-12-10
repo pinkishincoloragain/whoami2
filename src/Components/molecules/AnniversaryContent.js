@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import professorImg from "../../assets/images/professor2.png";
 import anniversary from "../../assets/data/anniversary.json";
-// import { Link } from "react-router-dom";
 
 import { DarkLink } from "../atoms/MyButton";
 import { H1, H2, H3 } from "../atoms/Text";

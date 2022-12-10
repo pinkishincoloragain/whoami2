@@ -2,7 +2,6 @@ import React from "react";
 
 import AnniversaryContent from "../molecules/AnniversaryContent";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const ContentWrapper = styled.div({
   display: "flex",

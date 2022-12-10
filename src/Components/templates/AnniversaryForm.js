@@ -11,17 +11,12 @@ export default function AnniversaryForm() {
       <H2>{anniversary.title}</H2>
       <br />
       <H3>{anniversary.questions[0]}</H3>
+      {anniversary.options.map((option, index) => {
+        return <DarkButton key={index}>{option}</DarkButton>;
+      })}
       <br />
       <H3>{anniversary.questions[1]}</H3>
       <br />
-      {anniversary.options.map((option, index) => {
-        return (
-          <div>
-            <DarkButton>{option}</DarkButton>
-            <br />
-          </div>
-        );
-      })}
     </div>
   );
 }
