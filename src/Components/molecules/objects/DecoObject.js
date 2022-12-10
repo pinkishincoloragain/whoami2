@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Waves from "../objects/Waves";
 import Boxes from "../objects/Boxes";
 import * as React from "react";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 const DecoWrapper = styled(`div`)({
   backgroundColor: "transparent",

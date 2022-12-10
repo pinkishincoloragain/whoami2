@@ -1,4 +1,9 @@
+import React from "react";
 import styled from "styled-components";
+import PopupContent from "../organisms/PopupContent";
+import PopupButtonGroup from "../molecules/PopupButtonGroup";
+
+import colors from "../colors.json";
 
 const PopupBackground = styled.div({
   position: "absolute",
@@ -10,37 +15,44 @@ const PopupBackground = styled.div({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  overflow: "hidden",
+  backdropFilter: "blur(10px)",
 });
 
 const PopupWrapper = styled.div({
   width: "50%",
-  height: "50%",
-  backgroundColor: "white",
-  borderRadius: "0.5rem",
-  display: "flex",
-  flexDirection: "column",
+  minWidth: "20rem",
+  minHeight: "30rem",
+  backgroundColor: colors.dark.background,
+  borderRadius: "1rem",
 });
 
 export default function Popup() {
-  const removeScrollListener = () => {
-    // if running on client side
-    document.removeEventListener("scroll", this.handleScroll, false);
+  const [popupOpen, setPopupOpen] = React.useState(true);
+
+  React.useEffect(() => {
+    if (popupOpen) {
+      document.querySelector("html").style.overflow = "hidden";
+    }
+  }, []);
+
+  const enableScroll = () => {
+    document.querySelector("html").style.overflow = "auto";
   };
 
-  const addScrollListener = () => {
-    // if running on client side
-    document.addEventListener("scroll", this.handleScroll, false);
+  const handlePopupClose = () => {
+    setPopupOpen(false);
+    enableScroll();
   };
 
   return (
-    <PopupBackground>
-      <PopupWrapper>
-        <h1>Popup</h1>
-        <h1>Popup</h1>
-        <h1>Popup</h1>
-        <h1>Popup</h1>
-        <h1>Popup</h1>
-      </PopupWrapper>
-    </PopupBackground>
+    popupOpen && (
+      <PopupBackground>
+        <PopupWrapper>
+          <PopupButtonGroup handlePopupClose={handlePopupClose} />
+          <PopupContent />
+        </PopupWrapper>
+      </PopupBackground>
+    )
   );
 }

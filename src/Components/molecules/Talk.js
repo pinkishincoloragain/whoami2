@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import Waves from "../objects/Waves";
+import Waves from "./objects/Waves";
 import useScroll from "../../hooks/useScroll";
 
 const TalkWrapper = styled.div(props => {

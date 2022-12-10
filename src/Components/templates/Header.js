@@ -2,8 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../controls/modeSlice";
-import StateBox from "./StateBox";
-import CircleText from "../atoms/CircleText";
 
 const HeaderTypography = styled(`div`)({
   "&:hover": {
@@ -53,7 +51,7 @@ export default function Header(props) {
         onMouseOut={handleMouseOut}
         ref={logoRef}
       >
-        TONE AND MANNER
+        pinkish
       </HeaderTypography>
     </HeaderWrapper>
   );

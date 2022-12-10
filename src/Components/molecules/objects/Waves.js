@@ -1,9 +1,9 @@
 import * as THREE from "three";
-import { OrbitControls } from "../controls/OrbitControls.js";
+import { OrbitControls } from "./OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
-import waterNormals from "../../assets/textures/waternormals.jpeg";
+import waterNormals from "../../../assets/textures/waternormals.jpeg";
 // import { useSelector } from "react-redux";
 
 function Waves(props) {
