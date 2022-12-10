@@ -22,14 +22,19 @@ const BlueButton = styled(`button`)({
   padding: "0 30px",
 });
 
-const TerminalBtn = styled.button(props => {
-  return {
-    width: "14px",
-    height: "14px",
-    borderRadius: "30px",
-    backgroundColor: config.colors["light"]["red"],
-    filter: "saturate(1.2)",
-  };
+const TerminalButton = styled.button({
+  width: "14px",
+  height: "14px",
+  borderRadius: "30px",
+  backgroundColor: config.colors["light"]["red"],
+  filter: "saturate(1.2)",
 });
 
-export { RedButton, BlueButton, TerminalBtn };
+const DarkButton = styled.button({
+  backgroundColor: "#2A3C5B",
+  padding: "10px 20px 10px 20px",
+  borderRadius: "10px",
+  fontWeight: "bold",
+});
+
+export { RedButton, BlueButton, TerminalButton, DarkButton };
