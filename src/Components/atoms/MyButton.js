@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import config from "../config.json";
+import colors from "../colors.json";
 
 const RedButton = styled(`button`)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -26,7 +26,7 @@ const TerminalButton = styled.button({
   width: "14px",
   height: "14px",
   borderRadius: "30px",
-  backgroundColor: config.colors["light"]["red"],
+  backgroundColor: colors.light.red,
   filter: "saturate(1.2)",
 });
 

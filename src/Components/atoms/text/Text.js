@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const H1 = styled.h1({
-  fontSize: "1.5rem",
+  fontSize: "1.4rem",
   fontWeight: "bold",
 });
 
