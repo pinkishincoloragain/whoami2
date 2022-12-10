@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import PopupContent from "../atoms/popup/PopupContent";
+import AnniversaryContent from "../atoms/popup/AnniversaryContent";
+import PopupContent from "../molecules/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
 
 const PopupBackground = styled.div({

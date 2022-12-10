@@ -13,7 +13,7 @@ const RedButton = styled(`button`)({
 });
 
 const BlueButton = styled(`button`)({
-  background: "linear-gradient(45deg, #412345 30%, #FF8E53 90%)",
+  background: "linear-gradient(45deg, #412345 30%, #6495ED 90%)",
   border: 0,
   borderRadius: 3,
   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
