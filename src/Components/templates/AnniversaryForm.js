@@ -14,18 +14,14 @@ const AnniversaryFormWrapper = styled.form({
   maxWidth: "30rem",
 });
 
-const MandatoryField = styled.span({
-  color: "red",
-});
-
 export default function AnniversaryForm() {
   const [response, setResponse] = React.useState({});
+  const [canSubmit, setCanSubmit] = React.useState(false);
 
   const extractFormData = e => {
     const formData = {
       reaction: [],
     };
-
     return [...e.target]
       .filter(el => el.id !== "" || el.value !== "false")
       .reduce((acc, el) => {
@@ -38,27 +34,36 @@ export default function AnniversaryForm() {
     e.preventDefault();
     setResponse(extractFormData(e));
   };
+  console.log(response);
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <H2>{anniversary.title}</H2>
-      <br />
-      <H3>{anniversary.questions[0]}</H3>
       <MultiSelectForm
-        id={"tryAdd"}
+        title={anniversary.questions[0]}
+        id='tryAdd'
         options={anniversary.options}
         addFormPlaceholder={anniversary.createByOwn}
       />
-      <H3>{anniversary.questions[1]}</H3>
-      <InputForm id={"name"} placeholder={anniversary.placeholder.name} />
-      <H3>
-        {anniversary.questions[2]}
-        <MandatoryField>*</MandatoryField>
-      </H3>
-      <InputForm id={"tel"} placeholder={anniversary.placeholder.email} />
-      <H3>{anniversary.questions[3]}</H3>
-      <TextAreaForm id={"description"} placeholder={anniversary.placeholder.message} />
-      <SubmitButton value={false}>{anniversary.submit}</SubmitButton>
+      <InputForm
+        title={anniversary.questions[1]}
+        id='name'
+        placeholder={anniversary.placeholder.name}
+      />
+      <InputForm
+        title={anniversary.questions[2]}
+        setCanSubmit={setCanSubmit}
+        id='tel'
+        placeholder={anniversary.placeholder.email}
+      />
+      <TextAreaForm
+        title={anniversary.questions[3]}
+        id='description'
+        placeholder={anniversary.placeholder.message}
+      />
+      <SubmitButton disabled={!canSubmit} value={false}>
+        {anniversary.submit}
+      </SubmitButton>
     </AnniversaryFormWrapper>
   );
 }

@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 
+import { H3 } from "../atoms/Text";
+
 const InputFormWrapper = styled.div({
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   width: "100%",
   margin: "2vh 0 2vh 0",
 });
@@ -24,9 +26,10 @@ const Input = styled.input({
   },
 });
 
-export default function InputForm({ id, placeholder }) {
+export default function InputForm({ title, id, placeholder }) {
   return (
     <InputFormWrapper>
+      <H3>{title}</H3>
       <Input id={id} placeholder={placeholder} />
     </InputFormWrapper>
   );

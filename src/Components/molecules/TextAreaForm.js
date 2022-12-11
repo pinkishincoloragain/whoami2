@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 
+import { H3 } from "../atoms/Text";
+
 const TextAreaFormWrapper = styled.div({
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   width: "100%",
-  margin: "2vh 0 2vh 0",
+  margin: "3vh 0 2vh 0",
 });
 
 const TextArea = styled.textarea({
@@ -23,9 +25,10 @@ const TextArea = styled.textarea({
   },
 });
 
-export default function TextAreaForm({ id, placeholder }) {
+export default function TextAreaForm({ title, id, placeholder }) {
   return (
     <TextAreaFormWrapper>
+      <H3>{title}</H3>
       <TextArea id={id} placeholder={placeholder} />
     </TextAreaFormWrapper>
   );
