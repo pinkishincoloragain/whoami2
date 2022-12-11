@@ -42,7 +42,7 @@ const SelectButton = styled.button(props => {
     borderRadius: "8px",
     fontWeight: "bold",
     fontSize: "14px",
-    margin: "8px 0 8px 0",
+    margin: "6px 0 6px 0",
 
     "&:active": {
       padding: "10px 12px 10px 12px",

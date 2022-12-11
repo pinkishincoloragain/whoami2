@@ -3,11 +3,12 @@ import { SelectButton } from "../atoms/MyButton";
 import styled from "styled-components";
 
 const MultiSelectFormWrapper = styled.div({
-  width: "80%",
+  width: "100%",
+  margin: "2vh 0 2vh 0",
 });
 
-export default function MultiSelectForm({ selection }) {
-  const [selected, setSelected] = React.useState(Array(selection.length).fill(false));
+export default function MultiSelectForm({ options }) {
+  const [selected, setSelected] = React.useState(Array(options.length).fill(false));
 
   const handleButtonClick = index => {
     const newSelected = [...selected];
@@ -17,7 +18,7 @@ export default function MultiSelectForm({ selection }) {
 
   return (
     <MultiSelectFormWrapper>
-      {selection.map((option, index) => {
+      {options.map((option, index) => {
         return (
           <SelectButton
             selected={selected[index]}
