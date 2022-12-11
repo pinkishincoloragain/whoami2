@@ -38,14 +38,14 @@ const SelectButton = styled.button(props => {
     display: "flex",
     alignItems: "center",
     backgroundColor: props.selected ? "#2A3C5B" : "transparent",
-    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 12px",
+    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 0px",
     borderRadius: "8px",
     fontWeight: "bold",
     fontSize: "14px",
-    margin: "6px 0 6px 0",
+    margin: props.selected ? "6px -12px 6px -12px" : "6px 0 6px 0",
 
     "&:active": {
-      padding: "10px 12px 10px 12px",
+      padding: props.selected ? "10px 12px 10px 16px" : "10px 12px 10px 4px",
       fontSize: "13.5px",
     },
   };
@@ -53,8 +53,8 @@ const SelectButton = styled.button(props => {
 
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
-  padding: "10px 8px 10px 12px",
   borderRadius: "8px",
+  margin: "6px -12px 6px -12px",
   fontWeight: "bold",
 });
 
