@@ -61,6 +61,7 @@ const AddButton = styled.button({
   fontWeight: "bold",
   borderRadius: "8px",
   padding: "10px 12px 10px 12px",
+  marginRight: "-12px",
   fontSize: "14px",
   backgroundColor: colors.dark.green,
   "&:active": {
