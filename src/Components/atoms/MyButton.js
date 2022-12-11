@@ -69,20 +69,22 @@ const AddButton = styled.button({
   },
 });
 
-const SubmitButton = styled.button({
-  height: "36px",
-  width: "80px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontWeight: "bold",
-  borderRadius: "8px",
-  padding: "10px 12px 10px 12px",
-  fontSize: "14px",
-  backgroundColor: colors.dark.blue2,
-  "&:active": {
-    fontSize: "13.5px",
-  },
+const SubmitButton = styled.button(props => {
+  return {
+    height: "36px",
+    width: "80px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "bold",
+    borderRadius: "8px",
+    padding: "10px 12px 10px 12px",
+    fontSize: "14px",
+    backgroundColor: props.disabled ? colors.dark.red : colors.dark.blue2,
+    "&:active": {
+      fontSize: "13.5px",
+    },
+  };
 });
 
 const DarkLink = styled(Link)({
