@@ -70,7 +70,7 @@ const AddButton = styled.button({
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
   borderRadius: "8px",
-  margin: "6px -12px 6px -12px",
+  padding: "10px 12px 10px 12px",
   fontWeight: "bold",
 });
 
