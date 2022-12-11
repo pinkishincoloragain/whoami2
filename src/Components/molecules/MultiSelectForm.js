@@ -1,17 +1,13 @@
 import React from "react";
-import anniversary from "../../assets/data/anniversary.json";
-import { H1, H2, H3 } from "../atoms/Text";
 import { SelectButton } from "../atoms/MyButton";
 import styled from "styled-components";
 
 const MultiSelectFormWrapper = styled.div({
   width: "80%",
-  minWidth: "20rem",
-  maxWidth: "30rem",
 });
 
-export default function MultiSelectForm() {
-  const [selected, setSelected] = React.useState(Array(anniversary.options.length).fill(false));
+export default function MultiSelectForm({ selection }) {
+  const [selected, setSelected] = React.useState(Array(selection.length).fill(false));
 
   const handleButtonClick = index => {
     const newSelected = [...selected];
@@ -21,10 +17,7 @@ export default function MultiSelectForm() {
 
   return (
     <MultiSelectFormWrapper>
-      <H2>{anniversary.title}</H2>
-      <br />
-      <H3>{anniversary.questions[0]}</H3>
-      {anniversary.options.map((option, index) => {
+      {selection.map((option, index) => {
         return (
           <SelectButton
             selected={selected[index]}
@@ -37,9 +30,6 @@ export default function MultiSelectForm() {
           </SelectButton>
         );
       })}
-      <br />
-      <H3>{anniversary.questions[1]}</H3>
-      <br />
     </MultiSelectFormWrapper>
   );
 }
