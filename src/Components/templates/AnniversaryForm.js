@@ -26,15 +26,15 @@ export default function AnniversaryForm() {
     description: true,
   });
 
-  const { name, tel, description } = response;
-
   const handleChange = e => {
     const { value, name } = e.target;
-
+    // if (value === "") {
     setIsEmpty({
       ...isEmpty,
       [name]: value === "",
     });
+    // }
+
     setResponse({
       ...response,
       [name]: value,

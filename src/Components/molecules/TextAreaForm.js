@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 
-import { H3 } from "../atoms/Text";
+import { H3, SmallText } from "../atoms/Text";
+
+const TEXT_INPUT_CHECK = {
+  okay: "지금 딱 좋아요!",
+  empty: "한 마디라도 남겨주세요!",
+};
 
 const TextAreaFormWrapper = styled.div({
   display: "flex",
@@ -25,10 +30,18 @@ const TextArea = styled.textarea({
   },
 });
 
-export default function TextAreaForm({ title, placeholder, name, onChange }) {
+const FormHeaderWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+});
+
+export default function TextAreaForm({ title, placeholder, name, onChange, isEmpty }) {
   return (
     <TextAreaFormWrapper>
-      <H3>{title}</H3>
+      <FormHeaderWrapper>
+        <H3>{title}</H3>
+        <SmallText>{isEmpty ? TEXT_INPUT_CHECK.empty : TEXT_INPUT_CHECK.okay}</SmallText>
+      </FormHeaderWrapper>
       <TextArea name={name} placeholder={placeholder} onChange={onChange} />
     </TextAreaFormWrapper>
   );

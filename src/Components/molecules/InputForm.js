@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 
-import { H3 } from "../atoms/Text";
+import { H3, SmallText } from "../atoms/Text";
+
+const TEXT_INPUT_CHECK = {
+  okay: "지금 딱 좋아요!",
+  empty: "이건 비어 있으면 안 돼요!",
+};
 
 const InputFormWrapper = styled.div({
   display: "flex",
@@ -26,10 +31,19 @@ const Input = styled.input({
   },
 });
 
+const FormHeaderWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+});
+
 export default function InputForm({ title, placeholder, name, onChange, isEmpty }) {
   return (
     <InputFormWrapper>
-      <H3>{title}</H3>
+      <FormHeaderWrapper>
+        <H3>{title}</H3>
+        <SmallText>{isEmpty ? TEXT_INPUT_CHECK.empty : TEXT_INPUT_CHECK.okay}</SmallText>
+      </FormHeaderWrapper>
+
       <Input name={name} placeholder={placeholder} onChange={onChange} />
     </InputFormWrapper>
   );
