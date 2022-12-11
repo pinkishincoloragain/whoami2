@@ -51,6 +51,22 @@ const SelectButton = styled.button(props => {
   };
 });
 
+const AddButton = styled.button({
+  height: "36px",
+  width: "80px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  borderRadius: "8px",
+  padding: "10px 12px 10px 12px",
+  fontSize: "14px",
+  backgroundColor: colors.dark.green,
+  "&:active": {
+    fontSize: "13.5px",
+  },
+});
+
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
   borderRadius: "8px",
@@ -58,4 +74,4 @@ const DarkLink = styled(Link)({
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, DarkLink, SelectButton };
+export { RedButton, BlueButton, TerminalButton, SelectButton, AddButton, DarkLink };
