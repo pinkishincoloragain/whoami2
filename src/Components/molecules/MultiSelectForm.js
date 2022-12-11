@@ -1,13 +1,14 @@
 import React from "react";
 import { SelectButton, AddButton } from "../atoms/MyButton";
 import styled from "styled-components";
+import colors from "../colors.json";
 
 const MultiSelectFormWrapper = styled.div({
   width: "100%",
   margin: "2vh 0 2vh 0",
 });
 
-const AddWrapper = styled.form({
+const AddWrapper = styled.div({
   display: "flex",
   width: "100%",
   margin: "2vh 0 2vh 0",
@@ -19,12 +20,11 @@ const AddInputForm = styled.input({
   height: "36px",
   border: "none",
   outline: "none",
-  padding: "0 0.5rem 0 0.5rem",
   color: "white",
   caretColor: "white",
   margin: "0 0.5rem 0 0",
   "&:focus": {
-    borderBottom: "2px solid #2A3C5B",
+    borderBottom: `2px solid ${colors.dark.blue2}`,
   },
 });
 
@@ -38,7 +38,9 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
     inputRef.current.focus();
   });
 
-  const handleButtonClick = index => {
+  const handleButtonClick = (e, index) => {
+    e.preventDefault();
+
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
     setSelected(newSelected);
@@ -63,8 +65,8 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
           <SelectButton
             selected={selected[index]}
             key={index}
-            onClick={() => {
-              handleButtonClick(index);
+            onClick={e => {
+              handleButtonClick(e, index);
             }}
           >
             {selectOption}
