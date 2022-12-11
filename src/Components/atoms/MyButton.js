@@ -31,24 +31,31 @@ const TerminalButton = styled.button({
   filter: "saturate(1.2)",
 });
 
-const DarkButton = styled.button(props => {
+const SelectButton = styled.button(props => {
   return {
     width: "100%",
+    height: "40px",
     display: "flex",
-    backgroundColor: "#2A3C5B",
-    padding: props.selected ? "6px 12px 6px 12px" : "10px 12px 10px 12px",
+    alignItems: "center",
+    backgroundColor: props.selected ? "#2A3C5B" : "transparent",
+    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 12px",
     borderRadius: "8px",
     fontWeight: "bold",
-    fontSize: "0.8rem",
+    fontSize: "14px",
     margin: "8px 0 8px 0",
+
+    "&:active": {
+      padding: "10px 12px 10px 12px",
+      fontSize: "13.5px",
+    },
   };
 });
 
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
-  padding: "10px 12px 10px 12px",
+  padding: "10px 8px 10px 12px",
   borderRadius: "8px",
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, DarkLink, DarkButton };
+export { RedButton, BlueButton, TerminalButton, DarkLink, SelectButton };

@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../colors.json";
-import anniversary from "../../assets/data/anniversary.json";
-import { H1, H2, H3 } from "../atoms/Text";
-import { DarkButton } from "../atoms/MyButton";
+
+import MultiSelectForm from "../molecules/MultiSelectForm";
+
+const AnniversaryFormWrapper = styled.div({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
 export default function AnniversaryForm() {
   return (
-    <div>
-      <H2>{anniversary.title}</H2>
-      <br />
-      <H3>{anniversary.questions[0]}</H3>
-      {anniversary.options.map((option, index) => {
-        return <DarkButton key={index}>{option}</DarkButton>;
-      })}
-      <br />
-      <H3>{anniversary.questions[1]}</H3>
-      <br />
-    </div>
+    <AnniversaryFormWrapper>
+      <MultiSelectForm />
+    </AnniversaryFormWrapper>
   );
 }
