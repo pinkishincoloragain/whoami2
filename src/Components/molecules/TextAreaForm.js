@@ -23,10 +23,10 @@ const TextArea = styled.textarea({
   },
 });
 
-export default function TextAreaForm({ placeholder }) {
+export default function TextAreaForm({ id, placeholder }) {
   return (
     <TextAreaFormWrapper>
-      <TextArea placeholder={placeholder} />
+      <TextArea id={id} placeholder={placeholder} />
     </TextAreaFormWrapper>
   );
 }

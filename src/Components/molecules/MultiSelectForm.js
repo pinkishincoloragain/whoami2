@@ -18,7 +18,7 @@ const AddWrapper = styled.div({
   justifyContent: "space-between",
 });
 
-export default function MultiSelectForm({ options, addFormPlaceholder }) {
+export default function MultiSelectForm({ id, options, addFormPlaceholder }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
   const [selected, setSelected] = React.useState(Array(options.length).fill(false));
   const [inputValue, setInputValue] = React.useState("");
@@ -59,6 +59,7 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
             onClick={e => {
               handleButtonClick(e, index);
             }}
+            value={selected[index] && selectOption}
           >
             {selectOption}
           </SelectButton>
@@ -66,12 +67,15 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
       })}
       <AddWrapper>
         <Input
+          id={id}
           placeholder={addFormPlaceholder}
           onChange={handleInputChange}
           value={inputValue}
           ref={inputRef}
         />
-        {/* <AddButton onClick={e => handleAddButtonClick(e)}>추가하기</AddButton> */}
+        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
+          추가하기
+        </AddButton>
       </AddWrapper>
     </MultiSelectFormWrapper>
   );

@@ -24,10 +24,10 @@ const Input = styled.input({
   },
 });
 
-export default function InputForm({ placeholder }) {
+export default function InputForm({ id, placeholder }) {
   return (
     <InputFormWrapper>
-      <Input placeholder={placeholder} />
+      <Input id={id} placeholder={placeholder} />
     </InputFormWrapper>
   );
 }
