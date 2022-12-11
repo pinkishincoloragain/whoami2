@@ -20,13 +20,8 @@ const AddWrapper = styled.div({
 
 export default function MultiSelectForm({ title, id, options, addFormPlaceholder }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
-  const [selected, setSelected] = React.useState(Array(options.length).fill(false));
+  const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
   const [inputValue, setInputValue] = React.useState("");
-  const inputRef = React.useRef();
-
-  React.useEffect(() => {
-    inputRef.current.focus();
-  });
 
   const handleButtonClick = (e, index) => {
     e.preventDefault();
@@ -73,7 +68,6 @@ export default function MultiSelectForm({ title, id, options, addFormPlaceholder
           placeholder={addFormPlaceholder}
           onChange={handleInputChange}
           value={inputValue}
-          ref={inputRef}
         />
         <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
           추가하기

@@ -15,25 +15,38 @@ const AnniversaryFormWrapper = styled.form({
 });
 
 export default function AnniversaryForm() {
-  const [response, setResponse] = React.useState({});
-  const [canSubmit, setCanSubmit] = React.useState(false);
+  const [response, setResponse] = React.useState({
+    name: "",
+    tel: "",
+    description: "",
+  });
+  const [isEmpty, setIsEmpty] = React.useState({
+    name: true,
+    tel: true,
+    description: true,
+  });
 
-  const extractFormData = e => {
-    const formData = {
-      reaction: [],
-    };
-    return [...e.target]
-      .filter(el => el.id !== "" || el.value !== "false")
-      .reduce((acc, el) => {
-        if (el.id === "") return { ...acc, reaction: [...acc.reaction, el.value] };
-        else return { ...acc, [el.id]: el.value };
-      }, formData);
+  const { name, tel, description } = response;
+
+  const handleChange = e => {
+    const { value, name } = e.target;
+
+    setIsEmpty({
+      ...isEmpty,
+      [name]: value === "",
+    });
+    setResponse({
+      ...response,
+      [name]: value,
+    });
   };
+
+  const canSubmit = !Object.values(isEmpty).includes(true);
 
   const handleSubmit = e => {
     e.preventDefault();
-    setResponse(extractFormData(e));
   };
+
   console.log(response);
 
   return (
@@ -41,25 +54,29 @@ export default function AnniversaryForm() {
       <H2>{anniversary.title}</H2>
       <MultiSelectForm
         title={anniversary.questions[0]}
-        id='tryAdd'
         options={anniversary.options}
         addFormPlaceholder={anniversary.createByOwn}
       />
       <InputForm
         title={anniversary.questions[1]}
-        id='name'
+        name='name'
+        onChange={handleChange}
         placeholder={anniversary.placeholder.name}
+        isEmpty={isEmpty.name}
       />
       <InputForm
         title={anniversary.questions[2]}
-        setCanSubmit={setCanSubmit}
-        id='tel'
+        name='tel'
+        onChange={handleChange}
         placeholder={anniversary.placeholder.email}
+        isEmpty={isEmpty.tel}
       />
       <TextAreaForm
         title={anniversary.questions[3]}
-        id='description'
+        name='description'
+        onChange={handleChange}
         placeholder={anniversary.placeholder.message}
+        isEmpty={isEmpty.description}
       />
       <SubmitButton disabled={!canSubmit} value={false}>
         {anniversary.submit}

@@ -26,11 +26,11 @@ const Input = styled.input({
   },
 });
 
-export default function InputForm({ title, id, placeholder }) {
+export default function InputForm({ title, placeholder, name, onChange, isEmpty }) {
   return (
     <InputFormWrapper>
       <H3>{title}</H3>
-      <Input id={id} placeholder={placeholder} />
+      <Input name={name} placeholder={placeholder} onChange={onChange} />
     </InputFormWrapper>
   );
 }

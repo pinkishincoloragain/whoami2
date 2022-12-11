@@ -25,11 +25,11 @@ const TextArea = styled.textarea({
   },
 });
 
-export default function TextAreaForm({ title, id, placeholder }) {
+export default function TextAreaForm({ title, placeholder, name, onChange }) {
   return (
     <TextAreaFormWrapper>
       <H3>{title}</H3>
-      <TextArea id={id} placeholder={placeholder} />
+      <TextArea name={name} placeholder={placeholder} onChange={onChange} />
     </TextAreaFormWrapper>
   );
 }
