@@ -9,7 +9,8 @@ const InputFormWrapper = styled.div({
   margin: "2vh 0 2vh 0",
 });
 
-const InputFormInput = styled.input({
+const Input = styled.input({
+  width: "100%",
   backgroundColor: "transparent",
   height: "36px",
   border: "none",
@@ -26,7 +27,9 @@ const InputFormInput = styled.input({
 export default function InputForm({ placeholder }) {
   return (
     <InputFormWrapper>
-      <InputFormInput placeholder={placeholder} />
+      <Input placeholder={placeholder} />
     </InputFormWrapper>
   );
 }
+
+export { Input };

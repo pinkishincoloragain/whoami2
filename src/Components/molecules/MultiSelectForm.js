@@ -3,6 +3,8 @@ import { SelectButton, AddButton } from "../atoms/MyButton";
 import styled from "styled-components";
 import colors from "../colors.json";
 
+import { Input } from "./InputForm";
+
 const MultiSelectFormWrapper = styled.div({
   width: "100%",
   margin: "2vh 0 2vh 0",
@@ -13,20 +15,7 @@ const AddWrapper = styled.div({
   width: "100%",
   margin: "2vh 0 2vh 0",
   flexDirection: "row",
-});
-
-const AddInputForm = styled.input({
-  backgroundColor: "transparent",
-  height: "36px",
-  border: "none",
-  outline: "none",
-  color: "white",
-  caretColor: "white",
-  margin: "0 0.5rem 0 0",
-  borderBottom: `2px solid transparent`,
-  "&:focus": {
-    borderBottom: `2px solid ${colors.dark.blue2}`,
-  },
+  justifyContent: "space-between",
 });
 
 export default function MultiSelectForm({ options, addFormPlaceholder }) {
@@ -52,6 +41,7 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
 
     if (inputValue === "") return;
     setSelectOptions([...selectOptions, inputValue]);
+    setSelected([...selected, true]);
     setInputValue("");
   };
 
@@ -75,13 +65,13 @@ export default function MultiSelectForm({ options, addFormPlaceholder }) {
         );
       })}
       <AddWrapper>
-        <AddInputForm
+        <Input
           placeholder={addFormPlaceholder}
           onChange={handleInputChange}
           value={inputValue}
           ref={inputRef}
         />
-        <AddButton onClick={e => handleAddButtonClick(e)}>추가하기</AddButton>
+        {/* <AddButton onClick={e => handleAddButtonClick(e)}>추가하기</AddButton> */}
       </AddWrapper>
     </MultiSelectFormWrapper>
   );
