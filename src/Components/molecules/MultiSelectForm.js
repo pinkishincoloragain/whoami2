@@ -23,6 +23,7 @@ const AddInputForm = styled.input({
   color: "white",
   caretColor: "white",
   margin: "0 0.5rem 0 0",
+  borderBottom: `2px solid transparent`,
   "&:focus": {
     borderBottom: `2px solid ${colors.dark.blue2}`,
   },

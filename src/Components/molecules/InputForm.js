@@ -17,19 +17,7 @@ const InputFormInput = styled.input({
   color: "white",
   caretColor: "white",
   margin: "0 0.5rem 0 0",
-  "&:focus": {
-    borderBottom: `2px solid ${colors.dark.blue2}`,
-  },
-});
-
-const InputFormTextArea = styled.textarea({
-  backgroundColor: "transparent",
-  height: "36px",
-  border: "none",
-  outline: "none",
-  color: "white",
-  caretColor: "white",
-  margin: "0 0.5rem 0 0",
+  borderBottom: `2px solid transparent`,
   "&:focus": {
     borderBottom: `2px solid ${colors.dark.blue2}`,
   },

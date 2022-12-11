@@ -45,7 +45,7 @@ const SelectButton = styled.button(props => {
     margin: props.selected ? "6px -12px 6px -12px" : "6px 0 6px 0",
 
     "&:active": {
-      padding: props.selected ? "10px 12px 10px 16px" : "10px 12px 10px 4px",
+      padding: props.selected ? "12px 12px 10px 16px" : "12px 12px 10px 4px",
       fontSize: "13.5px",
     },
   };
@@ -67,6 +67,22 @@ const AddButton = styled.button({
   },
 });
 
+const SubmitButton = styled.button({
+  height: "36px",
+  width: "80px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  borderRadius: "8px",
+  padding: "10px 12px 10px 12px",
+  fontSize: "14px",
+  backgroundColor: colors.dark.blue2,
+  "&:active": {
+    fontSize: "13.5px",
+  },
+});
+
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
   borderRadius: "8px",
@@ -74,4 +90,4 @@ const DarkLink = styled(Link)({
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, SelectButton, AddButton, DarkLink };
+export { RedButton, BlueButton, TerminalButton, SelectButton, AddButton, SubmitButton, DarkLink };

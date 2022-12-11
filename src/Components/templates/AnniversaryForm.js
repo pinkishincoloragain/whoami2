@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { H1, H2, H3 } from "../atoms/Text";
+import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
 import MultiSelectForm from "../molecules/MultiSelectForm";
@@ -18,8 +19,13 @@ const MandatoryField = styled.span({
 });
 
 export default function AnniversaryForm() {
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("form submitted");
+  };
+  
   return (
-    <AnniversaryFormWrapper>
+    <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <H2>{anniversary.title}</H2>
       <br />
       <H3>{anniversary.questions[0]}</H3>
@@ -33,6 +39,7 @@ export default function AnniversaryForm() {
       <InputForm placeholder={anniversary.placeholder.email} />
       <H3>{anniversary.questions[3]}</H3>
       <TextAreaForm placeholder={anniversary.placeholder.message} />
+      <SubmitButton>{anniversary.submit}</SubmitButton>
     </AnniversaryFormWrapper>
   );
 }
