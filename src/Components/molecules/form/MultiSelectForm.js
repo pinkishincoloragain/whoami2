@@ -23,7 +23,7 @@ const FormHeaderWrapper = styled.div({
   flexDirection: "row",
 });
 
-export default function MultiSelectForm({ title, phrase, id, options, addFormPlaceholder }) {
+export default function MultiSelectForm({ title, phrase, options, addFormPlaceholder, onChange }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
   const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
   const [inputValue, setInputValue] = React.useState("");
@@ -34,6 +34,7 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
     setSelected(newSelected);
+    onChange(newSelected.filter(v => v).map((v, i) => selectOptions[i]));
   };
 
   const handleAddButtonClick = e => {
@@ -74,12 +75,7 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
         );
       })}
       <AddWrapper>
-        <Input
-          id={id}
-          placeholder={addFormPlaceholder}
-          onChange={handleInputChange}
-          value={inputValue}
-        />
+        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
         <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
           추가하기
         </AddButton>
