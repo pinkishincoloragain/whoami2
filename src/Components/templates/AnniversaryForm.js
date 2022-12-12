@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H1, H2, H3 } from "../atoms/Text";
+import { H2 } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
@@ -17,23 +17,21 @@ const AnniversaryFormWrapper = styled.form({
 export default function AnniversaryForm() {
   const [response, setResponse] = React.useState({
     name: "",
-    tel: "",
+    email: "",
     description: "",
   });
   const [isEmpty, setIsEmpty] = React.useState({
     name: true,
-    tel: true,
+    email: true,
     description: true,
   });
 
   const handleChange = e => {
     const { value, name } = e.target;
-    // if (value === "") {
     setIsEmpty({
       ...isEmpty,
       [name]: value === "",
     });
-    // }
 
     setResponse({
       ...response,
@@ -66,10 +64,10 @@ export default function AnniversaryForm() {
       />
       <InputForm
         title={anniversary.questions[2]}
-        name='tel'
+        name='email'
         onChange={handleChange}
         placeholder={anniversary.placeholder.email}
-        isEmpty={isEmpty.tel}
+        isEmpty={isEmpty.email}
       />
       <TextAreaForm
         title={anniversary.questions[3]}

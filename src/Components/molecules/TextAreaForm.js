@@ -5,7 +5,7 @@ import colors from "../colors.json";
 import { H3, SmallText } from "../atoms/Text";
 
 const TEXT_INPUT_CHECK = {
-  okay: "지금 딱 좋아요!",
+  okay: "마음에 드는군요.",
   empty: "한 마디라도 남겨주세요!",
 };
 
