@@ -20,6 +20,12 @@ const H3 = styled.h3({
   color: color.light.blue,
 });
 
+const H4 = styled.h4({
+  margin: "1.5rem 0 1.3rem 0",
+  fontSize: "0.9rem",
+  color: color.dark.white,
+});
+
 const SmallText = styled.span({
   margin: "0.3rem 0 0 0.5rem",
   fontSize: "0.8rem",
@@ -32,4 +38,4 @@ const SmallWarningText = styled.span({
   color: color.dark.yellow,
 });
 
-export { H1, H2, H3, SmallText, SmallWarningText };
+export { H1, H2, H3, H4, SmallText, SmallWarningText };

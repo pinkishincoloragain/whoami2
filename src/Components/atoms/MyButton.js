@@ -89,6 +89,8 @@ const SubmitButton = styled.button(props => {
 
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
+  height: "36px",
+  fontSize: "14px",
   borderRadius: "8px",
   padding: "10px 12px 10px 12px",
   fontWeight: "bold",
