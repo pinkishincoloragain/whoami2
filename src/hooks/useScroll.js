@@ -1,5 +1,4 @@
 import { useRef, useEffect, useCallback } from "react";
-import { useSpring } from "react-spring";
 
 const useScroll = (type = "up", threshold, delay = 0) => {
   const element = useRef();
