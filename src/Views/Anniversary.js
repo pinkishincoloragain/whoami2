@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import AnniversaryForm from "../Components/templates/AnniversaryForm";
 import colors from "../Components/colors.json";
@@ -16,10 +15,8 @@ const AnniversaryWrapper = styled.div(props => {
 });
 
 function Anniversary() {
-  const darkMode = useSelector(state => state.mode.value);
-
   return (
-    <AnniversaryWrapper darkMode={darkMode}>
+    <AnniversaryWrapper>
       <AnniversaryForm />
     </AnniversaryWrapper>
   );

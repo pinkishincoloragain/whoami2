@@ -18,6 +18,11 @@ const AddWrapper = styled.div({
   justifyContent: "space-between",
 });
 
+const FormHeaderWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+});
+
 export default function MultiSelectForm({ title, phrase, id, options, addFormPlaceholder }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
   const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
@@ -43,11 +48,6 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
   const handleInputChange = e => {
     setInputValue(e.target.value);
   };
-
-  const FormHeaderWrapper = styled.div({
-    display: "flex",
-    flexDirection: "row",
-  });
 
   return (
     <MultiSelectFormWrapper>

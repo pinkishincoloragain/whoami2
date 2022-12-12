@@ -44,6 +44,7 @@ export default function AnniversaryForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(response);
   };
 
   console.log(response);

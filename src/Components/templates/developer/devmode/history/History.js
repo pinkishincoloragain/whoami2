@@ -15,7 +15,7 @@ export const History = ({ history }) => {
 
           <p
             className='whitespace-pre-wrap mb-2'
-            style={{ lineHeight: "normal" }}
+            style={{ lineHeight: "normal", color: "#fff" }}
             dangerouslySetInnerHTML={{ __html: entry.output }}
           />
         </div>

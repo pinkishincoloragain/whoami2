@@ -5,7 +5,6 @@ import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../assets/textures/waternormals.jpeg";
-import { useSelector } from "react-redux";
 import { WebGLRenderer } from "three";
 import { red } from "@mui/material/colors";
 
@@ -23,7 +22,6 @@ function UnderWaves(props) {
     };
   }, []);
 
-  const darkMode = useSelector(state => state.mode.value);
   const [parameters, setParameters] = React.useState({
     // elevation: darkMode === true ? -1 : 10,
     elevation: props.elevation,

@@ -31,22 +31,20 @@ const PopupWrapper = styled.div({
 export default function Popup() {
   const [popupOpen, setPopupOpen] = React.useState(true);
 
-  React.useEffect(() => {
-    if (popupOpen) {
-      document.querySelector("html").style.overflow = "hidden";
-    }
-    return () => {
-      enableScroll();
-    };
-  }, []);
+  React.useEffect(()=>{
+    window.moveTo(0, 0);
+  })
 
-  const enableScroll = () => {
-    document.querySelector("html").style.overflow = "auto";
-  };
+  React.useEffect(() => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    if (popupOpen) {
+      // document.querySelector("html").style.overflow = "hidden";
+    }
+    return () => (document.querySelector("html").style.overflow = "auto");
+  }, [popupOpen]);
 
   const handlePopupClose = () => {
     setPopupOpen(false);
-    enableScroll();
   };
 
   return (

@@ -4,7 +4,6 @@ import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../../assets/textures/waternormals.jpeg";
-// import { useSelector } from "react-redux";
 
 function Waves(props) {
   let container;
@@ -17,7 +16,6 @@ function Waves(props) {
     animate();
   });
 
-  // const darkMode = useSelector(state => state.mode.value);
   const [parameters, setParameters] = React.useState({
     // elevation: darkMode === true ? -1 : 10,
     elevation: props.elevation,
