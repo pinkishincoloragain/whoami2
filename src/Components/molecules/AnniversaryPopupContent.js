@@ -1,30 +1,26 @@
 import styled from "styled-components";
 import professorImg from "../../assets/images/professor2.png";
 import anniversary from "../../assets/data/anniversary.json";
-// import { Link } from "react-router-dom";
 
 import { DarkLink } from "../atoms/MyButton";
-import { H1, H2, H3 } from "../atoms/Text";
+import { H1, H3, H4 } from "../atoms/Text";
 
 const AnniversaryImg = styled.img({
   width: "60%",
   borderRadius: "20px",
 });
 
-export default function AnniversaryContent({ handlePopupStep }) {
+export default function AnniversaryPopupContent() {
   return (
     <div>
       <H1>{anniversary.title}</H1>
-      <br />
       <H3>{anniversary.subtitle}</H3>
-      <br />
-      <H3>{anniversary.subtitle2}</H3>
-      <br />
+      <H4>{anniversary.description1}</H4>
+      <H4>{anniversary.description2}</H4>
       <AnniversaryImg src={professorImg} alt='professor bctak is happy' />
+      <H4>{anniversary.description3}</H4>
       <br />
-      <H3>{anniversary.content}</H3>
-      <br />
-      <DarkLink to='/fish'>{anniversary.button}</DarkLink>
+      <DarkLink to='/anniversary'>{anniversary.button}</DarkLink>
     </div>
   );
 }

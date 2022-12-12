@@ -31,11 +31,69 @@ const TerminalButton = styled.button({
   filter: "saturate(1.2)",
 });
 
+const SelectButton = styled.button(props => {
+  return {
+    width: props.selected ? "calc(100% + 24px)" : "100%",
+    height: "40px",
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: props.selected ? "#2A3C5B" : "transparent",
+    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 0px",
+    borderRadius: "8px",
+    fontWeight: "bold",
+    fontSize: "14px",
+    margin: props.selected ? "6px -12px 6px -12px" : "6px 0 6px 0",
+
+    "&:active": {
+      padding: props.selected ? "12px 12px 10px 16px" : "12px 12px 10px 4px",
+      fontSize: "13.5px",
+    },
+  };
+});
+
+const AddButton = styled.button({
+  height: "36px",
+  width: "80px",
+  minWidth: "80px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  borderRadius: "8px",
+  padding: "10px 12px 10px 12px",
+  marginRight: "-12px",
+  fontSize: "14px",
+  backgroundColor: colors.dark.green,
+  "&:active": {
+    fontSize: "13.5px",
+  },
+});
+
+const SubmitButton = styled.button(props => {
+  return {
+    height: "36px",
+    width: "80px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "bold",
+    borderRadius: "8px",
+    padding: "10px 12px 10px 12px",
+    fontSize: "14px",
+    backgroundColor: props.disabled ? colors.dark.red : colors.dark.blue2,
+    "&:active": {
+      fontSize: "13.5px",
+    },
+  };
+});
+
 const DarkLink = styled(Link)({
   backgroundColor: "#2A3C5B",
-  padding: "10px 12px 10px 12px",
+  height: "36px",
+  fontSize: "14px",
   borderRadius: "8px",
+  padding: "10px 12px 10px 12px",
   fontWeight: "bold",
 });
 
-export { RedButton, BlueButton, TerminalButton, DarkLink };
+export { RedButton, BlueButton, TerminalButton, SelectButton, AddButton, SubmitButton, DarkLink };

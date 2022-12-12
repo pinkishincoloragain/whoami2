@@ -22,6 +22,7 @@ const PopupBackground = styled.div({
 const PopupWrapper = styled.div({
   width: "50%",
   minWidth: "20rem",
+  maxWidth: "28rem",
   minHeight: "30rem",
   backgroundColor: colors.dark.background,
   borderRadius: "1rem",
@@ -34,6 +35,9 @@ export default function Popup() {
     if (popupOpen) {
       document.querySelector("html").style.overflow = "hidden";
     }
+    return () => {
+      enableScroll();
+    };
   }, []);
 
   const enableScroll = () => {

@@ -1,13 +1,12 @@
 import React from "react";
 
-import AnniversaryContent from "../molecules/AnniversaryContent";
+import AnniversaryPopupContent from "../molecules/AnniversaryPopupContent";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const ContentWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
-  padding: "1rem 2rem 2rem 2rem",
+  padding: "1rem 1.6rem 2rem 1.6rem",
   width: "100%",
   height: "100%",
   color: "white",
@@ -17,7 +16,7 @@ const ContentWrapper = styled.div({
 export default function PopupContent() {
   return (
     <ContentWrapper>
-      <AnniversaryContent />
+      <AnniversaryPopupContent />
     </ContentWrapper>
   );
 }
