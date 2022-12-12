@@ -49,11 +49,11 @@ function Waves(props) {
       container.removeChild(container.childNodes[0]);
     }
     container.appendChild(renderer.domElement);
-    renderer.domElement.style.borderRadius = "10px";
+    renderer.domElement.style.borderRadius = "135px";
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(100, props.width / props.height, 1, 10000);
-    camera.position.set(100, 0, -200);
+    camera.position.set(-180, 0, -200);
 
     sun = new THREE.Vector3();
 
@@ -88,24 +88,13 @@ function Waves(props) {
     const skyUniforms = sky.material.uniforms;
 
     skyUniforms["turbidity"].value = 10;
-    skyUniforms["rayleigh"].value = 0.2;
+    skyUniforms["rayleigh"].value = 0.1;
     skyUniforms["mieCoefficient"].value = 0.005;
-    // skyUniforms["mieDirectionalG"].value = 8;
+    skyUniforms["mieDirectionalG"].value = 0.9;
 
     pmremGenerator = new THREE.PMREMGenerator(renderer);
 
     updateSun();
-
-    //
-
-    let geometry = new THREE.BoxGeometry(30, 30, 30);
-    const material = new THREE.MeshStandardMaterial({
-      roughness: 0.3,
-      color: 0xf0f0f0,
-    });
-
-    // mesh = new THREE.Mesh(geometry, material);
-    // scene.add(mesh);
 
     let controls = new OrbitControls(camera, renderer.domElement);
     controls.maxPolarAngle = Math.PI * 0.495;

@@ -14,9 +14,17 @@
 }
 
 html {
-  overflow: hidden;
   height: 100%;
-  overscroll-behavior-y: none;
+}
+
+button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -27,7 +35,9 @@ body {
 }
 
 body::-webkit-scrollbar {
+  width: 0px;
   display: none;
+  -webkit-appearance: none;
 }
 
 code {

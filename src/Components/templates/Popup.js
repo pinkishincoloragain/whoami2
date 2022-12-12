@@ -35,14 +35,6 @@ export default function Popup() {
     window.moveTo(0, 0);
   });
 
-  React.useEffect(() => {
-    // document.body.scrollTop = document.documentElement.scrollTop = 0;
-    if (popupOpen) {
-      // document.querySelector("html").style.overflow = "hidden";
-    }
-    // return () => (document.querySelector("html").style.overflow = "auto");
-  }, [popupOpen]);
-
   const handlePopupClose = () => {
     setPopupOpen(false);
   };

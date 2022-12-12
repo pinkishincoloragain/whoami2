@@ -61,6 +61,9 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
           <SelectButton
             selected={selected[index]}
             key={index}
+            // onTouchStart={e => {
+            //   handleButtonClick(e, index);
+            // }}
             onClick={e => {
               handleButtonClick(e, index);
             }}
