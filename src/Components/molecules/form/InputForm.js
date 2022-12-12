@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../colors.json";
+import colors from "../../colors.json";
 
-import { H3, SmallText } from "../atoms/Text";
+import { H3, SmallText } from "../../atoms/Text";
 
 const TEXT_INPUT_CHECK = {
   okay: "지금 딱 좋아요!",
@@ -36,12 +36,12 @@ const FormHeaderWrapper = styled.div({
   flexDirection: "row",
 });
 
-export default function InputForm({ title, placeholder, name, onChange, isEmpty }) {
+export default function InputForm({ title, placeholder, name, onChange, phrase, isEmpty }) {
   return (
     <InputFormWrapper>
       <FormHeaderWrapper>
         <H3>{title}</H3>
-        <SmallText>{isEmpty ? TEXT_INPUT_CHECK.empty : TEXT_INPUT_CHECK.okay}</SmallText>
+        <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
 
       <Input name={name} placeholder={placeholder} onChange={onChange} />

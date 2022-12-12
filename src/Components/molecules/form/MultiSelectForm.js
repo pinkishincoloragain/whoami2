@@ -1,9 +1,9 @@
 import React from "react";
-import { SelectButton, AddButton } from "../atoms/MyButton";
+import { SelectButton, AddButton } from "../../atoms/MyButton";
 import styled from "styled-components";
 
 import { Input } from "./InputForm";
-import { H3 } from "../atoms/Text";
+import { H3, SmallText } from "../../atoms/Text";
 
 const MultiSelectFormWrapper = styled.div({
   width: "100%",
@@ -18,7 +18,7 @@ const AddWrapper = styled.div({
   justifyContent: "space-between",
 });
 
-export default function MultiSelectForm({ title, id, options, addFormPlaceholder }) {
+export default function MultiSelectForm({ title, phrase, id, options, addFormPlaceholder }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
   const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
   const [inputValue, setInputValue] = React.useState("");
@@ -44,9 +44,17 @@ export default function MultiSelectForm({ title, id, options, addFormPlaceholder
     setInputValue(e.target.value);
   };
 
+  const FormHeaderWrapper = styled.div({
+    display: "flex",
+    flexDirection: "row",
+  });
+
   return (
     <MultiSelectFormWrapper>
-      <H3>{title}</H3>
+      <FormHeaderWrapper>
+        <H3>{title}</H3>
+        <SmallText>{phrase}</SmallText>
+      </FormHeaderWrapper>
 
       {selectOptions.map((selectOption, index) => {
         return (

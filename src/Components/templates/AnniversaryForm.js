@@ -4,9 +4,10 @@ import { H2 } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
-import MultiSelectForm from "../molecules/MultiSelectForm";
-import InputForm from "../molecules/InputForm";
-import TextAreaForm from "../molecules/TextAreaForm";
+import MultiSelectForm from "../molecules/form/MultiSelectForm";
+import InputForm from "../molecules/form/InputForm";
+import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
+import TextAreaForm from "../molecules/form/TextAreaForm";
 
 const AnniversaryFormWrapper = styled.form({
   flexDirection: "column",
@@ -17,12 +18,12 @@ const AnniversaryFormWrapper = styled.form({
 export default function AnniversaryForm() {
   const [response, setResponse] = React.useState({
     name: "",
-    email: "",
+    instagram: "",
     description: "",
   });
   const [isEmpty, setIsEmpty] = React.useState({
     name: true,
-    email: true,
+    instagram: true,
     description: true,
   });
 
@@ -52,22 +53,26 @@ export default function AnniversaryForm() {
       <H2>{anniversary.title}</H2>
       <MultiSelectForm
         title={anniversary.questions[0]}
+        phrase={anniversary.phrase[0]}
         options={anniversary.options}
         addFormPlaceholder={anniversary.createByOwn}
       />
       <InputForm
         title={anniversary.questions[1]}
+        phrase={anniversary.phrase[1]}
         name='name'
         onChange={handleChange}
         placeholder={anniversary.placeholder.name}
         isEmpty={isEmpty.name}
       />
-      <InputForm
+      <InputFormWithAuth
         title={anniversary.questions[2]}
-        name='email'
+        phrase={anniversary.phrase[2]}
+        name='instagram'
         onChange={handleChange}
-        placeholder={anniversary.placeholder.email}
-        isEmpty={isEmpty.email}
+        placeholder={anniversary.placeholder.instagram}
+        isEmpty={isEmpty.instagram}
+        optionPhrase={anniversary.requestAnonymous}
       />
       <TextAreaForm
         title={anniversary.questions[3]}

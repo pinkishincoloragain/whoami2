@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../colors.json";
+import colors from "../../colors.json";
 
-import { H3, SmallText } from "../atoms/Text";
+import { H3, SmallText } from "../../atoms/Text";
 
 const TEXT_INPUT_CHECK = {
   okay: "마음에 드는군요.",

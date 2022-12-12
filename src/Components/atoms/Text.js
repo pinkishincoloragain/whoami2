@@ -35,7 +35,7 @@ const SmallText = styled.span({
 const SmallWarningText = styled.span({
   margin: "0.3rem 0 0 0.5rem",
   fontSize: "0.8rem",
-  color: color.dark.yellow,
+  color: color.dark.red,
 });
 
 export { H1, H2, H3, H4, SmallText, SmallWarningText };
