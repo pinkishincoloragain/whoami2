@@ -9,6 +9,8 @@ import InputForm from "../molecules/form/InputForm";
 import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
 
+import addResponse from "../utils/addResponse";
+
 const AnniversaryFormWrapper = styled.form({
   flexDirection: "column",
   minWidth: "20rem",
@@ -27,6 +29,7 @@ export default function AnniversaryForm() {
     name: "",
     instagram: "",
     description: "",
+    selections: [anniversary.options[0]],
   });
 
   const [isEmpty, setIsEmpty] = React.useState({
@@ -60,6 +63,7 @@ export default function AnniversaryForm() {
   const handleSubmit = e => {
     e.preventDefault();
     setTryToSubmit(true);
+    addResponse(response);
     console.log(response);
   };
 

@@ -1,18 +1,29 @@
 import { db } from "./firebaseControl";
-import { collection, addDoc } from "firebase/firestore/lite";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const usersCollectionRef = collection(db, "users");
 
-const addResponse = async () => {
+const transformResponse = response => {
+  const { name, instagram, description, selections } = response;
+  return {
+    to: instagram,
+    from: name,
+    description: description,
+    feels: selections,
+  };
+};
+
+const addResponse = async response => {
+  const formedResponse = transformResponse(response);
   try {
-    const res = await addDoc(usersCollectionRef, {
-      age: 29,
-      name: "kyounghwan",
+    const docRef = await addDoc(usersCollectionRef, {
+      ...formedResponse,
     });
-    console.log(res); // res는 undefined입니다.
   } catch (e) {
-    console.log(e);
+    console.error("Error adding document: ", e);
   }
 };
+
+addResponse();
 
 export default addResponse;
