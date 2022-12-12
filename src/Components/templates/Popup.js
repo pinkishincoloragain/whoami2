@@ -34,6 +34,9 @@ export default function Popup() {
     if (popupOpen) {
       document.querySelector("html").style.overflow = "hidden";
     }
+    return () => {
+      enableScroll();
+    };
   }, []);
 
   const enableScroll = () => {
