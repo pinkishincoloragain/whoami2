@@ -43,6 +43,7 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
     if (inputValue === "") return;
     setSelectOptions([...selectOptions, inputValue]);
     setSelected([...selected, true]);
+    onChange([...selected.filter(v => v).map((v, i) => selectOptions[i]), inputValue]);
     setInputValue("");
   };
 

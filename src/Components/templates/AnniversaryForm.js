@@ -10,6 +10,7 @@ import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
 
 import addResponse from "../utils/addResponse";
+import { useNavigate } from "react-router-dom";
 
 const AnniversaryFormWrapper = styled.form({
   flexDirection: "column",
@@ -38,6 +39,8 @@ export default function AnniversaryForm() {
     description: true,
   });
 
+  const navigate = useNavigate();
+
   const handleSelectionFormChange = value => {
     setResponse({
       ...response,
@@ -64,7 +67,7 @@ export default function AnniversaryForm() {
     e.preventDefault();
     setTryToSubmit(true);
     addResponse(response);
-    console.log(response);
+    navigate("/");
   };
 
   return (
