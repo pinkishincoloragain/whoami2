@@ -1,11 +1,11 @@
 import { db } from "./firebaseControl";
 import { collection, getDocs, addDoc } from "firebase/firestore";
-import { getUserLog } from "./getUserLog";
+// import { getUserLog } from "./getUserLog";
 
 const usersCollectionRef = collection(db, "users");
 
 const transformResponse = async response => {
-  const userLog = await getUserLog();
+  // const userLog = await getUserLog();
   const { name, instagram, description, selections } = response;
   const timeStamp = new Date().toTimeString().slice(0, 8) + " " + new Date().toDateString();
 
@@ -15,8 +15,8 @@ const transformResponse = async response => {
     description: description,
     feels: selections,
     timeStamp: timeStamp,
-    ip: userLog.ip,
-    city: userLog.city,
+    // ip: userLog.ip,
+    // city: userLog.city,
   };
 };
 
