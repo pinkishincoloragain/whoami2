@@ -18,7 +18,12 @@ const AddWrapper = styled.div({
   justifyContent: "space-between",
 });
 
-export default function MultiSelectForm({ title, phrase, id, options, addFormPlaceholder }) {
+const FormHeaderWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+});
+
+export default function MultiSelectForm({ title, phrase, options, addFormPlaceholder, onChange }) {
   const [selectOptions, setSelectOptions] = React.useState(options);
   const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
   const [inputValue, setInputValue] = React.useState("");
@@ -29,6 +34,7 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
     setSelected(newSelected);
+    onChange(newSelected.filter(v => v).map((v, i) => selectOptions[i]));
   };
 
   const handleAddButtonClick = e => {
@@ -37,17 +43,13 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
     if (inputValue === "") return;
     setSelectOptions([...selectOptions, inputValue]);
     setSelected([...selected, true]);
+    onChange([...selected.filter(v => v).map((v, i) => selectOptions[i]), inputValue]);
     setInputValue("");
   };
 
   const handleInputChange = e => {
     setInputValue(e.target.value);
   };
-
-  const FormHeaderWrapper = styled.div({
-    display: "flex",
-    flexDirection: "row",
-  });
 
   return (
     <MultiSelectFormWrapper>
@@ -61,6 +63,9 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
           <SelectButton
             selected={selected[index]}
             key={index}
+            // onTouchStart={e => {
+            //   handleButtonClick(e, index);
+            // }}
             onClick={e => {
               handleButtonClick(e, index);
             }}
@@ -71,12 +76,7 @@ export default function MultiSelectForm({ title, phrase, id, options, addFormPla
         );
       })}
       <AddWrapper>
-        <Input
-          id={id}
-          placeholder={addFormPlaceholder}
-          onChange={handleInputChange}
-          value={inputValue}
-        />
+        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
         <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
           추가하기
         </AddButton>

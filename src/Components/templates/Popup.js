@@ -32,21 +32,11 @@ export default function Popup() {
   const [popupOpen, setPopupOpen] = React.useState(true);
 
   React.useEffect(() => {
-    if (popupOpen) {
-      document.querySelector("html").style.overflow = "hidden";
-    }
-    return () => {
-      enableScroll();
-    };
-  }, []);
-
-  const enableScroll = () => {
-    document.querySelector("html").style.overflow = "auto";
-  };
+    window.moveTo(0, 0);
+  });
 
   const handlePopupClose = () => {
     setPopupOpen(false);
-    enableScroll();
   };
 
   return (

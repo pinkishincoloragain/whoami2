@@ -1,7 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { changeMode } from "../controls/modeSlice";
 
 const HeaderTypography = styled(`div`)({
   "&:hover": {
@@ -20,31 +18,25 @@ const HeaderWrapper = styled(`div`)({
 });
 
 export default function Header(props) {
-  const darkMode = useSelector(state => state.mode.value);
-  const dispatch = useDispatch();
   const logoRef = React.useRef();
 
   const handleMouseDown = () => {
     logoRef.current.style.color = "red";
   };
   const handleMouseUp = () => {
-    logoRef.current.style.color = darkMode ? "#1b1b1b" : "#FFCC00";
+    logoRef.current.style.color = "#1b1b1b";
   };
   const handleMouseEnter = () => {
     logoRef.current.style.color = "#FFCC00";
   };
   const handleMouseOut = () => {
-    logoRef.current.style.color = !darkMode ? "#1b1b1b" : "#FFCC00";
+    logoRef.current.style.color = "#1b1b1b";
   };
 
   return (
     <HeaderWrapper>
       <HeaderTypography
         className='superBold'
-        onClick={e => {
-          e.preventDefault();
-          dispatch(changeMode());
-        }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseEnter={handleMouseEnter}

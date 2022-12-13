@@ -1,11 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
-import AnniversaryForm from "../Components/templates/AnniversaryForm";
 import colors from "../Components/colors.json";
 
-const AnniversaryWrapper = styled.div(props => {
+import ThankyouContent from "../Components/templates/ThankyouContent";
+
+const ThankyouWrapper = styled.div(props => {
   return {
     padding: "10vh 0 10vh 0",
+    height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -14,12 +16,10 @@ const AnniversaryWrapper = styled.div(props => {
   };
 });
 
-function Anniversary() {
+export default function Thankyou() {
   return (
-    <AnniversaryWrapper>
-      <AnniversaryForm />
-    </AnniversaryWrapper>
+    <ThankyouWrapper>
+      <ThankyouContent />
+    </ThankyouWrapper>
   );
 }
-
-export default Anniversary;

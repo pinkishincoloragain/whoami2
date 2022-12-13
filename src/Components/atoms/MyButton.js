@@ -34,7 +34,7 @@ const TerminalButton = styled.button({
 const SelectButton = styled.button(props => {
   return {
     width: props.selected ? "calc(100% + 24px)" : "100%",
-    height: "40px",
+    height: "56px",
     display: "flex",
     alignItems: "center",
     backgroundColor: props.selected ? "#2A3C5B" : "transparent",
@@ -42,11 +42,15 @@ const SelectButton = styled.button(props => {
     borderRadius: "8px",
     fontWeight: "bold",
     fontSize: "14px",
-    margin: props.selected ? "6px -12px 6px -12px" : "6px 0 6px 0",
+    margin: props.selected ? "8px -12px 8px -12px" : "8px 0 8px 0",
 
     "&:active": {
-      padding: props.selected ? "12px 12px 10px 16px" : "12px 12px 10px 4px",
+      // width: "calc(100% + 24px)",
+      width: "107%",
+      margin: "8px -12px 8px -12px",
+      padding: props.selected ? "12px 12px 12px 16px" : "12px 12px 12px 16px",
       fontSize: "13.5px",
+      backgroundColor: "#2A3C5B",
     },
   };
 });

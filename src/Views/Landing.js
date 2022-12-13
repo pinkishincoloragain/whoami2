@@ -1,27 +1,26 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import BeatifulBar from "../Components/atoms/BeautifulBar";
+// import BeatifulBar from "../Components/atoms/BeautifulBar";
 
-import Video from "../Components/templates/Video";
-import Header from "../Components/templates/Header";
-import Banner from "../Components/templates/Banner";
-import TalkTemplate from "../Components/templates/TalkTemplate";
-import SubHeader from "../Components/templates/SubHeader";
+// import Video from "../Components/templates/Video";
+// import Header from "../Components/templates/Header";
+// import Banner from "../Components/templates/Banner";
+// import TalkTemplate from "../Components/templates/TalkTemplate";
+// import SubHeader from "../Components/templates/SubHeader";
 import Popup from "../Components/templates/Popup";
 
-const LandingWrapper = styled.div(props => {
-  return {
-    backgroundImage: props.darkMode
-      ? "linear-gradient(180deg, #000000, #223148)"
-      : "linear-gradient(180deg, #ffffff, #2D4263 10.71%)",
-    color: !props.darkMode ? "#1f1f1f" : "white",
-    paddingRight: "10%",
-    paddingLeft: "10%",
-    paddingTop: "3%",
-    paddingBottom: "5%",
-    overflow: "hidden",
-  };
+const LandingWrapper = styled.div({
+  backgroundImage: "linear-gradient(180deg, #000000, #223148)",
+  height: "100vh",
+  color: "white",
+  paddingRight: "10%",
+  paddingLeft: "10%",
+  paddingTop: "3%",
+  paddingBottom: "5%",
+  overflow: "hidden",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 const MainWrapper = styled.div({
@@ -44,24 +43,31 @@ const HeaderWrapper = styled.div({
   // position: "fixed",
 });
 
-function Landing(props) {
-  const darkMode = useSelector(state => state.mode.value);
+function Landing() {
+  React.useEffect(() => {
+    window.moveTo(0, 0);
+  }, []);
+  // return (
+  //   <LandingWrapper>
+  //     <HeaderWrapper>
+  //       <Video />
+  //       <Header />
+  //       <Popup />
+  //     </HeaderWrapper>
+  //     <SubHeader />
 
+  //     <MainWrapper>
+  //       <BeatifulBar />
+  //       {/* <DrawSvg /> */}
+  //       <Banner />
+  //       <TalkTemplate />
+  //     </MainWrapper>
+  //   </LandingWrapper>
+  // );
   return (
-    <LandingWrapper darkMode={darkMode}>
-      <HeaderWrapper>
-        <Video />
-        <Header />
-        <Popup />
-      </HeaderWrapper>
-      <SubHeader />
-
-      <MainWrapper>
-        <BeatifulBar />
-        {/* <DrawSvg /> */}
-        <Banner />
-        <TalkTemplate />
-      </MainWrapper>
+    <LandingWrapper>
+      <Popup />
+      여긴 아무 것도 없어요!
     </LandingWrapper>
   );
 }

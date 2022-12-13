@@ -13,7 +13,7 @@ const ButtonGroupWrapper = styled.div({
 export default function PopupButtonGroup({ handlePopupClose }) {
   return (
     <ButtonGroupWrapper>
-      <TerminalButton onClick={handlePopupClose} color='red' />
+      <TerminalButton aria-label='close' name='close' onClick={handlePopupClose} color='red' />
     </ButtonGroupWrapper>
   );
 }
