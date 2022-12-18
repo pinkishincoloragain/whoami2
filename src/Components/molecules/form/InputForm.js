@@ -13,7 +13,7 @@ const InputFormWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  margin: "2vh 0 1vh 0",
+  marginTop: "2vh",
 });
 
 const Input = styled.input({
@@ -27,7 +27,7 @@ const Input = styled.input({
   // margin: "0 0.5rem 0 0",
   borderBottom: `2px solid transparent`,
   "&:focus": {
-    borderBottom: `2px solid ${colors.dark.blue2}`,
+    borderBottom: `2px solid ${colors.dark.gold}`,
   },
 });
 

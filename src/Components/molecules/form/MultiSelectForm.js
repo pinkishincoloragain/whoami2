@@ -6,16 +6,21 @@ import { Input } from "./InputForm";
 import { H3, SmallText } from "../../atoms/Text";
 
 const MultiSelectFormWrapper = styled.div({
+  boxSizing: "border-box",
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.5rem",
   width: "100%",
-  margin: "2vh 0 2vh 0",
+  marginTop: "2vh",
 });
 
 const AddWrapper = styled.div({
   display: "flex",
+  gap: "1rem",
   width: "100%",
-  margin: "2vh 0 2vh 0",
   flexDirection: "row",
   justifyContent: "space-between",
+  paddingBlock: "2vh",
 });
 
 const FormHeaderWrapper = styled.div({
@@ -53,10 +58,17 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
 
   return (
     <MultiSelectFormWrapper>
-      <FormHeaderWrapper>
+      {/* <FormHeaderWrapper>
         <H3>{title}</H3>
         <SmallText>{phrase}</SmallText>
-      </FormHeaderWrapper>
+      </FormHeaderWrapper> */}
+
+      <AddWrapper>
+        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
+        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
+          추가하기
+        </AddButton>
+      </AddWrapper>
 
       {selectOptions.map((selectOption, index) => {
         return (
@@ -75,12 +87,6 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
           </SelectButton>
         );
       })}
-      <AddWrapper>
-        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
-        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
-          추가하기
-        </AddButton>
-      </AddWrapper>
     </MultiSelectFormWrapper>
   );
 }
