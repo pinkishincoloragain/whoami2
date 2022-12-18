@@ -15,14 +15,16 @@ const H2 = styled.h2({
 });
 
 const H3 = styled.h3({
-  margin: "0.2rem 0 0.5rem 0",
+  // marginBlock: "0.5rem 0.2rem",
+  width: "fit-content",
+  height: "fit-content",
   fontSize: "1rem",
   fontWeight: "bold",
-  color: color.light.blue,
+  color: color.light.white,
 });
 
 const H4 = styled.h4({
-  margin: "1.5rem 0 1.3rem 0",
+  // margin: "1.5rem 0 1.3rem 0",
   fontSize: "0.9rem",
   color: color.dark.white,
 });
@@ -33,9 +35,9 @@ const Emphasize = styled.span({
 })
 
 const SmallText = styled.span({
-  margin: "0.3rem 0 0 0.5rem",
+  // margin: "0.3rem 0 0 0.5rem",
   fontSize: "0.8rem",
-  color: color.dark.blue,
+  color: color.dark.white,
 });
 
 const SmallWarningText = styled.span({

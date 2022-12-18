@@ -13,7 +13,7 @@ const InputFormWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  margin: "2vh 0 2vh 0",
+  margin: "2vh 0 1vh 0",
 });
 
 const Input = styled.input({
@@ -24,7 +24,7 @@ const Input = styled.input({
   outline: "none",
   color: "white",
   caretColor: "white",
-  margin: "0 0.5rem 0 0",
+  // margin: "0 0.5rem 0 0",
   borderBottom: `2px solid transparent`,
   "&:focus": {
     borderBottom: `2px solid ${colors.dark.blue2}`,
@@ -34,6 +34,8 @@ const Input = styled.input({
 const FormHeaderWrapper = styled.div({
   display: "flex",
   flexDirection: "row",
+  alignItems: "center",
+  gap: "0.5rem",
 });
 
 export default function InputForm({ title, placeholder, name, onChange, phrase, isEmpty }) {
