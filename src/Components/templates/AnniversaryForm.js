@@ -75,19 +75,6 @@ export default function AnniversaryForm() {
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <H2>{anniversary.title}</H2>
       <BeautifulBar />
-      <H4>
-        {anniversary.formDescription1}
-        <br />
-        {anniversary.formDescription2}
-      </H4>
-      <MultiSelectForm
-        title={anniversary.questions[0]}
-        phrase={anniversary.phrase[0]}
-        options={anniversary.options}
-        name='options'
-        onChange={handleSelectionFormChange}
-        addFormPlaceholder={anniversary.createByOwn}
-      />
       <InputForm
         title={anniversary.questions[1]}
         phrase={anniversary.phrase[1]}
@@ -102,6 +89,14 @@ export default function AnniversaryForm() {
         onChange={handleInputFormChange}
         placeholder={anniversary.placeholder.instagram}
         optionPhrase={anniversary.requestAnonymous}
+      />
+      <MultiSelectForm
+        title={anniversary.questions[0]}
+        phrase={anniversary.phrase[0]}
+        options={anniversary.options}
+        name='options'
+        onChange={handleSelectionFormChange}
+        addFormPlaceholder={anniversary.createByOwn}
       />
       <TextAreaForm
         title={anniversary.questions[3]}
