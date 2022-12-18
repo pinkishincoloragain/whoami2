@@ -34,7 +34,7 @@ const TerminalButton = styled.button({
 const SelectButton = styled.button(props => {
   return {
     width: props.selected ? "calc(100% + 24px)" : "100%",
-    height: "56px",
+    height: "36px",
     display: "flex",
     alignItems: "center",
     backgroundColor: props.selected ? colors.dark.foreground : "transparent",

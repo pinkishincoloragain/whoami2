@@ -3,7 +3,6 @@ import { SelectButton, AddButton } from "../../atoms/MyButton";
 import styled from "styled-components";
 
 import { Input } from "./InputForm";
-import { H3, SmallText } from "../../atoms/Text";
 
 const MultiSelectFormWrapper = styled.div({
   boxSizing: "border-box",
@@ -16,7 +15,7 @@ const MultiSelectFormWrapper = styled.div({
 
 const AddWrapper = styled.div({
   display: "flex",
-  gap: "1rem",
+  gap: "0.5rem",
   width: "100%",
   flexDirection: "row",
   justifyContent: "space-between",
