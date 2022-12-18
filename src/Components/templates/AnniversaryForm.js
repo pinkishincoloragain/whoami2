@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H2, H4, SmallWarningText } from "../atoms/Text";
+import { H2, Emphasize, SmallWarningText } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
@@ -73,7 +73,13 @@ export default function AnniversaryForm() {
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
-      <H2>{anniversary.title}</H2>
+      <H2>
+        <Emphasize>{anniversary.title1}</Emphasize>
+        <br />
+        {anniversary.title2}
+        <br />
+        {anniversary.title3}
+      </H2>
       <BeautifulBar />
       <InputForm
         title={anniversary.questions[1]}

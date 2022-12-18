@@ -7,10 +7,11 @@ const H1 = styled.h1({
 });
 
 const H2 = styled.h2({
-  color: color.dark.blue2,
-  fontSize: "1.2rem",
-  fontWeight: "bold",
+  color: color.dark.white,
+  fontSize: "4rem",
+  fontWeight: "lighter",
   marginBottom: "0.5rem",
+  lineHeight: "1.2",
 });
 
 const H3 = styled.h3({
@@ -26,6 +27,11 @@ const H4 = styled.h4({
   color: color.dark.white,
 });
 
+const Emphasize = styled.span({
+  color: color.dark.gold,
+  // fontWeight: "normal",
+})
+
 const SmallText = styled.span({
   margin: "0.3rem 0 0 0.5rem",
   fontSize: "0.8rem",
@@ -38,4 +44,4 @@ const SmallWarningText = styled.span({
   color: color.dark.red,
 });
 
-export { H1, H2, H3, H4, SmallText, SmallWarningText };
+export { H1, H2, H3, H4, Emphasize, SmallText, SmallWarningText };
