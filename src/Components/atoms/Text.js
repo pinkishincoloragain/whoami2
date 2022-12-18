@@ -8,7 +8,7 @@ const H1 = styled.h1({
 
 const H2 = styled.h2({
   color: color.dark.white,
-  fontSize: "4rem",
+  fontSize: "3rem",
   fontWeight: "lighter",
   marginBottom: "0.5rem",
   lineHeight: "1.2",

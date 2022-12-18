@@ -19,6 +19,7 @@ const AnniversaryFormWrapper = styled.form({
   flexDirection: "column",
   minWidth: "20rem",
   maxWidth: "30rem",
+  width: "100%",
   zIndex: "100"
 });
 
@@ -32,10 +33,10 @@ const SubmitButtonWrapper = styled.div({
 
 const TriangleWrapper = styled.div({
   position: "fixed",
-  top: "0",
+  bottom: "0",
   right: "0",
   width: "clamp(100px, 40%, 40%)",
-  height: "100%",
+  height: "50%",
   zIndex: "-1",
   // backgroundColor: "red",
 });
