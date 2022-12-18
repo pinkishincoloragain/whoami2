@@ -21,7 +21,9 @@ const AnniversaryFormWrapper = styled.form({
 
 const SubmitButtonWrapper = styled.div({
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
+  gap: "0.5rem",
+  alignItems: "center",
 });
 
 export default function AnniversaryForm() {

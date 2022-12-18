@@ -84,7 +84,7 @@ const SubmitButton = styled.button(props => {
     borderRadius: "8px",
     padding: "10px 12px 10px 12px",
     fontSize: "14px",
-    backgroundColor: props.disabled ? colors.dark.red : colors.dark.blue2,
+    backgroundColor: props.disabled ? colors.dark.red : colors.dark.gold,
     "&:active": {
       fontSize: "13.5px",
     },

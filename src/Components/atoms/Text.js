@@ -18,6 +18,8 @@ const H3 = styled.h3({
   // marginBlock: "0.5rem 0.2rem",
   width: "fit-content",
   height: "fit-content",
+  flexShrink: "0",
+
   fontSize: "1rem",
   fontWeight: "bold",
   color: color.light.white,
@@ -36,12 +38,13 @@ const Emphasize = styled.span({
 
 const SmallText = styled.span({
   // margin: "0.3rem 0 0 0.5rem",
+  flexShrink: "0",
   fontSize: "0.8rem",
   color: color.dark.white,
 });
 
 const SmallWarningText = styled.span({
-  margin: "1rem 0 0 0.5rem",
+  // margin: "1rem 0 0 0.5rem",
   fontSize: "0.8rem",
   color: color.dark.red,
 });
