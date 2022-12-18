@@ -12,11 +12,14 @@ import TextAreaForm from "../molecules/form/TextAreaForm";
 import addResponse from "../utils/addResponse";
 import { useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
+import Triangle from "../atoms/Triangle";
 
 const AnniversaryFormWrapper = styled.form({
+  posiiton: "relative",
   flexDirection: "column",
   minWidth: "20rem",
   maxWidth: "30rem",
+  zIndex: "100"
 });
 
 const SubmitButtonWrapper = styled.div({
@@ -24,6 +27,17 @@ const SubmitButtonWrapper = styled.div({
   flexDirection: "column",
   gap: "0.5rem",
   alignItems: "center",
+  zIndex: "100"
+});
+
+const TriangleWrapper = styled.div({
+  position: "fixed",
+  top: "0",
+  right: "0",
+  width: "clamp(100px, 40%, 40%)",
+  height: "100%",
+  zIndex: "-1",
+  // backgroundColor: "red",
 });
 
 export default function AnniversaryForm() {
@@ -75,6 +89,9 @@ export default function AnniversaryForm() {
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
+      <TriangleWrapper>
+        <Triangle />
+      </TriangleWrapper>
       <H2>
         <Emphasize>{anniversary.title1}</Emphasize>
         <br />

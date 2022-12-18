@@ -5,6 +5,7 @@ import colors from "../Components/colors.json";
 
 const AnniversaryWrapper = styled.div(props => {
   return {
+    position: "relative",
     padding: "10vh 0 10vh 0",
     display: "flex",
     justifyContent: "center",
