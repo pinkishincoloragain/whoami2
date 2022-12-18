@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import color from "../colors.json";
 
-const BeatifulBar = styled(`div`)({
-  backgroundImage: "linear-gradient(217deg, #231955, #1F4690 71.71%)",
+const BeautifulBar = styled(`div`)({
+  backgroundImage: `linear-gradient(90deg, ${color.dark.gold}, transparent)`,
   width: "100%",
-  height: "2vh",
-  borderRadius: "5px",
+  height: "0.125rem",
+  borderRadius: "0.125rem",
   marginTop: "1vh",
   marginBottom: "1vh",
 });
 
-export default BeatifulBar;
+export default BeautifulBar;

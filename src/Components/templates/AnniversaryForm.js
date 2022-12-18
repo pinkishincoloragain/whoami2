@@ -11,6 +11,7 @@ import TextAreaForm from "../molecules/form/TextAreaForm";
 
 import addResponse from "../utils/addResponse";
 import { useNavigate } from "react-router-dom";
+import BeautifulBar from "../atoms/BeautifulBar";
 
 const AnniversaryFormWrapper = styled.form({
   flexDirection: "column",
@@ -73,6 +74,7 @@ export default function AnniversaryForm() {
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <H2>{anniversary.title}</H2>
+      <BeautifulBar />
       <H4>
         {anniversary.formDescription1}
         <br />
