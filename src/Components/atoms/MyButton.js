@@ -33,24 +33,20 @@ const TerminalButton = styled.button({
 
 const SelectButton = styled.button(props => {
   return {
-    width: props.selected ? "calc(100% + 24px)" : "100%",
-    height: "36px",
+    width: "100%",
     display: "flex",
     alignItems: "center",
     backgroundColor: props.selected ? colors.dark.foreground : "transparent",
-    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 0px",
+    padding: "10px 8px 10px 12px",
     borderRadius: "8px",
     fontWeight: "bold",
     fontSize: "14px",
-    margin: props.selected ? "0px -12px 0px -12px" : "0px 0 0px 0",
+
+    // I think using animation would be even better
+    transition: "scale 200ms ease-in-out, background-color 200ms ease",
 
     "&:active": {
-      width: "calc(100% + 24px)",
-      // width: "107%",
-      margin: "0px -12px 0px -12px",
-      padding: props.selected ? "12px 12px 12px 16px" : "12px 12px 12px 16px",
-      fontSize: "13.5px",
-      backgroundColor: colors.dark.foreground,
+      scale: "0.95",
     },
 
     "@media (max-width: 768px)": {
