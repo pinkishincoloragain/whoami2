@@ -42,15 +42,18 @@ const SelectButton = styled.button(props => {
     fontWeight: "bold",
     fontSize: "14px",
 
-    // I think using animation would be even better
+    // TODO: I think using animation would be even better
     transition: "scale 200ms ease-in-out, background-color 200ms ease",
 
     "&:active": {
-      scale: "0.95",
+      scale: "0.98",
     },
 
     "@media (max-width: 768px)": {
       height: "56px",
+      "&:active": {
+        scale: "0.96",
+      }
     }
   };
 });
@@ -65,11 +68,15 @@ const AddButton = styled.button({
   fontWeight: "bold",
   borderRadius: "8px",
   padding: "10px 12px 10px 12px",
-  marginRight: "-12px",
+  // marginRight: "-12px",
   fontSize: "14px",
   backgroundColor: colors.dark.gold,
+
+  // TODO: I think using animation would be even better
+  transition: "scale 200ms ease-in-out",
+
   "&:active": {
-    fontSize: "13.5px",
+    scale: "0.95",
   },
 });
 
