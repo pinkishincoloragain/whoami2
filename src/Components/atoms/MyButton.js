@@ -52,6 +52,10 @@ const SelectButton = styled.button(props => {
       fontSize: "13.5px",
       backgroundColor: colors.dark.foreground,
     },
+
+    "@media (max-width: 768px)": {
+      height: "56px",
+    }
   };
 });
 
