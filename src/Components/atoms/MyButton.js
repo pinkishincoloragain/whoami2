@@ -33,25 +33,28 @@ const TerminalButton = styled.button({
 
 const SelectButton = styled.button(props => {
   return {
-    width: props.selected ? "calc(100% + 24px)" : "100%",
-    height: "56px",
+    width: "100%",
     display: "flex",
     alignItems: "center",
-    backgroundColor: props.selected ? "#2A3C5B" : "transparent",
-    padding: props.selected ? "10px 8px 10px 12px" : "10px 8px 10px 0px",
+    backgroundColor: props.selected ? colors.dark.foreground : "transparent",
+    padding: "10px 8px 10px 12px",
     borderRadius: "8px",
     fontWeight: "bold",
     fontSize: "14px",
-    margin: props.selected ? "8px -12px 8px -12px" : "8px 0 8px 0",
+
+    // TODO: I think using animation would be even better
+    transition: "scale 200ms ease-in-out, background-color 200ms ease",
 
     "&:active": {
-      // width: "calc(100% + 24px)",
-      width: "107%",
-      margin: "8px -12px 8px -12px",
-      padding: props.selected ? "12px 12px 12px 16px" : "12px 12px 12px 16px",
-      fontSize: "13.5px",
-      backgroundColor: "#2A3C5B",
+      scale: "0.98",
     },
+
+    "@media (max-width: 768px)": {
+      height: "56px",
+      "&:active": {
+        scale: "0.96",
+      }
+    }
   };
 });
 
@@ -65,11 +68,15 @@ const AddButton = styled.button({
   fontWeight: "bold",
   borderRadius: "8px",
   padding: "10px 12px 10px 12px",
-  marginRight: "-12px",
+  // marginRight: "-12px",
   fontSize: "14px",
-  backgroundColor: colors.dark.green,
+  backgroundColor: colors.dark.gold,
+
+  // TODO: I think using animation would be even better
+  transition: "scale 200ms ease-in-out",
+
   "&:active": {
-    fontSize: "13.5px",
+    scale: "0.95",
   },
 });
 
@@ -84,7 +91,7 @@ const SubmitButton = styled.button(props => {
     borderRadius: "8px",
     padding: "10px 12px 10px 12px",
     fontSize: "14px",
-    backgroundColor: props.disabled ? colors.dark.red : colors.dark.blue2,
+    backgroundColor: props.disabled ? colors.dark.red : colors.dark.gold,
     "&:active": {
       fontSize: "13.5px",
     },

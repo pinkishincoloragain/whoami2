@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H2, H4, SmallWarningText } from "../atoms/Text";
+import { H2, Emphasize, SmallWarningText } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
@@ -11,16 +11,34 @@ import TextAreaForm from "../molecules/form/TextAreaForm";
 
 import addResponse from "../utils/addResponse";
 import { useNavigate } from "react-router-dom";
+import BeautifulBar from "../atoms/BeautifulBar";
+import Triangle from "../atoms/Triangle";
 
 const AnniversaryFormWrapper = styled.form({
+  posiiton: "relative",
   flexDirection: "column",
   minWidth: "20rem",
   maxWidth: "30rem",
+  width: "100%",
+  zIndex: "100"
 });
 
 const SubmitButtonWrapper = styled.div({
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
+  gap: "0.5rem",
+  alignItems: "center",
+  zIndex: "100"
+});
+
+const TriangleWrapper = styled.div({
+  position: "fixed",
+  bottom: "0",
+  right: "0",
+  width: "clamp(100px, 40%, 40%)",
+  height: "50%",
+  zIndex: "-1",
+  // backgroundColor: "red",
 });
 
 export default function AnniversaryForm() {
@@ -72,20 +90,17 @@ export default function AnniversaryForm() {
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
-      <H2>{anniversary.title}</H2>
-      <H4>
-        {anniversary.formDescription1}
+      <TriangleWrapper>
+        <Triangle />
+      </TriangleWrapper>
+      <H2>
+        <Emphasize>{anniversary.title1}</Emphasize>
         <br />
-        {anniversary.formDescription2}
-      </H4>
-      <MultiSelectForm
-        title={anniversary.questions[0]}
-        phrase={anniversary.phrase[0]}
-        options={anniversary.options}
-        name='options'
-        onChange={handleSelectionFormChange}
-        addFormPlaceholder={anniversary.createByOwn}
-      />
+        {anniversary.title2}
+        <br />
+        {anniversary.title3}
+      </H2>
+      <BeautifulBar />
       <InputForm
         title={anniversary.questions[1]}
         phrase={anniversary.phrase[1]}
@@ -100,6 +115,14 @@ export default function AnniversaryForm() {
         onChange={handleInputFormChange}
         placeholder={anniversary.placeholder.instagram}
         optionPhrase={anniversary.requestAnonymous}
+      />
+      <MultiSelectForm
+        title={anniversary.questions[0]}
+        phrase={anniversary.phrase[0]}
+        options={anniversary.options}
+        name='options'
+        onChange={handleSelectionFormChange}
+        addFormPlaceholder={anniversary.createByOwn}
       />
       <TextAreaForm
         title={anniversary.questions[3]}
