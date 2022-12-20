@@ -62,13 +62,6 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper> */}
 
-      <AddWrapper>
-        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
-        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
-          추가하기
-        </AddButton>
-      </AddWrapper>
-
       {selectOptions.map((selectOption, index) => {
         return (
           <SelectButton
@@ -86,6 +79,13 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
           </SelectButton>
         );
       })}
+
+      <AddWrapper>
+        <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
+        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
+          추가하기
+        </AddButton>
+      </AddWrapper>
     </MultiSelectFormWrapper>
   );
 }
