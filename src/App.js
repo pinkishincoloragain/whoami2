@@ -5,14 +5,15 @@ import Error from "./Views/Error";
 import Anniversary from "./Views/Anniversary";
 import Thankyou from "./Views/Thankyou";
 import Login from "./Views/Login";
-
-import { useSetRecoilState } from "recoil";
-import { authState, isLoggedInState } from "./Components/utils/authRecoil";
+import useLogin from "./hooks/useLogin";
 
 function App() {
   React.useEffect(() => {
     console.log("%cHi there, developer", "background: black; color: white; font-size: 20px;");
   }, []);
+
+  useLogin();
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
