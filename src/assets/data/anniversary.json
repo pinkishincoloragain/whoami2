@@ -18,6 +18,11 @@
   "submitFail": "엇, 빈 칸이 있네요..?",
   "questions": ["2022년은 당신에게 어떤 해였나요?", "이름 & 별명", "Instagram", "말하고 싶은 것들"],
   "requestAnonymous": "저는 익명으로 할래요!",
+  "login": {
+    "title": "Login",
+    "description": "멋지게 로그인",
+    "googleAuth": "Google Auth"
+  },
   "options": [
     "😊 재미있었던 한 해입니다.",
     "😢 힘들었던 한 해입니다.",

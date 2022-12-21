@@ -42,14 +42,14 @@ const ButtonWrapper = styled.div({
 export default function LoginContent() {
   return (
     <LoginWrapper>
-      <H2>Login</H2>
-      <H2>멋지게 로그인</H2>
+      <H2>{anniversary.login.title}</H2>
+      <H2>{anniversary.login.description}</H2>
       <RightBar reverse={true} />
       <TriangleWrapper>
         <LogoTriangle />
       </TriangleWrapper>
       <ButtonWrapper>
-        <LargeButton>Google Auth</LargeButton>
+        <LargeButton>{anniversary.login.googleAuth}</LargeButton>
       </ButtonWrapper>
     </LoginWrapper>
   );
