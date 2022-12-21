@@ -31,24 +31,6 @@ const SubmitButtonWrapper = styled.div({
   zIndex: "100"
 });
 
-export const TriangleWrapper = styled.div({
-  position: "absolute",
-  bottom: "0",
-  right: "0",
-  width: "clamp(100px, 40%, 40%)",
-  height: "50%",
-  zIndex: "-1",
-  // backgroundColor: "red",
-});
-
-export const TriangleOverflowWrapper = styled.div({
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-  // backgroundColor: "red",
-  overflow: "hidden",
-});
-
 export default function AnniversaryForm() {
   const [tryToSubmit, setTryToSubmit] = React.useState(false);
 
@@ -98,11 +80,6 @@ export default function AnniversaryForm() {
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
-      <TriangleOverflowWrapper>
-        <TriangleWrapper>
-          <Triangle />
-        </TriangleWrapper>
-      </TriangleOverflowWrapper>
       <H2>
         <Emphasize>{anniversary.title1}</Emphasize>
         <br />

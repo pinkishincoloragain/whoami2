@@ -12,4 +12,23 @@ const Triangle = styled(`div`)(props => ({
   bottom: "10vh",
 }));
 
+export const TriangleWrapper = styled.div({
+  position: "absolute",
+  bottom: "0",
+  right: "0",
+  width: "clamp(100px, 40%, 40%)",
+  height: "50%",
+  zIndex: "-1",
+  // backgroundColor: "red",
+});
+
+export const TriangleOverflowWrapper = styled.div({
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  // backgroundColor: "red",
+  overflow: "hidden",
+  pointerEvents: "none",
+});
+
 export default Triangle;
