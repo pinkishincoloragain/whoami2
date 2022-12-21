@@ -6,17 +6,18 @@ import styled from "styled-components";
 const ContentWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
-  padding: "1rem 1.6rem 2rem 1.6rem",
+  paddingInline: "1.5rem",
+  paddingBottom: "2rem",
+  // padding: "1rem 1.6rem 2rem 1.6rem",
   width: "100%",
-  height: "100%",
+  // height: "100%",
   color: "white",
-  overflow: "scroll",
 });
 
-export default function PopupContent() {
+export default function PopupContent({ children }) {
   return (
     <ContentWrapper>
-      <AnniversaryPopupContent />
+      {children}
     </ContentWrapper>
   );
 }

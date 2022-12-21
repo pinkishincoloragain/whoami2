@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import AnniversaryPopupContent from "../Components/molecules/AnniversaryPopupContent";
 // import BeatifulBar from "../Components/atoms/BeautifulBar";
 
 // import Video from "../Components/templates/Video";
@@ -8,20 +9,6 @@ import styled from "styled-components";
 // import TalkTemplate from "../Components/templates/TalkTemplate";
 // import SubHeader from "../Components/templates/SubHeader";
 import Popup from "../Components/templates/Popup";
-
-const LandingWrapper = styled.div({
-  backgroundImage: "linear-gradient(180deg, #000000, #223148)",
-  height: "100vh",
-  color: "white",
-  paddingRight: "10%",
-  paddingLeft: "10%",
-  paddingTop: "3%",
-  paddingBottom: "5%",
-  overflow: "hidden",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-});
 
 const MainWrapper = styled.div({
   zIndex: 0,
@@ -66,10 +53,12 @@ function Landing() {
   // );
   return (
     // <Popup />
-    <LandingWrapper>
-      <Popup />
+    <div>
+      <Popup>
+        <AnniversaryPopupContent />
+      </Popup>
       여긴 아무 것도 없어요!
-    </LandingWrapper>
+    </div>
   );
 }
 

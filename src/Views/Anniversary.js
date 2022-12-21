@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import AnniversaryForm from "../Components/templates/AnniversaryForm";
 import colors from "../Components/colors.json";
+import Popup from "../Components/templates/Popup";
 
 const AnniversaryWrapper = styled.div(props => {
   return {
@@ -17,9 +18,9 @@ const AnniversaryWrapper = styled.div(props => {
 
 function Anniversary() {
   return (
-    <AnniversaryWrapper>
+    <Popup>
       <AnniversaryForm />
-    </AnniversaryWrapper>
+    </Popup>
   );
 }
 

@@ -4,7 +4,7 @@ import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
 
 import colors from "../colors.json";
-import { TriangleOverflowWrapper, TriangleWrapper } from "./AnniversaryForm";
+import { TriangleOverflowWrapper, TriangleWrapper } from "../atoms/Triangle";
 import Triangle from "../atoms/Triangle";
 
 const PopupBackground = styled.div({
@@ -12,13 +12,13 @@ const PopupBackground = styled.div({
   top: "0",
   right: "0",
   width: "100%",
-  height: "100%",
+  minHeight: "100%",
   zIndex: 10,
   display: "flex",
-  alignItems: "center",
+  // alignItems: "center",
   justifyContent: "center",
-  overflow: "hidden",
   backdropFilter: "blur(10px)",
+  paddingBlock: "0.5rem",
 });
 
 const PopupWrapper = styled.div({
@@ -31,10 +31,9 @@ const PopupWrapper = styled.div({
   backgroundColor: colors.dark.background,
   borderRadius: "1rem",
   zIndex: "0",
-  overflow: "hidden",
 });
 
-export default function Popup() {
+export default function Popup({ children }) {
   const [popupOpen, setPopupOpen] = React.useState(true);
 
   React.useEffect(() => {
@@ -55,7 +54,9 @@ export default function Popup() {
             </TriangleWrapper>
           </TriangleOverflowWrapper>
           <PopupButtonGroup handlePopupClose={handlePopupClose} />
-          <PopupContent />
+          <PopupContent>
+            {children}
+          </PopupContent>
         </PopupWrapper>
       </PopupBackground>
     )
