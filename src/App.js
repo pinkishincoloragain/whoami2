@@ -6,6 +6,7 @@ import Privacy from "./Views/Privacy";
 import Anniversary from "./Views/Anniversary";
 import Thankyou from "./Views/Thankyou";
 import Login from "./Views/Login";
+import MyPage from "./Views/MyPage";
 import useLogin from "./hooks/useLogin";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/privacy' element={<Privacy />} />
+        <Route path='/mypage' element={<MyPage />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>
