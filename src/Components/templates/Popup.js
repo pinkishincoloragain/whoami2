@@ -4,6 +4,8 @@ import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
 
 import colors from "../colors.json";
+import { TriangleOverflowWrapper, TriangleWrapper } from "./AnniversaryForm";
+import Triangle from "../atoms/Triangle";
 
 const PopupBackground = styled.div({
   position: "absolute",
@@ -20,12 +22,16 @@ const PopupBackground = styled.div({
 });
 
 const PopupWrapper = styled.div({
-  width: "50%",
+  position: "relative",
+  width: "100%",
   minWidth: "20rem",
-  maxWidth: "28rem",
+  maxWidth: "30rem",
   minHeight: "30rem",
+  // backgroundColor: "transparent",
   backgroundColor: colors.dark.background,
   borderRadius: "1rem",
+  zIndex: "0",
+  overflow: "hidden",
 });
 
 export default function Popup() {
@@ -43,6 +49,11 @@ export default function Popup() {
     popupOpen && (
       <PopupBackground>
         <PopupWrapper>
+          <TriangleOverflowWrapper>
+            <TriangleWrapper>
+              <Triangle />
+            </TriangleWrapper>
+          </TriangleOverflowWrapper>
           <PopupButtonGroup handlePopupClose={handlePopupClose} />
           <PopupContent />
         </PopupWrapper>

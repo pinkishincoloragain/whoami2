@@ -65,6 +65,7 @@ function Landing() {
   //   </LandingWrapper>
   // );
   return (
+    // <Popup />
     <LandingWrapper>
       <Popup />
       여긴 아무 것도 없어요!

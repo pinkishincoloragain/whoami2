@@ -9,7 +9,6 @@ const Triangle = styled(`div`)(props => ({
   minHeight: "200px",
   aspectRatio: "1.2/1",
   transform: "rotate(-10deg)",
-  left: "-10vw",
   bottom: "10vh",
 }));
 
