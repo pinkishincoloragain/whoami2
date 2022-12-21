@@ -7,6 +7,8 @@ import { LargeButton } from "../atoms/MyButton";
 import BeautifulBar from "../atoms/BeautifulBar";
 import { H2 } from "../atoms/Text";
 
+import { signInWithGoogle } from "../utils/auth";
+
 const LoginWrapper = styled.div({
   backgroundColor: colors.dark.background,
   width: "100%",
@@ -49,7 +51,7 @@ export default function LoginContent() {
         <LogoTriangle />
       </TriangleWrapper>
       <ButtonWrapper>
-        <LargeButton>{anniversary.login.googleAuth}</LargeButton>
+        <LargeButton onClick={signInWithGoogle}>{anniversary.login.googleAuth}</LargeButton>
       </ButtonWrapper>
     </LoginWrapper>
   );
