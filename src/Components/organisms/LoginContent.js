@@ -7,7 +7,11 @@ import { LargeButton } from "../atoms/MyButton";
 import BeautifulBar from "../atoms/BeautifulBar";
 import { H2 } from "../atoms/Text";
 
-import { signInWithGoogle } from "../utils/auth";
+import { signInWithGoogle } from "../utils/signInWithGoogle";
+import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
+import { userInfoState, isLoggedInState } from "../utils/authRecoil";
+import { useNavigate } from "react-router-dom";
 
 const LoginWrapper = styled.div({
   backgroundColor: colors.dark.background,
@@ -42,6 +46,25 @@ const ButtonWrapper = styled.div({
 });
 
 export default function LoginContent() {
+  const setUser = useSetRecoilState(userInfoState);
+  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
+  const navigate = useNavigate();
+
+  const handleAuthClick = async () => {
+    const { result, user } = await signInWithGoogle();
+    if (result) {
+      setUser(user);
+      setIsLoggedIn(true);
+      // navigate("/letters");
+    }
+  };
+
+  const userInfo = useRecoilState(userInfoState);
+  const isLoggedIn = useRecoilState(isLoggedInState);
+
+  console.log("userInfo", userInfo);
+  console.log("isLoggedIn", isLoggedIn);
+
   return (
     <LoginWrapper>
       <H2>{anniversary.login.title}</H2>
@@ -51,7 +74,7 @@ export default function LoginContent() {
         <LogoTriangle />
       </TriangleWrapper>
       <ButtonWrapper>
-        <LargeButton onClick={signInWithGoogle}>{anniversary.login.googleAuth}</LargeButton>
+        <LargeButton onClick={handleAuthClick}>{anniversary.login.googleAuth}</LargeButton>
       </ButtonWrapper>
     </LoginWrapper>
   );

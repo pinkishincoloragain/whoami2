@@ -11,6 +11,7 @@ const signInWithGoogle = async () => {
     const user = res.user;
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
+
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
@@ -19,13 +20,17 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+
+    console.log(res.operationType);
+
+    return { result: true, user: user };
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    return { result: false, user: null };
   }
 };
 const logout = () => {
   signOut(auth);
 };
 
-export { auth, logout, signInWithGoogle };
+export { logout, signInWithGoogle };

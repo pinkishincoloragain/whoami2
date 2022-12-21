@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-const authState = atom({
-  key: "authState", // unique ID
+const userInfoState = atom({
+  key: "userInfoState", // unique ID
   default: false, // default value (aka initial value)
   dangerouslyAllowMutability: true,
 });
@@ -11,4 +11,4 @@ const isLoggedInState = atom({
   default: false, // default value (aka initial value)
 });
 
-export { authState, isLoggedInState };
+export { userInfoState, isLoggedInState };
