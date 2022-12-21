@@ -1,32 +1,30 @@
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import { query, getDocs, collection, where, addDoc } from "firebase/firestore";
+import {
+  GoogleAuthProvider,
+  setPersistence,
+  signInWithPopup,
+  signOut,
+  browserSessionPersistence,
+} from "firebase/auth";
+import checkUser from "./checkUser";
+import addUser from "./addUser";
 
-import { auth, db } from "./firebaseControl";
+import { auth } from "./firebaseControl";
 
 const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
   try {
-    const res = await signInWithPopup(auth, googleProvider);
-    const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
+    setPersistence(auth, browserSessionPersistence);
+    const { user } = await signInWithPopup(auth, googleProvider);
+    const { isSuccess, isNewUser } = await checkUser(user);
+    if (isNewUser) {
+      await addUser(user);
     }
 
-    console.log(res.operationType);
-
-    return { result: true, user: user };
+    return { isSuccess: true, user: user };
   } catch (err) {
     console.error(err);
-    return { result: false, user: null };
+    return { isSuccess: false, user: null };
   }
 };
 const logout = () => {
