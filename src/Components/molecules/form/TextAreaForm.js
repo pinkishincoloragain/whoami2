@@ -36,11 +36,11 @@ const TextArea = styled.textarea({
 });
 
 const FormHeaderWrapper = styled.div({
+  position: "relative",
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
   gap: "0.5rem",
-  justifyContent: "space-between",
 });
 
 export default function TextAreaForm({ title, placeholder, name, onChange, isEmpty }) {

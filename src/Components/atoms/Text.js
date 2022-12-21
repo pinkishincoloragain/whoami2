@@ -38,6 +38,7 @@ const Emphasize = styled.span({
 
 const SmallText = styled.span({
   // margin: "0.3rem 0 0 0.5rem",
+  display: "inline-block",
   flexShrink: "0",
   fontSize: "0.8rem",
   color: color.dark.white,
