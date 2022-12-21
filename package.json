@@ -13,6 +13,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
     "react-three-fiber": "^6.0.13",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
     "three": "^0.143.0"
   },

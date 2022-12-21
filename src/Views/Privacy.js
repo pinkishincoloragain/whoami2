@@ -2,9 +2,9 @@ import * as React from "react";
 import styled from "styled-components";
 import colors from "../Components/colors.json";
 
-import ThankyouContent from "../Components/organisms/ThankyouContent";
+import PrivacyContent from "../Components/organisms/PrivacyContent";
 
-const ThankyouWrapper = styled.div(props => {
+const PrivacyWrapper = styled.div(props => {
   return {
     padding: "10vh 0 10vh 0",
     height: "100vh",
@@ -16,10 +16,10 @@ const ThankyouWrapper = styled.div(props => {
   };
 });
 
-export default function Thankyou() {
+export default function Privacy() {
   return (
-    <ThankyouWrapper>
-      <ThankyouContent />
-    </ThankyouWrapper>
+    <PrivacyWrapper>
+      <PrivacyContent />
+    </PrivacyWrapper>
   );
 }

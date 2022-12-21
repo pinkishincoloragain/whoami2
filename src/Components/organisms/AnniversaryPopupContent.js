@@ -1,9 +1,18 @@
 import anniversary from "../../assets/data/anniversary.json";
 
-import { DarkLink } from "../atoms/MyButton";
+import { LinkButton } from "../atoms/MyButton";
 import { H1, H3, H4 } from "../atoms/Text";
+import styled from "styled-components";
 
-import Waves from "./objects/Waves";
+import Waves from "../molecules/objects/Waves";
+
+const LinkWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  width: "100%",
+  height: "100%",
+});
 
 export default function AnniversaryPopupContent() {
   return (
@@ -19,7 +28,10 @@ export default function AnniversaryPopupContent() {
         {anniversary.description4}
       </H4>
       <br />
-      <DarkLink to='/anniversary'>{anniversary.button}</DarkLink>
+      <LinkWrapper>
+        <LinkButton to='/anniversary'>{anniversary.popupContent.writeButton}</LinkButton>
+        <LinkButton to='/login'>{anniversary.popupContent.readButton}</LinkButton>
+      </LinkWrapper>
     </div>
   );
 }

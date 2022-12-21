@@ -9,16 +9,20 @@
   "description2": "연하장은 새해에 대한 기대와 희망을 적는 것이라고 합니다. 기대와 희망.. 기분 좋잖아요?",
   "description3": "연하장 작성은 2023년 1월 1일까지 가능해요!",
   "description4": "1월 1일에는 연하장을 모두 보내드릴 예정입니다.",
-  "button": "어디 한 번 받아 봅시다",
+  "popupContent": {
+    "writeButton": "연하장 쓰러 가기",
+    "readButton": "내가 받은 연하장"
+  },
+  "formTitle": "내가 받은 연하장",
   "phrase": ["복수선택이 가능해요", "보내는 사람", "받는 사람"],
   "submitFail": "엇, 빈 칸이 있네요..?",
-  "questions": [
-    "2022년은 당신에게 어떤 해였나요?",
-    "이름 & 별명",
-    "Instagram",
-    "말하고 싶은 것들"
-  ],
+  "questions": ["2022년은 당신에게 어떤 해였나요?", "이름 & 별명", "Instagram", "말하고 싶은 것들"],
   "requestAnonymous": "저는 익명으로 할래요!",
+  "login": {
+    "title": "Login",
+    "description": "멋지게 로그인",
+    "googleAuth": "Google Auth"
+  },
   "options": [
     "😊 재미있었던 한 해입니다.",
     "😢 힘들었던 한 해입니다.",
