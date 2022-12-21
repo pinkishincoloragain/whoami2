@@ -29,8 +29,8 @@ export default function AnniversaryPopupContent() {
       </H4>
       <br />
       <LinkWrapper>
-        <LinkButton to='/anniversary'>{anniversary.popupContent.readButton}</LinkButton>
-        <LinkButton to='/login'>{anniversary.popupContent.writeButton}</LinkButton>
+        <LinkButton to='/anniversary'>{anniversary.popupContent.writeButton}</LinkButton>
+        <LinkButton to='/login'>{anniversary.popupContent.readButton}</LinkButton>
       </LinkWrapper>
     </div>
   );
