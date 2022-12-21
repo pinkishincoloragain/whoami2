@@ -6,8 +6,7 @@ const BeautifulBar = styled(`div`)(props => ({
   width: "50%",
   height: "0.125rem",
   borderRadius: "0.125rem",
-  marginTop: "1vh",
-  marginBottom: "1vh",
+  marginBlock: "1vh",
 }));
 
 export default BeautifulBar;
