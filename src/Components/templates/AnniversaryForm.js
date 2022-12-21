@@ -129,6 +129,7 @@ export default function AnniversaryForm() {
         name='description'
         onChange={handleInputFormChange}
         placeholder={anniversary.placeholder.message}
+        isEmpty={isEmpty.description}
       />
       <SubmitButtonWrapper>
         <SubmitButton
