@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import colors from "../Components/colors.json";
 
-import ThankyouContent from "../Components/templates/ThankyouContent";
+import ThankyouContent from "../Components/organisms/ThankyouContent";
 
 const ThankyouWrapper = styled.div(props => {
   return {
