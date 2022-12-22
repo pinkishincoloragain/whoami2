@@ -1,16 +1,26 @@
 import React from "react";
 
-import styled from "styled-components";
-import { H2 } from "../atoms/Text";
-import anniversary from "../../assets/data/anniversary.json";
+import LettersButton from "../atoms/LettersButton";
 
-const LettersContentWrapper = styled.div({});
+import styled from "styled-components";
+import { H3 } from "../atoms/Text";
+
+const LettersContentWrapper = styled.div({
+  marginTop: "4vh",
+});
 
 export default function LettersContent() {
+  const [froms, setFrom] = React.useState([
+    "pinkishincoloragain",
+    "cj.dropthebeat",
+    "익명의 흑토끼",
+  ]);
+
   return (
     <LettersContentWrapper>
-      {/* <H2>{anniversary.title1}</H2>
-      <H2>{anniversary.title2}</H2> */}
+      {froms.map((from, idx) => (
+        <LettersButton key={idx} from={from} />
+      ))}
     </LettersContentWrapper>
   );
 }

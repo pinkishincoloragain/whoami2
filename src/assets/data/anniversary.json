@@ -36,6 +36,9 @@
     "instagram": "@pinkishincoloragain",
     "message": "2022년에는 이런 일이 있었어요."
   },
+  "letters": {
+    "from": "From."
+  },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
   "anonymous": "저는 익명으로 할래요",
