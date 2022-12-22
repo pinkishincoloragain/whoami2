@@ -21,7 +21,7 @@ export default function StatsContent() {
       <H2>{anniversary.title1}</H2>
       <H2>{anniversary.title2}</H2>
       {options.map((option, idx) => (
-        <StatsButton key={idx} option={option} count={idx}></StatsButton>
+        <StatsButton key={idx} option={option} count={options.length - idx}></StatsButton>
       ))}
     </StatsContentWrapper>
   );
