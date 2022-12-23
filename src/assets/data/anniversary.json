@@ -45,6 +45,10 @@
   "letters": {
     "from": "From."
   },
+  "share": {
+    "desc": "바다를 둘러보세요",
+    "title": "2023 New Year's Letter"
+  },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
   "anonymous": "저는 익명으로 할래요",

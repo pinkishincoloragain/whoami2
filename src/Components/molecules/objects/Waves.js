@@ -39,7 +39,7 @@ function Waves(props) {
   }
 
   function init() {
-    container = document.getElementById("container");
+    container = document.getElementById(props.container || "container");
 
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -49,7 +49,7 @@ function Waves(props) {
       container.removeChild(container.childNodes[0]);
     }
     container.appendChild(renderer.domElement);
-    renderer.domElement.style.borderRadius = "135px";
+    renderer.domElement.style.borderRadius = `${props.borderRadius}px` || "135px";
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(100, props.width / props.height, 1, 10000);
@@ -62,8 +62,8 @@ function Waves(props) {
     const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
 
     water = new Water(waterGeometry, {
-      textureWidth: 512,
-      textureHeight: 512,
+      textureWidth: 256,
+      textureHeight: 256,
       waterNormals: new THREE.TextureLoader().load(waterNormals, function (texture) {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       }),
@@ -71,7 +71,7 @@ function Waves(props) {
       // sunColor: 0xffffff,
       sunColor: 0xde5050,
       // waterColor: 0xde5050,
-      waterColor: 0x001e0f,
+      waterColor: props.waterColor || 0x001e0f,
       distortionScale: 3,
       fog: scene.fog !== undefined,
     });
@@ -87,8 +87,8 @@ function Waves(props) {
     scene.add(sky);
     const skyUniforms = sky.material.uniforms;
 
-    skyUniforms["turbidity"].value = 10;
-    skyUniforms["rayleigh"].value = 0.1;
+    skyUniforms["turbidity"].value = props.turbidity || 1;
+    skyUniforms["rayleigh"].value = props.rayleigh || 0.2;
     skyUniforms["mieCoefficient"].value = 0.005;
     skyUniforms["mieDirectionalG"].value = 0.9;
 
@@ -97,10 +97,11 @@ function Waves(props) {
     updateSun();
 
     let controls = new OrbitControls(camera, renderer.domElement);
+    controls.addEventListener("change", render);
     controls.maxPolarAngle = Math.PI * 0.495;
     controls.target.set(30, 40, 0);
     controls.minDistance = 40.0;
-    controls.maxDistance = 200.0;
+    controls.maxDistance = 800.0;
     controls.update();
   }
 
@@ -111,17 +112,17 @@ function Waves(props) {
 
   function render() {
     const time = performance.now() * 0.001;
-
-    // mesh.position.y = Math.sin(time) * 20 + 5;
-    // mesh.rotation.x = time * 0.5;
-    // mesh.rotation.z = time * 0.51;
-
     water.material.uniforms["time"].value += 1.0 / 60.0;
 
     renderer.render(scene, camera);
   }
 
-  return <div id='container' style={{ transitionDuration: "0.1s", visibility: "visible" }}></div>;
+  return (
+    <div
+      id={props.container || "container"}
+      style={{ transitionDuration: "0.1s", visibility: props.visibility }}
+    ></div>
+  );
 }
 
 export default Waves;
