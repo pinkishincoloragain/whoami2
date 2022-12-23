@@ -14,7 +14,6 @@ const OptionBarWrapper = styled.div(props => {
 
 const ViewOption = styled.button(props => {
   return {
-    width: "64px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

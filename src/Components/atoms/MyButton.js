@@ -125,7 +125,7 @@ const LargeButton = styled.button({
 
 const LinkButton = styled(Link)(props => {
   return {
-    width: "200px",
+    width: "140px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -133,6 +133,7 @@ const LinkButton = styled(Link)(props => {
     padding: "10px 8px 10px 8px",
     fontWeight: "light",
     fontSize: "16px",
+    marginBottom: "16px",
 
     transition: "scale 200ms ease-in-out, background-color 200ms ease",
 
