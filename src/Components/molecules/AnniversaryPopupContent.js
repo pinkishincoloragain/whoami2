@@ -27,8 +27,8 @@ const WavesWrapper = styled.div({
 
   zIndex: "-10",
 
-  "@media (max-width: 375px)": {
-    scale: "0.8",
+  "@media (max-width: 400px)": {
+    scale: "0.7",
   },
 });
 

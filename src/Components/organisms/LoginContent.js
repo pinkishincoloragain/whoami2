@@ -67,7 +67,7 @@ export default function LoginContent() {
   };
 
   return (
-    <LoginWrapper>
+    <>
       <H2>{anniversary.login.title}</H2>
       <H2>{anniversary.login.description}</H2>
       <RightBar reverse={true} />
@@ -77,6 +77,6 @@ export default function LoginContent() {
       <ButtonWrapper>
         <LargeButton onClick={handleAuthClick}>{anniversary.login.googleAuth}</LargeButton>
       </ButtonWrapper>
-    </LoginWrapper>
+    </>
   );
 }

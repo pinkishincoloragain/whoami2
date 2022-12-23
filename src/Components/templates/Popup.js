@@ -18,8 +18,8 @@ const PopupBackground = styled.div({
   // alignItems: "center",
   justifyContent: "center",
   backdropFilter: "blur(10px)",
-  paddingBlock: "0.5rem",
-  paddingInline: "0.5rem",
+  paddingBlock: "1rem",
+  paddingInline: "1rem",
 });
 
 const PopupWrapper = styled.div({

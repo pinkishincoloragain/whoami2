@@ -16,7 +16,7 @@ const LandingWrapper = styled.div({
   position: "relative",
   width: "100%",
   backgroundImage: "linear-gradient(180deg, #030303, #3e3e3e)",
-  minHeight: "100vh",
+  minHeight: "100svh",
   color: "white",
   overflow: "scroll",
   display: "flex",
