@@ -4,6 +4,7 @@ import StatsButton from "../atoms/StatsButton";
 import OptionBar from "../atoms/OptionBar";
 
 import LettersContent from "../molecules/LettersContent";
+import anniversary from "../../assets/data/anniversary.json";
 
 const StatContent = options => {
   return (
@@ -33,7 +34,11 @@ export default function LetterStatContent() {
 
   return (
     <>
-      <OptionBar setCurrentViewIdx={setCurrentViewIdx} currentViewIdx={currentViewIdx} />
+      <OptionBar
+        options={anniversary.mypage.options}
+        currentOptionIdx={currentViewIdx}
+        setCurrentOptionIdx={setCurrentViewIdx}
+      />
       {currentViewIdx === "0" ? StatContent(options) : <LettersContent letters={letters} />}
     </>
   );

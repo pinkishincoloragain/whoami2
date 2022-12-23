@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import colors from "../colors.json";
 
-import anniversary from "../../assets/data/anniversary.json";
-
 const OptionBarWrapper = styled.div(props => {
   return {
     display: "flex",
@@ -24,19 +22,18 @@ const ViewOption = styled.button(props => {
   };
 });
 
-export default function OptionBar({ currentViewIdx, setCurrentViewIdx }) {
-  const viewOptions = anniversary.mypage.options;
+export default function OptionBar({ options, currentOptionIdx, setCurrentOptionIdx }) {
+  const viewOptions = options;
 
   const handleOptionClick = e => {
-    console.log(e.target.value);
-    setCurrentViewIdx(e.target.value);
+    setCurrentOptionIdx(e.target.value);
   };
 
   return (
     <OptionBarWrapper>
       {viewOptions.map((option, idx) => (
         <ViewOption
-          isSelected={currentViewIdx === idx.toString()}
+          isSelected={currentOptionIdx === idx.toString()}
           value={idx}
           onClick={handleOptionClick}
           key={option}
