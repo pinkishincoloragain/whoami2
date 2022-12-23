@@ -49,7 +49,7 @@ function Waves(props) {
       container.removeChild(container.childNodes[0]);
     }
     container.appendChild(renderer.domElement);
-    renderer.domElement.style.borderRadius = "135px";
+    renderer.domElement.style.borderRadius = "100%";
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(100, props.width / props.height, 1, 10000);
