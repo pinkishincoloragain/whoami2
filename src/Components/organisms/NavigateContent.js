@@ -9,6 +9,7 @@ const NavigateContentWrapper = styled.div({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
+  gap: "1rem",
 });
 
 export default function NavigateContent() {

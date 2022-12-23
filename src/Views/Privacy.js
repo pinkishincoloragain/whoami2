@@ -3,23 +3,12 @@ import styled from "styled-components";
 import colors from "../Components/colors.json";
 
 import PrivacyContent from "../Components/organisms/PrivacyContent";
-
-const PrivacyWrapper = styled.div(props => {
-  return {
-    padding: "10vh 0 10vh 0",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.dark.background,
-    color: colors.white,
-  };
-});
+import Popup from "../Components/templates/Popup";
 
 export default function Privacy() {
   return (
-    <PrivacyWrapper>
+    <Popup>
       <PrivacyContent />
-    </PrivacyWrapper>
+    </Popup>
   );
 }

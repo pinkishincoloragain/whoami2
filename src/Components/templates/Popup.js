@@ -19,9 +19,12 @@ const PopupBackground = styled.div({
   justifyContent: "center",
   backdropFilter: "blur(10px)",
   paddingBlock: "0.5rem",
+  paddingInline: "0.5rem",
 });
 
 const PopupWrapper = styled.div({
+  display: "flex",
+  flexDirection: "column",
   position: "relative",
   width: "100%",
   minWidth: "20rem",
