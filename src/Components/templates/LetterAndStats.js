@@ -1,9 +1,10 @@
 import React from "react";
 
 import LettersContent from "../organisms/LettersContent";
+import NavigateContent from "../organisms/NavigateContent";
+import StatsContent from "../organisms/StatsContent";
 
 import styled from "styled-components";
-import StatsContent from "../organisms/StatsContent";
 
 const LettersContentWrapper = styled.div({
   width: "100%",
@@ -18,6 +19,7 @@ export default function LetterAndStats() {
     <LettersContentWrapper>
       <StatsContent />
       <LettersContent />
+      <NavigateContent />
     </LettersContentWrapper>
   );
 }
