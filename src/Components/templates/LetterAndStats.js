@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { isLoggedInState } from "../utils/authRecoil";
+import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 const LettersContentWrapper = styled.div({
   width: "100%",

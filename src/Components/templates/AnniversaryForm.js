@@ -9,11 +9,11 @@ import InputForm from "../molecules/form/InputForm";
 import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
 
-import addResponse from "../utils/addResponse";
+import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
 import Triangle from "../atoms/Triangle";
-import checkUser from "../utils/checkUser";
+import checkUser from "../utils/firebase/checkUser";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -48,18 +48,16 @@ export default function AnniversaryForm() {
   const location = useLocation();
 
   React.useEffect(() => {
-    const uid = location.pathname.split("/")[2];
+    const uid = location.pathname.split("/")[2] || "";
     const setUserInfo = async () => {
       const { isSuccess, user } = await checkUser({ uid: uid });
       if (isSuccess) {
-        setReceiver(user.name);
+        setReceiver(user?.name);
       }
     };
 
     setUserInfo();
   }, [location.pathname]);
-
-  console.log(receiver);
 
   const [response, setResponse] = React.useState({
     name: "",

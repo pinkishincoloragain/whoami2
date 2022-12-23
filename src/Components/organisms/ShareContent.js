@@ -5,7 +5,7 @@ import colors from "../colors.json";
 import ShareLetterBox from "../molecules/ShareLetterBox";
 
 import { useRecoilValue } from "recoil";
-import { userInfoState, isLoggedInState } from "../utils/authRecoil";
+import { userInfoState, isLoggedInState } from "../utils/recoil/authRecoil";
 
 import useSharableLink from "../../hooks/useSharableLink";
 

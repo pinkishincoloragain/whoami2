@@ -8,10 +8,10 @@ import { LargeButton } from "../atoms/MyButton";
 import BeautifulBar from "../atoms/BeautifulBar";
 import { H2 } from "../atoms/Text";
 
-import { signInWithGoogle } from "../utils/signInWithGoogle";
+import { signInWithGoogle } from "../utils/firebase/signInWithGoogle";
 import { useRecoilState } from "recoil";
 import { useSetRecoilState } from "recoil";
-import { userInfoState, isLoggedInState } from "../utils/authRecoil";
+import { userInfoState, isLoggedInState } from "../utils/recoil/authRecoil";
 import { useNavigate } from "react-router-dom";
 
 const LoginWrapper = styled.div({
@@ -60,7 +60,6 @@ export default function LoginContent() {
   const handleAuthClick = async () => {
     const { isSuccess, user } = await signInWithGoogle();
     if (isSuccess) {
-      console.log(isSuccess);
       setUserInfo(user);
       setIsLoggedIn(true);
       navigate("/mypage");

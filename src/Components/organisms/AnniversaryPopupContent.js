@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { isLoggedInState } from "../utils/authRecoil";
+import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 import Waves from "../molecules/objects/Waves";
 
