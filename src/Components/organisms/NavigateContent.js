@@ -19,6 +19,7 @@ const ShareLetterBoxWrapper = styled.div({
 });
 
 const LinkButtonWrapper = styled.div({
+  width: "100%",
   marginTop: "20px",
   display: "flex",
   flexDirection: "column",
@@ -32,7 +33,6 @@ export default function NavigateContent() {
       <NavigateContentWrapper>
         <ShareLetterBoxWrapper>
           <H4>{anniversary.mypage.sharableLinkExpl1}</H4>
-          <H4>{anniversary.mypage.sharableLinkExpl2}</H4>
         </ShareLetterBoxWrapper>
         <LinkButtonWrapper>
           <LinkButton to='/share'>{anniversary.mypage.sharableLinkButton}</LinkButton>

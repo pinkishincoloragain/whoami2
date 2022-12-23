@@ -12,7 +12,6 @@ import TextAreaForm from "../molecules/form/TextAreaForm";
 import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
-import Triangle from "../atoms/Triangle";
 import checkUserWithUid from "../utils/firebase/checkUserWithUid";
 
 const AnniversaryFormWrapper = styled.form({
@@ -30,16 +29,6 @@ const SubmitButtonWrapper = styled.div({
   gap: "0.5rem",
   alignItems: "center",
   zIndex: "100",
-});
-
-const TriangleWrapper = styled.div({
-  position: "fixed",
-  bottom: "0",
-  right: "0",
-  width: "clamp(100px, 40%, 40%)",
-  height: "50%",
-  zIndex: "-1",
-  // backgroundColor: "red",
 });
 
 export default function AnniversaryForm() {
@@ -105,9 +94,6 @@ export default function AnniversaryForm() {
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
-      <TriangleWrapper>
-        <Triangle />
-      </TriangleWrapper>
       <H2>
         <Emphasize>{anniversary.title1}</Emphasize>
         <br />

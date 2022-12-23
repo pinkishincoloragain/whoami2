@@ -4,7 +4,7 @@ import { TerminalButton } from "../atoms/MyButton";
 
 const ButtonGroupWrapper = styled.div({
   width: "3.5rem",
-  margin: "0.7rem 1rem",
+  padding: "0.7rem 1rem",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",

@@ -4,11 +4,10 @@ import colors from "../colors.json";
 import anniversary from "../../assets/data/anniversary.json";
 
 import ShareImgBox from "../molecules/ShareImgBox";
-import { ShareButton } from "../atoms/MyButton";
+import OptionBar from "../atoms/OptionBar";
 
 import { useRecoilValue } from "recoil";
-import { userInfoState, isLoggedInState } from "../utils/recoil/authRecoil";
-import OptionBar from "../atoms/OptionBar";
+import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";

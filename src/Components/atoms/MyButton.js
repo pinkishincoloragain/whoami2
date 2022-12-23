@@ -125,7 +125,7 @@ const LargeButton = styled.button({
 
 const LinkButton = styled(Link)(props => {
   return {
-    width: "140px",
+    width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -153,12 +153,12 @@ const LinkButton = styled(Link)(props => {
 
 const NavigateButton = styled.button(props => {
   return {
-    width: "140px",
+    width: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.dark.gold,
-    padding: "10px 8px 10px 8px",
+    padding: "10px 10px 10px 10px",
     fontWeight: "light",
     fontSize: "16px",
 
