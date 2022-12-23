@@ -125,7 +125,7 @@ const LargeButton = styled.button({
 
 const LinkButton = styled(Link)(props => {
   return {
-    width: "140px",
+    width: "200px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

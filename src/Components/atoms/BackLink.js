@@ -3,10 +3,14 @@ import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
-const BackLinkButton = styled(Link)({
+const BackLinkButtonWrapper = styled.div({
   width: "100%",
-  display: "flex",
   justifyContent: "flex-start",
+});
+
+const BackLinkButton = styled(Link)({
+  width: "40px",
+  display: "flex",
 });
 
 const BackLinkImg = styled.img({
@@ -16,8 +20,10 @@ const BackLinkImg = styled.img({
 
 export default function BackLink() {
   return (
-    <BackLinkButton to={"/"}>
-      <BackLinkImg src={back} />
-    </BackLinkButton>
+    <BackLinkButtonWrapper>
+      <BackLinkButton to={"/"}>
+        <BackLinkImg src={back} />
+      </BackLinkButton>
+    </BackLinkButtonWrapper>
   );
 }
