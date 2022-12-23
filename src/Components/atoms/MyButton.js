@@ -53,8 +53,8 @@ const SelectButton = styled.button(props => {
       height: "56px",
       "&:active": {
         scale: "0.96",
-      }
-    }
+      },
+    },
   };
 });
 
@@ -98,13 +98,93 @@ const SubmitButton = styled.button(props => {
   };
 });
 
-const DarkLink = styled(Link)({
-  backgroundColor: "#2A3C5B",
-  height: "36px",
-  fontSize: "14px",
-  borderRadius: "8px",
-  padding: "10px 12px 10px 12px",
-  fontWeight: "bold",
+const LargeButton = styled.button({
+  width: "60%",
+  height: "64px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: colors.dark.gold,
+  padding: "10px 8px 10px 8px",
+  fontWeight: "light",
+  fontSize: "16px",
+
+  transition: "scale 200ms ease-in-out, background-color 200ms ease",
+
+  "&:active": {
+    scale: "0.98",
+  },
+
+  "@media (max-width: 768px)": {
+    height: "56px",
+    "&:active": {
+      scale: "0.96",
+    },
+  },
 });
 
-export { RedButton, BlueButton, TerminalButton, SelectButton, AddButton, SubmitButton, DarkLink };
+const LinkButton = styled(Link)(props => {
+  return {
+    width: "140px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.dark.gold,
+    padding: "10px 8px 10px 8px",
+    fontWeight: "light",
+    fontSize: "16px",
+
+    transition: "scale 200ms ease-in-out, background-color 200ms ease",
+
+    "&:active": {
+      scale: "0.98",
+    },
+
+    "@media (max-width: 768px)": {
+      height: "56px",
+      "&:active": {
+        scale: "0.96",
+      },
+    },
+    ...props,
+  };
+});
+
+const NavigateButton = styled.button(props => {
+  return {
+    width: "140px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.dark.gold,
+    padding: "10px 8px 10px 8px",
+    fontWeight: "light",
+    fontSize: "16px",
+
+    transition: "scale 200ms ease-in-out, background-color 200ms ease",
+
+    "&:active": {
+      scale: "0.98",
+    },
+
+    "@media (max-width: 768px)": {
+      height: "56px",
+      "&:active": {
+        scale: "0.96",
+      },
+    },
+    ...props,
+  };
+});
+
+export {
+  RedButton,
+  BlueButton,
+  TerminalButton,
+  SelectButton,
+  AddButton,
+  NavigateButton,
+  SubmitButton,
+  LinkButton,
+  LargeButton,
+};

@@ -23,24 +23,24 @@ const TextArea = styled.textarea({
   backdropFilter: "blur(10px)",
   width: "100%",
   height: "180px",
-  border: "rgba(250 250 250 / 0.2) 1px solid",
+  border: "rgba(250 250 250 / 0.2) 2px solid",
   outline: "none",
   color: "white",
   caretColor: "white",
   // margin: "0 0.5rem 0 0",
   "&:focus": {
-    borderBottom: `2px solid ${colors.dark.gold}`,
+    border: `2px solid ${colors.dark.gold}`,
   },
   borderRadius: "8px",
   padding: "0.5rem",
 });
 
 const FormHeaderWrapper = styled.div({
+  position: "relative",
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
   gap: "0.5rem",
-  justifyContent: "space-between",
 });
 
 export default function TextAreaForm({ title, placeholder, name, onChange, isEmpty }) {

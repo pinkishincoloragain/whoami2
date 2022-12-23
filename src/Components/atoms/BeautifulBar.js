@@ -2,11 +2,15 @@ import styled from "styled-components";
 import color from "../colors.json";
 
 const BeautifulBar = styled(`div`)(props => ({
+  position: "absolute",
+  right: "0",
   backgroundImage: `linear-gradient(${props.reverse ? 270 : 90}deg, ${color.dark.gold}, transparent)`,
   width: "50%",
   height: "0.125rem",
   borderRadius: "0.125rem",
-  marginBlock: "1vh",
+  marginTop: "1vh",
+  marginBottom: "1vh",
+  justifySelf: props.reverse ? "flex-end" : "",
 }));
 
 export default BeautifulBar;

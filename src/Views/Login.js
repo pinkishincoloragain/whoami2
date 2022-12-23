@@ -1,10 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import colors from "../Components/colors.json";
+import LoginContent from "../Components/organisms/LoginContent";
 
-import ThankyouContent from "../Components/organisms/ThankyouContent";
-
-const ThankyouWrapper = styled.div(props => {
+const LoginWrapper = styled.div(props => {
   return {
     padding: "10vh 0 10vh 0",
     height: "100vh",
@@ -16,10 +15,10 @@ const ThankyouWrapper = styled.div(props => {
   };
 });
 
-export default function Thankyou() {
+export default function Login() {
   return (
-    <ThankyouWrapper>
-      <ThankyouContent />
-    </ThankyouWrapper>
+    <LoginWrapper>
+      <LoginContent />
+    </LoginWrapper>
   );
 }

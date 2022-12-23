@@ -1,6 +1,6 @@
 import React from "react";
 
-import AnniversaryPopupContent from "../molecules/AnniversaryPopupContent";
+import AnniversaryPopupContent from "./AnniversaryPopupContent";
 import styled from "styled-components";
 
 const ContentWrapper = styled.div({
