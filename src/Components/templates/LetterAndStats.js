@@ -1,8 +1,7 @@
 import React from "react";
 
-import LettersContent from "../organisms/LettersContent";
 import NavigateContent from "../organisms/NavigateContent";
-import StatsContent from "../organisms/StatsContent";
+import LetterStatContent from "../organisms/LetterStatContent";
 import BackLink from "../../Components/atoms/BackLink";
 
 import styled from "styled-components";
@@ -33,8 +32,7 @@ export default function LetterAndStats() {
     <LettersContentWrapper>
       <BackLink />
       <NavigateContent />
-      <StatsContent />
-      <LettersContent />
+      <LetterStatContent />
     </LettersContentWrapper>
   );
 }

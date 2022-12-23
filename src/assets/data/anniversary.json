@@ -39,7 +39,8 @@
   "mypage": {
     "sharableLinkExpl1": "연하장을 친구들에게 알리고 싶다면?",
     "sharableLinkExpl2": "오른쪽 링크를 눌러 SNS에 공유해주세요!",
-    "sharableLinkButton": "내 편지함 공유하기"
+    "sharableLinkButton": "내 편지함 공유하기",
+    "options": ["편지 통계", "편지함"]
   },
   "letters": {
     "from": "From."
