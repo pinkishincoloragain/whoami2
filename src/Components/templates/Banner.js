@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import profileImage from "../../assets/icons/memoji.jpg";
-import CatchPhrase from "../atoms/CatchPhrase";
 import DevMode from "./developer/DevMode";
 const BannerWrapper = styled(`div`)({
   backgroundColor: "transparent",

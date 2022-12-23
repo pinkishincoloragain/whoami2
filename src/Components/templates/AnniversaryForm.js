@@ -12,7 +12,6 @@ import TextAreaForm from "../molecules/form/TextAreaForm";
 import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
-import Triangle from "../atoms/Triangle";
 import checkUserWithUid from "../utils/firebase/checkUserWithUid";
 
 const AnniversaryFormWrapper = styled.form({

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { LinkButton, SelectButton } from "../atoms/MyButton";
-import ShareLetterBox from "../molecules/ShareLetterBox";
 
 const NavigateContentWrapper = styled.div({
   marginTop: "20vh",
