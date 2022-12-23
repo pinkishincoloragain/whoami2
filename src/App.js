@@ -6,6 +6,8 @@ import Privacy from "./Views/Privacy";
 import Anniversary from "./Views/Anniversary";
 import Thankyou from "./Views/Thankyou";
 import Login from "./Views/Login";
+import MyPage from "./Views/MyPage";
+import Share from "./Views/Share";
 import useLogin from "./hooks/useLogin";
 
 function App() {
@@ -19,10 +21,12 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/anniversary' element={<Anniversary />} />
+        <Route path='/anniversary/*' element={<Anniversary />} />
         <Route path='/login' element={<Login />} />
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/privacy' element={<Privacy />} />
+        <Route path='/mypage' element={<MyPage />} />
+        <Route path='/share' element={<Share />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>

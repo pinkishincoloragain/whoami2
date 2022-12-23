@@ -1,3 +1,4 @@
+import React from "react";
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
 import colors from "../colors.json";
@@ -7,10 +8,10 @@ import { LargeButton } from "../atoms/MyButton";
 import BeautifulBar from "../atoms/BeautifulBar";
 import { H2 } from "../atoms/Text";
 
-import { signInWithGoogle } from "../utils/signInWithGoogle";
+import { signInWithGoogle } from "../utils/firebase/signInWithGoogle";
 import { useRecoilState } from "recoil";
 import { useSetRecoilState } from "recoil";
-import { userInfoState, isLoggedInState } from "../utils/authRecoil";
+import { userInfoState, isLoggedInState } from "../utils/recoil/authRecoil";
 import { useNavigate } from "react-router-dom";
 
 const LoginWrapper = styled.div({
@@ -46,24 +47,24 @@ const ButtonWrapper = styled.div({
 });
 
 export default function LoginContent() {
-  const setUser = useSetRecoilState(userInfoState);
-  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
+  const setUserInfo = useSetRecoilState(userInfoState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/mypage");
+    }
+  });
+
   const handleAuthClick = async () => {
-    const { result, user } = await signInWithGoogle();
-    if (result) {
-      setUser(user);
+    const { isSuccess, user } = await signInWithGoogle();
+    if (isSuccess) {
+      setUserInfo(user);
       setIsLoggedIn(true);
-      // navigate("/letters");
+      navigate("/mypage");
     }
   };
-
-  const userInfo = useRecoilState(userInfoState);
-  const isLoggedIn = useRecoilState(isLoggedInState);
-
-  console.log("userInfo", userInfo);
-  console.log("isLoggedIn", isLoggedIn);
 
   return (
     <LoginWrapper>

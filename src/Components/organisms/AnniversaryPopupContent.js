@@ -1,8 +1,12 @@
 import anniversary from "../../assets/data/anniversary.json";
 
-import { LinkButton } from "../atoms/MyButton";
+import { LinkButton, NavigateButton } from "../atoms/MyButton";
 import { H1, H3, H4 } from "../atoms/Text";
 import styled from "styled-components";
+
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 import Waves from "../molecules/objects/Waves";
 
@@ -15,6 +19,13 @@ const LinkWrapper = styled.div({
 });
 
 export default function AnniversaryPopupContent() {
+  const navigate = useNavigate();
+  const isLoggedIn = useRecoilValue(isLoggedInState);
+
+  const handleLoginClick = () => {
+    isLoggedIn ? navigate("/mypage") : navigate("/login");
+  };
+
   return (
     <div>
       <H1>{anniversary.title}</H1>
@@ -30,7 +41,9 @@ export default function AnniversaryPopupContent() {
       <br />
       <LinkWrapper>
         <LinkButton to='/anniversary'>{anniversary.popupContent.writeButton}</LinkButton>
-        <LinkButton to='/login'>{anniversary.popupContent.readButton}</LinkButton>
+        <NavigateButton onClick={handleLoginClick}>
+          {anniversary.popupContent.readButton}
+        </NavigateButton>
       </LinkWrapper>
     </div>
   );

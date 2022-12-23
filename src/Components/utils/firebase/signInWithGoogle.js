@@ -5,7 +5,7 @@ import {
   signOut,
   browserSessionPersistence,
 } from "firebase/auth";
-import checkUser from "./checkUser";
+import checkUserWithUid from "./checkUserWithUid";
 import addUser from "./addUser";
 
 import { auth } from "./firebaseControl";
@@ -16,8 +16,8 @@ const signInWithGoogle = async () => {
   try {
     setPersistence(auth, browserSessionPersistence);
     const { user } = await signInWithPopup(auth, googleProvider);
-    const { isSuccess, isNewUser } = await checkUser(user);
-    if (isNewUser) {
+    const { isSuccess, isNewUser } = await checkUserWithUid(user?.uid);
+    if (isSuccess && isNewUser) {
       await addUser(user);
     }
 

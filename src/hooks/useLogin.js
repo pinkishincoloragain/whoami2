@@ -1,8 +1,8 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { userInfoState, isLoggedInState } from "../Components/utils/authRecoil";
+import { userInfoState, isLoggedInState } from "../Components/utils/recoil/authRecoil";
 
-import { auth } from "../Components/utils/firebaseControl";
+import { auth } from "../Components/utils/firebase/firebaseControl";
 
 const useLogin = () => {
   const setUserInfoState = useSetRecoilState(userInfoState);
