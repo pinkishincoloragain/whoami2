@@ -15,7 +15,7 @@ import styled from "styled-components";
 const LandingWrapper = styled.div({
   position: "relative",
   width: "100%",
-  backgroundImage: "linear-gradient(180deg, #000000, #223148)",
+  backgroundImage: "linear-gradient(180deg, #030303, #3e3e3e)",
   minHeight: "100vh",
   color: "white",
   overflow: "scroll",
