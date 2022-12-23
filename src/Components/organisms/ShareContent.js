@@ -7,6 +7,8 @@ import ShareLetterBox from "../molecules/ShareLetterBox";
 import { useRecoilValue } from "recoil";
 import { userInfoState, isLoggedInState } from "../utils/authRecoil";
 
+import useSharableLink from "../../hooks/useSharableLink";
+
 const ShareContentWrapper = styled.div({
   width: "100vw",
   height: "100vh",
@@ -16,8 +18,8 @@ const ShareContentWrapper = styled.div({
 });
 
 export default function ShareContent() {
-  const userInfo = useRecoilValue(userInfoState);
   const isLoggedIn = useRecoilValue(isLoggedInState);
+  const shareableLink = useSharableLink();
 
   React.useEffect(() => {
     if (!isLoggedIn) {
@@ -27,7 +29,7 @@ export default function ShareContent() {
 
   return (
     <ShareContentWrapper>
-      {/*  */}
+      {shareableLink}
       <ShareLetterBox />
     </ShareContentWrapper>
   );

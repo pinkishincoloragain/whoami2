@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/anniversary' element={<Anniversary />} />
+        <Route path='/anniversary/*' element={<Anniversary />} />
         <Route path='/login' element={<Login />} />
         <Route path='/thankyou' element={<Thankyou />} />
         <Route path='/privacy' element={<Privacy />} />
