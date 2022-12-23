@@ -6,7 +6,7 @@ const OptionBarWrapper = styled.div(props => {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "40%",
+    width: props.width || "40%",
     height: "48px",
     padding: "0 10px",
   };
@@ -21,7 +21,7 @@ const ViewOption = styled.button(props => {
   };
 });
 
-export default function OptionBar({ options, currentOptionIdx, setCurrentOptionIdx }) {
+export default function OptionBar({ width, options, currentOptionIdx, setCurrentOptionIdx }) {
   const viewOptions = options;
 
   const handleOptionClick = e => {
@@ -29,7 +29,7 @@ export default function OptionBar({ options, currentOptionIdx, setCurrentOptionI
   };
 
   return (
-    <OptionBarWrapper>
+    <OptionBarWrapper width={width}>
       {viewOptions.map((option, idx) => (
         <ViewOption
           isSelected={currentOptionIdx === idx.toString()}

@@ -178,6 +178,27 @@ const NavigateButton = styled.button(props => {
   };
 });
 
+const ShareButton = styled.button({
+  fontWeight: "light",
+  fontSize: "18px",
+  width: "120px",
+  height: "36px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "transparent",
+  "&:active": {
+    scale: "0.98",
+  },
+
+  "@media (max-width: 768px)": {
+    height: "56px",
+    "&:active": {
+      scale: "0.96",
+    },
+  },
+});
+
 export {
   RedButton,
   BlueButton,
@@ -188,4 +209,5 @@ export {
   SubmitButton,
   LinkButton,
   LargeButton,
+  ShareButton,
 };
