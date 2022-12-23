@@ -12,6 +12,8 @@ import OptionBar from "../atoms/OptionBar";
 
 import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";
+import BackLink from "../atoms/BackLink";
+import ShareForm from "../molecules/ShareForm";
 
 const ShareContentWrapper = styled.div(props => {
   return {
@@ -26,13 +28,6 @@ const ShareContentWrapper = styled.div(props => {
   };
 });
 
-const ShareButtonsWrapper = styled.div({
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-});
-
 const DescWrapper = styled.div({
   width: "100%",
   display: "flex",
@@ -42,17 +37,20 @@ const DescWrapper = styled.div({
 });
 
 const DescTextWrapper = styled.div({
+  height: "14vh",
   width: "100%",
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "column",
+  justifyContent: "space-around",
   padding: "0 0 1rem 0",
 });
 
 export default function ShareContent() {
-  const width = window.innerWidth * 0.8 > 360 ? 360 : window.innerWidth * 0.8;
+  const width = window.innerWidth * 0.8 > 420 ? 420 : window.innerWidth * 0.8;
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const [link, copyToClipboard] = useSharableLink();
   const options = ["day", "dawn", "night"];
+  const [isAlertOpen, setIsAlertOpen] = React.useState(false);
 
   const [option, setOption] = React.useState("0");
 
@@ -62,11 +60,23 @@ export default function ShareContent() {
     }
   });
 
+  const handleShareClick = () => {
+    copyToClipboard();
+    setIsAlertOpen(true);
+
+    setTimeout(() => {
+      setIsAlertOpen(false);
+    }, 2000);
+  };
+
   return (
     <ShareContentWrapper width={width}>
+      <BackLink />
       <DescWrapper>
         <DescTextWrapper>
-          <H4>{anniversary.share.desc}</H4>
+          <H4>{anniversary.share.desc1}</H4>
+          <H4>{anniversary.share.desc2}</H4>
+          <H4>{anniversary.share.desc3}</H4>
         </DescTextWrapper>
         <OptionBar
           width={"60%"}
@@ -76,11 +86,7 @@ export default function ShareContent() {
         />
       </DescWrapper>
       <ShareImgBox option={option} width={width} />
-      <ShareButtonsWrapper>
-        <ShareButton onClick={copyToClipboard}>Share</ShareButton>
-        <ShareButton onClick={copyToClipboard}>Share</ShareButton>
-        <ShareButton onClick={copyToClipboard}>Share</ShareButton>
-      </ShareButtonsWrapper>
+      <ShareForm />
     </ShareContentWrapper>
   );
 }

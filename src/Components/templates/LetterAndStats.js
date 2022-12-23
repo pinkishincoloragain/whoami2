@@ -12,7 +12,7 @@ import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 const LettersContentWrapper = styled.div({
   width: "100%",
-  flexDirection: "column",
+  flexDirection: "columnœ",
   minWidth: "20rem",
   maxWidth: "30rem",
   height: "100%",

@@ -46,8 +46,12 @@
     "from": "From."
   },
   "share": {
-    "desc": "바다를 둘러보세요",
-    "title": "2023 New Year's Letter"
+    "desc1": "1. 바다를 둘러보세요.",
+    "desc2": "2. 편지함 문구를 수정해 주세요",
+    "desc3": "3. 마음에 드는 부분을 찾아 캡쳐하고, 링크와 함께 공유해주세요!",
+    "title": "2023 New Year's Letter",
+    "share": "공유하기",
+    "sharePhrase": "링크를 클립보드에 넣어두었습니다."
   },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
