@@ -6,6 +6,10 @@ import StatsContent from "../organisms/StatsContent";
 
 import styled from "styled-components";
 
+import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { isLoggedInState } from "../utils/authRecoil";
+
 const LettersContentWrapper = styled.div({
   width: "100%",
   flexDirection: "column",
@@ -15,6 +19,15 @@ const LettersContentWrapper = styled.div({
 });
 
 export default function LetterAndStats() {
+  const isLoggedIn = useRecoilValue(isLoggedInState);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  });
+
   return (
     <LettersContentWrapper>
       <StatsContent />

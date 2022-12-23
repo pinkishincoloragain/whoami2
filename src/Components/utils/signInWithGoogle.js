@@ -17,7 +17,8 @@ const signInWithGoogle = async () => {
     setPersistence(auth, browserSessionPersistence);
     const { user } = await signInWithPopup(auth, googleProvider);
     const { isSuccess, isNewUser } = await checkUser(user);
-    if (isNewUser) {
+    if (isSuccess && isNewUser) {
+      console.log("new user");
       await addUser(user);
     }
 

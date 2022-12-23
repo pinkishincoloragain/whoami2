@@ -10,9 +10,10 @@ import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
 
 import addResponse from "../utils/addResponse";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
 import Triangle from "../atoms/Triangle";
+import checkUser from "../utils/checkUser";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -20,7 +21,7 @@ const AnniversaryFormWrapper = styled.form({
   minWidth: "20rem",
   maxWidth: "30rem",
   width: "100%",
-  zIndex: "100"
+  zIndex: "100",
 });
 
 const SubmitButtonWrapper = styled.div({
@@ -28,7 +29,7 @@ const SubmitButtonWrapper = styled.div({
   flexDirection: "column",
   gap: "0.5rem",
   alignItems: "center",
-  zIndex: "100"
+  zIndex: "100",
 });
 
 const TriangleWrapper = styled.div({
@@ -43,6 +44,22 @@ const TriangleWrapper = styled.div({
 
 export default function AnniversaryForm() {
   const [tryToSubmit, setTryToSubmit] = React.useState(false);
+  const [receiver, setReceiver] = React.useState("");
+  const location = useLocation();
+
+  React.useEffect(() => {
+    const uid = location.pathname.split("/")[2];
+    const setUserInfo = async () => {
+      const { isSuccess, user } = await checkUser({ uid: uid });
+      if (isSuccess) {
+        setReceiver(user.name);
+      }
+    };
+
+    setUserInfo();
+  }, [location.pathname]);
+
+  console.log(receiver);
 
   const [response, setResponse] = React.useState({
     name: "",
@@ -113,7 +130,7 @@ export default function AnniversaryForm() {
         phrase={anniversary.phrase[2]}
         name='instagram'
         onChange={handleInputFormChange}
-        placeholder={anniversary.placeholder.instagram}
+        placeholder={receiver || anniversary.placeholder.instagram}
         optionPhrase={anniversary.requestAnonymous}
       />
       <MultiSelectForm
