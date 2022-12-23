@@ -10,6 +10,20 @@ import MyPage from "./Views/MyPage";
 import Share from "./Views/Share";
 import useLogin from "./hooks/useLogin";
 
+import styled from "styled-components";
+
+const LandingWrapper = styled.div({
+  position: "relative",
+  width: "100%",
+  backgroundImage: "linear-gradient(180deg, #030303, #3e3e3e)",
+  minHeight: "100svh",
+  color: "white",
+  overflow: "scroll",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
 function App() {
   React.useEffect(() => {
     console.log("%cHi there, developer", "background: black; color: white; font-size: 20px;");
@@ -18,18 +32,20 @@ function App() {
   useLogin();
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/anniversary/*' element={<Anniversary />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/thankyou' element={<Thankyou />} />
-        <Route path='/privacy' element={<Privacy />} />
-        <Route path='/mypage' element={<MyPage />} />
-        <Route path='/share' element={<Share />} />
-        <Route path='*' element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+    <LandingWrapper>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/anniversary/*' element={<Anniversary />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/thankyou' element={<Thankyou />} />
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/mypage' element={<MyPage />} />
+          <Route path='/share' element={<Share />} />
+          <Route path='*' element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </LandingWrapper>
   );
 }
 

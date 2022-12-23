@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import { LinkButton, SelectButton } from "../atoms/MyButton";
-import ShareLetterBox from "../molecules/ShareLetterBox";
 
 const NavigateContentWrapper = styled.div({
   marginTop: "20vh",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
+  gap: "1rem",
 });
 
 export default function NavigateContent() {
