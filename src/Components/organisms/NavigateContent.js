@@ -12,12 +12,6 @@ const NavigateContentWrapper = styled.div({
 });
 
 export default function NavigateContent() {
-  const [isSharingMode, setIsSharingMode] = React.useState(false);
-
-  const handleShareButtonClick = () => {
-    setIsSharingMode(true);
-  };
-
   return (
     <NavigateContentWrapper>
       <LinkButton to='/'>홈으로 가기</LinkButton>
