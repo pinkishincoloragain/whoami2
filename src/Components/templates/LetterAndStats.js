@@ -32,10 +32,9 @@ export default function LetterAndStats() {
   return (
     <LettersContentWrapper>
       <BackLink />
-
+      <NavigateContent />
       <StatsContent />
       <LettersContent />
-      <NavigateContent />
     </LettersContentWrapper>
   );
 }
