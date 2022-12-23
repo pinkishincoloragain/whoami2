@@ -13,7 +13,7 @@ import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
 import Triangle from "../atoms/Triangle";
-import checkUser from "../utils/firebase/checkUser";
+import checkUserWithUid from "../utils/firebase/checkUserWithUid";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -50,7 +50,7 @@ export default function AnniversaryForm() {
   React.useEffect(() => {
     const uid = location.pathname.split("/")[2] || "";
     const setUserInfo = async () => {
-      const { isSuccess, user } = await checkUser({ uid: uid });
+      const { isSuccess, user } = await checkUserWithUid(uid);
       if (isSuccess) {
         setReceiver(user?.name);
       }
