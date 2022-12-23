@@ -69,7 +69,9 @@ export default function AnniversaryPopupContent() {
         <br />
         {anniversary.mainTitle2}
         <br />
-        <div >{anniversary.mainTitle3} <BeautifulBar reverse /> </div>
+        <div>
+          {anniversary.mainTitle3} <BeautifulBar reverse />
+        </div>
       </H2>
       <TextWrapper>
         <H3>{anniversary.subtitle}</H3>

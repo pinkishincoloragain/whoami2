@@ -1,8 +1,8 @@
 import React from "react";
 
-import LettersContent from "../organisms/LettersContent";
 import NavigateContent from "../organisms/NavigateContent";
-import StatsContent from "../organisms/StatsContent";
+import LetterStatContent from "../organisms/LetterStatContent";
+import BackLink from "../../Components/atoms/BackLink";
 
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 const LettersContentWrapper = styled.div({
   width: "100%",
-  flexDirection: "column",
+  flexDirection: "columnœ",
   minWidth: "20rem",
   maxWidth: "30rem",
   height: "100%",
@@ -30,9 +30,9 @@ export default function LetterAndStats() {
 
   return (
     <LettersContentWrapper>
-      <StatsContent />
-      <LettersContent />
+      <BackLink />
       <NavigateContent />
+      <LetterStatContent />
     </LettersContentWrapper>
   );
 }

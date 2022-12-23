@@ -133,6 +133,7 @@ const LinkButton = styled(Link)(props => {
     padding: "10px 8px 10px 8px",
     fontWeight: "light",
     fontSize: "16px",
+    marginBottom: "16px",
 
     transition: "scale 200ms ease-in-out, background-color 200ms ease",
 
@@ -177,6 +178,27 @@ const NavigateButton = styled.button(props => {
   };
 });
 
+const ShareButton = styled.button({
+  fontWeight: "light",
+  fontSize: "18px",
+  width: "120px",
+  height: "36px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "transparent",
+  "&:active": {
+    scale: "0.98",
+  },
+
+  "@media (max-width: 768px)": {
+    height: "56px",
+    "&:active": {
+      scale: "0.96",
+    },
+  },
+});
+
 export {
   RedButton,
   BlueButton,
@@ -187,4 +209,5 @@ export {
   SubmitButton,
   LinkButton,
   LargeButton,
+  ShareButton,
 };
