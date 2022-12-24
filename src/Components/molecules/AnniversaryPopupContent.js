@@ -54,6 +54,7 @@ const LinkWrapper = styled.div({
 export default function AnniversaryPopupContent() {
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInState);
+  // const onClick = useInstallPwa();
 
   const handleLoginClick = () => {
     isLoggedIn ? navigate("/mypage") : navigate("/login");
