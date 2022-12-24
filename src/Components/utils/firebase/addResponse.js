@@ -1,29 +1,33 @@
 import { db } from "./firebaseControl";
-import { collection, getDocs, addDoc } from "firebase/firestore";
-// import { getUserLog } from "./getUserLog";
-
-const usersCollectionRef = collection(db, "users");
+import { doc, collection, addDoc } from "firebase/firestore";
+import useIP from "../../../hooks/useIP";
 
 const transformResponse = async response => {
-  // const userLog = await getUserLog();
-  const { name, instagram, description, selections } = response;
+  console.log(response);
+  const { ip, city } = await useIP();
+  const { name, description, selections, uid } = response;
   const timeStamp = new Date().toTimeString().slice(0, 8) + " " + new Date().toDateString();
 
   return {
-    to: instagram,
-    from: name,
-    description: description,
-    feels: selections,
-    timeStamp: timeStamp,
-    // ip: userLog.ip,
-    // city: userLog.city,
+    uid: uid,
+    content: {
+      from: name,
+      description: description,
+      feels: selections,
+      timeStamp: timeStamp,
+      ip: ip,
+      city: city,
+    },
   };
 };
 
 const addResponse = async response => {
+  console.log(response.uid);
   const formedResponse = await transformResponse(response);
+  const lettersCollectionRef = collection(db, `letters/${formedResponse.uid}/responses`);
+
   try {
-    const docRef = await addDoc(usersCollectionRef, {
+    const docRef = await addDoc(lettersCollectionRef, {
       ...formedResponse,
     });
     console.log("Document written with ID: ", docRef.id);

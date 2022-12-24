@@ -35,33 +35,34 @@ export default function AnniversaryForm() {
   const [tryToSubmit, setTryToSubmit] = React.useState(false);
   const [receiver, setReceiver] = React.useState("");
   const location = useLocation();
+  const [uid, setUid] = React.useState(location.pathname.split("/")[2] || "");
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    const uid = location.pathname.split("/")[2] || "";
     const setUserInfo = async () => {
       const { isSuccess, user } = await checkUserWithUid(uid);
       if (isSuccess) {
         setReceiver(user?.name);
       }
     };
-
     setUserInfo();
   }, [location.pathname]);
 
   const [response, setResponse] = React.useState({
     name: "",
-    instagram: "",
+    receiver: uid,
     description: "",
     selections: [anniversary.options[0]],
+    uid: uid,
   });
 
   const [isEmpty, setIsEmpty] = React.useState({
     name: true,
-    instagram: true,
+    receiver: true,
     description: true,
+    uid: uid,
   });
-
-  const navigate = useNavigate();
 
   const handleSelectionFormChange = value => {
     setResponse({
@@ -88,6 +89,8 @@ export default function AnniversaryForm() {
   const handleSubmit = e => {
     e.preventDefault();
     setTryToSubmit(true);
+    console.log(response);
+    console.log(response.uid);
     addResponse(response);
     navigate("/Thankyou");
   };
@@ -112,9 +115,9 @@ export default function AnniversaryForm() {
       <InputFormWithAuth
         title={anniversary.questions[2]}
         phrase={anniversary.phrase[2]}
-        name='instagram'
+        name='receiver'
         onChange={handleInputFormChange}
-        placeholder={receiver || anniversary.placeholder.instagram}
+        placeholder={receiver || anniversary.placeholder.receiver}
         optionPhrase={anniversary.requestAnonymous}
       />
       <MultiSelectForm
