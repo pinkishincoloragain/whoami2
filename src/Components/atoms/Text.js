@@ -27,7 +27,7 @@ const H3 = styled.h3({
 
 const H4 = styled.h4({
   // margin: "1.5rem 0 1.3rem 0",
-  fontSize: "0.9rem",
+  fontSize: "0.8rem",
   color: color.dark.white,
 });
 
