@@ -16,6 +16,7 @@ const ContentWrapper = styled.div({
   overflow: "hidden",
   height: "100%",
   gap: "1rem",
+  isolation: "isolate",
 });
 
 export default function PopupContent({ children }) {

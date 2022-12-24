@@ -54,7 +54,6 @@ const LinkWrapper = styled.div({
 export default function AnniversaryPopupContent() {
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInState);
-  // const onClick = useInstallPwa();
 
   const handleLoginClick = () => {
     isLoggedIn ? navigate("/mypage") : navigate("/login");
@@ -65,16 +64,14 @@ export default function AnniversaryPopupContent() {
       <WavesWrapper>
         <Waves width={550} height={550} elevation='20' azimuth='45' />
       </WavesWrapper>
-      <H2>
+      <H2 className="click-through">
         <Emphasize>{anniversary.mainTitle1}</Emphasize>
         <br />
         {anniversary.mainTitle2}
         <br />
-        <div>
-          {anniversary.mainTitle3} <BeautifulBar reverse />
-        </div>
+        <div >{anniversary.mainTitle3} <BeautifulBar reverse /> </div>
       </H2>
-      <TextWrapper>
+      <TextWrapper className="click-through">
         <H3>{anniversary.subtitle}</H3>
         <H4>{anniversary.description1}</H4>
         <H4>{anniversary.description2}</H4>
