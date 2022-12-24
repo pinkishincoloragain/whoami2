@@ -12,7 +12,7 @@ const StatContent = options => {
       {options.map((option, idx) => (
         <StatsButton
           key={idx}
-          option={option.length < 28 ? option : option.slice(0, 28) + "..."}
+          option={option.length < 24 ? option : option.slice(0, 24) + "..."}
           count={options.length - idx}
         />
       ))}

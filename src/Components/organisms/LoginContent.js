@@ -51,11 +51,11 @@ export default function LoginContent() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/mypage");
-    }
-  });
+  // React.useEffect(() => {
+  //   if (isLoggedIn) {
+  //     navigate("/mypage");
+  //   }
+  // });
 
   const handleAuthClick = async () => {
     const { isSuccess, user } = await signInWithGoogle();

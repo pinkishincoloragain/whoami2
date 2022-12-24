@@ -31,9 +31,9 @@ export default function NavigateContent() {
       <H2>{anniversary.title1}</H2>
       <H2>{anniversary.title2}</H2>
       <NavigateContentWrapper>
-        <ShareLetterBoxWrapper>
+        {/* <ShareLetterBoxWrapper>
           <H4>{anniversary.mypage.sharableLinkExpl1}</H4>
-        </ShareLetterBoxWrapper>
+        </ShareLetterBoxWrapper> */}
         <LinkButtonWrapper>
           <LinkButton to='/share'>{anniversary.mypage.sharableLinkButton}</LinkButton>
         </LinkButtonWrapper>
