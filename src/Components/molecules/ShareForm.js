@@ -2,7 +2,9 @@ import React from "react";
 
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import useSharableLink from "../../hooks/useSharableLink";
+import { H4 } from "../atoms/Text";
 
 const ShareFormWrapper = styled.div({
   width: "100%",
@@ -16,6 +18,7 @@ const ShareButton = styled.button({
   fontWeight: "light",
   fontSize: "18px",
   width: "120px",
+  minWidth: "100px",
   height: "36px",
   display: "flex",
   alignItems: "center",
@@ -42,6 +45,7 @@ const AlertWrapper = styled.div({
 export default function ShareForm() {
   const [link, copyToClipboard] = useSharableLink();
   const [isAlertOpen, setIsAlertOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleShareButtonClick = () => {
     copyToClipboard();
@@ -50,7 +54,10 @@ export default function ShareForm() {
 
   return (
     <ShareFormWrapper>
-      <AlertWrapper>{isAlertOpen && anniversary.share.sharePhrase}</AlertWrapper>
+      <AlertWrapper>
+        <H4>{isAlertOpen && anniversary.share.sharePhrase}</H4>
+      </AlertWrapper>
+      <ShareButton onClick={() => navigate("/")}>{anniversary.home}</ShareButton>
       <ShareButton onClick={handleShareButtonClick}>{anniversary.share.share}</ShareButton>
     </ShareFormWrapper>
   );

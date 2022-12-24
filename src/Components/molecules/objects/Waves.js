@@ -4,6 +4,7 @@ import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import * as React from "react";
 import waterNormals from "../../../assets/textures/waternormals.jpeg";
+import { WebGLRenderer } from "three";
 
 function Waves(props) {
   let container;
@@ -12,9 +13,20 @@ function Waves(props) {
   let pmremGenerator;
 
   React.useEffect(() => {
+    if (document.getElementById(props.container)?.childElementCount > 0) {
+      console.log(document.getElementById(props.container));
+      return;
+    }
     init();
     animate();
-  });
+
+    return () => {
+      if (container.hasChildNodes()) {
+        container.removeChild(container.childNodes[0]);
+        renderer.dispose();
+      }
+    };
+  }, [props.container]);
 
   const [parameters, setParameters] = React.useState({
     // elevation: darkMode === true ? -1 : 10,
@@ -41,15 +53,14 @@ function Waves(props) {
   function init() {
     container = document.getElementById(props.container || "container");
 
+    if (container.hasChildNodes()) {
+      container.removeChild(container.childNodes[0]);
+    }
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(props.width, props.height);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    if (container.hasChildNodes()) {
-      container.removeChild(container.childNodes[0]);
-    }
     container.appendChild(renderer.domElement);
-    console.log(props.borderRadius);
     renderer.domElement.style.borderRadius =
       props.borderRadius === undefined ? "100%" : `${props.borderRadius}px`;
 
@@ -64,8 +75,8 @@ function Waves(props) {
     const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
 
     water = new Water(waterGeometry, {
-      textureWidth: 256,
-      textureHeight: 256,
+      textureWidth: 512,
+      textureHeight: 512,
       waterNormals: new THREE.TextureLoader().load(waterNormals, function (texture) {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       }),
@@ -122,7 +133,7 @@ function Waves(props) {
   return (
     <div
       id={props.container || "container"}
-      style={{ transitionDuration: "0.1s", visibility: props.visibility }}
+      style={{ transitionDuration: "0.1s", display: props.display }}
     ></div>
   );
 }
