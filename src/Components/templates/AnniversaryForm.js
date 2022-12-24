@@ -17,7 +17,7 @@ import checkUserWithUid from "../utils/firebase/checkUserWithUid";
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
   flexDirection: "column",
-  minWidth: "20rem",
+  minWidth: "18rem",
   maxWidth: "30rem",
   width: "100%",
   zIndex: "100",

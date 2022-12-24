@@ -23,12 +23,14 @@ const BlueButton = styled(`button`)({
   padding: "0 30px",
 });
 
-const TerminalButton = styled.button({
-  width: "14px",
-  height: "14px",
-  borderRadius: "30px",
-  backgroundColor: colors.light.red,
-  filter: "saturate(1.2)",
+const TerminalButton = styled.button(props => {
+  return {
+    width: "14px",
+    height: "14px",
+    borderRadius: "30px",
+    backgroundColor: props.color || colors.light.red,
+    filter: "saturate(1.2)",
+  };
 });
 
 const SelectButton = styled.button(props => {
@@ -126,6 +128,7 @@ const LargeButton = styled.button({
 const LinkButton = styled(Link)(props => {
   return {
     width: "100%",
+    height: "48px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -154,11 +157,12 @@ const LinkButton = styled(Link)(props => {
 const NavigateButton = styled.button(props => {
   return {
     width: "100%",
+    height: "48px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.dark.gold,
-    padding: "10px 10px 10px 10px",
+    padding: "10px 8px 10px 8px",
     fontWeight: "light",
     fontSize: "16px",
 
@@ -184,6 +188,7 @@ const ShareButton = styled.button({
   width: "120px",
   height: "36px",
   display: "flex",
+  padding: "10px 8px 10px 8px",
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "transparent",

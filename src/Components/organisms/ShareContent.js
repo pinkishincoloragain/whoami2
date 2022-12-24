@@ -13,6 +13,7 @@ import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";
 import BackLink from "../atoms/BackLink";
 import ShareForm from "../molecules/ShareForm";
+import { useNavigate } from "react-router-dom";
 
 const ShareContentWrapper = styled.div(props => {
   return {
@@ -49,28 +50,19 @@ export default function ShareContent() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const [link, copyToClipboard] = useSharableLink();
   const options = ["day", "dawn", "night"];
-  const [isAlertOpen, setIsAlertOpen] = React.useState(false);
 
   const [option, setOption] = React.useState("0");
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     if (!isLoggedIn) {
-      window.location.href = "/login";
+      navigate("/login");
     }
   });
 
-  const handleShareClick = () => {
-    copyToClipboard();
-    setIsAlertOpen(true);
-
-    setTimeout(() => {
-      setIsAlertOpen(false);
-    }, 2000);
-  };
-
   return (
     <ShareContentWrapper width={width}>
-      <BackLink />
+      {/* <BackLink /> */}
       <DescWrapper>
         <DescTextWrapper>
           <H4>{anniversary.share.desc1}</H4>

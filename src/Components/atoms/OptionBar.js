@@ -14,10 +14,11 @@ const OptionBarWrapper = styled.div(props => {
 
 const ViewOption = styled.button(props => {
   return {
+    minWidth: "80px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderBottom: props.isSelected ? `1px solid ${colors.dark.gold}` : "none",
+    borderBottom: props.isSelected ? `1px solid ${colors.dark.gold}` : "1px solid transparent",
   };
 });
 
