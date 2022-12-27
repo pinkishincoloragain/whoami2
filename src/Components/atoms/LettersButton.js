@@ -20,8 +20,15 @@ const FromWrapper = styled.div({
 });
 
 export default function LettersButton({ from }) {
+  const handleClick = () => {
+    const now = new Date();
+    const anniversaryDate = new Date(anniversary.date);
+    console.log(now === anniversaryDate);
+    if (now > anniversaryDate) alert("이미 온 편지입니다!");
+  };
+
   return (
-    <LettersButtonWrapper>
+    <LettersButtonWrapper onClick={handleClick}>
       <FromWrapper>{anniversary.letters.from}</FromWrapper>
       {from}
     </LettersButtonWrapper>

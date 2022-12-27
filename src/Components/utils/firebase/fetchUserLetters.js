@@ -1,11 +1,21 @@
-const fetchUserLetters = async userId => {
+import React from "react";
+
+import { collection, query, where, getDocs, documentId } from "firebase/firestore";
+import { db } from "./firebaseControl";
+
+const fetchUserLetters = async uid => {
   try {
-    const q = query(collection(db, "letters"), where("uid", "==", userId));
-    const docs = await getDocs(q);
-    const letters = docs.docs.map(doc => doc.data());
-    return { isSuccess: true, letters: letters };
+    const q = query(collection(db, "letters"), where("uid", "==", uid));
+    const qs = await getDocs(q);
+    const res = [];
+    qs.docs.forEach(doc => {
+      res.push(doc.data()?.content);
+    });
+
+    return { isSuccess: true, letters: res };
   } catch (err) {
-    return { isSuccess: false, letters: [] };
+    console.log(err);
+    return [];
   }
 };
 

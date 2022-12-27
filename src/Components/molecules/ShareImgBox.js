@@ -29,7 +29,6 @@ const ShareImgBoxText = styled.div({
 
 export default function ShareImgBox({ option, width }) {
   const height = (width / 9) * 16;
-  console.log(option);
 
   return (
     <ShareBox>

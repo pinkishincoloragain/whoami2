@@ -38,7 +38,7 @@ const FormHeaderWrapper = styled.div({
   gap: "0.5rem",
 });
 
-export default function InputForm({ title, placeholder, name, onChange, phrase, isEmpty }) {
+export default function InputForm({ title, placeholder, name, onChange, phrase, disabled }) {
   return (
     <InputFormWrapper>
       <FormHeaderWrapper>
@@ -46,7 +46,7 @@ export default function InputForm({ title, placeholder, name, onChange, phrase, 
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
 
-      <Input name={name} placeholder={placeholder} onChange={onChange} />
+      <Input disabled={disabled} name={name} placeholder={placeholder} onChange={onChange} />
     </InputFormWrapper>
   );
 }
