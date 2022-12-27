@@ -1,16 +1,13 @@
 import { Suspense } from "react";
+import LetterContent from "../Components/organisms/LetterContent";
 import SkeletonLoader from "../Components/organisms/SkeletonLoader";
-import AnniversaryForm from "../Components/templates/AnniversaryForm";
 import Popup from "../Components/templates/Popup";
-
-function Anniversary() {
+export default function Letter() {
   return (
     <Popup>
       <Suspense fallback={<SkeletonLoader />}>
-        <AnniversaryForm />
+        <LetterContent />
       </Suspense>
     </Popup>
   );
 }
-
-export default Anniversary;

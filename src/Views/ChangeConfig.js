@@ -1,5 +1,6 @@
-import * as React from "react";
+import { Suspense } from "react";
 import ChangeContent from "../Components/organisms/ChangeContent";
+import SkeletonLoader from "../Components/organisms/SkeletonLoader";
 import Change from "../Components/templates/Change";
 // import styled from "styled-components";
 
@@ -9,7 +10,9 @@ import Popup from "../Components/templates/Popup";
 export default function ChangeConfig() {
   return (
     <Popup>
-      <ChangeContent />
+      <Suspense fallback={<SkeletonLoader />}>
+        <ChangeContent />
+      </Suspense>
     </Popup>
   );
 }
