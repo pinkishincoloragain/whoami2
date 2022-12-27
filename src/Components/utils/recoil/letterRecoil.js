@@ -1,11 +1,13 @@
-import { atom, selector } from "recoil";
-import { recoilPersist } from "recoil-persist";
-import { userIdState } from "./authRecoil";
-import fetchUserLetters from "../firebase/fetchUserLetters";
+// import { atom, selector } from "recoil";
+// import { recoilPersist } from "recoil-persist";
+// const { persistAtom } = recoilPersist();
 
-const lettersState = atom({
-  key: "lettersState",
-  default: [],
-});
+// const lettersState = selector({
+//   key: "lettersState",
+//   get: ({ get }) => {
+//     const letters = get(lettersState);
+//     return letters;
+//   },
+// });
 
-export { lettersState };
+// export { lettersState };
