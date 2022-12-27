@@ -126,7 +126,7 @@ export default function AnniversaryForm() {
       <MultiSelectForm
         title={anniversary.questions[0]}
         phrase={anniversary.phrase[0]}
-        options={anniversary.options}
+        defaultOptions={anniversary.options}
         name='options'
         onChange={handleSelectionFormChange}
         addFormPlaceholder={anniversary.createByOwn}

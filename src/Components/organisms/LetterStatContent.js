@@ -28,8 +28,6 @@ export default function LetterStatContent() {
     fetchData();
   }, []);
 
-  console.log(feels);
-
   return (
     <>
       <OptionBar
