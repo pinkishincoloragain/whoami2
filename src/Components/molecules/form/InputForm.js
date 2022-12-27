@@ -28,6 +28,7 @@ const Input = styled.input({
   borderBottom: `2px solid transparent`,
   "&:focus": {
     borderBottom: `2px solid ${colors.dark.gold}`,
+    backgroundColor: "transparent",
   },
 });
 
@@ -46,7 +47,14 @@ export default function InputForm({ title, placeholder, name, onChange, phrase, 
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
 
-      <Input disabled={disabled} name={name} placeholder={placeholder} onChange={onChange} />
+      <Input
+        defaultValue={placeholder === "익명의 흑토끼🐰" ? placeholder : ""}
+        type={name}
+        disabled={disabled}
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+      />
     </InputFormWrapper>
   );
 }

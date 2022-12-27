@@ -9,6 +9,7 @@ const addUser = async (user, nickName) => {
       email: user.email,
       createdAt: user.metadata.creationTime,
       lastLoginAt: user.metadata.lastSignInTime,
+      feels: user.feels,
     });
 
     return { isSuccess: true, newUserDocRef: res };

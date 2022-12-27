@@ -8,14 +8,17 @@ import StatsContent from "../molecules/StatsContent";
 import anniversary from "../../assets/data/anniversary.json";
 
 import { userLettersState, userLettersStatisticsState } from "../utils/recoil/letterRecoil";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { optionState } from "../utils/recoil/optionRecoil";
 
 export default function LetterStatContent() {
   // const [letters, setLetters] = useState([]);
-  const [currentViewIdx, setCurrentViewIdx] = useState("0");
+  const [currentViewIdx, setCurrentViewIdx] = useRecoilState(optionState);
 
   const lettersState = useRecoilValue(userLettersState);
   const lsttersStatisticsState = useRecoilValue(userLettersStatisticsState);
+
+  const sortedStatistics = Object.entries(lsttersStatisticsState).sort((a, b) => b[1] - a[1]);
 
   return (
     <Suspense fallback={<SkeletonLoader />}>
@@ -25,7 +28,7 @@ export default function LetterStatContent() {
         setCurrentOptionIdx={setCurrentViewIdx}
       />
       {currentViewIdx === "0" ? (
-        <StatsContent feels={lsttersStatisticsState} />
+        <StatsContent feels={sortedStatistics} />
       ) : (
         <LettersContent letters={lettersState} />
       )}

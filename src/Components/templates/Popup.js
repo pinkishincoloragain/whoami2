@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
+import {useNavigate} from "react-router-dom";
 
 import colors from "../colors.json";
 import { TriangleOverflowWrapper, TriangleWrapper } from "../atoms/Triangle";
@@ -38,6 +39,7 @@ const PopupWrapper = styled.div({
 
 export default function Popup({ children }) {
   const [popupOpen, setPopupOpen] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.moveTo(0, 0);
@@ -47,6 +49,7 @@ export default function Popup({ children }) {
     setPopupOpen(false);
     alert("창을 끄면 로그아웃이 되죠..");
     logout();
+    navigate("/");
   };
 
   return (

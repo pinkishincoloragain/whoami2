@@ -9,7 +9,6 @@ import OptionBar from "../atoms/OptionBar";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
 
-import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";
 import ShareForm from "../molecules/ShareForm";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +46,6 @@ const DescTextWrapper = styled.div({
 export default function ShareContent() {
   const width = window.innerWidth * 0.8 > 420 ? 420 : window.innerWidth * 0.8;
   const isLoggedIn = useRecoilValue(isLoggedInState);
-  const [link, copyToClipboard] = useSharableLink();
   const options = ["day", "dawn", "night"];
 
   const [option, setOption] = useState("0");
@@ -66,6 +64,7 @@ export default function ShareContent() {
           <H4>{anniversary.share.desc1}</H4>
           <H4>{anniversary.share.desc2}</H4>
           <H4>{anniversary.share.desc3}</H4>
+          <H4>{anniversary.share.desc4}</H4>
         </DescTextWrapper>
         <OptionBar
           width={"60%"}
