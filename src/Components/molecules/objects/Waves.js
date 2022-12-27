@@ -4,7 +4,6 @@ import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
 import { useState, useEffect } from "react";
 import waterNormals from "../../../assets/textures/waternormals.jpeg";
-import { WebGLRenderer } from "three";
 
 function Waves(props) {
   let container;
@@ -23,6 +22,10 @@ function Waves(props) {
       if (container.hasChildNodes()) {
         container.removeChild(container.childNodes[0]);
         renderer.dispose();
+        renderer.forceContextLoss();
+        renderer.context = null;
+        renderer.domElement = null;
+        renderer = null;
       }
     };
   }, [props.container]);
@@ -64,18 +67,18 @@ function Waves(props) {
       props.borderRadius === undefined ? "100%" : `${props.borderRadius}px`;
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(100, props.width / props.height, 1, 10000);
+    camera = new THREE.PerspectiveCamera(100, props.width / props.height, 1, 5000);
     camera.position.set(-180, 0, -200);
 
     sun = new THREE.Vector3();
 
     // Water
 
-    const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
+    const waterGeometry = new THREE.PlaneGeometry(5000, 5000);
 
     water = new Water(waterGeometry, {
-      textureWidth: 512,
-      textureHeight: 512,
+      textureWidth: 64,
+      textureHeight: 64,
       waterNormals: new THREE.TextureLoader().load(waterNormals, function (texture) {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       }),
@@ -113,7 +116,7 @@ function Waves(props) {
     controls.maxPolarAngle = Math.PI * 0.495;
     controls.target.set(30, 40, 0);
     controls.minDistance = 40.0;
-    controls.maxDistance = 800.0;
+    controls.maxDistance = 400.0;
     controls.update();
   }
 
@@ -123,7 +126,7 @@ function Waves(props) {
   }
 
   function render() {
-    const time = performance.now() * 0.001;
+    const time = performance.now() * 0.01;
     water.material.uniforms["time"].value += 1.0 / 60.0;
 
     renderer.render(scene, camera);

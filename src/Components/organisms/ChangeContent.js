@@ -35,8 +35,8 @@ export default function ChangeContent() {
   };
 
   return (
-    <Suspense fallback={<div>로딩중...</div>}>
-      <LettersContentWrapper>
+    <LettersContentWrapper>
+      <Suspense fallback={<div>로딩중...</div>}>
         <MultiSelectForm
           options={feels}
           setOptions={setFeels}
@@ -46,8 +46,8 @@ export default function ChangeContent() {
           withDelete={true}
           onChange={e => {}}
         />
-        <SubmitButton onClick={handleSubmit}>반영하기</SubmitButton>
-      </LettersContentWrapper>
-    </Suspense>
+      </Suspense>
+      <SubmitButton onClick={handleSubmit}>저장</SubmitButton>
+    </LettersContentWrapper>
   );
 }

@@ -12,7 +12,6 @@ const updateDefaultFeels = async (uid, feels) => {
     const res = await updateDoc(updateTargetRef, {
       feels: feels,
     });
-    console.log(res);
 
     return { isSuccess: true };
   } catch (err) {
