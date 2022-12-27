@@ -24,7 +24,6 @@ export const Input = ({
 }) => {
   useEffect(() => {
     if (modeOn) {
-      console.log(modeOn);
       inputRef.current.focus();
       inputRef.current.setAttribute("autofocus", "true");
     }

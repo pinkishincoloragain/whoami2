@@ -15,7 +15,6 @@ const userAskFeelsSelector = selector({
     const userAskFeels = get(userAskFeelsState);
     if (userAskFeels.length > 0) return userAskFeels;
     const { feels, isSuccess } = await fetchDefaultFeels(uid);
-    console.log(feels, isSuccess);
 
     return feels;
   },

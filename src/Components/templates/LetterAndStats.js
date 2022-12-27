@@ -22,8 +22,6 @@ export default function LetterAndStats() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
 
-  console.log(isLoggedIn);
-
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
@@ -32,8 +30,8 @@ export default function LetterAndStats() {
 
   return (
     <LettersContentWrapper>
+      <NavigateContent />
       <Suspense fallback={<SkeletonLoader />}>
-        <NavigateContent />
         <LetterStatContent />
       </Suspense>
     </LettersContentWrapper>

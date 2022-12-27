@@ -3,7 +3,6 @@ import { doc, collection, addDoc } from "firebase/firestore";
 import useIP from "../../../hooks/useIP";
 
 const transformResponse = async response => {
-  console.log(response);
   const { ip, city } = await useIP();
   const { name, description, selections, uid } = response;
   const timeStamp = new Date().toTimeString().slice(0, 8) + " " + new Date().toDateString();
@@ -22,7 +21,6 @@ const transformResponse = async response => {
 };
 
 const addResponse = async response => {
-  console.log(response.uid);
   const formedResponse = await transformResponse(response);
   const lettersCollectionRef = collection(db, "letters");
 
@@ -30,7 +28,6 @@ const addResponse = async response => {
     const docRef = await addDoc(lettersCollectionRef, {
       ...formedResponse,
     });
-    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }

@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import colors from "../colors.json";
 
@@ -24,15 +23,13 @@ const ViewOption = styled.button(props => {
 });
 
 export default function OptionBar({ width, options, currentOptionIdx, setCurrentOptionIdx }) {
-  const viewOptions = options;
-
   const handleOptionClick = e => {
     setCurrentOptionIdx(e.target.value);
   };
 
   return (
     <OptionBarWrapper width={width}>
-      {viewOptions.map((option, idx) => (
+      {options.map((option, idx) => (
         <ViewOption
           isSelected={currentOptionIdx === idx.toString()}
           value={idx}

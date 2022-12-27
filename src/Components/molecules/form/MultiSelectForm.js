@@ -55,7 +55,6 @@ export default function MultiSelectForm({
 
   const handleButtonClick = (e, index) => {
     e.preventDefault();
-    console.log(index);
     if (withDelete) return;
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
@@ -71,10 +70,8 @@ export default function MultiSelectForm({
 
   const handleAddButtonClick = e => {
     e.preventDefault();
-    console.log(inputValue);
 
     if (inputValue === "") return;
-    console.log(options);
     setOptions([...options, inputValue]);
     setSelected([...selected, true]);
     onChange([...selected.filter(v => v).map((v, i) => options[i]), inputValue]);
@@ -82,7 +79,6 @@ export default function MultiSelectForm({
   };
 
   const handleInputChange = e => {
-    console.log(e.target.value);
     setInputValue(e.target.value);
   };
 

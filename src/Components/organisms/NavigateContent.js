@@ -34,7 +34,7 @@ export default function NavigateContent() {
       <NavigateContentWrapper>
         <LinkButtonWrapper>
           <LinkButton to='/share'>{anniversary.mypage.sharableLinkButton}</LinkButton>
-          <LinkButton to='/change'>{anniversary.changeConfig.title}</LinkButton>
+          {/* <LinkButton to='/change'>{anniversary.changeConfig.title}</LinkButton> */}
         </LinkButtonWrapper>
       </NavigateContentWrapper>
     </>

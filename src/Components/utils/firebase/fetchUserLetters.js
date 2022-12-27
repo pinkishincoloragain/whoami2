@@ -16,7 +16,7 @@ const fetchUserLetters = async uid => {
     return { isSuccess: true, letters: res };
   } catch (err) {
     console.log(err);
-    return [];
+    return { isSuccess: false, letters: [] };
   }
 };
 
