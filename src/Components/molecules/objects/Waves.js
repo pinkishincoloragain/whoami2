@@ -8,7 +8,7 @@ import waterNormals from "../../../assets/textures/waternormals.jpeg";
 function Waves(props) {
   let container;
   let camera, scene, renderer;
-  let water, sun, sky, mesh;
+  let water, sun, sky;
   let pmremGenerator;
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Waves(props) {
     animate();
 
     return () => {
-      if (container.hasChildNodes()) {
+      if (container?.hasChildNodes()) {
         container.removeChild(container.childNodes[0]);
         renderer.dispose();
         renderer.forceContextLoss();
@@ -28,7 +28,7 @@ function Waves(props) {
         renderer = null;
       }
     };
-  }, [props.container]);
+  }, []);
 
   const [parameters, setParameters] = useState({
     // elevation: darkMode === true ? -1 : 10,
@@ -126,6 +126,7 @@ function Waves(props) {
   }
 
   function render() {
+    if(!renderer) return;
     const time = performance.now() * 0.01;
     water.material.uniforms["time"].value += 1.0 / 60.0;
 

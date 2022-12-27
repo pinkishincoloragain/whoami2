@@ -7,7 +7,6 @@ import Anniversary from "./Views/Anniversary";
 import Thankyou from "./Views/Thankyou";
 import Login from "./Views/Login";
 import MyPage from "./Views/MyPage";
-import ChangeConfig from "./Views/ChangeConfig";
 import Share from "./Views/Share";
 import useLogin from "./hooks/useLogin";
 
@@ -41,7 +40,7 @@ function App() {
           <Route path='/anniversary/*' element={<Anniversary />} />
           <Route path='/login' element={<Login />} />
           <Route path='/thankyou' element={<Thankyou />} />
-          <Route path='/change' element={<ChangeConfig />} />
+          {/* <Route path='/change' element={<ChangeConfig />} /> */}
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/mypage' element={<MyPage />} />
           <Route path='/letter/*' element={<Letter />} />

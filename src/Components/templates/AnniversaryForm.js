@@ -47,7 +47,7 @@ export default function AnniversaryForm() {
 
   useEffect(() => {
     const uid = location.pathname.split("/")[2];
-    setReceiverUid(uid);
+    setReceiverUid(uid || "");
   });
 
   const navigate = useNavigate();
@@ -68,7 +68,6 @@ export default function AnniversaryForm() {
   });
 
   const handleSelectionFormChange = value => {
-    console.log(value);
     setResponse({
       ...response,
       selections: value,
@@ -97,65 +96,71 @@ export default function AnniversaryForm() {
       selections: response.selections.filter(v => v !== null),
     };
     setTryToSubmit(true);
-    console.log(res); 
     addResponse(res);
     navigate("/Thankyou");
   };
 
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
-      <H2>
-        <Emphasize>{anniversary.title1}</Emphasize>
-        <br />
-        {anniversary.title2}
-        <br />
-        {anniversary.title3}
-      </H2>
-      <BeautifulBar />
-      <InputForm
-        title={anniversary.questions[1]}
-        phrase={anniversary.phrase[1]}
-        name='name'
-        onChange={handleInputFormChange}
-        placeholder={anniversary.placeholder.name}
-      />
-      <InputFormWithAuth
-        title={anniversary.questions[2]}
-        phrase={anniversary.phrase[2]}
-        name='receiver'
-        onChange={handleInputFormChange}
-        placeholder={receiverName || anniversary.placeholder.receiver}
-        optionPhrase={anniversary.requestAnonymous}
-      />
-      <Suspense fallback={SkeletonLoader}>
-        <MultiSelectForm
-          options={multiSelectOptions}
-          setOptions={setMultiSelectOptions}
-          title={anniversary.questions[0]}
-          phrase={anniversary.phrase[0]}
-          defaultOptions={receiverDefaultAskOptions}
-          name='options'
-          onChange={handleSelectionFormChange}
-          addFormPlaceholder={anniversary.createByOwn}
+      <Suspense fallback={<SkeletonLoader />}>
+        <H2>
+          <Emphasize>{anniversary.title1}</Emphasize>
+          <br />
+          {anniversary.title2}
+          <br />
+          {anniversary.title3}
+        </H2>
+        <BeautifulBar />
+        <InputForm
+          title={anniversary.questions[1]}
+          phrase={anniversary.phrase[1]}
+          name='name'
+          onChange={handleInputFormChange}
+          placeholder={anniversary.placeholder.name}
         />
+        <InputFormWithAuth
+          title={anniversary.questions[2]}
+          phrase={anniversary.phrase[2]}
+          name='receiver'
+          onChange={handleInputFormChange}
+          placeholder={receiverName || anniversary.placeholder.receiver}
+          optionPhrase={anniversary.requestAnonymous}
+        />
+
+        {multiSelectOptions?.length > 0 && (
+          <Suspense fallback={SkeletonLoader}>
+            <MultiSelectForm
+              options={multiSelectOptions}
+              setOptions={setMultiSelectOptions}
+              title={anniversary.questions[0]}
+              phrase={anniversary.phrase[0]}
+              defaultOptions={receiverDefaultAskOptions}
+              name='options'
+              onChange={handleSelectionFormChange}
+              addFormPlaceholder={anniversary.createByOwn}
+            />
+          </Suspense>
+        )}
+        <TextAreaForm
+          title={anniversary.questions[3]}
+          name='description'
+          onChange={handleInputFormChange}
+          placeholder={anniversary.placeholder.message}
+          isEmpty={isEmpty.description}
+        />
+        <SubmitButtonWrapper>
+          <SubmitButton
+            onClick={() => setTryToSubmit(true)}
+            disabled={tryToSubmit && !canSubmit}
+            value={false}
+          >
+            {anniversary.submit}
+          </SubmitButton>
+          {tryToSubmit && !canSubmit && (
+            <SmallWarningText>{anniversary.submitFail}</SmallWarningText>
+          )}
+        </SubmitButtonWrapper>
       </Suspense>
-      <TextAreaForm
-        title={anniversary.questions[3]}
-        name='description'
-        onChange={handleInputFormChange}
-        placeholder={anniversary.placeholder.message}
-        isEmpty={isEmpty.description}
-      />
-      <SubmitButtonWrapper>
-        <SubmitButton
-          onClick={() => setTryToSubmit(true)}
-          disabled={tryToSubmit && !canSubmit}
-          value={false}
-        >
-          {anniversary.submit}
-        </SubmitButton>
-        {tryToSubmit && !canSubmit && <SmallWarningText>{anniversary.submitFail}</SmallWarningText>}
-      </SubmitButtonWrapper>
     </AnniversaryFormWrapper>
   );
 }

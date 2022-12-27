@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { userAskFeelsState, userAskFeelsSelector } from "../utils/recoil/feelsRecoil";
 
 const LettersContentWrapper = styled.form({
-  marginTop: "4vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -40,7 +39,7 @@ export default function ChangeContent() {
         <MultiSelectForm
           options={feels}
           setOptions={setFeels}
-          title={"현재 표시되는 기분"}
+          title={"현재 표시되는 응답 폼"}
           phrase={"다른 사람들이 응답을 남길 수 있어요."}
           addFormPlaceholder={"여기 입력해주세요!"}
           withDelete={true}
