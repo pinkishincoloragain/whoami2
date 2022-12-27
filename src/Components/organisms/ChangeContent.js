@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, startTransition } from "react";
 import MultiSelectForm from "../molecules/form/MultiSelectForm";
-import { useRecoilValue } from "recoil";
-import { userIdState, userInfoState } from "../utils/recoil/authRecoil";
-import fetchDefaultFeels from "../utils/firebase/fetchDefaultFeels";
+import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
+import { userIdState } from "../utils/recoil/authRecoil";
 
 import { SubmitButton } from "../atoms/MyButton";
 
 import styled from "styled-components";
 import updateDefaultFeels from "../utils/firebase/updateDefaultFeels";
+import { useNavigate } from "react-router-dom";
+import { userAskFeelsState, userAskFeelsSelector } from "../utils/recoil/feelsRecoil";
 
 const LettersContentWrapper = styled.form({
   marginTop: "4vh",
@@ -18,37 +19,35 @@ const LettersContentWrapper = styled.form({
 
 export default function ChangeContent() {
   const uid = useRecoilValue(userIdState);
-  const [feels, setFeels] = useState([]);
-  const userInfo = useRecoilValue(userInfoState);
+  const userAskFeel = useRecoilValue(userAskFeelsSelector);
+  const setUserAskFeelsState = useSetRecoilState(userAskFeelsState);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { feels, isSuccess } = await fetchDefaultFeels(uid);
-      console.log(feels, isSuccess);
-      setFeels(feels);
-    };
+  const [feels, setFeels] = useState(userAskFeel);
+  const navigate = useNavigate();
 
-    fetchData();
-  }, []);
-
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     alert("반영되었습니다.");
     updateDefaultFeels(uid, feels);
+    setUserAskFeelsState(feels);
+
+    navigate("/mypage");
   };
 
   return (
-    <LettersContentWrapper>
-      <MultiSelectForm
-        title={"현재 표시되는 기분"}
-        phrase={"다른 사람들이 응답할 때 보여져요."}
-        defaultOptions={feels}
-        addFormPlaceholder={"여기 입력해줘요!"}
-        onChange={setFeels}
-        withDelete={true}
-      />
-
-      <SubmitButton onClick={handleSubmit}>반영하기</SubmitButton>
-    </LettersContentWrapper>
+    <Suspense fallback={<div>로딩중...</div>}>
+      <LettersContentWrapper>
+        <MultiSelectForm
+          options={feels}
+          setOptions={setFeels}
+          title={"현재 표시되는 기분"}
+          phrase={"다른 사람들이 응답할 때 보여져요."}
+          addFormPlaceholder={"여기 입력해줘요!"}
+          withDelete={true}
+          onChange={e => {}}
+        />
+        <SubmitButton onClick={handleSubmit}>반영하기</SubmitButton>
+      </LettersContentWrapper>
+    </Suspense>
   );
 }

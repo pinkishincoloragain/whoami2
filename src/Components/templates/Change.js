@@ -21,8 +21,6 @@ export default function Change() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
 
-  console.log(isLoggedIn);
-
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");

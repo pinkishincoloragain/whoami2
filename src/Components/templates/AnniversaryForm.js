@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import styled from "styled-components";
 import { H2, Emphasize, SmallWarningText } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
@@ -8,13 +8,17 @@ import MultiSelectForm from "../molecules/form/MultiSelectForm";
 import InputForm from "../molecules/form/InputForm";
 import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
+import SkeletonLoader from "../organisms/SkeletonLoader";
 
 import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
-import checkUserWithUid from "../utils/firebase/checkUserWithUid";
-import { useRecoilValue } from "recoil";
-import { userInfoState } from "../utils/recoil/authRecoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  receiverUidState,
+  receiverNameState,
+  receiverDefaultAskOptionsState,
+} from "../utils/recoil/receiverRecoil";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -34,37 +38,36 @@ const SubmitButtonWrapper = styled.div({
 });
 
 export default function AnniversaryForm() {
-  const [tryToSubmit, setTryToSubmit] = useState(false);
-  const [receiver, setReceiver] = useState("");
   const location = useLocation();
-  const [uid, setUid] = useState(location.pathname.split("/")[2] || "");
-  const senderInfo = useRecoilValue(userInfoState);
+  const [tryToSubmit, setTryToSubmit] = useState(false);
+  const [receiverUid, setReceiverUid] = useRecoilState(receiverUidState);
+  const receiverName = useRecoilValue(receiverNameState);
+  const receiverDefaultAskOptions = useRecoilValue(receiverDefaultAskOptionsState);
+  const [multiSelecOptions, setMultiSelecOptions] = useState(receiverDefaultAskOptions);
+  // const [receiverAskOptions, setReceiverAskOptions] = useState(receiverDefaultAskOptions);
+
+  useEffect(() => {
+    const uid = location.pathname.split("/")[2];
+    setReceiverUid(uid);
+  });
+
+  console.log(receiverUid, receiverName, receiverDefaultAskOptions);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const setUserInfo = async () => {
-      const { isSuccess, user } = await checkUserWithUid(uid);
-      if (isSuccess) {
-        setReceiver(user?.name);
-      }
-    };
-    setUserInfo();
-  }, [location.pathname]);
-
   const [response, setResponse] = useState({
     name: "",
-    receiver: uid,
+    receiver: receiverUid,
     description: "",
     selections: [anniversary.options[0]],
-    uid: uid,
+    uid: receiverUid,
   });
 
   const [isEmpty, setIsEmpty] = useState({
     name: true,
     receiver: false,
     description: true,
-    uid: uid,
+    uid: receiverUid,
   });
 
   const handleSelectionFormChange = value => {
@@ -93,7 +96,6 @@ export default function AnniversaryForm() {
     e.preventDefault();
     setTryToSubmit(true);
     console.log(response);
-    console.log(response.uid);
     addResponse(response);
     navigate("/Thankyou");
   };
@@ -120,17 +122,21 @@ export default function AnniversaryForm() {
         phrase={anniversary.phrase[2]}
         name='receiver'
         onChange={handleInputFormChange}
-        placeholder={receiver || anniversary.placeholder.receiver}
+        placeholder={receiverName || anniversary.placeholder.receiver}
         optionPhrase={anniversary.requestAnonymous}
       />
-      <MultiSelectForm
-        title={anniversary.questions[0]}
-        phrase={anniversary.phrase[0]}
-        defaultOptions={anniversary.options}
-        name='options'
-        onChange={handleSelectionFormChange}
-        addFormPlaceholder={anniversary.createByOwn}
-      />
+      <Suspense fallback={SkeletonLoader}>
+        <MultiSelectForm
+          options={multiSelecOptions}
+          setOptions={setMultiSelecOptions}
+          title={anniversary.questions[0]}
+          phrase={anniversary.phrase[0]}
+          defaultOptions={receiverDefaultAskOptions}
+          name='options'
+          onChange={handleSelectionFormChange}
+          addFormPlaceholder={anniversary.createByOwn}
+        />
+      </Suspense>
       <TextAreaForm
         title={anniversary.questions[3]}
         name='description'
