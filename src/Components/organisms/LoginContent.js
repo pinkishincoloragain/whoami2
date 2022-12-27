@@ -2,7 +2,7 @@ import React from "react";
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
 import colors from "../colors.json";
-import LogoTriangle from "../molecules/form/LogoTriangle";
+import SignUp from "../molecules/form/SignUp";
 
 import { LargeButton } from "../atoms/MyButton";
 import BeautifulBar from "../atoms/BeautifulBar";
@@ -26,16 +26,16 @@ const LoginWrapper = styled.div({
   color: colors.white,
 });
 
-const TriangleWrapper = styled.div({
+const SignUpWrapper = styled.div({
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  margin: "10vh 0 10vh 0",
+  // margin: "10vh 0 10vh 0",
 });
 
 const RightBar = styled(BeautifulBar)({
   marginLeft: "30%",
-  width: "70%",
+  width: "100%",
 });
 
 const ButtonWrapper = styled.div({
@@ -49,13 +49,10 @@ const ButtonWrapper = styled.div({
 export default function LoginContent() {
   const setUserInfo = useSetRecoilState(userInfoState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const [newAccount, setNewAccount] = React.useState(true); // 새로운 유저인지 확인(초기값: true)
   const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   if (isLoggedIn) {
-  //     navigate("/mypage");
-  //   }
-  // });
+  const toggleAccount = () => setNewAccount(prev => !prev);
 
   const handleAuthClick = async () => {
     const { isSuccess, user } = await signInWithGoogle();
@@ -69,13 +66,13 @@ export default function LoginContent() {
   return (
     <>
       <H2>{anniversary.login.title}</H2>
-      <H2>{anniversary.login.description}</H2>
+      <H2>{newAccount ? anniversary.login.createAccount : anniversary.login.description}</H2>
       <RightBar reverse={true} />
-      <TriangleWrapper>
-        <LogoTriangle />
-      </TriangleWrapper>
+      <SignUpWrapper>
+        <SignUp newAccount={newAccount} toggleAccount={toggleAccount} />
+      </SignUpWrapper>
       <ButtonWrapper>
-        <LargeButton onClick={handleAuthClick}>{anniversary.login.googleAuth}</LargeButton>
+        {/* <LargeButton onClick={toggleAccount}>{anniversary.login.login}</LargeButton> */}
       </ButtonWrapper>
     </>
   );

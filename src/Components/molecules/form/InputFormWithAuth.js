@@ -13,7 +13,7 @@ const InputFormWithOptionWrapper = styled.div({
 export default function InputFormWithAuth({ optionPhrase, ...props }) {
   return (
     <InputFormWithOptionWrapper>
-      <InputForm {...props} />
+      <InputForm {...props} disabled />
     </InputFormWithOptionWrapper>
   );
 }

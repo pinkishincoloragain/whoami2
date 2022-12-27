@@ -13,6 +13,8 @@ import addResponse from "../utils/firebase/addResponse";
 import { useLocation, useNavigate } from "react-router-dom";
 import BeautifulBar from "../atoms/BeautifulBar";
 import checkUserWithUid from "../utils/firebase/checkUserWithUid";
+import { useRecoilValue } from "recoil";
+import { userInfoState } from "../utils/recoil/authRecoil";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -36,6 +38,7 @@ export default function AnniversaryForm() {
   const [receiver, setReceiver] = React.useState("");
   const location = useLocation();
   const [uid, setUid] = React.useState(location.pathname.split("/")[2] || "");
+  const senderInfo = useRecoilValue(userInfoState);
 
   const navigate = useNavigate();
 
@@ -59,7 +62,7 @@ export default function AnniversaryForm() {
 
   const [isEmpty, setIsEmpty] = React.useState({
     name: true,
-    receiver: true,
+    receiver: false,
     description: true,
     uid: uid,
   });

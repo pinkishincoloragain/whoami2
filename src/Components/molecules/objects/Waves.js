@@ -14,7 +14,6 @@ function Waves(props) {
 
   React.useEffect(() => {
     if (document.getElementById(props.container)?.childElementCount > 0) {
-      console.log(document.getElementById(props.container));
       return;
     }
     init();

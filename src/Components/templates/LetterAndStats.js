@@ -2,7 +2,6 @@ import React from "react";
 
 import NavigateContent from "../organisms/NavigateContent";
 import LetterStatContent from "../organisms/LetterStatContent";
-import BackLink from "../../Components/atoms/BackLink";
 
 import styled from "styled-components";
 
@@ -21,6 +20,8 @@ const LettersContentWrapper = styled.div({
 export default function LetterAndStats() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
+
+  console.log(isLoggedIn);
 
   React.useEffect(() => {
     if (!isLoggedIn) {
