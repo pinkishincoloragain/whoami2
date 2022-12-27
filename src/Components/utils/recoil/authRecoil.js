@@ -6,7 +6,7 @@ const userIdState = selector({
   key: "userIdSelector",
   get: ({ get }) => {
     const userInfo = get(userInfoState);
-    return userInfo.uid;
+    return userInfo?.uid;
   },
 });
 

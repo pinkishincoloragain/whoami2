@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./Views/Landing";
 import Error from "./Views/Error";
@@ -12,6 +12,7 @@ import Share from "./Views/Share";
 import useLogin from "./hooks/useLogin";
 
 import styled from "styled-components";
+import Letter from "./Views/Letter";
 
 const LandingWrapper = styled.div({
   position: "relative",
@@ -43,6 +44,7 @@ function App() {
           <Route path='/change' element={<ChangeConfig />} />
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/mypage' element={<MyPage />} />
+          <Route path='/letter/*' element={<Letter />} />
           <Route path='/share' element={<Share />} />
           <Route path='*' element={<Error />} />
         </Routes>
