@@ -1,6 +1,6 @@
 import { useState, useEffect, Suspense, startTransition } from "react";
 import MultiSelectForm from "../molecules/form/MultiSelectForm";
-import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userIdState } from "../utils/recoil/authRecoil";
 
 import { SubmitButton } from "../atoms/MyButton";
@@ -39,9 +39,9 @@ export default function ChangeContent() {
         <MultiSelectForm
           options={feels}
           setOptions={setFeels}
-          title={"현재 표시되는 응답 폼"}
-          phrase={"다른 사람들이 응답을 남길 수 있어요."}
-          addFormPlaceholder={"여기 입력해주세요!"}
+          title={"표시되는 응답 폼"}
+          phrase={"다른 사람들이 체크해 응답을 남길 수 있어요."}
+          addFormPlaceholder={"추가하고 싶은 응답을 입력해주세요."}
           withDelete={true}
           onChange={e => {}}
         />

@@ -1,4 +1,5 @@
 import anniversary from "../../assets/data/anniversary.json";
+import { lazy, Suspense } from "react";
 
 import { LinkButton, NavigateButton } from "../atoms/MyButton";
 import { Emphasize, H2, H3, H4 } from "../atoms/Text";
@@ -10,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
 
-import Waves from "./objects/Waves";
+const Waves = lazy(() => import("./objects/Waves"));
 
 const WavesWrapper = styled.div({
   position: "absolute",
@@ -62,9 +63,11 @@ export default function AnniversaryPopupContent() {
 
   return (
     <>
-      <WavesWrapper>
-        <Waves width={550} height={550} elevation='20' azimuth='45' />
-      </WavesWrapper>
+      <Suspense fallback={<div>Loading...</div>}>
+        <WavesWrapper>
+          <Waves width={550} height={550} elevation='20' azimuth='45' />
+        </WavesWrapper>
+      </Suspense>
       <H2>
         <Emphasize>{anniversary.mainTitle1}</Emphasize>
         <br />

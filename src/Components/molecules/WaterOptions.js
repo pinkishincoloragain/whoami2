@@ -1,5 +1,5 @@
-import React from "react";
-import Waves from "./objects/Waves";
+import { lazy, Suspense } from "react";
+const Waves = lazy(() => import("./objects/Waves"));
 
 export default function WaveOptions({ option, width, height }) {
   const props1 = {
@@ -34,9 +34,17 @@ export default function WaveOptions({ option, width, height }) {
   };
   return (
     <>
-      <Waves {...props1} display={option === "0" ? "flex" : "none"} />
-      <Waves {...props2} display={option === "1" ? "flex" : "none"} />
-      <Waves {...props3} display={option === "2" ? "flex" : "none"} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Waves {...props1} display={option === "0" ? "flex" : "none"} />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Waves {...props2} display={option === "1" ? "flex" : "none"} />{" "}
+      </Suspense>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Waves {...props3} display={option === "2" ? "flex" : "none"} />
+      </Suspense>
     </>
   );
 }

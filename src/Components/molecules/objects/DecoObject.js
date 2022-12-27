@@ -18,7 +18,6 @@ const DecoWrapper = styled(`div`)({
 const DecoObject = () => {
   const MemoizedWave = memo(Waves);
   const windowSize = useWindowSize();
-  console.log(windowSize);
 
   return (
     <DecoWrapper>

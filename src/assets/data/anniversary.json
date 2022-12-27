@@ -10,10 +10,10 @@
   "finalDate": "2023-01-01",
   "formDescription1": "연하장을 쓰고 싶은 사람에게 연하장을 보내주세요! ",
   "formDescription2": "모든 연하장은 2023년 1월 1일에 일괄적으로 전송됩니다.",
-  "description1": "연하장✨을 쓰려고 합니다.",
+  "description1": "연하장✨을 써 보면 어떨까요?",
   "description2": "연하장은 새해에 대한 기대와 희망을 적는 것이라고 합니다. 기대와 희망.. 기분 좋잖아요?",
   "description3": "연하장 작성은 2023년 1월 1일까지 가능해요!",
-  "description4": "1월 1일에는 연하장을 모두 보내드릴 예정입니다.",
+  "description4": "1월 3일에 연하장을 모두 보내드릴 예정입니다.",
   "popupContent": {
     "writeButton": "연하장 쓰러 가기",
     "readButton": "내가 받은 연하장"
@@ -59,7 +59,7 @@
   ],
   "placeholder": {
     "name": "익명의 흑토끼🐰",
-    "receiver": "pinkishincoloragain",
+    "receiver": " ",
     "message": "2022년에는 이런 일이 있었어요."
   },
   "mypage": {
@@ -71,13 +71,13 @@
     "from": "From."
   },
   "share": {
-    "desc1": "1. 바다를 움직여 마음에 드는 부분을 찾아 주세요.",
-    "desc2": "2. 편지함 문구를 수정해 주세요",
-    "desc3": "3. 마음에 드는 부분을 찾아 '캡쳐'해 주세요",
+    "desc1": "1. 바다를 움직이며 마음에 드는 부분을 찾아 주세요.",
+    "desc2": "2. 편지함 문구를 수정해 주세요.",
+    "desc3": "3. 마음에 드는 부분을 찾아 '캡쳐'해 주세요.",
     "desc4": "3. 링크와 함께 SNS에 공유해주세요!",
     "title": "2023 New Year's Letter",
     "share": "공유하기",
-    "sharePhrase": "링크를 클립보드에 넣어두었습니다."
+    "sharePhrase": "링크를 복사했어요."
   },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
