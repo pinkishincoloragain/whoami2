@@ -41,8 +41,8 @@ export default function ChangeContent() {
           options={feels}
           setOptions={setFeels}
           title={"현재 표시되는 기분"}
-          phrase={"다른 사람들이 응답할 때 보여져요."}
-          addFormPlaceholder={"여기 입력해줘요!"}
+          phrase={"다른 사람들이 응답을 남길 수 있어요."}
+          addFormPlaceholder={"여기 입력해주세요!"}
           withDelete={true}
           onChange={e => {}}
         />

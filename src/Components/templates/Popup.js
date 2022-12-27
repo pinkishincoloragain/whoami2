@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
+import {useNavigate} from "react-router-dom";
 
 import colors from "../colors.json";
 import { TriangleOverflowWrapper, TriangleWrapper } from "../atoms/Triangle";
 import Triangle from "../atoms/Triangle";
+import { logout } from "../utils/firebase/signInWithEmail";
 
 const PopupBackground = styled.div({
   position: "absolute",
@@ -30,7 +32,6 @@ const PopupWrapper = styled.div({
   minWidth: "20rem",
   maxWidth: "30rem",
   minHeight: "30rem",
-  // backgroundColor: "transparent",
   backgroundColor: colors.dark.background,
   borderRadius: "1rem",
   zIndex: "0",
@@ -38,6 +39,7 @@ const PopupWrapper = styled.div({
 
 export default function Popup({ children }) {
   const [popupOpen, setPopupOpen] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.moveTo(0, 0);
@@ -45,6 +47,9 @@ export default function Popup({ children }) {
 
   const handlePopupClose = () => {
     setPopupOpen(false);
+    alert("창을 끄면 로그아웃이 되죠..");
+    logout();
+    navigate("/");
   };
 
   return (

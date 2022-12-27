@@ -1,10 +1,10 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 const { persistAtom } = recoilPersist();
 
 const optionState = atom({
-  key: "userInfoState",
-  default: false,
+  key: "optionState",
+  default: "0",
   effects_UNSTABLE: [persistAtom],
   dangerouslyAllowMutability: true,
 });

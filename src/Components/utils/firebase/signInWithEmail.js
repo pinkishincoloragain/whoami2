@@ -5,7 +5,6 @@ import {
   signOut,
   browserSessionPersistence,
 } from "firebase/auth";
-import checkUserWithUid from "./checkUserWithUid";
 import addUser from "./addUser";
 
 import anniversary from "../../../assets/data/anniversary.json";
@@ -19,6 +18,7 @@ const signInWithEmail = async (newAccount, email, password, nickName) => {
       // create account
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       // const { isSuccess, isNewUser } = await checkUserWithUid(user?.uid);
+      user.feels = anniversary.options;
       await addUser(user, nickName);
 
       return { isSuccess: true, user: user };

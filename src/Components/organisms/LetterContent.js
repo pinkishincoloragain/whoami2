@@ -5,6 +5,7 @@ import { userLettersState } from "../utils/recoil/letterRecoil";
 import { Suspense } from "react";
 import SkeletonLoader from "./SkeletonLoader";
 import colors from "../colors.json";
+import BeautifulBar from "../atoms/BeautifulBar";
 
 const LetterNavigationWrapper = styled.div({
   display: "flex",
@@ -12,14 +13,13 @@ const LetterNavigationWrapper = styled.div({
   justifyContent: "space-between",
   width: "100%",
   height: "48px",
-  padding: "0 10px",
+  margin: "0 0 26px 0",
 });
 
 const LetterContentWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   marginTop: "4vh",
-  maxHeight: "100vh",
   overflowY: "scroll",
 });
 
@@ -29,7 +29,7 @@ const LetterToWrapper = styled.div({
   width: "100%",
   height: "100%",
   fontSize: "1.4rem",
-  marginTop: "1vh",
+  // marginTop: "1vh",
   maxHeight: "40px",
 });
 
@@ -38,8 +38,9 @@ const DescriptionWrapper = styled.div({
   flexDirection: "column",
   width: "100%",
   fontSize: "1rem",
-  margin: "1vh 0 1vh 0",
+  margin: "2vh 0 2vh 0",
   textDecoration: "underline",
+  minHeight: "20vh",
 });
 
 const LetterFromWrapper = styled.div({
@@ -49,7 +50,7 @@ const LetterFromWrapper = styled.div({
   width: "100%",
   maxHeight: "40px",
   fontSize: "1rem",
-  margin: "48px 0 6vh 0",
+  margin: "2vh 0 2vh 0",
 });
 
 const PSWrapper = styled.div({
@@ -74,7 +75,7 @@ const FeelWrapper = styled.div({
 
 const NextButton = styled.button(props => {
   return {
-    display: props.isSeen ? "flex" : "none",
+    display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     width: "40%",
@@ -83,8 +84,31 @@ const NextButton = styled.button(props => {
     alignItems: "center",
     fontSize: "1rem",
     margin: "1vh 0 1vh 0",
-    backgroundColor: colors.dark.gold,
+    backgroundColor: colors.dark.green,
   };
+});
+
+const HomeButton = styled.button({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  width: "100%",
+  minHeight: "36px",
+  borderRadius: "8px",
+  alignItems: "center",
+  fontSize: "1rem",
+  margin: "1vh 0 1vh 0",
+});
+
+const LetterWrapper = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  backgroundColor: colors.dark.blue2,
+  width: "100%",
+  padding: "1rem",
+  margin: "2vh 0 2vh 0",
+  borderRadius: "8px",
+  boxShadow: "0 0 8px 0 rgba(0, 0, 0, 0.2)",
 });
 
 const ContentSuspenseWrapper = styled.div({
@@ -108,6 +132,10 @@ export default function LetterContent() {
     }
   };
 
+  const handleMyPageButtonClick = () => {
+    navigate(`/mypage`);
+  };
+
   const handlePrevButton = () => {
     if (letterIdx > 0) {
       navigate(`/letter/${Number(letterIdx) - 1}`);
@@ -122,29 +150,29 @@ export default function LetterContent() {
         <Suspense fallback={<SkeletonLoader />}>
           <div>{currentLetter?.timeStamp}</div>
           <div>{Number(letterIdx) + 1}번째 편지</div>
-          <LetterToWrapper>당신에게,</LetterToWrapper>
-          <DescriptionWrapper>{currentLetter?.description}</DescriptionWrapper>
-          <LetterFromWrapper>
-            - {currentLetter?.from} 씀.
-            <br />
-            <br />
-          </LetterFromWrapper>
+          <BeautifulBar width={"100%"} />
+          <LetterWrapper>
+            <LetterToWrapper>당신에게,</LetterToWrapper>
+            <DescriptionWrapper>{currentLetter?.description}</DescriptionWrapper>
+            <LetterFromWrapper>
+              - {currentLetter?.from} 씀.
+              <br />
+            </LetterFromWrapper>
+          </LetterWrapper>
           <PSWrapper>
-            {currentLetter?.from}가 {currentLetter?.feels.length}개의 감정을 남겼어요.
+            <b>{currentLetter?.from}</b> 님이 {currentLetter?.feels.length}개의 감정을 남겼어요.
             {currentLetter.feels.map(feel => (
               <FeelWrapper key={feel}>{feel}</FeelWrapper>
             ))}
           </PSWrapper>
         </Suspense>
+        <BeautifulBar width={"100%"} />
+        <LetterNavigationWrapper>
+          <NextButton onClick={handlePrevButton}>이전 편지</NextButton>
+          <NextButton onClick={handleNextButton}>다음 편지</NextButton>
+        </LetterNavigationWrapper>
+        <HomeButton onClick={handleMyPageButtonClick}>편지함 돌아가기</HomeButton>
       </ContentSuspenseWrapper>
-      <LetterNavigationWrapper>
-        <NextButton isSeen={letterIdx > 0} onClick={handlePrevButton}>
-          이전
-        </NextButton>
-        <NextButton isSeen={letterIdx < letters.length - 1} onClick={handleNextButton}>
-          다음
-        </NextButton>
-      </LetterNavigationWrapper>
     </LetterContentWrapper>
   );
 }

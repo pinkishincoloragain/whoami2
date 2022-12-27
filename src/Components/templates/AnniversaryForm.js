@@ -43,20 +43,17 @@ export default function AnniversaryForm() {
   const [receiverUid, setReceiverUid] = useRecoilState(receiverUidState);
   const receiverName = useRecoilValue(receiverNameState);
   const receiverDefaultAskOptions = useRecoilValue(receiverDefaultAskOptionsState);
-  const [multiSelecOptions, setMultiSelecOptions] = useState(receiverDefaultAskOptions);
-  // const [receiverAskOptions, setReceiverAskOptions] = useState(receiverDefaultAskOptions);
+  const [multiSelectOptions, setMultiSelectOptions] = useState(receiverDefaultAskOptions);
 
   useEffect(() => {
     const uid = location.pathname.split("/")[2];
     setReceiverUid(uid);
   });
 
-  console.log(receiverUid, receiverName, receiverDefaultAskOptions);
-
   const navigate = useNavigate();
 
   const [response, setResponse] = useState({
-    name: "",
+    name: anniversary.placeholder.name,
     receiver: receiverUid,
     description: "",
     selections: [anniversary.options[0]],
@@ -64,13 +61,14 @@ export default function AnniversaryForm() {
   });
 
   const [isEmpty, setIsEmpty] = useState({
-    name: true,
+    name: false,
     receiver: false,
     description: true,
     uid: receiverUid,
   });
 
   const handleSelectionFormChange = value => {
+    console.log(value);
     setResponse({
       ...response,
       selections: value,
@@ -94,9 +92,13 @@ export default function AnniversaryForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const res = {
+      ...response,
+      selections: response.selections.filter(v => v !== null),
+    };
     setTryToSubmit(true);
-    console.log(response);
-    addResponse(response);
+    console.log(res); 
+    addResponse(res);
     navigate("/Thankyou");
   };
 
@@ -127,8 +129,8 @@ export default function AnniversaryForm() {
       />
       <Suspense fallback={SkeletonLoader}>
         <MultiSelectForm
-          options={multiSelecOptions}
-          setOptions={setMultiSelecOptions}
+          options={multiSelectOptions}
+          setOptions={setMultiSelectOptions}
           title={anniversary.questions[0]}
           phrase={anniversary.phrase[0]}
           defaultOptions={receiverDefaultAskOptions}
