@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SelectButton, AddButton, DeleteButton } from "../../atoms/MyButton";
 import styled from "styled-components";
-import anniversary from "../../../assets/data/anniversary.json";
 import { H3, SmallText } from "../../atoms/Text";
 
 import { Input } from "./InputForm";
@@ -27,7 +26,7 @@ const AddWrapper = styled.div({
 const FormHeaderWrapper = styled.div({
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-between",
+  gap: "0.5rem",
   alignItems: "center",
 });
 
@@ -44,13 +43,13 @@ export default function MultiSelectForm({
   title,
   phrase,
   withDelete,
-  defaultOptions,
+  options,
+  setOptions,
   addFormPlaceholder,
   onChange,
 }) {
-  const [options, setOptions] = useState(defaultOptions || anniversary.options);
   const [selected, setSelected] = useState(
-    withDelete ? [] : [true, ...Array(options.length - 1).fill(false)]
+    withDelete ? [] : options?.length > 0 ? [true, ...Array(options.length - 1).fill(false)] : []
   );
   const [inputValue, setInputValue] = useState("");
 
@@ -58,7 +57,6 @@ export default function MultiSelectForm({
     e.preventDefault();
 
     if (withDelete) return;
-
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
     setSelected(newSelected);
@@ -94,7 +92,7 @@ export default function MultiSelectForm({
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
 
-      {options.map((option, idx) => {
+      {options?.map((option, idx) => {
         return (
           <SelectButtonWrapper key={idx}>
             <SelectButton
