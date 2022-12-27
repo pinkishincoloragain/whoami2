@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { userInfoState, isLoggedInState } from "../Components/utils/recoil/authRecoil";
 
@@ -8,7 +8,7 @@ const useLogin = () => {
   const setUserInfoState = useSetRecoilState(userInfoState);
   const setIsLoggedInState = useSetRecoilState(isLoggedInState);
 
-  React.useEffect(() => {
+  useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
         setUserInfoState(user);

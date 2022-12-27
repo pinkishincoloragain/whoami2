@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
 import colors from "../colors.json";
@@ -49,7 +49,7 @@ const ButtonWrapper = styled.div({
 export default function LoginContent() {
   const setUserInfo = useSetRecoilState(userInfoState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
-  const [newAccount, setNewAccount] = React.useState(true); // 새로운 유저인지 확인(초기값: true)
+  const [newAccount, setNewAccount] = useState(true); // 새로운 유저인지 확인(초기값: true)
   const navigate = useNavigate();
 
   const toggleAccount = () => setNewAccount(prev => !prev);

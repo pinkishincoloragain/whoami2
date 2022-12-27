@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as React from "react";
+import { useState, useEffect } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Talk, TalkWithEnlarge, TalkWithLink, TalkWithObject } from "../molecules/Talk";
 import talks from "../../assets/data/talk.json";
@@ -20,13 +20,13 @@ const TalkResizer = styled(`div`)({
 const TalkTemplate = () => {
   const windowSize = useWindowSize();
 
-  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 
 import NavigateContent from "../organisms/NavigateContent";
 import LetterStatContent from "../organisms/LetterStatContent";
@@ -8,9 +8,8 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
-import SkeletonLoader from "../organisms/SkeletonLoader";
 
-const LettersContentWrapper = styled.div({
+const ChangeWrapper = styled.div({
   width: "100%",
   flexDirection: "columnœ",
   minWidth: "18rem",
@@ -18,11 +17,9 @@ const LettersContentWrapper = styled.div({
   height: "100%",
 });
 
-export default function LetterAndStats() {
+export default function Change() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
-
-  console.log(isLoggedIn);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -31,11 +28,8 @@ export default function LetterAndStats() {
   });
 
   return (
-    <LettersContentWrapper>
-      <Suspense fallback={<SkeletonLoader />}>
-        <NavigateContent />
-        <LetterStatContent />
-      </Suspense>
-    </LettersContentWrapper>
+    <ChangeWrapper>
+      <NavigateContent />
+    </ChangeWrapper>
   );
 }

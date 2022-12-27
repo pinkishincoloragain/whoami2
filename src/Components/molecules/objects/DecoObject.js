@@ -2,7 +2,7 @@ import styled from "styled-components";
 // import Boxes from "../objects/Boxes";
 import Waves from "../objects/Waves";
 import Boxes from "../objects/Boxes";
-import * as React from "react";
+import { memo } from "react";
 import useWindowSize from "../../../hooks/useWindowSize";
 
 const DecoWrapper = styled(`div`)({
@@ -16,7 +16,7 @@ const DecoWrapper = styled(`div`)({
 });
 
 const DecoObject = () => {
-  const MemoizedWave = React.memo(Waves);
+  const MemoizedWave = memo(Waves);
   const windowSize = useWindowSize();
   console.log(windowSize);
 

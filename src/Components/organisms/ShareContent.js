@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 import anniversary from "../../assets/data/anniversary.json";
@@ -11,7 +11,6 @@ import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";
-import BackLink from "../atoms/BackLink";
 import ShareForm from "../molecules/ShareForm";
 import { useNavigate } from "react-router-dom";
 
@@ -51,10 +50,10 @@ export default function ShareContent() {
   const [link, copyToClipboard] = useSharableLink();
   const options = ["day", "dawn", "night"];
 
-  const [option, setOption] = React.useState("0");
+  const [option, setOption] = useState("0");
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
     }
@@ -62,7 +61,6 @@ export default function ShareContent() {
 
   return (
     <ShareContentWrapper width={width}>
-      {/* <BackLink /> */}
       <DescWrapper>
         <DescTextWrapper>
           <H4>{anniversary.share.desc1}</H4>

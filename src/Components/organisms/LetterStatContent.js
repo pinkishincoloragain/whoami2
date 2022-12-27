@@ -1,49 +1,34 @@
-import React, { useState } from "react";
+import { Suspense, useState } from "react";
 
 import OptionBar from "../atoms/OptionBar";
+import SkeletonLoader from "./SkeletonLoader";
 
 import LettersContent from "../molecules/LettersContent";
 import StatsContent from "../molecules/StatsContent";
 import anniversary from "../../assets/data/anniversary.json";
-import { useRecoilState } from "recoil";
 
-import { lettersState } from "../utils/recoil/letterRecoil";
-import { userIdState } from "../utils/recoil/authRecoil";
+import { userLettersState, userLettersStatisticsState } from "../utils/recoil/letterRecoil";
 import { useRecoilValue } from "recoil";
-import fetchUserLetters from "../utils/firebase/fetchUserLetters";
-import parseFeels from "../utils/parseFeels";
 
 export default function LetterStatContent() {
-  const [letters, setLetters] = React.useState([]);
-  const [currentViewIdx, setCurrentViewIdx] = React.useState("0");
-  const [feels, setFeels] = React.useState([]);
-  const uid = useRecoilValue(userIdState);
+  // const [letters, setLetters] = useState([]);
+  const [currentViewIdx, setCurrentViewIdx] = useState("0");
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetchUserLetters(uid);
-      const totalFeels = parseFeels(res.letters);
-      setLetters(res.letters);
-      setFeels(totalFeels);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(feels);
+  const lettersState = useRecoilValue(userLettersState);
+  const lsttersStatisticsState = useRecoilValue(userLettersStatisticsState);
 
   return (
-    <>
+    <Suspense fallback={<SkeletonLoader />}>
       <OptionBar
         options={anniversary.mypage.options}
         currentOptionIdx={currentViewIdx}
         setCurrentOptionIdx={setCurrentViewIdx}
       />
       {currentViewIdx === "0" ? (
-        <StatsContent feels={feels} />
+        <StatsContent feels={lsttersStatisticsState} />
       ) : (
-        <LettersContent letters={letters} />
+        <LettersContent letters={lettersState} />
       )}
-    </>
+    </Suspense>
   );
 }

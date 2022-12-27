@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "./OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
-import * as React from "react";
+import { useState, useEffect } from "react";
 import waterNormals from "../../../assets/textures/waternormals.jpeg";
 import { WebGLRenderer } from "three";
 
@@ -12,7 +12,7 @@ function Waves(props) {
   let water, sun, sky, mesh;
   let pmremGenerator;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (document.getElementById(props.container)?.childElementCount > 0) {
       return;
     }
@@ -27,7 +27,7 @@ function Waves(props) {
     };
   }, [props.container]);
 
-  const [parameters, setParameters] = React.useState({
+  const [parameters, setParameters] = useState({
     // elevation: darkMode === true ? -1 : 10,
     elevation: props.elevation,
     // azimuth: darkMode === true ? 180 : 0,

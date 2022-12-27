@@ -154,6 +154,19 @@ const LinkButton = styled(Link)(props => {
   };
 });
 
+const DeleteButton = styled.button({
+  width: "24px",
+  height: "24px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: colors.dark.red,
+  padding: "10px 8px 10px 8px",
+  fontWeight: "light",
+  fontSize: "16px",
+  borderRadius: "18px",
+});
+
 const NavigateButton = styled.button(props => {
   return {
     width: "100%",
@@ -208,6 +221,7 @@ export {
   RedButton,
   BlueButton,
   TerminalButton,
+  DeleteButton,
   SelectButton,
   AddButton,
   NavigateButton,

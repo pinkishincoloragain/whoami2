@@ -8,7 +8,7 @@ const StatsButtonWrapper = styled(SelectButton)({
   justifyContent: "space-between",
   height: "64px",
   fontWeight: "200",
-  fontSize: "1.3rem",
+  fontSize: "1rem",
 });
 
 const CountWrapper = styled.div({

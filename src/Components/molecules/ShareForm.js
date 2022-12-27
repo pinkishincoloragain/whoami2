@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
@@ -44,7 +44,7 @@ const AlertWrapper = styled.div({
 
 export default function ShareForm() {
   const [link, copyToClipboard] = useSharableLink();
-  const [isAlertOpen, setIsAlertOpen] = React.useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleShareButtonClick = () => {

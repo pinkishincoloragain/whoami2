@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect } from "react";
 import * as THREE from "three";
 
 function Boxes(props) {
@@ -10,7 +10,7 @@ function Boxes(props) {
   const radius = 500;
   const frustumSize = 1000;
 
-  React.useEffect(() => {
+  useEffect(() => {
     init();
     animate();
   });

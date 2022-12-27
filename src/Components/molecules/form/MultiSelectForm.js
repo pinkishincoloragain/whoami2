@@ -1,6 +1,7 @@
-import React from "react";
-import { SelectButton, AddButton } from "../../atoms/MyButton";
+import { useState } from "react";
+import { SelectButton, AddButton, DeleteButton } from "../../atoms/MyButton";
 import styled from "styled-components";
+import { H3, SmallText } from "../../atoms/Text";
 
 import { Input } from "./InputForm";
 
@@ -25,29 +26,58 @@ const AddWrapper = styled.div({
 const FormHeaderWrapper = styled.div({
   display: "flex",
   flexDirection: "row",
+  gap: "0.5rem",
+  alignItems: "center",
 });
 
-export default function MultiSelectForm({ title, phrase, options, addFormPlaceholder, onChange }) {
-  const [selectOptions, setSelectOptions] = React.useState(options);
-  const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
-  const [inputValue, setInputValue] = React.useState("");
+const SelectButtonWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  gap: "0.5rem",
+  width: "100%",
+  justifyContent: "space-between",
+  alignItems: "center",
+});
+
+export default function MultiSelectForm({
+  title,
+  phrase,
+  withDelete,
+  options,
+  setOptions,
+  addFormPlaceholder,
+  onChange,
+}) {
+  const [selected, setSelected] = useState(
+    withDelete ? [] : options?.length > 0 ? [true, ...Array(options.length - 1).fill(false)] : []
+  );
+  const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = (e, index) => {
     e.preventDefault();
 
+    if (withDelete) return;
     const newSelected = [...selected];
     newSelected[index] = !newSelected[index];
     setSelected(newSelected);
-    onChange(newSelected.filter(v => v).map((v, i) => selectOptions[i]));
+    onChange(newSelected.filter(v => v).map((v, i) => options[i]));
+  };
+
+  const handleDelete = (e, idx) => {
+    console.log(idx);
+    e.preventDefault();
+    console.log(options);
+    const newOptions = options.filter((_, i) => i !== idx);
+    setOptions(newOptions);
   };
 
   const handleAddButtonClick = e => {
     e.preventDefault();
 
     if (inputValue === "") return;
-    setSelectOptions([...selectOptions, inputValue]);
+    setOptions([...options, inputValue]);
     setSelected([...selected, true]);
-    onChange([...selected.filter(v => v).map((v, i) => selectOptions[i]), inputValue]);
+    onChange([...selected.filter(v => v).map((v, i) => options[i]), inputValue]);
     setInputValue("");
   };
 
@@ -57,32 +87,34 @@ export default function MultiSelectForm({ title, phrase, options, addFormPlaceho
 
   return (
     <MultiSelectFormWrapper>
-      {/* <FormHeaderWrapper>
+      <FormHeaderWrapper>
         <H3>{title}</H3>
         <SmallText>{phrase}</SmallText>
-      </FormHeaderWrapper> */}
+      </FormHeaderWrapper>
 
-      {selectOptions.map((selectOption, index) => {
+      {options?.map((option, idx) => {
         return (
-          <SelectButton
-            selected={selected[index]}
-            key={index}
-            // onTouchStart={e => {
-            //   handleButtonClick(e, index);
-            // }}
-            onClick={e => {
-              handleButtonClick(e, index);
-            }}
-            value={selected[index] && selectOption}
-          >
-            {selectOption}
-          </SelectButton>
+          <SelectButtonWrapper key={idx}>
+            <SelectButton
+              selected={withDelete ? false : selected[idx]}
+              // onTouchStart={e => {
+              //   handleButtonClick(e, index);
+              // }}
+              onClick={e => {
+                handleButtonClick(e, idx);
+              }}
+              value={selected[idx] && option}
+            >
+              {option}
+            </SelectButton>
+            {withDelete && <DeleteButton onClick={e => handleDelete(e, idx)}>-</DeleteButton>}
+          </SelectButtonWrapper>
         );
       })}
 
       <AddWrapper>
         <Input placeholder={addFormPlaceholder} onChange={handleInputChange} value={inputValue} />
-        <AddButton value={false} onClick={e => handleAddButtonClick(e)}>
+        <AddButton value={false} onClick={handleAddButtonClick}>
           추가하기
         </AddButton>
       </AddWrapper>

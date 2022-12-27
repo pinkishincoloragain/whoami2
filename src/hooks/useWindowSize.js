@@ -1,11 +1,11 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 
 const useWindowSize = () => {
-  const [windowSize, setWindowSize] = React.useState({
+  const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerWidth,
   });
-  React.useEffect(() => {
+  useEffect(() => {
     let resizeTimer;
     let windowSizer = () => {
       clearTimeout(resizeTimer);

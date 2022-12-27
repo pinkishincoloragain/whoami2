@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PopupContent from "../organisms/PopupContent";
 import PopupButtonGroup from "../molecules/PopupButtonGroup";
@@ -37,9 +37,9 @@ const PopupWrapper = styled.div({
 });
 
 export default function Popup({ children }) {
-  const [popupOpen, setPopupOpen] = React.useState(true);
+  const [popupOpen, setPopupOpen] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.moveTo(0, 0);
   });
 
@@ -57,9 +57,7 @@ export default function Popup({ children }) {
             </TriangleWrapper>
           </TriangleOverflowWrapper>
           <PopupButtonGroup handlePopupClose={handlePopupClose} />
-          <PopupContent>
-            {children}
-          </PopupContent>
+          <PopupContent>{children}</PopupContent>
         </PopupWrapper>
       </PopupBackground>
     )

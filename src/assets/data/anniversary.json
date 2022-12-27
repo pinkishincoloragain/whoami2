@@ -18,8 +18,9 @@
     "writeButton": "연하장 쓰러 가기",
     "readButton": "내가 받은 연하장"
   },
+
   "formTitle": "내가 받은 연하장",
-  "phrase": ["복수선택이 가능해요", "보내는 사람", "받는 사람이 설정한 별명이에요"],
+  "phrase": ["복수선택이에요", "보내는 사람", "받는 사람이 설정한 별명이에요"],
   "submitFail": "엇, 빈 칸이 있네요..?",
   "questions": ["2022년은 당신에게 어떤 해였나요?", "이름 & 별명", "닉네임", "말하고 싶은 것들"],
   "requestAnonymous": "저는 익명으로 할래요!",
@@ -30,6 +31,12 @@
     "user-not-found": "가입되지 않은 이메일입니다.",
     "wrong-password": "비밀번호가 틀렸습니다.",
     "default": "알 수 없는 오류가 발생했습니다."
+  },
+  "changeConfig": {
+    "title": "설정 변경하기",
+    "description": "설정을 변경하려면 다시 로그인해주세요.",
+    "change": "변경",
+    "cancel": "취소"
   },
   "login": {
     "title": "Login",
@@ -74,5 +81,6 @@
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
   "anonymous": "저는 익명으로 할래요",
-  "submit": "작성 완료"
+  "submit": "작성 완료",
+  "defaultUid": "1eeDJWEZhpZU1Ly4aUshnpk05FW2"
 }
