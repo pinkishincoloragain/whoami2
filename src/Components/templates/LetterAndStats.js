@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
 import NavigateContent from "../organisms/NavigateContent";
 import LetterStatContent from "../organisms/LetterStatContent";
@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
+import SkeletonLoader from "../organisms/SkeletonLoader";
 
 const LettersContentWrapper = styled.div({
   width: "100%",
@@ -31,8 +32,10 @@ export default function LetterAndStats() {
 
   return (
     <LettersContentWrapper>
-      <NavigateContent />
-      <LetterStatContent />
+      <Suspense fallback={<SkeletonLoader />}>
+        <NavigateContent />
+        <LetterStatContent />
+      </Suspense>
     </LettersContentWrapper>
   );
 }
