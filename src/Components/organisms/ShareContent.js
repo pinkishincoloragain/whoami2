@@ -11,7 +11,6 @@ import { isLoggedInState } from "../utils/recoil/authRecoil";
 
 import useSharableLink from "../../hooks/useSharableLink";
 import { H4 } from "../atoms/Text";
-import BackLink from "../atoms/BackLink";
 import ShareForm from "../molecules/ShareForm";
 import { useNavigate } from "react-router-dom";
 
@@ -62,7 +61,6 @@ export default function ShareContent() {
 
   return (
     <ShareContentWrapper width={width}>
-      {/* <BackLink /> */}
       <DescWrapper>
         <DescTextWrapper>
           <H4>{anniversary.share.desc1}</H4>
