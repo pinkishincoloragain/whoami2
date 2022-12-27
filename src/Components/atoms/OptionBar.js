@@ -1,3 +1,5 @@
+import { useRecoilState } from "recoil";
+import { optionState } from "../utils/recoil/optionRecoil";
 import styled from "styled-components";
 import colors from "../colors.json";
 

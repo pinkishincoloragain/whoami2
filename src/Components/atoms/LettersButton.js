@@ -16,12 +16,14 @@ const LettersButtonWrapper = styled(SelectButton)({
 
 const FromWrapper = styled.div({
   display: "flex",
+  marginLeft: "4px",
   marginRight: "4px",
 });
 
-export default function LettersButton({ from, handleClick }) {
+export default function LettersButton({ idx, from, handleClick }) {
   return (
     <LettersButtonWrapper onClick={handleClick}>
+      <b>#{idx}</b>
       <FromWrapper>{anniversary.letters.from}</FromWrapper>
       {from}
     </LettersButtonWrapper>

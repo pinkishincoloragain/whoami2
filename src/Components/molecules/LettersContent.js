@@ -10,17 +10,22 @@ export default function LettersContent({ letters }) {
     const now = new Date();
     const anniversaryDate = new Date(anniversary.finalDate);
     navigate(`/letter/${idx}`);
-  //   if (now < anniversaryDate) {
-  //     alert(`${anniversary.finalDate} 에 편지가 공개됩니다!`);
-  //   } else {
-  //     navigate("/letter/idx");
-  //   }
+    //   if (now < anniversaryDate) {
+    //     alert(`${anniversary.finalDate} 에 편지가 공개됩니다!`);
+    //   } else {
+    //     navigate("/letter/idx");
+    //   }
   };
 
   return (
     <>
       {letters.map((letter, idx) => (
-        <LettersButton handleClick={e => handleClick(e, idx)} key={idx} from={letter.from} />
+        <LettersButton
+          handleClick={e => handleClick(e, idx)}
+          idx={idx}
+          key={idx}
+          from={letter.from}
+        />
       ))}
     </>
   );
