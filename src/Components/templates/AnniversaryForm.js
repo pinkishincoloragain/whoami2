@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { H2, Emphasize, SmallWarningText } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
@@ -34,15 +34,15 @@ const SubmitButtonWrapper = styled.div({
 });
 
 export default function AnniversaryForm() {
-  const [tryToSubmit, setTryToSubmit] = React.useState(false);
-  const [receiver, setReceiver] = React.useState("");
+  const [tryToSubmit, setTryToSubmit] = useState(false);
+  const [receiver, setReceiver] = useState("");
   const location = useLocation();
-  const [uid, setUid] = React.useState(location.pathname.split("/")[2] || "");
+  const [uid, setUid] = useState(location.pathname.split("/")[2] || "");
   const senderInfo = useRecoilValue(userInfoState);
 
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const setUserInfo = async () => {
       const { isSuccess, user } = await checkUserWithUid(uid);
       if (isSuccess) {
@@ -52,7 +52,7 @@ export default function AnniversaryForm() {
     setUserInfo();
   }, [location.pathname]);
 
-  const [response, setResponse] = React.useState({
+  const [response, setResponse] = useState({
     name: "",
     receiver: uid,
     description: "",
@@ -60,7 +60,7 @@ export default function AnniversaryForm() {
     uid: uid,
   });
 
-  const [isEmpty, setIsEmpty] = React.useState({
+  const [isEmpty, setIsEmpty] = useState({
     name: true,
     receiver: false,
     description: true,

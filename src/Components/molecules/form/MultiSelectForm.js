@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { SelectButton, AddButton } from "../../atoms/MyButton";
 import styled from "styled-components";
 
@@ -28,9 +28,9 @@ const FormHeaderWrapper = styled.div({
 });
 
 export default function MultiSelectForm({ title, phrase, options, addFormPlaceholder, onChange }) {
-  const [selectOptions, setSelectOptions] = React.useState(options);
-  const [selected, setSelected] = React.useState([true, ...Array(options.length - 1).fill(false)]);
-  const [inputValue, setInputValue] = React.useState("");
+  const [selectOptions, setSelectOptions] = useState(options);
+  const [selected, setSelected] = useState([true, ...Array(options.length - 1).fill(false)]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = (e, index) => {
     e.preventDefault();

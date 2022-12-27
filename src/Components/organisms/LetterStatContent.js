@@ -1,25 +1,23 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 import OptionBar from "../atoms/OptionBar";
 
 import LettersContent from "../molecules/LettersContent";
 import StatsContent from "../molecules/StatsContent";
 import anniversary from "../../assets/data/anniversary.json";
-import { useRecoilState } from "recoil";
 
-import { lettersState } from "../utils/recoil/letterRecoil";
 import { userIdState } from "../utils/recoil/authRecoil";
 import { useRecoilValue } from "recoil";
 import fetchUserLetters from "../utils/firebase/fetchUserLetters";
 import parseFeels from "../utils/parseFeels";
 
 export default function LetterStatContent() {
-  const [letters, setLetters] = React.useState([]);
-  const [currentViewIdx, setCurrentViewIdx] = React.useState("0");
-  const [feels, setFeels] = React.useState([]);
+  const [letters, setLetters] = useState([]);
+  const [currentViewIdx, setCurrentViewIdx] = useState("0");
+  const [feels, setFeels] = useState([]);
   const uid = useRecoilValue(userIdState);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       const res = await fetchUserLetters(uid);
       const totalFeels = parseFeels(res.letters);

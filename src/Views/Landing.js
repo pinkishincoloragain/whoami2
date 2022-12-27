@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import AnniversaryPopupContent from "../Components/molecules/AnniversaryPopupContent";
 // import BeatifulBar from "../Components/atoms/BeautifulBar";
@@ -31,7 +31,7 @@ const HeaderWrapper = styled.div({
 });
 
 function Landing() {
-  React.useEffect(() => {
+  useEffect(() => {
     window.moveTo(0, 0);
   }, []);
   // return (

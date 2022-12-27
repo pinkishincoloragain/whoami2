@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import anniversary from "../../../assets/data/anniversary.json";
@@ -28,9 +28,9 @@ const ChangeModeButton = styled.button({
 });
 
 export default function SignUp({ newAccount, toggleAccount }) {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [nickName, setNickName] = React.useState("익명의 흑토끼🐰");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickName, setNickName] = useState("익명의 흑토끼🐰");
   const navigate = useNavigate();
 
   const onChange = event => {

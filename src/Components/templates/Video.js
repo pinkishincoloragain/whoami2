@@ -1,4 +1,4 @@
-import * as React from "react";
+import { memo, useState, useEffect } from "react";
 import styled from "styled-components";
 import bkg from "../../assets/images/bkg.jpg";
 import LoadingSvg from "../atoms/LoadingSvg";
@@ -32,16 +32,16 @@ const BackgroundVideo = styled.iframe({
 });
 
 function Video() {
-  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
-  const [videoPlay, setVideoPlay] = React.useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [videoPlay, setVideoPlay] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       setVideoPlay(true);
     }, 2100);
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
@@ -72,4 +72,4 @@ function Video() {
   );
 }
 
-export default React.memo(Video);
+export default memo(Video);

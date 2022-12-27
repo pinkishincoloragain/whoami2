@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../colors.json";
 import anniversary from "../../assets/data/anniversary.json";
@@ -51,10 +51,10 @@ export default function ShareContent() {
   const [link, copyToClipboard] = useSharableLink();
   const options = ["day", "dawn", "night"];
 
-  const [option, setOption] = React.useState("0");
+  const [option, setOption] = useState("0");
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
     }

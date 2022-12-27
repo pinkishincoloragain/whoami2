@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 import NavigateContent from "../organisms/NavigateContent";
 import LetterStatContent from "../organisms/LetterStatContent";
@@ -23,7 +23,7 @@ export default function LetterAndStats() {
 
   console.log(isLoggedIn);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isLoggedIn) {
       navigate("/login");
     }

@@ -1,6 +1,6 @@
 // Inspired by https://liveterm.vercel.app/,
 
-import * as React from "react";
+import { useState, useRef, useEffect } from "react";
 import "./developer.css";
 import Input from "./devmode/input";
 
@@ -16,11 +16,11 @@ const DevModeWrapper = styled(`div`)({
 });
 
 const DevMode = () => {
-  const inputRef = React.useRef(null);
+  const inputRef = useRef(null);
   const onClickAnywhere = () => {
     inputRef.current.focus();
   };
-  const containerRef = React.useRef(null);
+  const containerRef = useRef(null);
   const {
     history,
     command,
@@ -33,13 +33,13 @@ const DevMode = () => {
 
   // const init = useCallback(() => setHistory(banner()));
 
-  React.useEffect(() => {
+  useEffect(() => {
     setHistory(banner());
   }, []);
 
-  const [devModeOn, setDevModeOn] = React.useState(false);
+  const [devModeOn, setDevModeOn] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inputRef.current) {
       // inputRef.current.scrollIntoView();
       inputRef.current.focus({ preventScroll: true });

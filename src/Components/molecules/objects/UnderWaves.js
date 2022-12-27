@@ -3,7 +3,7 @@ import { GUI } from "lil-gui";
 import { OrbitControls } from "../controls/OrbitControls.js";
 import { Water } from "./Water.js";
 import { Sky } from "./Sky.js";
-import * as React from "react";
+import { useState, useEffect } from "react";
 import waterNormals from "../../assets/textures/waternormals.jpeg";
 import { WebGLRenderer } from "three";
 import { red } from "@mui/material/colors";
@@ -14,7 +14,7 @@ function UnderWaves(props) {
   let water, sun, sky, mesh;
   let pmremGenerator;
 
-  React.useEffect(() => {
+  useEffect(() => {
     init();
     animate();
     return () => {
@@ -22,7 +22,7 @@ function UnderWaves(props) {
     };
   }, []);
 
-  const [parameters, setParameters] = React.useState({
+  const [parameters, setParameters] = useState({
     // elevation: darkMode === true ? -1 : 10,
     elevation: props.elevation,
     // azimuth: darkMode === true ? 180 : 0,

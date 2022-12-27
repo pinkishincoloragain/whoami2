@@ -1,9 +1,9 @@
-import * as React from "react";
+import { useState } from "react";
 
 export const useHistory = () => {
-  const [history, setHistory] = React.useState([]);
-  const [command, setCommand] = React.useState("");
-  const [lastCommandIndex, setLastCommandIndex] = React.useState(0);
+  const [history, setHistory] = useState([]);
+  const [command, setCommand] = useState("");
+  const [lastCommandIndex, setLastCommandIndex] = useState(0);
 
   return {
     history,

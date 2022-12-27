@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect } from "react";
 import { commandExists } from "../utils/commandExists";
 import { shell } from "../utils/shell";
 import { handleTabCompletion } from "../utils/tabCompletion";
@@ -22,7 +22,7 @@ export const Input = ({
   clearHistory,
   modeOn,
 }) => {
-  React.useEffect(() => {
+  useEffect(() => {
     if (modeOn) {
       console.log(modeOn);
       inputRef.current.focus();

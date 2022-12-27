@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./Views/Landing";
 import Error from "./Views/Error";
@@ -25,7 +25,7 @@ const LandingWrapper = styled.div({
 });
 
 function App() {
-  React.useEffect(() => {
+  useEffect(() => {
     console.log("%cHi there, developer", "background: black; color: white; font-size: 20px;");
   }, []);
 

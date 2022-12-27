@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useRef } from "react";
 import styled from "styled-components";
 
 const HeaderTypography = styled(`div`)({
@@ -18,7 +18,7 @@ const HeaderWrapper = styled(`div`)({
 });
 
 export default function Header(props) {
-  const logoRef = React.useRef();
+  const logoRef = useRef();
 
   const handleMouseDown = () => {
     logoRef.current.style.color = "red";
