@@ -1,5 +1,7 @@
 import { collection, addDoc } from "firebase/firestore";
+import addResponse from "./addResponse";
 import { db } from "./firebaseControl";
+import adminLetter from "../../../assets/data/adminLetter.json";
 
 const addUser = async (user, nickName) => {
   try {
@@ -11,6 +13,9 @@ const addUser = async (user, nickName) => {
       lastLoginAt: user.metadata.lastSignInTime,
       feels: user.feels,
     });
+
+    adminLetter.uid = user.uid;
+    addResponse(adminLetter);
 
     return { isSuccess: true, newUserDocRef: res };
   } catch (err) {

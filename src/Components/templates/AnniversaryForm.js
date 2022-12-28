@@ -7,7 +7,6 @@ import anniversary from "../../assets/data/anniversary.json";
 import colors from "../colors.json";
 import MultiSelectForm from "../molecules/form/MultiSelectForm";
 import InputForm from "../molecules/form/InputForm";
-import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
 import TextAreaForm from "../molecules/form/TextAreaForm";
 import SkeletonLoader from "../organisms/SkeletonLoader";
 
@@ -112,6 +111,7 @@ export default function AnniversaryForm() {
       selections: response.selections.filter(v => v !== null),
     };
     setTryToSubmit(true);
+    console.log(res);
     addResponse(res);
     navigate("/Thankyou");
   };
