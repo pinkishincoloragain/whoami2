@@ -58,8 +58,7 @@ export default function AnniversaryPopupContent() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   // const onClick = useInstallPwa();
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight * 0.6);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth * 2);
   const [propsOption, setPropsOption] = useState("0");
 
   useEffect(() => {
@@ -77,7 +76,7 @@ export default function AnniversaryPopupContent() {
       <Suspense fallback={<div>Loading...</div>}>
         <WavesWrapper>
           <WaveOptions
-            borderRadius={windowWidth * 0.5}
+            borderRadius={windowWidth}
             option={propsOption}
             width={windowWidth}
             height={windowWidth}

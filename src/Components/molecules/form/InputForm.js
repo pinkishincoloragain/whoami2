@@ -4,11 +4,6 @@ import colors from "../../colors.json";
 
 import { H3, SmallText } from "../../atoms/Text";
 
-const TEXT_INPUT_CHECK = {
-  okay: "지금 딱 좋아요!",
-  empty: "이건 비어 있으면 안 돼요!",
-};
-
 const InputFormWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
@@ -28,17 +23,10 @@ const Input = styled.input(props => {
     // margin: "0 0.5rem 0 0",
     // borderBottom: `2px solid ${colors.dark.lightGray}`,
     "&:focus": {
-      borderBottom: props.noFocus ? "none" : `2px solid ${colors.dark.gold}`,
+      // borderBottom: props.noFocus ? "none" : `2px solid ${colors.dark.gold}`,
       backgroundColor: "transparent",
     },
   };
-});
-
-const InputIconWrapper = styled.div({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  gap: "0.5rem",
 });
 
 const FormHeaderWrapper = styled.div({

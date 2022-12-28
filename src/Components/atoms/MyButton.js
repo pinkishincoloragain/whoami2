@@ -35,7 +35,7 @@ const TerminalButton = styled.button(props => {
 
 const SelectButton = styled.button(props => {
   return {
-    width: "100%",
+    width: "calc(100% + 16px)",
     display: "flex",
     alignItems: "center",
     backgroundColor: props.selected ? colors.dark.foreground : "transparent",
@@ -145,7 +145,7 @@ const LinkButton = styled(Link)(props => {
     },
 
     "@media (max-width: 768px)": {
-      height: "48px",
+      height: "36px",
       "&:active": {
         scale: "0.96",
       },
@@ -186,7 +186,7 @@ const NavigateButton = styled.button(props => {
     },
 
     "@media (max-width: 768px)": {
-      height: "48px",
+      height: "36px",
       "&:active": {
         scale: "0.96",
       },

@@ -2,7 +2,6 @@ import { query, collection, getDoc, getDocs, where, updateDoc } from "firebase/f
 import { db } from "./firebaseControl";
 
 const fetchDefaultFeels = async uid => {
-  console.log(uid);
   const q = query(collection(db, "users"), where("uid", "==", uid));
   const querySnapshot = await getDocs(q);
 

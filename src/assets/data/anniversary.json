@@ -4,8 +4,8 @@
   "mainTitle3": "Letter",
   "home": "홈으로 가기",
   "title1": "2022,",
-  "title2": "당신에게",
-  "title3": "어떤 해 였나요?",
+  "title2": "에게",
+  "title3": "말해주세요!",
   "subtitle": "벌써 2022년의 마지막이네요.",
   "finalDate": "2023-01-01",
   "formDescription1": "연하장을 쓰고 싶은 사람에게 연하장을 보내주세요! ",
@@ -41,8 +41,9 @@
   "login": {
     "title": "Hello,",
     "doLogin": "계정이 없으신가요?",
-    "createAccount": "Sign up 2023",
-    "description": "Log in 2023",
+    "createAccount": "Sign up",
+    "createAccountDesc": "2023",
+    "description": "Log in",
     "googleAuth": "Google Auth",
     "alreadyHave": "이미 계정이 있으신가요?",
     "login": "로그인",
@@ -59,7 +60,7 @@
   ],
   "placeholder": {
     "name": "익명의 흑토끼🐰",
-    "receiver": " ",
+    "receiver": "익명의 랜덤흑토끼🐰",
     "message": "2022년에는 이런 일이 있었어요."
   },
   "mypage": {
@@ -77,7 +78,7 @@
     "desc4": "3. 링크와 함께 SNS에 공유해주세요!",
     "title": "2023 New Year's Letter",
     "share": "공유하기",
-    "sharePhrase": "링크를 복사했어요."
+    "sharePhrase": "편지함 링크를 복사했어요."
   },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
