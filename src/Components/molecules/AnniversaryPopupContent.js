@@ -10,7 +10,6 @@ import BeautifulBar from "../atoms/BeautifulBar";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
-import { props1, props2, props3 } from "./WaveProps";
 import WaveOptions from "./WaterOptions";
 
 const WavesWrapper = styled.div({
@@ -62,9 +61,10 @@ export default function AnniversaryPopupContent() {
   const [propsOption, setPropsOption] = useState("0");
 
   useEffect(() => {
-    if (Date.now() > 1624678400000 && Date.now() < 1624764800000) setPropsOption("0");
-    if (Date.now() > 1624764800000 && Date.now() < 1624851200000) setPropsOption("1");
-    if (Date.now() > 1624851200000 && Date.now() < 1624937600000) setPropsOption("2");
+    const now = new Date().getHours();
+    if ((now > 17 && now < 20) || (now > 6 && now < 9)) setPropsOption("1");
+    else if (now > 20 || now < 6) setPropsOption("2");
+    else setPropsOption("0");
   });
 
   const handleLoginClick = () => {

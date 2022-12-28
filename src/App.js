@@ -47,6 +47,7 @@ function App() {
           <Route path='/letter/*' element={<Letter />} />
           <Route path='/share' element={<Share />} />
           <Route path='/waves' element={<WavesView />} />
+          <Route path='/letterFromAdmin' element={<WavesView />} />
           <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>

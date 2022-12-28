@@ -7,6 +7,7 @@ import { Suspense, useEffect } from "react";
 import SkeletonLoader from "./SkeletonLoader";
 import colors from "../colors.json";
 import BeautifulBar from "../atoms/BeautifulBar";
+import anniversary from "../../assets/data/anniversary.json";
 
 const LetterNavigationWrapper = styled.div({
   display: "flex",
@@ -125,6 +126,15 @@ export default function LetterContent() {
   const currentLetter = letters[letterIdx];
   const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const now = new Date();
+    const anniversaryDate = new Date(anniversary.finalDate);
+
+    if (now.getTime() < anniversaryDate.getTime()) {
+      navigate(`/mypage`);
+    }
+  });
 
   useEffect(() => {
     if (!isLoggedIn) {
