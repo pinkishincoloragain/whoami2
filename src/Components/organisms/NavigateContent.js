@@ -30,7 +30,7 @@ export default function NavigateContent() {
   return (
     <>
       <H2>{anniversary.title1}</H2>
-      <H2>{anniversary.title2}</H2>
+      <H2>{anniversary.title4}</H2>
       <NavigateContentWrapper>
         <LinkButtonWrapper>
           <LinkButton to='/share'>{anniversary.mypage.sharableLinkButton}</LinkButton>
