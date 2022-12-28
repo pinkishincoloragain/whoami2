@@ -9,6 +9,7 @@ const ButtonGroupWrapper = styled.div({
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
+  backgroundColor: "transparent",
 });
 
 export default function PopupButtonGroup({ handlePopupClose }) {

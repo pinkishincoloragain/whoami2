@@ -1,5 +1,5 @@
 import anniversary from "../../assets/data/anniversary.json";
-import { lazy, Suspense } from "react";
+import { lazy, useState, Suspense, useEffect } from "react";
 
 import { LinkButton, NavigateButton } from "../atoms/MyButton";
 import { Emphasize, H2, H3, H4 } from "../atoms/Text";
@@ -10,8 +10,8 @@ import BeautifulBar from "../atoms/BeautifulBar";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { isLoggedInState } from "../utils/recoil/authRecoil";
-
-const Waves = lazy(() => import("./objects/Waves"));
+import { props1, props2, props3 } from "./WaveProps";
+import WaveOptions from "./WaterOptions";
 
 const WavesWrapper = styled.div({
   position: "absolute",
@@ -25,6 +25,7 @@ const WavesWrapper = styled.div({
   alignItems: "center",
   borderRadius: "50%",
   transform: "translate(0, -5%)",
+  isolation: "isolate",
 
   zIndex: "-10",
 
@@ -57,6 +58,16 @@ export default function AnniversaryPopupContent() {
   const isLoggedIn = useRecoilValue(isLoggedInState);
   // const onClick = useInstallPwa();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight * 0.6);
+  const [propsOption, setPropsOption] = useState("0");
+
+  useEffect(() => {
+    if (Date.now() > 1624678400000 && Date.now() < 1624764800000) setPropsOption("0");
+    if (Date.now() > 1624764800000 && Date.now() < 1624851200000) setPropsOption("1");
+    if (Date.now() > 1624851200000 && Date.now() < 1624937600000) setPropsOption("2");
+  });
+
   const handleLoginClick = () => {
     isLoggedIn ? navigate("/mypage") : navigate("/login");
   };
@@ -65,7 +76,12 @@ export default function AnniversaryPopupContent() {
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <WavesWrapper>
-          <Waves width={550} height={550} elevation='20' azimuth='45' />
+          <WaveOptions
+            borderRadius={windowWidth * 0.5}
+            option={propsOption}
+            width={windowWidth}
+            height={windowWidth}
+          />
         </WavesWrapper>
       </Suspense>
       <H2>

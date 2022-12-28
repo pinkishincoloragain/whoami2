@@ -19,7 +19,7 @@ export default function ThankyouContent() {
   return (
     <ThankyouWrapper>
       <H2>Thank you for your response!</H2>
-      <LargeButton onClick={() => navigate("/")}>Home</LargeButton>
+      <LargeButton onClick={() => navigate("/mypage")}>내 편지함 공유하기</LargeButton>
     </ThankyouWrapper>
   );
 }

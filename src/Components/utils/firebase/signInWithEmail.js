@@ -13,7 +13,7 @@ import { auth } from "./firebaseControl";
 
 const signInWithEmail = async (newAccount, email, password, nickName) => {
   try {
-    setPersistence(auth, browserSessionPersistence);
+    await setPersistence(auth, browserSessionPersistence);
     if (newAccount) {
       // create account
       const { user } = await createUserWithEmailAndPassword(auth, email, password);

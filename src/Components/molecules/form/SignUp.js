@@ -1,7 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import anniversary from "../../../assets/data/anniversary.json";
+import colors from "../../colors.json";
+import auth1 from "../../../assets/icons/auth1.svg";
+import auth2 from "../../../assets/icons/auth2.svg";
+import auth3 from "../../../assets/icons/auth3.svg";
+import auth4 from "../../../assets/icons/auth4.svg";
 
 import logo from "../../../assets/images/Logo.png";
 import InputForm from "./InputForm";
@@ -26,13 +30,30 @@ const LoginForm = styled.form({
   alignItems: "center",
   justifyContent: "center",
   width: "100%",
-  minHeight: "60vh",
+  minWidth: "18rem",
+  minHeight: "40vh",
   color: "black",
 });
 
 const ChangeModeButton = styled.button({
-  marginTop: "1vh",
+  marginTop: "2vh",
   width: "100%",
+});
+
+const InputWrapper = styled.div({
+  width: "100%",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  gap: "1rem",
+  paddingBottom: "0.5rem",
+  borderBottom: `2px solid ${colors.dark.gold}`,
+});
+
+const IconWrapper = styled.img({
+  width: "1.6rem",
+  marginTop: "1.2rem",
 });
 
 export default function SignUp({ newAccount, toggleAccount }) {
@@ -73,43 +94,53 @@ export default function SignUp({ newAccount, toggleAccount }) {
     <div>
       <LoginForm onSubmit={onSubmit}>
         {newAccount && (
-          <InputForm
-            onChange={onChange}
-            value={nickName}
-            required
-            title={"닉네임"}
-            placeholder={"익명의 흑토끼🐰"}
-            name='nickName'
-          />
+          <InputWrapper>
+            <IconWrapper src={auth1} alt='auth1' />
+            <InputForm
+              noFocus={true}
+              onChange={onChange}
+              value={nickName}
+              required
+              placeholder={"익명의 흑토끼🐰"}
+              name='nickName'
+            />
+          </InputWrapper>
         )}
-
-        <InputForm
-          onChange={onChange}
-          value={email}
-          required
-          title={"이메일"}
-          placeholder={"email@gmail.com"}
-          name='email'
-        />
-        <InputForm
-          onChange={onChange}
-          value={password}
-          required
-          title={"비밀번호"}
-          placeholder={"password"}
-          name='password'
-        />
+        <InputWrapper>
+          <IconWrapper src={auth2} alt='auth2' />
+          <InputForm
+            noFocus={true}
+            onChange={onChange}
+            value={email}
+            required
+            placeholder={"이메일"}
+            name='email'
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <IconWrapper src={auth3} alt='auth3' />
+          <InputForm
+            noFocus={true}
+            onChange={onChange}
+            value={password}
+            required
+            placeholder={"비밀번호"}
+            name='password'
+          />
+        </InputWrapper>
         {newAccount && (
-          <InputForm
-            onChange={onChange}
-            value={passwordCheck}
-            required
-            title={"비밀번호 확인"}
-            placeholder={"password"}
-            name='passwordCheck'
-          />
+          <InputWrapper>
+            <IconWrapper src={auth4} alt='auth4' />
+            <InputForm
+              noFocus={true}
+              onChange={onChange}
+              value={passwordCheck}
+              required
+              placeholder={"비밀번호 확인"}
+              name='passwordCheck'
+            />
+          </InputWrapper>
         )}
-        <LogoImg src={logo} alt='logo' />
       </LoginForm>
 
       <ModeChangeWrapper>

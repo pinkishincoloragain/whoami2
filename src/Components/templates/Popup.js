@@ -57,11 +57,11 @@ export default function Popup({ children }) {
     popupOpen && (
       <PopupBackground>
         <PopupWrapper>
-          <TriangleOverflowWrapper>
+          {/* <TriangleOverflowWrapper>
             <TriangleWrapper>
               <Triangle />
             </TriangleWrapper>
-          </TriangleOverflowWrapper>
+          </TriangleOverflowWrapper> */}
           <PopupButtonGroup handlePopupClose={handlePopupClose} />
           <PopupContent>{children}</PopupContent>
         </PopupWrapper>

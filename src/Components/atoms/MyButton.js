@@ -102,12 +102,12 @@ const SubmitButton = styled.button(props => {
 
 const LargeButton = styled.button({
   width: "60%",
-  height: "64px",
+  height: "36px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: colors.dark.gold,
-  padding: "10px 8px 10px 8px",
+  padding: "6px 8px 6px 8px",
   fontWeight: "light",
   fontSize: "16px",
 
@@ -118,7 +118,7 @@ const LargeButton = styled.button({
   },
 
   "@media (max-width: 768px)": {
-    height: "56px",
+    height: "36px",
     "&:active": {
       scale: "0.96",
     },
@@ -128,12 +128,12 @@ const LargeButton = styled.button({
 const LinkButton = styled(Link)(props => {
   return {
     width: "100%",
-    height: "48px",
+    height: "36px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.dark.gold,
-    padding: "10px 8px 10px 8px",
+    padding: "6px 8px 6px 8px",
     fontWeight: "light",
     fontSize: "16px",
     marginBottom: "16px",
@@ -145,7 +145,7 @@ const LinkButton = styled(Link)(props => {
     },
 
     "@media (max-width: 768px)": {
-      height: "56px",
+      height: "48px",
       "&:active": {
         scale: "0.96",
       },
@@ -170,12 +170,12 @@ const DeleteButton = styled.button({
 const NavigateButton = styled.button(props => {
   return {
     width: "100%",
-    height: "48px",
+    height: "36px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.dark.gold,
-    padding: "10px 8px 10px 8px",
+    padding: "6px 8px 6px 8px",
     fontWeight: "light",
     fontSize: "16px",
 
@@ -186,7 +186,7 @@ const NavigateButton = styled.button(props => {
     },
 
     "@media (max-width: 768px)": {
-      height: "56px",
+      height: "48px",
       "&:active": {
         scale: "0.96",
       },
@@ -210,7 +210,7 @@ const ShareButton = styled.button({
   },
 
   "@media (max-width: 768px)": {
-    height: "56px",
+    height: "48px",
     "&:active": {
       scale: "0.96",
     },

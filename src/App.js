@@ -12,6 +12,7 @@ import useLogin from "./hooks/useLogin";
 
 import styled from "styled-components";
 import Letter from "./Views/Letter";
+import WavesView from "./Views/Waves";
 
 const LandingWrapper = styled.div({
   position: "relative",
@@ -45,6 +46,7 @@ function App() {
           <Route path='/mypage' element={<MyPage />} />
           <Route path='/letter/*' element={<Letter />} />
           <Route path='/share' element={<Share />} />
+          <Route path='/waves' element={<WavesView />} />
           <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>

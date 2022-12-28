@@ -48,6 +48,10 @@ export default function AnniversaryForm() {
   useEffect(() => {
     const uid = location.pathname.split("/")[2];
     setReceiverUid(uid || "");
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setMultiSelectOptions(receiverDefaultAskOptions);
   });
 
   const navigate = useNavigate();
