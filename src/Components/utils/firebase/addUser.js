@@ -12,6 +12,11 @@ const addUser = async (user, nickName) => {
       feels: user.feels,
     });
 
+    const adminExampleLetter = adminLetter.example;
+    adminExampleLetter.uid = user.uid;
+
+    addResponse(adminExampleLetter);
+
     return { isSuccess: true, newUserDocRef: res };
   } catch (err) {
     console.error(err);
