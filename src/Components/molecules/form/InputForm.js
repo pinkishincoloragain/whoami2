@@ -16,20 +16,29 @@ const InputFormWrapper = styled.div({
   marginTop: "2vh",
 });
 
-const Input = styled.input({
-  width: "100%",
-  backgroundColor: "transparent",
-  height: "36px",
-  border: "none",
-  outline: "none",
-  color: "white",
-  caretColor: "white",
-  // margin: "0 0.5rem 0 0",
-  borderBottom: `2px solid transparent`,
-  "&:focus": {
-    borderBottom: `2px solid ${colors.dark.gold}`,
+const Input = styled.input(props => {
+  return {
+    width: "100%",
     backgroundColor: "transparent",
-  },
+    height: "36px",
+    border: "none",
+    outline: "none",
+    color: "white",
+    caretColor: "white",
+    // margin: "0 0.5rem 0 0",
+    // borderBottom: `2px solid ${colors.dark.lightGray}`,
+    "&:focus": {
+      borderBottom: props.noFocus ? "none" : `2px solid ${colors.dark.gold}`,
+      backgroundColor: "transparent",
+    },
+  };
+});
+
+const InputIconWrapper = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  gap: "0.5rem",
 });
 
 const FormHeaderWrapper = styled.div({
@@ -37,17 +46,26 @@ const FormHeaderWrapper = styled.div({
   flexDirection: "row",
   alignItems: "center",
   gap: "0.5rem",
+  color: colors.dark.lightGray,
 });
 
-export default function InputForm({ title, placeholder, name, onChange, phrase, disabled }) {
+export default function InputForm({
+  noFocus,
+  title,
+  placeholder,
+  name,
+  onChange,
+  phrase,
+  disabled,
+}) {
   return (
     <InputFormWrapper>
       <FormHeaderWrapper>
         <H3>{title}</H3>
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
-
       <Input
+        noFocus={noFocus}
         defaultValue={placeholder === "익명의 흑토끼🐰" ? placeholder : ""}
         type={name}
         disabled={disabled}

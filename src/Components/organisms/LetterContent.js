@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { userLettersState } from "../utils/recoil/letterRecoil";
-import { Suspense } from "react";
+import { isLoggedInState } from "../utils/recoil/authRecoil";
+import { Suspense, useEffect } from "react";
 import SkeletonLoader from "./SkeletonLoader";
 import colors from "../colors.json";
 import BeautifulBar from "../atoms/BeautifulBar";
@@ -122,7 +123,14 @@ export default function LetterContent() {
   const letterIdx = location.pathname.split("/")[2];
   const letters = useRecoilValue(userLettersState);
   const currentLetter = letters[letterIdx];
+  const isLoggedIn = useRecoilValue(isLoggedInState);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate(`/login`);
+    }
+  }, [isLoggedIn]);
 
   const handleNextButton = () => {
     if (letterIdx < letters.length - 1) {
@@ -161,7 +169,7 @@ export default function LetterContent() {
           </LetterWrapper>
           <PSWrapper>
             <b>{currentLetter?.from}</b> 님이 {currentLetter?.feels.length}개의 감정을 남겼어요.
-            {currentLetter.feels.map(feel => (
+            {currentLetter?.feels.map(feel => (
               <FeelWrapper key={feel}>{feel}</FeelWrapper>
             ))}
           </PSWrapper>

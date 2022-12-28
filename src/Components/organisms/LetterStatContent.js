@@ -27,6 +27,7 @@ export default function LetterStatContent() {
         options={anniversary.mypage.options}
         currentOptionIdx={currentViewIdx}
         setCurrentOptionIdx={setCurrentViewIdx}
+        lettersLength={lettersState.length}
       />
       <Suspense fallback={<SkeletonLoader />}>
         {currentViewIdx === "0" && <StatsContent feels={statistics} />}

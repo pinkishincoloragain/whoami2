@@ -39,9 +39,9 @@ export default function ChangeContent() {
         <MultiSelectForm
           options={feels}
           setOptions={setFeels}
-          title={"표시되는 응답 폼"}
-          phrase={"다른 사람들이 체크해 응답을 남길 수 있어요."}
-          addFormPlaceholder={"추가하고 싶은 응답을 입력해주세요."}
+          // title={"표시되는 응답 폼"}
+          // phrase={"다른 사람들이 체크해 응답을 남길 수 있어요."}
+          addFormPlaceholder={"응답을 추가해주세요!"}
           withDelete={true}
           onChange={e => {}}
         />

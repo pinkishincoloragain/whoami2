@@ -39,10 +39,10 @@
     "cancel": "취소"
   },
   "login": {
-    "title": "Login",
+    "title": "Hello,",
     "doLogin": "계정이 없으신가요?",
-    "createAccount": "멋지게 회원가입",
-    "description": "멋지게 로그인",
+    "createAccount": "Sign up 2023",
+    "description": "Log in 2023",
     "googleAuth": "Google Auth",
     "alreadyHave": "이미 계정이 있으신가요?",
     "login": "로그인",

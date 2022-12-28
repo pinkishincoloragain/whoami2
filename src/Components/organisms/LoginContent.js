@@ -33,11 +33,6 @@ const SignUpWrapper = styled.div({
   // margin: "10vh 0 10vh 0",
 });
 
-const RightBar = styled(BeautifulBar)({
-  marginLeft: "30%",
-  width: "100%",
-});
-
 const ButtonWrapper = styled.div({
   width: "100%",
   display: "flex",
@@ -47,27 +42,17 @@ const ButtonWrapper = styled.div({
 });
 
 export default function LoginContent() {
-  const setUserInfo = useSetRecoilState(userInfoState);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [newAccount, setNewAccount] = useState(true); // 새로운 유저인지 확인(초기값: true)
-  const navigate = useNavigate();
 
   const toggleAccount = () => setNewAccount(prev => !prev);
 
-  const handleAuthClick = async () => {
-    const { isSuccess, user } = await signInWithGoogle();
-    if (isSuccess) {
-      setUserInfo(user);
-      setIsLoggedIn(true);
-      navigate("/mypage");
-    }
-  };
-
   return (
     <>
-      <H2>{anniversary.login.title}</H2>
-      <H2>{newAccount ? anniversary.login.createAccount : anniversary.login.description}</H2>
-      <RightBar reverse={true} />
+      <H2>
+        {anniversary.login.title}
+        <br />
+        {newAccount ? anniversary.login.createAccount : anniversary.login.description}
+      </H2>
       <SignUpWrapper>
         <SignUp newAccount={newAccount} toggleAccount={toggleAccount} />
       </SignUpWrapper>
