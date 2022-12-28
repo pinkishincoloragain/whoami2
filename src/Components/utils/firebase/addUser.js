@@ -1,5 +1,7 @@
 import { collection, addDoc } from "firebase/firestore";
+import addResponse from "./addResponse";
 import { db } from "./firebaseControl";
+import adminLetter from "../../../assets/data/adminLetter.json";
 
 const addUser = async (user, nickName) => {
   try {
