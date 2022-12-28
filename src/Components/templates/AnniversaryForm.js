@@ -4,6 +4,7 @@ import { H2, Emphasize, SmallWarningText } from "../atoms/Text";
 import { SubmitButton } from "../atoms/MyButton";
 import anniversary from "../../assets/data/anniversary.json";
 
+import colors from "../colors.json";
 import MultiSelectForm from "../molecules/form/MultiSelectForm";
 import InputForm from "../molecules/form/InputForm";
 import InputFormWithAuth from "../molecules/form/InputFormWithAuth";
@@ -27,6 +28,17 @@ const AnniversaryFormWrapper = styled.form({
   maxWidth: "30rem",
   width: "100%",
   zIndex: "100",
+});
+
+const InputWrapper = styled.div({
+  width: "100%",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  gap: "1rem",
+  paddingBottom: "0.5rem",
+  borderBottom: `2px solid ${colors.dark.gold}`,
 });
 
 const SubmitButtonWrapper = styled.div({
@@ -108,28 +120,31 @@ export default function AnniversaryForm() {
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <Suspense fallback={<SkeletonLoader />}>
         <H2>
-          <Emphasize>{anniversary.title1}</Emphasize>
+          <Emphasize>{response.name + "님,"}</Emphasize>
           <br />
+          {receiverName}
           {anniversary.title2}
           <br />
           {anniversary.title3}
         </H2>
         <BeautifulBar />
-        <InputForm
-          title={anniversary.questions[1]}
-          phrase={anniversary.phrase[1]}
-          name='name'
-          onChange={handleInputFormChange}
-          placeholder={anniversary.placeholder.name}
-        />
-        <InputFormWithAuth
+        <InputWrapper>
+          <InputForm
+            title={anniversary.questions[1]}
+            phrase={anniversary.phrase[1]}
+            name='name'
+            onChange={handleInputFormChange}
+            placeholder={anniversary.placeholder.name}
+          />
+        </InputWrapper>
+        {/* <InputFormWithAuth
           title={anniversary.questions[2]}
           phrase={anniversary.phrase[2]}
           name='receiver'
           onChange={handleInputFormChange}
           placeholder={receiverName || anniversary.placeholder.receiver}
           optionPhrase={anniversary.requestAnonymous}
-        />
+        /> */}
 
         {multiSelectOptions?.length > 0 && (
           <Suspense fallback={SkeletonLoader}>

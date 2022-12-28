@@ -4,26 +4,10 @@ import styled from "styled-components";
 import colors from "../colors.json";
 import SignUp from "../molecules/form/SignUp";
 
-import { LargeButton } from "../atoms/MyButton";
-import BeautifulBar from "../atoms/BeautifulBar";
 import { H2 } from "../atoms/Text";
 
-import { signInWithGoogle } from "../utils/firebase/signInWithGoogle";
-import { useRecoilState } from "recoil";
-import { useSetRecoilState } from "recoil";
-import { userInfoState, isLoggedInState } from "../utils/recoil/authRecoil";
-import { useNavigate } from "react-router-dom";
-
-const LoginWrapper = styled.div({
-  backgroundColor: colors.dark.background,
-  width: "100%",
-  minWidth: "20rem",
-  maxWidth: "30rem",
-  padding: "10vh 1vw 10vh 1vw",
-  height: "100vh",
-  display: "flex",
-  flexDirection: "column",
-  color: colors.white,
+const GoldText = styled.span({
+  color: colors.dark.gold,
 });
 
 const SignUpWrapper = styled.div({
@@ -42,16 +26,18 @@ const ButtonWrapper = styled.div({
 });
 
 export default function LoginContent() {
-  const [newAccount, setNewAccount] = useState(true); // 새로운 유저인지 확인(초기값: true)
+  const [newAccount, setNewAccount] = useState(false); // 새로운 유저인지 확인(초기값: true)
 
   const toggleAccount = () => setNewAccount(prev => !prev);
 
   return (
     <>
       <H2>
-        {anniversary.login.title}
+        <GoldText>{anniversary.login.title}</GoldText>
         <br />
         {newAccount ? anniversary.login.createAccount : anniversary.login.description}
+        <br />
+        {anniversary.login.createAccountDesc}
       </H2>
       <SignUpWrapper>
         <SignUp newAccount={newAccount} toggleAccount={toggleAccount} />

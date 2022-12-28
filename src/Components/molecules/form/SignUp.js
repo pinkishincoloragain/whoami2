@@ -7,7 +7,6 @@ import auth2 from "../../../assets/icons/auth2.svg";
 import auth3 from "../../../assets/icons/auth3.svg";
 import auth4 from "../../../assets/icons/auth4.svg";
 
-import logo from "../../../assets/images/Logo.png";
 import InputForm from "./InputForm";
 import { signInWithEmail } from "../../utils/firebase/signInWithEmail";
 import { LargeButton } from "../../atoms/MyButton";
