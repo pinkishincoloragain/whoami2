@@ -37,15 +37,7 @@ const FormHeaderWrapper = styled.div({
   color: colors.dark.lightGray,
 });
 
-export default function InputForm({
-  noFocus,
-  title,
-  placeholder,
-  name,
-  onChange,
-  phrase,
-  disabled,
-}) {
+export default function InputForm({ title, placeholder, name, onChange, phrase, disabled }) {
   return (
     <InputFormWrapper>
       <FormHeaderWrapper>
@@ -53,7 +45,6 @@ export default function InputForm({
         <SmallText>{phrase}</SmallText>
       </FormHeaderWrapper>
       <Input
-        noFocus={noFocus}
         defaultValue={placeholder === "익명의 흑토끼🐰" ? placeholder : ""}
         type={name}
         disabled={disabled}

@@ -11,6 +11,8 @@ import InputForm from "./InputForm";
 import { signInWithEmail } from "../../utils/firebase/signInWithEmail";
 import { LargeButton } from "../../atoms/MyButton";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { userInfoState } from "../../utils/recoil/authRecoil";
 
 const LogoImg = styled.img({
   width: "50%",
@@ -61,10 +63,11 @@ export default function SignUp({ newAccount, toggleAccount }) {
   const [passwordCheck, setPasswordCheck] = useState("");
   const [nickName, setNickName] = useState("익명의 흑토끼🐰");
   const navigate = useNavigate();
+  const setUserState = useSetRecoilState(userInfoState);
 
   const onChange = event => {
     const {
-      target: { name, value, nickName },
+      target: { name, value },
     } = event;
     if (name === "email") {
       setEmail(value);
@@ -79,6 +82,14 @@ export default function SignUp({ newAccount, toggleAccount }) {
 
   const onSubmit = async event => {
     event.preventDefault();
+
+    if (!email || !password) {
+      alert("이메일과 비밀번호를 입력해주세요.");
+      return;
+    }
+    if (!newAccount && passwordCheck) {
+      alert("비밀번호 확인은 회원가입 시에만 필요합니다.");
+    }
     if (newAccount && password !== passwordCheck) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
@@ -86,6 +97,7 @@ export default function SignUp({ newAccount, toggleAccount }) {
     const { isSuccess, user } = await signInWithEmail(newAccount, email, password, nickName);
     if (isSuccess) {
       navigate("/mypage");
+      setUserState(user);
     }
   };
 
@@ -96,7 +108,6 @@ export default function SignUp({ newAccount, toggleAccount }) {
           <InputWrapper>
             <IconWrapper src={auth1} alt='auth1' />
             <InputForm
-              noFocus={true}
               onChange={onChange}
               value={nickName}
               required
@@ -108,7 +119,6 @@ export default function SignUp({ newAccount, toggleAccount }) {
         <InputWrapper>
           <IconWrapper src={auth2} alt='auth2' />
           <InputForm
-            noFocus={true}
             onChange={onChange}
             value={email}
             required
@@ -119,7 +129,6 @@ export default function SignUp({ newAccount, toggleAccount }) {
         <InputWrapper>
           <IconWrapper src={auth3} alt='auth3' />
           <InputForm
-            noFocus={true}
             onChange={onChange}
             value={password}
             required
@@ -131,7 +140,6 @@ export default function SignUp({ newAccount, toggleAccount }) {
           <InputWrapper>
             <IconWrapper src={auth4} alt='auth4' />
             <InputForm
-              noFocus={true}
               onChange={onChange}
               value={passwordCheck}
               required
