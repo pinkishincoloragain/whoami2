@@ -58,7 +58,7 @@ export default function AnniversaryForm() {
 
   useEffect(() => {
     const uid = location.pathname.split("/")[2];
-    setReceiverUid(uid || "");
+    setReceiverUid(uid || receiverUidState);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -107,11 +107,11 @@ export default function AnniversaryForm() {
   const handleSubmit = e => {
     e.preventDefault();
     const res = {
+      uid: location.pathname.split("/")[2],
       ...response,
       selections: response.selections.filter(v => v !== null),
     };
     setTryToSubmit(true);
-    console.log(res);
     addResponse(res);
     navigate("/Thankyou");
   };

@@ -1,6 +1,4 @@
-import React from "react";
-
-import { collection, query, where, getDocs, documentId } from "firebase/firestore";
+import { collection, query, where, getDocs, documentId, orderBy } from "firebase/firestore";
 import { db } from "./firebaseControl";
 
 const fetchUserLetters = async uid => {
@@ -12,6 +10,8 @@ const fetchUserLetters = async uid => {
     qs.docs.forEach(doc => {
       res.push(doc.data()?.content);
     });
+
+    console.log(res);
 
     return { isSuccess: true, letters: res };
   } catch (err) {

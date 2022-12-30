@@ -28,7 +28,6 @@ const ButtonWrapper = styled.div({
 export default function LoginContent() {
   const [newAccount, setNewAccount] = useState(false); // 새로운 유저인지 확인(초기값: true)
 
-  console.log(newAccount);
   const toggleAccount = () => setNewAccount(prev => !prev);
 
   return (

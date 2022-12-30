@@ -1,11 +1,12 @@
 import { db } from "./firebaseControl";
-import { doc, collection, addDoc } from "firebase/firestore";
+import { doc, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import useIP from "../../../hooks/useIP";
 
 const transformResponse = async response => {
   const { ip, city } = await useIP();
   const { name, description, selections, uid } = response;
   const timeStamp = new Date().toTimeString().slice(0, 8) + " " + new Date().toDateString();
+  const timeToNumber = new Date().getTime();
 
   return {
     uid: uid,
@@ -13,9 +14,10 @@ const transformResponse = async response => {
       from: name,
       description: description,
       feels: selections,
-      timeStamp: timeStamp,
       ip: ip,
       city: city,
+      timeStamp: timeStamp,
+      timeToNumber: timeToNumber,
     },
   };
 };
@@ -27,7 +29,10 @@ const addResponse = async response => {
   try {
     const docRef = await addDoc(lettersCollectionRef, {
       ...formedResponse,
+      createdAt: serverTimestamp(),
     });
+
+    console.log(formedResponse);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
