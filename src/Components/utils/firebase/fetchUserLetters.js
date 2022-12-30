@@ -4,7 +4,7 @@ import { db } from "./firebaseControl";
 const fetchUserLetters = async uid => {
   try {
     if (!uid) return { isSuccess: false, letters: [] };
-    const q = query(collection(db, "letters"), where("uid", "==", uid));
+    const q = query(collection(db, `letters/${uid}/letters`));
     const qs = await getDocs(q);
     const res = [];
     qs.docs.forEach(doc => {

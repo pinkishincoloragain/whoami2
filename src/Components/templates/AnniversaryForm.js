@@ -65,6 +65,13 @@ export default function AnniversaryForm() {
     setMultiSelectOptions(receiverDefaultAskOptions);
   }, [receiverDefaultAskOptions]);
 
+  useEffect(() => {
+    if (receiverDefaultAskOptions === undefined) {
+      setMultiSelectOptions(anniversary.options);
+      setReceiverUid
+    }
+  });
+
   const navigate = useNavigate();
 
   const [response, setResponse] = useState({
