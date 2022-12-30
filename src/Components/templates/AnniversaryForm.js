@@ -63,7 +63,7 @@ export default function AnniversaryForm() {
 
   useEffect(() => {
     setMultiSelectOptions(receiverDefaultAskOptions);
-  });
+  }, [receiverDefaultAskOptions]);
 
   const navigate = useNavigate();
 

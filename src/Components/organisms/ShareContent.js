@@ -17,7 +17,7 @@ const ShareContentWrapper = styled.div(props => {
   return {
     backgroundColor: colors.dark.background,
     width: props.width,
-    minWidth: "20rem",
+    minWidth: "16rem",
     maxWidth: "30rem",
     padding: "5vh 1vw 5vh 1vw",
     display: "flex",

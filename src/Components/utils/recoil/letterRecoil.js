@@ -5,6 +5,19 @@ import fetchUserLetters from "../firebase/fetchUserLetters";
 import parseFeels from "../parseFeels";
 const { persistAtom } = recoilPersist();
 
+const adminLetter = {
+  from: "관리자 흑토끼🐰",
+  description: "관리자 흑토끼 올림",
+  city: "Daegu",
+  ip: "211.54.173.229",
+  timeStamp: "20:13:27 Wed Dec 28 2022",
+  feels: [
+    "😊 재미있었던 한 해입니다.",
+    "😌 하고싶은 게 많았던 한 해입니다.",
+    "🥰 연하장 작성하는 건 재밌군요",
+  ],
+};
+
 const lettersState = selector({
   key: "lettersState",
   get: ({ get }) => {
@@ -18,7 +31,8 @@ const userLettersState = selector({
   get: async ({ get }) => {
     const uid = get(userIdState);
     const { letters, isSuccess } = await fetchUserLetters(uid);
-    return letters;
+    console.log(letters);
+    return [adminLetter, ...letters];
   },
 });
 

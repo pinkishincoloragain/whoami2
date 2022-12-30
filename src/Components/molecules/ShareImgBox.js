@@ -7,7 +7,7 @@ import WaveOptions from "./WaterOptions";
 
 const ShareBox = styled.div(props => {
   return {
-    maxWidth: "26rem",
+    // maxWidth: "26rem",
     overflow: "hidden",
     minHeight: "20rem",
     opacity: "1",
@@ -22,9 +22,16 @@ const ShareBox = styled.div(props => {
 });
 
 const ShareImgBoxText = styled.div({
-  position: "absolute",
-  top: "6%",
-  left: "10%",
+  position: "relative",
+  marginTop: "2rem",
+  marginLeft: "15%",
+  width: "100%",
+  height: "1px",
+  whiteSpace: "pre-wrap",
+});
+
+const WaveOptionsWrapper = styled.div({
+  marginTop: "calc(-1px - 2rem)",
 });
 
 export default function ShareImgBox({ option, width }) {
@@ -33,15 +40,11 @@ export default function ShareImgBox({ option, width }) {
   return (
     <ShareBox>
       <ShareImgBoxText contentEditable suppressContentEditableWarning={true}>
-        <H2
-          style={{
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {[...anniversary.share.title.split(" ")].join("\n")}
-        </H2>
+        <H2>{[...anniversary.share.title.split(" ")].join("\n")}</H2>
       </ShareImgBoxText>
-      <WaveOptions option={option} width={width} height={height} />
+      <WaveOptionsWrapper>
+        <WaveOptions option={option} width={width} height={height} />
+      </WaveOptionsWrapper>
     </ShareBox>
   );
 }

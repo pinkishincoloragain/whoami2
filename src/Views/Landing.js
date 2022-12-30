@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { LinkButton } from "../Components/atoms/MyButton";
 import AnniversaryPopupContent from "../Components/molecules/AnniversaryPopupContent";
 // import BeatifulBar from "../Components/atoms/BeautifulBar";
 
@@ -57,7 +59,7 @@ function Landing() {
       <Popup>
         <AnniversaryPopupContent />
       </Popup>
-      여긴 아무 것도 없어요!
+      <LinkButton to='/waves'>Waves</LinkButton>
     </div>
   );
 }
