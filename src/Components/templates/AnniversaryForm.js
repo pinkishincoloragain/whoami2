@@ -65,6 +65,13 @@ export default function AnniversaryForm() {
     setMultiSelectOptions(receiverDefaultAskOptions);
   }, [receiverDefaultAskOptions]);
 
+  useEffect(() => {
+    if (receiverDefaultAskOptions === undefined) {
+      setMultiSelectOptions(anniversary.options);
+      setReceiverUid
+    }
+  });
+
   const navigate = useNavigate();
 
   const [response, setResponse] = useState({
@@ -104,15 +111,16 @@ export default function AnniversaryForm() {
 
   const canSubmit = !Object.values(isEmpty).includes(true);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
+    console.log(receiverUid);
     const res = {
-      uid: location.pathname.split("/")[2],
+      uid: receiverUid,
       ...response,
       selections: response.selections.filter(v => v !== null),
     };
     setTryToSubmit(true);
-    addResponse(res);
+    await addResponse(res);
     navigate("/Thankyou");
   };
 
