@@ -13,7 +13,7 @@ const receiveUserState = selector({
   key: "receiveUserSelector",
   get: async ({ get }) => {
     const receiverUid = get(receiverUidState);
-    const { user, isSuccess } = await checkUserWithUid(receiverUid);
+    const { user, isSuccess } = await checkUserWithUid(receiverUid || "");
     return user;
   },
 });
