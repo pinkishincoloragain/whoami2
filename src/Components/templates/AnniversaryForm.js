@@ -30,6 +30,13 @@ const AnniversaryFormWrapper = styled.form({
   zIndex: "100",
 });
 
+const LetterTitleWrapper = styled.h1({
+  fontSize: "2rem",
+  fontWeight: "lighter",
+  marginBottom: "0.5rem",
+  lineHeight: "1.2",
+});
+
 const InputWrapper = styled.div({
   width: "100%",
   display: "flex",
@@ -139,14 +146,14 @@ export default function AnniversaryForm() {
   return (
     <AnniversaryFormWrapper onSubmit={e => handleSubmit(e)}>
       <Suspense fallback={<SkeletonLoader />}>
-        <H2>
+        <LetterTitleWrapper>
           <Emphasize>{response.name + "님,"}</Emphasize>
           <br />
           {receiverName}
           {anniversary.title2}
           <br />
           {anniversary.title3}
-        </H2>
+        </LetterTitleWrapper>
         <BeautifulBar />
         <InputWrapper>
           <InputForm
