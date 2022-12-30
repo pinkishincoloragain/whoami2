@@ -26,6 +26,8 @@ const addResponse = async response => {
   const formedResponse = await transformResponse(response);
   const lettersCollectionRef = collection(db, "letters");
 
+  console.log(formedResponse);
+
   try {
     const docRef = await addDoc(lettersCollectionRef, {
       ...formedResponse,
