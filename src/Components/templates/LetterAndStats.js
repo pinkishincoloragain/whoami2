@@ -12,7 +12,7 @@ import SkeletonLoader from "../organisms/SkeletonLoader";
 
 const LettersContentWrapper = styled.div({
   width: "100%",
-  flexDirection: "columnœ",
+  flexDirection: "column",
   minWidth: "18rem",
   maxWidth: "30rem",
   height: "100%",

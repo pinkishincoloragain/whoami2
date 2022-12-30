@@ -71,6 +71,8 @@ export default function MultiSelectForm({
   const handleAddButtonClick = e => {
     e.preventDefault();
 
+    console.log(options);
+
     if (inputValue === "") return;
     setOptions([...options, inputValue]);
     setSelected([...selected, true]);

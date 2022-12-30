@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import anniversary from "../../assets/data/anniversary.json";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import useSharableLink from "../../hooks/useSharableLink";
-import { H4 } from "../atoms/Text";
+import { H2, H3, H4 } from "../atoms/Text";
 
 const ShareFormWrapper = styled.div({
   width: "100%",
@@ -37,15 +37,47 @@ const ShareButton = styled.button({
 });
 
 const AlertWrapper = styled.div({
-  width: "300px",
+  position: "fixed",
+  width: "50vw",
+  height: "50vw",
+  top: "30vh",
+  left: "25vw",
   display: "flex",
   alignItems: "center",
+  backdropFilter: "blur(20px)",
+  borderRadius: "50%",
+  // backgroundColor: "rgba(255, 255, 255, 0.2)",
+  // opacity: "0.8",
+  borderRadius: "2rem",
+  color: "white",
+  padding: "1rem",
+  alignItems: "center",
+  justifyContent: "center",
+  // fontWeight: "lighter",
+
+  animation: "fade-in 0.5s ease-in-out",
+  transition: "opacity 0.5s ease-in-out",
+
+  "@media (min-width: 768px)": {
+    width: "20vw",
+    height: "20vw",
+    top: "40vh",
+    left: "40vw",
+  },
 });
 
 export default function ShareForm() {
   const [link, copyToClipboard] = useSharableLink();
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAlertOpen) {
+      setTimeout(() => {
+        setIsAlertOpen(false);
+      }, 2000);
+    }
+  });
 
   const handleShareButtonClick = () => {
     copyToClipboard();
@@ -54,9 +86,8 @@ export default function ShareForm() {
 
   return (
     <ShareFormWrapper>
-      <AlertWrapper>
-        <H4>{isAlertOpen && anniversary.share.sharePhrase}</H4>
-      </AlertWrapper>
+      {isAlertOpen && <AlertWrapper>{anniversary.share.sharePhrase}</AlertWrapper>}
+
       <ShareButton onClick={() => navigate("/")}>{anniversary.home}</ShareButton>
       <ShareButton onClick={handleShareButtonClick}>{anniversary.share.share}</ShareButton>
     </ShareFormWrapper>

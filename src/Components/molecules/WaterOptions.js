@@ -1,12 +1,18 @@
 import { lazy, Suspense } from "react";
 import { props1, props2, props3 } from "./WaveProps";
+import styled from "styled-components";
 // import Waves from "./objects/Waves";
 const Waves = lazy(() => import("./objects/Waves"));
+
+const WaveSuspense = styled.div({
+  width: "80vw",
+  height: "80vh",
+});
 
 export default function WaveOptions({ option, width, height, borderRadius }) {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<WaveSuspense />}>
         <Waves
           {...props1}
           width={width}
@@ -16,7 +22,7 @@ export default function WaveOptions({ option, width, height, borderRadius }) {
         />
       </Suspense>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<WaveSuspense />}>
         <Waves
           {...props2}
           width={width}
@@ -26,7 +32,7 @@ export default function WaveOptions({ option, width, height, borderRadius }) {
         />
       </Suspense>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<WaveSuspense />}>
         <Waves
           {...props3}
           width={width}
