@@ -19,6 +19,7 @@ import {
   receiverNameState,
   receiverDefaultAskOptionsState,
 } from "../utils/recoil/receiverRecoil";
+import fetchRandomUser from "../utils/firebase/fetchRandomUser";
 
 const AnniversaryFormWrapper = styled.form({
   posiiton: "relative",
@@ -55,11 +56,22 @@ export default function AnniversaryForm() {
   const receiverName = useRecoilValue(receiverNameState);
   const receiverDefaultAskOptions = useRecoilValue(receiverDefaultAskOptionsState);
   const [multiSelectOptions, setMultiSelectOptions] = useState(receiverDefaultAskOptions);
+  const [isRandom, setIsRandom] = useState(false);
 
   useEffect(() => {
     const uid = location.pathname.split("/")[2];
-    setReceiverUid(uid || receiverUidState);
+    setReceiverUid(uid || receiverUid);
+
+    if (uid === undefined) {
+      fetchRandomUser().then(user => {
+        if (!user) setReceiverUid("random");
+        else setReceiverUid(user.uid);
+        setIsRandom(true);
+      });
+    }
   }, [location.pathname]);
+
+  useEffect(() => {});
 
   useEffect(() => {
     setMultiSelectOptions(receiverDefaultAskOptions);

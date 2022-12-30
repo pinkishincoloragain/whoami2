@@ -94,6 +94,11 @@ export default function SignUp({ newAccount, toggleAccount }) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
+    if (nickName.length > 10) {
+      alert("닉네임은 10자 이내로 입력해주세요.");
+      return;
+    }
+
     const { isSuccess, user } = await signInWithEmail(newAccount, email, password, nickName);
     if (isSuccess) {
       navigate("/mypage");
