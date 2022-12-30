@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { props1, props2, props3 } from "./WaveProps";
+// import Waves from "./objects/Waves";
 const Waves = lazy(() => import("./objects/Waves"));
 
 export default function WaveOptions({ option, width, height, borderRadius }) {
