@@ -31,8 +31,8 @@ const userLettersState = selector({
   get: async ({ get }) => {
     const uid = get(userIdState);
     const { letters, isSuccess } = await fetchUserLetters(uid);
-    console.log(letters);
-    return [adminLetter, ...letters];
+
+    return [adminLetter, ...letters.sort((a, b) => +a.timeToNumber - +b.timeToNumber)];
   },
 });
 
