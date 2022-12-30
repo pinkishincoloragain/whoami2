@@ -68,7 +68,7 @@ export default function AnniversaryForm() {
   useEffect(() => {
     if (receiverDefaultAskOptions === undefined) {
       setMultiSelectOptions(anniversary.options);
-      setReceiverUid
+      setReceiverUid;
     }
   });
 
@@ -115,8 +115,8 @@ export default function AnniversaryForm() {
     e.preventDefault();
     console.log(receiverUid);
     const res = {
-      uid: receiverUid,
       ...response,
+      uid: receiverUid,
       selections: response.selections.filter(v => v !== null),
     };
     setTryToSubmit(true);
