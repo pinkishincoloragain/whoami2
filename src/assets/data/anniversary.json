@@ -79,7 +79,8 @@
     "desc4": "3. 링크와 함께 SNS에 공유해주세요!",
     "title": "2023 New Year's Letter",
     "share": "공유하기",
-    "sharePhrase": "링크를 복사했어요."
+    "sharePhrase": "링크를 복사했어요.",
+    "link": "링크: "
   },
   "createByOwn": "직접 입력하기 ..",
   "createNewOption": "추가하기",
