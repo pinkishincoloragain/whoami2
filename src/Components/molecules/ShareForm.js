@@ -14,6 +14,25 @@ const ShareFormWrapper = styled.div({
   justifyContent: "flex-end",
 });
 
+const SharableLinkWrapper = styled.div({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: "1rem",
+});
+
+const ButtonsWrapper = styled.div({
+  width: "100%",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "1rem",
+  marginBottom: "1rem",
+});
+
 const ShareButton = styled.button({
   fontWeight: "light",
   fontSize: "18px",
@@ -66,6 +85,14 @@ const AlertWrapper = styled.div({
   },
 });
 
+const LinkWrapper = styled.div({
+  width: "100%",
+  maxWidth: "500px",
+  display: "flex",
+  flexDirection: "row",
+  lineBreak: "anywhere",
+});
+
 export default function ShareForm() {
   const [link, copyToClipboard] = useSharableLink();
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -75,7 +102,7 @@ export default function ShareForm() {
     if (isAlertOpen) {
       setTimeout(() => {
         setIsAlertOpen(false);
-      }, 2000);
+      }, 6000);
     }
   });
 
@@ -87,9 +114,15 @@ export default function ShareForm() {
   return (
     <ShareFormWrapper>
       {isAlertOpen && <AlertWrapper>{anniversary.share.sharePhrase}</AlertWrapper>}
-
-      <ShareButton onClick={() => navigate("/")}>{anniversary.home}</ShareButton>
-      <ShareButton onClick={handleShareButtonClick}>{anniversary.share.share}</ShareButton>
+      <SharableLinkWrapper>
+        <ButtonsWrapper>
+          <ShareButton onClick={() => navigate("/")}>{anniversary.home}</ShareButton>
+          <ShareButton onClick={handleShareButtonClick}>{anniversary.share.share}</ShareButton>
+        </ButtonsWrapper>
+        <LinkWrapper>
+          <LinkWrapper>{link}</LinkWrapper>
+        </LinkWrapper>
+      </SharableLinkWrapper>
     </ShareFormWrapper>
   );
 }
