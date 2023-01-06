@@ -41,7 +41,7 @@ const DescriptionWrapper = styled.div({
   width: "100%",
   fontSize: "1rem",
   margin: "2vh 0 2vh 0",
-  textDecoration: "underline",
+  // textDecoration: "underline",
   minHeight: "20vh",
 });
 
