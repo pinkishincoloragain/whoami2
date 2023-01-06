@@ -11,7 +11,7 @@ const fetchUserLetters = async uid => {
       res.push(doc.data()?.content);
     });
 
-    console.log(res);
+    // console.log(res);
 
     return { isSuccess: true, letters: res };
   } catch (err) {

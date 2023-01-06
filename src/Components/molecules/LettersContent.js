@@ -7,17 +7,8 @@ export default function LettersContent({ letters }) {
   const [isLetterSeen, setIsLetterSeen] = useState(true);
   const navigate = useNavigate();
   const handleClick = (e, idx) => {
-    const now = new Date();
-    const anniversaryDate = new Date(anniversary.finalDate);
-    // navigate(`/letter/${idx}`);
-    if (idx === 0) {
-      navigate(`/letterFromAdmin`);
-    }
-    else if (now < anniversaryDate) {
-      alert(`${anniversary.finalDate} 에 편지가 공개됩니다!`);
-    } else {
-      navigate(`/letter/${idx}`);
-    }
+    console.log(idx);
+    navigate(`/letter/${idx}`);
   };
 
   return (

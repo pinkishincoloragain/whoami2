@@ -128,15 +128,6 @@ export default function LetterContent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const now = new Date();
-    const anniversaryDate = new Date(anniversary.finalDate);
-
-    if (now.getTime() < anniversaryDate.getTime()) {
-      navigate(`/mypage`);
-    }
-  });
-
-  useEffect(() => {
     if (!isLoggedIn) {
       navigate(`/login`);
     }
