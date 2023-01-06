@@ -95,12 +95,14 @@ export default function AnniversaryPopupContent() {
       <TextWrapper>
         <H3>{anniversary.subtitle}</H3>
         <H4>{anniversary.description1}</H4>
+        <br />
         <H4>{anniversary.description2}</H4>
         <H4>
           {anniversary.description3}
           <br />
-          {anniversary.description4}
+          <br />
         </H4>
+        <H3>{anniversary.description4}</H3>
       </TextWrapper>
       <LinkWrapper>
         <LinkButton to='/anniversary'>{anniversary.popupContent.writeButton}</LinkButton>
